@@ -1,6 +1,5 @@
 
-
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, Chat } from "@google/genai";
 import type { QuestConfig, Player, BoardLocation, ManagedScenario, AiProviderSettings } from '../types';
 import { auditLogService } from './auditLogService';
 import { statsService } from './statsService';
@@ -586,4 +585,67 @@ export const getAIChoice = async (questConfig: QuestConfig, scenario: ManagedSce
         auditLogService.addLog({ ...logDetails, response: '', error: e.message });
         throw e;
     }
+};
+
+
+let chatInstance: Chat | null = null;
+let currentSystemInstruction: string | undefined = undefined;
+
+export const chatManager = {
+    initialize: (systemInstruction: string) => {
+        const settings = settingsService.getAiSettings();
+        if (settings.providerId !== 'gemini') {
+            chatInstance = null;
+            currentSystemInstruction = undefined;
+            return;
+        }
+
+        if (chatInstance && systemInstruction === currentSystemInstruction) {
+            return;
+        }
+
+        try {
+            const apiKey = process.env.API_KEY;
+            if (!apiKey) throw new Error("API key not configured.");
+            
+            const ai = new GoogleGenAI({ apiKey });
+            chatInstance = ai.chats.create({
+                model: settings.model || 'gemini-2.5-flash',
+                config: { systemInstruction },
+            });
+            currentSystemInstruction = systemInstruction;
+        } catch (e) {
+            console.error("Failed to initialize chat:", e);
+            chatInstance = null;
+        }
+    },
+
+    sendMessageStream: async function* (message: string): AsyncGenerator<string, void, unknown> {
+        if (!chatInstance) {
+            yield "Chat is only available with the Google Gemini provider. Please change your provider in the Settings menu.";
+            return;
+        }
+        
+        const logDetails = {
+            mode: 'Chat' as const,
+            prompt: message,
+            systemInstruction: currentSystemInstruction,
+            requestDetails: { action: 'chat_message' },
+        };
+        
+        try {
+            const responseStream = await chatInstance.sendMessageStream({ message });
+            let fullResponse = "";
+            for await (const chunk of responseStream) {
+                const chunkText = chunk.text;
+                fullResponse += chunkText;
+                yield chunkText;
+            }
+            statsService.updateTokens(undefined); // Chat streaming doesn't provide token usage yet
+            auditLogService.addLog({ ...logDetails, response: fullResponse, error: null });
+        } catch (e: any) {
+            auditLogService.addLog({ ...logDetails, response: '', error: e.message });
+            yield `An error occurred: ${e.message}`;
+        }
+    },
 };

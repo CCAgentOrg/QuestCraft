@@ -9,11 +9,12 @@ import { getLocalizedString } from '../utils/localization';
 
 interface QuestMakerPageProps {
     onLoadQuest: (questConfig: QuestConfig) => void;
+    onDraftUpdate: (draft: QuestConfig | null) => void;
 }
 
 type WizardStep = 'CONFIG' | 'REFINE' | 'GENERATING' | 'FINISH';
 
-const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest }) => {
+const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpdate }) => {
     const { t, language } = useTranslation();
     const [step, setStep] = useState<WizardStep>('CONFIG');
     const [idea, setIdea] = useState('');
@@ -28,6 +29,10 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest }) => {
     const [error, setError] = useState<string | null>(null);
     const [draftQuest, setDraftQuest] = useState<QuestConfig | null>(null);
     const [isCopied, setIsCopied] = useState(false);
+    
+    useEffect(() => {
+        onDraftUpdate(draftQuest);
+    }, [draftQuest, onDraftUpdate]);
 
     const handleEnhanceIdea = useCallback(async () => {
         if (!idea) {

@@ -1,5 +1,4 @@
 
-
 export enum BoardLocationType {
     START = "START",
     PROPERTY = "PROPERTY",
@@ -119,7 +118,7 @@ export type GamePhase =
 export interface AIAuditLog {
     id: string;
     timestamp: string;
-    mode: 'Quest Maker' | 'Dynamic Scenario (Grounded)' | 'Dynamic Scenario (Fictional)' | 'Pregenerated Scenarios' | 'Enhance Idea' | 'AI Player Choice';
+    mode: 'Quest Maker' | 'Dynamic Scenario (Grounded)' | 'Dynamic Scenario (Fictional)' | 'Pregenerated Scenarios' | 'Enhance Idea' | 'AI Player Choice' | 'Chat';
     prompt: string;
     systemInstruction?: string;
     response: string;
@@ -165,4 +164,10 @@ export interface GameState {
 export interface LoadedQuest {
     filePath: string;
     config: QuestConfig;
+}
+
+export interface ChatMessage {
+    id: string;
+    role: 'user' | 'model' | 'system';
+    content: string;
 }

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import type { AppStats } from '../types';
-import { TokenIcon, MoneyIcon, TimeIcon, AuditLogIcon } from '../constants';
+import { TokenIcon, MoneyIcon, TimeIcon, AuditLogIcon, ChatIcon } from '../constants';
 import { useTranslation } from '../services/i18n';
 
 interface StatusBarProps {
@@ -10,6 +10,7 @@ interface StatusBarProps {
     isTestingAi: boolean;
     onTestAiConnection: () => void;
     onOpenAuditLog: () => void;
+    onOpenChat: () => void;
 }
 
 const formatTime = (totalSeconds: number): string => {
@@ -30,7 +31,7 @@ const StatItem: React.FC<{ icon: React.ReactNode; label: string; value: string |
     </div>
 );
 
-const StatusBar: React.FC<StatusBarProps> = ({ stats, isAiConnected, isTestingAi, onTestAiConnection, onOpenAuditLog }) => {
+const StatusBar: React.FC<StatusBarProps> = ({ stats, isAiConnected, isTestingAi, onTestAiConnection, onOpenAuditLog, onOpenChat }) => {
     const { t } = useTranslation();
     if (!stats) return null;
 
@@ -52,6 +53,11 @@ const StatusBar: React.FC<StatusBarProps> = ({ stats, isAiConnected, isTestingAi
                     >
                         <div className={`w-3 h-3 rounded-full ${isTestingAi ? 'bg-yellow-500 animate-pulse' : isAiConnected ? 'bg-green-500' : 'bg-red-500'}`}></div>
                         <span className="hidden sm:inline text-xs">{connectivityText}</span>
+                    </button>
+                    <div className="w-px h-6 bg-gray-700"></div>
+                    <button onClick={onOpenChat} title={t('chatTitle')} className="text-gray-400 hover:text-white flex items-center gap-2">
+                        <ChatIcon className="w-5 h-5" />
+                        <span className="hidden sm:inline text-xs">{t('chatTitle')}</span>
                     </button>
                     <div className="w-px h-6 bg-gray-700"></div>
                     <button onClick={onOpenAuditLog} title={t('auditLogTitle')} className="text-gray-400 hover:text-white flex items-center gap-2">

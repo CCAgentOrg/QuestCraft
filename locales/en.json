@@ -153,5 +153,13 @@
   "singlePlayer": "Single Player (vs AI)",
   "multiplayer": "Multiplayer",
   "aiOpponent": "AI Opponent",
-  "aiIsThinking": "AI is thinking..."
+  "aiIsThinking": "AI is thinking...",
+  "chatTitle": "AI Chat",
+  "chatPlaceholder": "Ask a question...",
+  "chatUnavailable": "Chat is only available with the Google Gemini provider. Please change it in Settings.",
+  "chatClear": "Clear Chat",
+  "chatClearConfirm": "Are you sure you want to clear the chat history? The AI's memory will also be reset.",
+  "chatWelcomeMaker": "I'm your game design assistant. Ask me to refine your quest, suggest ideas, or explain schema fields!",
+  "chatWelcomeGame": "I'm your game master for this quest. Ask me anything about the rules, the story, or for thematic advice!",
+  "chatWelcomeGeneral": "I'm the QuestCraft AI assistant. How can I help you today?"
 }

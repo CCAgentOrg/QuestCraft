@@ -17,6 +17,7 @@ import DocsPage from './components/DocsPage';
 import Header from './components/Header';
 import HamburgerMenu from './components/HamburgerMenu';
 import AIAuditLogDrawer from './components/AIAuditLogDrawer';
+import ChatDrawer from './components/ChatDrawer';
 import HomePage from './components/HomePage';
 import { getLocalizedString } from './utils/localization';
 import { useTranslation } from './services/i18n';
@@ -50,6 +51,7 @@ const App: React.FC = () => {
     const { t } = useTranslation();
     const [page, setPage] = useState<Page>('home');
     const [questConfig, setQuestConfig] = useState<QuestConfig | null>(null);
+    const [draftQuestForChat, setDraftQuestForChat] = useState<QuestConfig | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openDrawerContent, setOpenDrawerContent] = useState<{title: string, content: string} | null>(null);
     const [customQuests, setCustomQuests] = useState<QuestConfig[]>([]);
@@ -58,6 +60,7 @@ const App: React.FC = () => {
     const [isAiConnected, setIsAiConnected] = useState(aiConnectivityService.isConnected());
     const [isTestingAi, setIsTestingAi] = useState(false);
     const [showAuditLog, setShowAuditLog] = useState(false);
+    const [showChat, setShowChat] = useState(false);
 
     useEffect(() => {
         // Load state from localStorage on initial mount
@@ -154,6 +157,9 @@ const App: React.FC = () => {
             handleExitGameWithConfirm();
             return;
         }
+        if (page === 'maker' && targetPage !== 'maker') {
+            setDraftQuestForChat(null); // Clear draft context when leaving maker
+        }
         setPage(targetPage);
         setIsMenuOpen(false);
     };
@@ -175,7 +181,7 @@ const App: React.FC = () => {
         localStorage.setItem(ACTIVE_QUEST_CONFIG_KEY, JSON.stringify(config));
         gameStateService.clear(); // Clear any previous game's state
         handleNavigate('game');
-    }, []);
+    }, [isMakerModeEnabled]);
 
     const handleDeleteQuest = (questName: string) => {
         if (isMakerModeEnabled && window.confirm(`Are you sure you want to delete the quest "${questName}"? This cannot be undone.`)) {
@@ -224,7 +230,10 @@ const App: React.FC = () => {
                 if (!isMakerModeEnabled) {
                     return <HomePage onNavigate={handleNavigate} isMakerModeEnabled={isMakerModeEnabled} />;
                 }
-                return <QuestMakerPage onLoadQuest={(config) => handleLoadQuest(config, true)} />;
+                return <QuestMakerPage
+                            onLoadQuest={(config) => handleLoadQuest(config, true)}
+                            onDraftUpdate={setDraftQuestForChat}
+                        />;
             case 'docs':
                 return <DocsPage />;
             case 'settings':
@@ -275,6 +284,7 @@ const App: React.FC = () => {
                     isTestingAi={isTestingAi}
                     onTestAiConnection={handleTestAiConnection}
                     onOpenAuditLog={() => setShowAuditLog(true)}
+                    onOpenChat={() => setShowChat(true)}
                 />
             </div>
             <Drawer
@@ -285,6 +295,13 @@ const App: React.FC = () => {
                 <div dangerouslySetInnerHTML={{ __html: openDrawerContent?.content || '' }} />
             </Drawer>
             <AIAuditLogDrawer show={showAuditLog} onClose={() => setShowAuditLog(false)} />
+            <ChatDrawer 
+                show={showChat}
+                onClose={() => setShowChat(false)}
+                page={page}
+                questConfig={questConfig}
+                draftQuest={draftQuestForChat}
+            />
         </div>
     );
 };
