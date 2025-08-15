@@ -1,0 +1,301 @@
+
+{
+  "board": {
+    "jailPosition": 6,
+    "locations": [
+      {
+        "description": { "en": "Begin your journey as an AI Architect, securing initial funding and resources.", "es": "Comienza tu viaje como Arquitecto de IA, asegurando financiación y recursos iniciales.", "hi": "एक एआई आर्किटेक्ट के रूप में अपनी यात्रा शुरू करें, प्रारंभिक धन और संसाधन सुरक्षित करें।", "ta": "ஒரு AI கட்டிடக் கலைஞராக உங்கள் பயணத்தைத் தொடங்குங்கள், ஆரம்ப நிதி மற்றும் வளங்களைப் பாதுகாக்கவும்." },
+        "name": { "en": "Project Kick-off", "es": "Inicio del Proyecto", "hi": "परियोजना की शुरुआत", "ta": "திட்டத் தொடக்கம்" },
+        "type": "START"
+      },
+      {
+        "description": { "en": "Invest in gathering high-quality data crucial for robust AI models.", "es": "Invierte en la recopilación de datos de alta calidad cruciales para modelos de IA robustos.", "hi": "मजबूत एआई मॉडल के लिए महत्वपूर्ण उच्च-गुणवत्ता वाले डेटा को इकट्ठा करने में निवेश करें।", "ta": "வலுவான AI மாதிரிகளுக்கு முக்கியமான உயர்தரத் தரவைச் சேகரிப்பதில் முதலீடு செய்யுங்கள்." },
+        "name": { "en": "Data Acquisition", "es": "Adquisición de Datos", "hi": "डेटा अधिग्रहण", "ta": "தரவு கையகப்படுத்தல்" },
+        "type": "PROPERTY",
+        "color": "bg-purple-600"
+      },
+      {
+        "description": { "en": "A collaborative effort or community event affects your project.", "es": "Un esfuerzo colaborativo o evento comunitario afecta tu proyecto.", "hi": "एक सहयोगी प्रयास या सामुदायिक घटना आपकी परियोजना को प्रभावित करती है।", "ta": "ஒரு கூட்டு முயற்சி அல்லது சமூக நிகழ்வு உங்கள் திட்டத்தைப் பாதிக்கிறது." },
+        "name": { "en": "Team Collaboration", "es": "Colaboración en Equipo", "hi": "टीम सहयोग", "ta": "குழு ஒத்துழைப்பு" },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "description": { "en": "Develop and refine features to improve your model's performance.", "es": "Desarrolla y refina características para mejorar el rendimiento de tu modelo.", "hi": "अपने मॉडल के प्रदर्शन को बेहतर बनाने के लिए सुविधाओं का विकास और परिशोधन करें।", "ta": "உங்கள் மாதிரியின் செயல்திறனை மேம்படுத்த அம்சங்களை உருவாக்கி மேம்படுத்தவும்." },
+        "name": { "en": "Feature Engineering", "es": "Ingeniería de Características", "hi": "फ़ीचर इंजीनियरिंग", "ta": "அம்ச பொறியியல்" },
+        "type": "PROPERTY",
+        "color": "bg-purple-600"
+      },
+      {
+        "description": { "en": "Pay for compliance checks and ethical reviews.", "es": "Paga por verificaciones de cumplimiento y revisiones éticas.", "hi": "अनुपालन जांच और नैतिक समीक्षाओं के लिए भुगतान करें।", "ta": "இணக்கச் சரிபார்ப்புகள் மற்றும் நெறிமுறை மதிப்பாய்வுகளுக்கு பணம் செலுத்துங்கள்." },
+        "name": { "en": "Regulatory Audit", "es": "Auditoría Regulatoria", "hi": "नियामक लेखापरीक्षा", "ta": "ஒழுங்குமுறை தணிக்கை" },
+        "type": "TAX"
+      },
+      {
+        "description": { "en": "Acquire computing power for your intensive AI tasks.", "es": "Adquiere poder de cómputo para tus tareas intensivas de IA.", "hi": "अपने गहन एआई कार्यों के लिए कंप्यूटिंग शक्ति प्राप्त करें।", "ta": "உங்கள் தீவிர AI பணிகளுக்கு கணினி சக்தியைப் பெறுங்கள்." },
+        "name": { "en": "Cloud Computing Credits", "es": "Créditos de Computación en la Nube", "hi": "क्लाउड कंप्यूटिंग क्रेडिट", "ta": "கிளவுட் கம்ப்யூட்டிங் கிரெடிட்கள்" },
+        "type": "UTILITY"
+      },
+      {
+        "description": { "en": "Caught in a critical system bug or development standstill. Lose a turn.", "es": "Atrapado en un error crítico del sistema o un estancamiento en el desarrollo. Pierdes un turno.", "hi": "एक महत्वपूर्ण सिस्टम बग या विकास गतिरोध में फंस गए। एक बारी खो दें।", "ta": "ஒரு முக்கியமான கணினிப் பிழை அல்லது மேம்பாட்டு தேக்கத்தில் சிக்கிக்கொண்டது. ஒரு திருப்பத்தை இழக்கவும்." },
+        "name": { "en": "Debugging Chamber", "es": "Cámara de Depuración", "hi": "डिबगिंग चैंबर", "ta": "பிழைத்திருத்த அறை" },
+        "type": "JAIL"
+      },
+      {
+        "description": { "en": "Set up the environment for training your AI models.", "es": "Configura el entorno para entrenar tus modelos de IA.", "hi": "अपने एआई मॉडल को प्रशिक्षित करने के लिए वातावरण स्थापित करें।", "ta": "உங்கள் AI மாதிரிகளுக்கு பயிற்சி அளிக்க சூழலை அமைக்கவும்." },
+        "name": { "en": "Model Training Farm", "es": "Granja de Entrenamiento de Modelos", "hi": "मॉडल प्रशिक्षण फार्म", "ta": "மாடல் பயிற்சி பண்ணை" },
+        "type": "PROPERTY",
+        "color": "bg-blue-600"
+      },
+      {
+        "description": { "en": "An unexpected event or opportunity arises in your development cycle.", "es": "Surge un evento u oportunidad inesperada en tu ciclo de desarrollo.", "hi": "आपके विकास चक्र में एक अप्रत्याशित घटना या अवसर उत्पन्न होता है।", "ta": "உங்கள் மேம்பாட்டுச் சுழற்சியில் எதிர்பாராத நிகழ்வு அல்லது வாய்ப்பு எழுகிறது." },
+        "name": { "en": "Unexpected Bug", "es": "Error Inesperado", "hi": "अप्रत्याशित बग", "ta": "எதிர்பாராத பிழை" },
+        "type": "CHANCE"
+      },
+      {
+        "description": { "en": "Rigorously test your AI models to ensure accuracy and prevent overfiting.", "es": "Prueba rigurosamente tus modelos de IA para garantizar la precisión y evitar el sobreajuste.", "hi": "सटीकता सुनिश्चित करने और ओवरफिटिंग को रोकने के लिए अपने एआई मॉडल का कठोरता से परीक्षण करें।", "ta": "துல்லியத்தை உறுதிப்படுத்தவும், அதிகப் பொருத்தத்தைத் தடுக்கவும் உங்கள் AI மாதிரிகளை கடுமையாக சோதிக்கவும்." },
+        "name": { "en": "Validation Lab", "es": "Laboratorio de Validación", "hi": "सत्यापन प्रयोगशाला", "ta": "சரிபார்ப்பு ஆய்வகம்" },
+        "type": "PROPERTY",
+        "color": "bg-blue-600"
+      },
+      {
+        "description": { "en": "Automate the process of deploying your AI solutions.", "es": "Automatiza el proceso de despliegue de tus soluciones de IA.", "hi": "अपने एआई समाधानों को तैनात करने की प्रक्रिया को स्वचालित करें।", "ta": "உங்கள் AI தீர்வுகளை வரிசைப்படுத்தும் செயல்முறையை தானியங்குபடுத்துங்கள்." },
+        "name": { "en": "Automated Deployment", "es": "Despliegue Automatizado", "hi": "स्वचालित परिनियोजन", "ta": "தானியங்கி வரிசைப்படுத்தல்" },
+        "type": "PROPERTY",
+        "color": "bg-blue-600"
+      },
+      {
+        "description": { "en": "A space for innovation and breakthroughs, free from immediate costs or setbacks.", "es": "Un espacio para la innovación y los avances, libre de costos o contratiempos inmediatos.", "hi": "नवाचार और सफलताओं के लिए एक स्थान, तत्काल लागत या असफलताओं से मुक्त।", "ta": "உடனடி செலவுகள் அல்லது பின்னடைவுகளிலிருந்து விடுபட்ட புதுமை மற்றும் திருப்புமுனைகளுக்கான இடம்." },
+        "name": { "en": "Innovation Hub", "es": "Centro de Innovación", "hi": "नवाचार हब", "ta": "புதுமை மையம்" },
+        "type": "FREE_PARKING"
+      },
+      {
+        "description": { "en": "Integrate AI directly into devices and local systems for faster processing.", "es": "Integra la IA directamente en dispositivos y sistemas locales para un procesamiento más rápido.", "hi": "तेजी से प्रसंस्करण के लिए एआई को सीधे उपकरणों और स्थानीय प्रणालियों में एकीकृत करें।", "ta": "வேகமான செயலாக்கத்திற்காக சாதனங்கள் மற்றும் உள்ளூர் அமைப்புகளில் நேரடியாக AI ஐ ஒருங்கிணைக்கவும்." },
+        "name": { "en": "Edge AI Processor", "es": "Procesador de IA en el Borde", "hi": "एज एआई प्रोसेसर", "ta": "எட்ஜ் AI செயலி" },
+        "type": "PROPERTY",
+        "color": "bg-pink-600"
+      },
+      {
+        "description": { "en": "Community input or open-source contribution affects your project.", "es": "La opinión de la comunidad o la contribución de código abierto afecta tu proyecto.", "hi": "सामुदायिक इनपुट या ओपन-सोर्स योगदान आपकी परियोजना को प्रभावित करता है।", "ta": "சமூக உள்ளீடு அல்லது திறந்த மூல பங்களிப்பு உங்கள் திட்டத்தைப் பாதிக்கிறது." },
+        "name": { "en": "User Feedback Loop", "es": "Bucle de Retroalimentación del Usuario", "hi": "उपयोगकर्ता प्रतिक्रिया लूप", "ta": "பயனர் பின்னூட்ட வளையம்" },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "description": { "en": "Develop AI that controls or enhances robotic systems.", "es": "Desarrolla IA que controle o mejore los sistemas robóticos.", "hi": "रोबोटिक सिस्टम को नियंत्रित या बढ़ाने वाले एआई का विकास करें।", "ta": "ரோபோ அமைப்புகளைக் கட்டுப்படுத்தும் அல்லது மேம்படுத்தும் AI ஐ உருவாக்குங்கள்." },
+        "name": { "en": "Robotics Integration", "es": "Integración de Robótica", "hi": "रोबोटिक्स एकीकरण", "ta": "ரோபாட்டிக்ஸ் ஒருங்கிணைப்பு" },
+        "type": "PROPERTY",
+        "color": "bg-pink-600"
+      },
+      {
+        "description": { "en": "Power your AI operations and infrastructure.", "es": "Alimenta tus operaciones e infraestructura de IA.", "hi": "अपने एआई संचालन और बुनियादी ढांचे को शक्ति दें।", "ta": "உங்கள் AI செயல்பாடுகள் மற்றும் உள்கட்டமைப்பை மேம்படுத்துங்கள்." },
+        "name": { "en": "Energy Grid", "es": "Red de Energía", "hi": "ऊर्जा ग्रिड", "ta": "ஆற்றல் கட்டம்" },
+        "type": "UTILITY"
+      },
+      {
+        "description": { "en": "Explore cutting-edge computational methods for complex AI problems.", "es": "Explora métodos computacionales de vanguardia para problemas complejos de IA.", "hi": "जटिल एआई समस्याओं के लिए अत्याधुनिक कम्प्यूटेशनल तरीकों का अन्वेषण करें।", "ta": "சிக்கலான AI சிக்கல்களுக்கு அதிநவீன கணினி முறைகளை ஆராயுங்கள்." },
+        "name": { "en": "Quantum Computing Lab", "es": "Laboratorio de Computación Cuántica", "hi": "क्वांटम कंप्यूटिंग लैब", "ta": "குவாண்டம் கம்ப்யூட்டிங் ஆய்வகம்" },
+        "type": "PROPERTY",
+        "color": "bg-pink-600"
+      },
+      {
+        "description": { "en": "Pay fees related to patenting or licensing your AI developments.", "es": "Paga tarifas relacionadas con la patentación o licencia de tus desarrollos de IA.", "hi": "अपने एआई विकास के पेटेंट या लाइसेंस से संबंधित शुल्क का भुगतान करें।", "ta": "உங்கள் AI மேம்பாடுகளுக்கு காப்புரிமை அல்லது உரிமம் தொடர்பான கட்டணங்களைச் செலுத்துங்கள்." },
+        "name": { "en": "Intellectual Property Fee", "es": "Tarifa de Propiedad Intelectual", "hi": "बौद्धिक संपदा शुल्क", "ta": "அறிவுசார் சொத்து கட்டணம்" },
+        "type": "TAX"
+      },
+      {
+        "description": { "en": "A critical system failure leads to significant delays and debugging.", "es": "Un fallo crítico del sistema conduce a retrasos significativos y depuración.", "hi": "एक महत्वपूर्ण सिस्टम विफलता महत्वपूर्ण देरी और डिबगिंग की ओर ले जाती है।", "ta": "ஒரு முக்கியமான கணினித் தோல்வி குறிப்பிடத்தக்க தாமதங்கள் மற்றும் பிழைத்திருத்தத்திற்கு வழிவகுக்கிறது." },
+        "name": { "en": "System Crash", "es": "Fallo del Sistema", "hi": "सिस्टम क्रैश", "ta": "கணினி செயலிழப்பு" },
+        "type": "GO_TO_JAIL"
+      },
+      {
+        "description": { "en": "Develop AI that understands, interprets, and generates human language.", "es": "Desarrolla IA que entienda, interprete y genere lenguaje humano.", "hi": "मानव भाषा को समझने, व्याख्या करने और उत्पन्न करने वाले एआई का विकास करें।", "ta": "மனித மொழியைப் புரிந்துகொள்ளும், விளக்கும் மற்றும் உருவாக்கும் AI ஐ உருவாக்குங்கள்." },
+        "name": { "en": "Natural Language Processing", "es": "Procesamiento de Lenguaje Natural", "hi": "प्राकृतिक भाषा प्रसंस्करण", "ta": "இயற்கை மொழி செயலாக்கம்" },
+        "type": "PROPERTY",
+        "color": "bg-orange-600"
+      },
+      {
+        "description": { "en": "An unexpected event or opportunity arises in your development cycle.", "es": "Surge un evento u oportunidad inesperada en tu ciclo de desarrollo.", "hi": "आपके विकास चक्र में एक अप्रत्याशित घटना या अवसर उत्पन्न होता है।", "ta": "உங்கள் மேம்பாட்டுச் சுழற்சியில் எதிர்பாராத நிகழ்வு அல்லது வாய்ப்பு எழுகிறது." },
+        "name": { "en": "Market Shift", "es": "Cambio de Mercado", "hi": "बाजार में बदलाव", "ta": "சந்தை மாற்றம்" },
+        "type": "CHANCE"
+      },
+      {
+        "description": { "en": "Create AI capable of interpreting and understanding visual information.", "es": "Crea IA capaz de interpretar y comprender información visual.", "hi": "दृश्य जानकारी की व्याख्या और समझने में सक्षम एआई बनाएं।", "ta": "காட்சித் தகவலை விளக்கவும் புரிந்துகொள்ளவும் திறன் கொண்ட AI ஐ உருவாக்கவும்." },
+        "name": { "en": "Computer Vision Module", "es": "Módulo de Visión por Computadora", "hi": "कंप्यूटर विजन मॉड्यूल", "ta": "கணினி பார்வை தொகுதி" },
+        "type": "PROPERTY",
+        "color": "bg-orange-600"
+      },
+      {
+        "description": { "en": "Community input or open-source contribution affects your project.", "es": "La opinión de la comunidad o la contribución de código abierto afecta tu proyecto.", "hi": "सामुदायिक इनपुट या ओपन-सोर्स योगदान आपकी परियोजना को प्रभावित करता है।", "ta": "சமூக உள்ளீடு அல்லது திறந்த மூல பங்களிப்பு உங்கள் திட்டத்தைப் பாதிக்கிறது." },
+        "name": { "en": "Ethical AI Review", "es": "Revisión de IA Ética", "hi": "नैतिक एआई समीक्षा", "ta": "நெறிமுறை AI ஆய்வு" },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "description": { "en": "Design AI that learns through trial and error in interactive environments.", "es": "Diseña IA que aprende a través de prueba y error en entornos interactivos.", "hi": "इंटरैक्टिव वातावरण में परीक्षण और त्रुटि के माध्यम से सीखने वाले एआई का डिजाइन करें।", "ta": "ஊடாடும் சூழல்களில் சோதனை மற்றும் பிழை மூலம் கற்கும் AI ஐ வடிவமைக்கவும்." },
+        "name": { "en": "Reinforcement Learning Arena", "es": "Arena de Aprendizaje por Refuerzo", "hi": "सुदृढीकरण लर्निंग एरिना", "ta": "வலுவூட்டல் கற்றல் அரங்கம்" },
+        "type": "PROPERTY",
+        "color": "bg-orange-600"
+      }
+    ]
+  },
+  "chanceCards": [
+    {
+      "description": { "en": "Crucial breakthrough! Your research yields unexpected positive results.", "es": "¡Avance crucial! Tu investigación produce resultados positivos inesperados.", "hi": "महत्वपूर्ण सफलता! आपके शोध से अप्रत्याशित सकारात्मक परिणाम मिलते हैं।", "ta": "முக்கியமான திருப்புமுனை! உங்கள் ஆராய்ச்சி எதிர்பாராத நேர்மறையான முடிவுகளைத் தருகிறது." },
+      "resourceChanges": [
+        { "name": "budget", "value": 200 },
+        { "name": "accuracy", "value": 10 }
+      ]
+    },
+    {
+      "description": { "en": "Urgent client request! You need to accelerate development.", "es": "¡Solicitud urgente del cliente! Necesitas acelerar el desarrollo.", "hi": "अत्यावश्यक ग्राहक अनुरोध! आपको विकास में तेजी लाने की जरूरत है।", "ta": "அவசர வாடிக்கையாளர் கோரிக்கை! நீங்கள் மேம்பாட்டை விரைவுபடுத்த வேண்டும்." },
+      "resourceChanges": [
+        { "name": "budget", "value": -100 },
+        { "name": "efficiency", "value": 15 }
+      ]
+    },
+    {
+      "description": { "en": "Critical data corruption. Requires extensive re-validation.", "es": "Corrupción de datos crítica. Requiere una revalidación exhaustiva.", "hi": "गंभीर डेटा भ्रष्टाचार। व्यापक पुन: सत्यापन की आवश्यकता है।", "ta": "முக்கியமான தரவு சிதைவு. விரிவான மறுசரிபார்ப்பு தேவை." },
+      "resourceChanges": [
+        { "name": "accuracy", "value": -10 },
+        { "name": "efficiency", "value": -20 }
+      ]
+    },
+    {
+      "description": { "en": "Open-source contribution improves a core library. Saves time and money.", "es": "La contribución de código abierto mejora una biblioteca principal. Ahorra tiempo y dinero.", "hi": "ओपन-सोर्स योगदान एक मुख्य पुस्तकालय में सुधार करता है। समय और धन बचाता है।", "ta": "திறந்த மூல பங்களிப்பு ஒரு முக்கிய நூலகத்தை மேம்படுத்துகிறது. நேரத்தையும் பணத்தையும் மிச்சப்படுத்துகிறது." },
+      "resourceChanges": [
+        { "name": "budget", "value": 75 },
+        { "name": "efficiency", "value": 10 }
+      ]
+    },
+    {
+      "description": { "en": "Unexpected hardware failure. Replacing components costs time and money.", "es": "Fallo de hardware inesperado. Reemplazar componentes cuesta tiempo y dinero.", "hi": "अप्रत्याशित हार्डवेयर विफलता। घटकों को बदलने में समय और पैसा लगता है।", "ta": "எதிர்பாராத வன்பொருள் தோல்வி. கூறுகளை மாற்றுவதற்கு நேரமும் பணமும் செலவாகும்." },
+      "resourceChanges": [
+        { "name": "budget", "value": -150 },
+        { "name": "efficiency", "value": -25 }
+      ]
+    },
+    {
+      "description": { "en": "New industry standard emerges. Your current model is slightly outdated.", "es": "Surge un nuevo estándar de la industria. Tu modelo actual está ligeramente desactualizado.", "hi": "नया उद्योग मानक उभरता है। आपका वर्तमान मॉडल थोड़ा पुराना है।", "ta": "புதிய தொழில் தரம் உருவாகிறது. உங்கள் தற்போதைய மாதிரி சற்று காலாவதியானது." },
+      "resourceChanges": [
+        { "name": "accuracy", "value": -5 },
+        { "name": "efficiency", "value": -10 }
+      ]
+    }
+  ],
+  "description": { "en": "Balance your Budget, Accuracy, and Efficiency as you navigate the complex world of AI architecture and development.", "es": "Equilibra tu Presupuesto, Precisión y Eficiencia mientras navegas por el complejo mundo de la arquitectura y el desarrollo de la IA.", "hi": "जब आप एआई वास्तुकला और विकास की जटिल दुनिया को नेविगेट करते हैं तो अपने बजट, सटीकता और दक्षता को संतुलित करें।", "ta": "AI கட்டமைப்பு மற்றும் மேம்பாட்டின் சிக்கலான உலகில் நீங்கள் செல்லும்போது உங்கள் பட்ஜெட், துல்லியம் மற்றும் செயல்திறனை சமநிலைப்படுத்துங்கள்." },
+  "footerSections": [
+    {
+      "content": { "en": "<h3>Objective:</h3><p>Be the last AI Architect standing, or the one with the highest total resource value when a set number of turns or a game-ending condition is met. Accumulate AI projects (properties) to generate revenue and improve your capabilities.</p><h3>Gameplay:</h3><ul><li>Players roll a die and move around the board.</li><li>Landing on a <strong>PROPERTY</strong> allows you to purchase it. Once owned, other players landing on it pay you 'Budget' for its usage.</li><li><strong>CHANCE</strong> and <strong>COMMUNITY CHEST</strong> cards present unexpected events that modify your resources.</li><li><strong>TAX</strong> spaces require immediate 'Budget' payment.</li><li><strong>UTILITY</strong> spaces represent essential services; their cost might depend on other factors.</li><li><strong>GO TO JAIL</strong> sends you to the 'Debugging Chamber' where you lose turns or pay to be released.</li><li><strong>FREE PARKING</strong> is a safe space with no immediate effect.</li><li>Passing 'Project Kick-off' grants you a bonus in Budget and Efficiency.</li></ul><h3>Resources:</h3><ul><li><strong>Budget:</strong> Represents your financial capital. Running out means bankruptcy.</li><li><strong>Accuracy:</strong> Reflects the precision and quality of your AI models. Low accuracy can lead to project failures.</li><li><strong>Efficiency:</strong> Measures the speed and streamlined nature of your development process. High efficiency means faster project completion.</li></ul><h3>Winning:</h3><p>The game ends after a predetermined number of rounds or when all but one player has gone bankrupt. The winner is the player with the highest combined value of Budget, Accuracy, and Efficiency, plus the value of their owned properties.</p>", "es": "<h3>Objetivo:</h3><p>Sé el último Arquitecto de IA en pie, o el que tenga el mayor valor total de recursos cuando se cumpla un número determinado de turnos o una condición de fin de juego. Acumula proyectos de IA (propiedades) para generar ingresos y mejorar tus capacidades.</p><h3>Jugabilidad:</h3><ul><li>Los jugadores tiran un dado y se mueven por el tablero.</li><li>Aterrizar en una <strong>PROPIEDAD</strong> te permite comprarla. Una vez que la posees, otros jugadores que aterricen en ella te pagan 'Presupuesto' por su uso.</li><li>Las cartas de <strong>SUERTE</strong> y <strong>CAJA DE COMUNIDAD</strong> presentan eventos inesperados que modifican tus recursos.</li><li>Los espacios de <strong>IMPUESTOS</strong> requieren un pago inmediato de 'Presupuesto'.</li><li>Los espacios de <strong>UTILIDAD</strong> representan servicios esenciales; su costo podría depender de otros factores.</li><li><strong>IR A LA CÁRCEL</strong> te envía a la 'Cámara de Depuración' donde pierdes turnos o pagas para ser liberado.</li><li><strong>ESTACIONAMIENTO GRATUITO</strong> es un espacio seguro sin efecto inmediato.</li><li>Pasar por 'Inicio del Proyecto' te otorga una bonificación en Presupuesto y Eficiencia.</li></ul><h3>Recursos:</h3><ul><li><strong>Presupuesto:</strong> Representa tu capital financiero. Quedarse sin él significa la bancarrota.</li><li><strong>Precisión:</strong> Refleja la precisión y calidad de tus modelos de IA. Una baja precisión puede llevar al fracaso de los proyectos.</li><li><strong>Eficiencia:</strong> Mide la velocidad y la naturaleza optimizada de tu proceso de desarrollo. Una alta eficiencia significa una finalización más rápida de los proyectos.</li></ul><h3>Ganar:</h3><p>El juego termina después de un número predeterminado de rondas o cuando todos los jugadores menos uno han quebrado. El ganador es el jugador con el valor combinado más alto de Presupuesto, Precisión y Eficiencia, más el valor de sus propiedades poseídas.</p>", "hi": "<h3>उद्देश्य:</h3><p>अंतिम एआई आर्किटेक्ट बनें, या निर्धारित संख्या में मोड़ों या खेल-समाप्ति की स्थिति पूरी होने पर उच्चतम कुल संसाधन मूल्य वाले बनें। राजस्व उत्पन्न करने और अपनी क्षमताओं में सुधार करने के लिए एआई परियोजनाओं (संपत्तियों) को जमा करें।</p><h3>गेमप्ले:</h3><ul><li>खिलाड़ी एक पासा फेंकते हैं और बोर्ड के चारों ओर घूमते हैं।</li><li>एक <strong>संपत्ति</strong> पर उतरने से आप इसे खरीद सकते हैं। एक बार स्वामित्व हो जाने पर, उस पर उतरने वाले अन्य खिलाड़ी आपको इसके उपयोग के लिए 'बजट' का भुगतान करते हैं।</li><li><strong>संयोग</strong> और <strong>सामुदायिक छाती</strong> कार्ड अप्रत्याशित घटनाओं को प्रस्तुत करते हैं जो आपके संसाधनों को संशोधित करते हैं।</li><li><strong>कर</strong> स्थानों पर तत्काल 'बजट' भुगतान की आवश्यकता होती है।</li><li><strong>उपयोगिता</strong> स्थान आवश्यक सेवाओं का प्रतिनिधित्व करते हैं; उनकी लागत अन्य कारकों पर निर्भर हो सकती है।</li><li><strong>जेल जाओ</strong> आपको 'डिबगिंग चैंबर' में भेजता है जहां आप बारी खो देते हैं या रिहा होने के लिए भुगतान करते हैं।</li><li><strong>मुफ्त पार्किंग</strong> एक सुरक्षित स्थान है जिसका कोई तत्काल प्रभाव नहीं पड़ता है।</li><li>'परियोजना की शुरुआत' से गुजरने पर आपको बजट और दक्षता में बोनस मिलता है।</li></ul><h3>संसाधन:</h3><ul><li><strong>बजट:</strong> आपकी वित्तीय पूंजी का प्रतिनिधित्व करता है। इसका खत्म होना दिवालियापन का मतलब है।</li><li><strong>सटीकता:</strong> आपके एआई मॉडल की सटीकता और गुणवत्ता को दर्शाती है। कम सटीकता परियोजना विफलताओं का कारण बन सकती है।</li><li><strong>दक्षता:</strong> आपकी विकास प्रक्रिया की गति और सुव्यवस्थित प्रकृति को मापती है। उच्च दक्षता का मतलब है तेजी से परियोजना पूरी होना।</li></ul><h3>जीतना:</h3><p>खेल एक पूर्व निर्धारित संख्या में राउंड के बाद समाप्त होता है या जब एक को छोड़कर सभी खिलाड़ी दिवालिया हो जाते हैं। विजेता वह खिलाड़ी है जिसके पास बजट, सटीकता और दक्षता का उच्चतम संयुक्त मूल्य है, साथ ही उनकी स्वामित्व वाली संपत्तियों का मूल्य भी है।</p>", "ta": "<h3>நோக்கம்:</h3><p>கடைசி AI கட்டிடக் கலைஞராக இருங்கள், அல்லது ஒரு குறிப்பிட்ட திருப்பங்கள் அல்லது விளையாட்டு முடிவுறும் நிபந்தனை பூர்த்தி செய்யப்படும்போது அதிக மொத்த வள மதிப்பைக் கொண்டவராக இருங்கள். வருவாயை உருவாக்க மற்றும் உங்கள் திறன்களை மேம்படுத்த AI திட்டங்களை (சொத்துக்கள்) திரட்டவும்.</p><h3>விளையாட்டு:</h3><ul><li>வீரர்கள் ஒரு பகடையை உருட்டி பலகையைச் சுற்றி நகர்கிறார்கள்.</li><li>ஒரு <strong>சொத்தில்</strong> இறங்குவது அதை வாங்க உங்களை அனுமதிக்கிறது. ஒருமுறை சொந்தமானால், அதில் இறங்கும் மற்ற வீரர்கள் அதன் பயன்பாட்டிற்கு உங்களுக்கு 'பட்ஜெட்' செலுத்துவார்கள்.</li><li><strong>வாய்ப்பு</strong> மற்றும் <strong>சமூக நிதி</strong> அட்டைகள் உங்கள் வளங்களை மாற்றியமைக்கும் எதிர்பாராத நிகழ்வுகளை அளிக்கின்றன.</li><li><strong>வரி</strong> இடங்களுக்கு உடனடி 'பட்ஜெட்' கட்டணம் தேவை.</li><li><strong>பயன்பாட்டு</strong> இடங்கள் அத்தியாவசிய சேவைகளைக் குறிக்கின்றன; அவற்றின் செலவு மற்ற காரணிகளைப் பொறுத்தது.</li><li><strong>சிறைக்குச் செல்</strong> உங்களை 'பிழைத்திருத்த அறைக்கு' அனுப்புகிறது, அங்கு நீங்கள் திருப்பங்களை இழக்கிறீர்கள் அல்லது விடுவிக்கப்படுவதற்கு பணம் செலுத்துகிறீர்கள்.</li><li><strong>இலவச பார்க்கிங்</strong> என்பது உடனடி விளைவு இல்லாத பாதுகாப்பான இடம்.</li><li>'திட்டத் தொடக்கத்தை' கடந்து செல்வது உங்களுக்கு பட்ஜெட் மற்றும் செயல்திறனில் ஒரு போனஸை வழங்குகிறது.</li></ul><h3>வளங்கள்:</h3><ul><li><strong>பட்ஜெட்:</strong> உங்கள் நிதி மூலதனத்தைக் குறிக்கிறது. தீர்ந்து போவது திவாலாவதைக் குறிக்கிறது.</li><li><strong>துல்லியம்:</strong> உங்கள் AI மாதிரிகளின் துல்லியம் மற்றும் தரத்தைப் பிரதிபலிக்கிறது. குறைந்த துல்லியம் திட்ட தோல்விகளுக்கு வழிவகுக்கும்.</li><li><strong>செயல்திறன்:</strong> உங்கள் மேம்பாட்டு செயல்முறையின் வேகம் மற்றும் நெறிப்படுத்தப்பட்ட தன்மையை அளவிடுகிறது. அதிக செயல்திறன் என்பது விரைவான திட்ட நிறைவு ஆகும்.</li></ul><h3>வெற்றி:</h3><p>விளையாட்டு ஒரு முன்னரே தீர்மானிக்கப்பட்ட சுற்றுகளுக்குப் பிறகு அல்லது ஒரு வீரரைத் தவிர அனைவரும் திவாலாகும்போது முடிவடைகிறது. வெற்றியாளர் பட்ஜெட், துல்லியம் மற்றும் செயல்திறனின் அதிகபட்ச ஒருங்கிணைந்த மதிப்பைக் கொண்ட வீரர், மற்றும் அவர்களின் சொந்தமான சொத்துக்களின் மதிப்பு.</p>" },
+      "title": { "en": "Rules", "es": "Reglas", "hi": "नियम", "ta": "விதிகள்" }
+    },
+    {
+      "content": { "en": "Welcome to 'Architects of AI'! In this game, you step into the shoes of an AI Architect, tasked with developing groundbreaking artificial intelligence solutions. But it's not just about innovation; it's about navigating the delicate balance between project constraints. Every decision you make impacts your Budget, the Accuracy of your models, and the Efficiency of your development process. Learn to strategize, adapt to unexpected challenges, and master resource management as you build your AI empire. Can you optimize your way to success and become the ultimate AI Architect?", "es": "¡Bienvenido a 'Arquitectos de IA'! En este juego, te pones en la piel de un Arquitecto de IA, encargado de desarrollar soluciones innovadoras de inteligencia artificial. Pero no se trata solo de innovación; se trata de navegar el delicado equilibrio entre las limitaciones del proyecto. Cada decisión que tomas impacta tu Presupuesto, la Precisión de tus modelos y la Eficiencia de tu proceso de desarrollo. Aprende a elaborar estrategias, adaptarte a desafíos inesperados y dominar la gestión de recursos mientras construyes tu imperio de IA. ¿Puedes optimizar tu camino hacia el éxito y convertirte en el Arquitecto de IA definitivo?", "hi": "एआई के आर्किटेक्ट्स में आपका स्वागत है! इस खेल में, आप एक एआई आर्किटेक्ट की भूमिका निभाते हैं, जिसे अभूतपूर्व कृत्रिम बुद्धिमत्ता समाधान विकसित करने का काम सौंपा गया है। लेकिन यह सिर्फ नवाचार के बारे में नहीं है; यह परियोजना की बाधाओं के बीच नाजुक संतुलन को नेविगेट करने के बारे में है। आपके द्वारा लिया गया हर निर्णय आपके बजट, आपके मॉडल की सटीकता और आपकी विकास प्रक्रिया की दक्षता को प्रभावित करता है। जब आप अपना एआई साम्राज्य बनाते हैं तो रणनीति बनाना, अप्रत्याशित चुनौतियों के अनुकूल होना और संसाधन प्रबंधन में महारत हासिल करना सीखें। क्या आप सफलता के लिए अपना रास्ता अनुकूलित कर सकते हैं और परम एआई आर्किटेक्ट बन सकते हैं?", "ta": "'AI இன் கட்டிடக் கலைஞர்களுக்கு' வரவேற்கிறோம்! இந்த விளையாட்டில், நீங்கள் ஒரு AI கட்டிடக் கலைஞரின் பாத்திரத்தில் நுழைகிறீர்கள், புதுமையான செயற்கை நுண்ணறிவு தீர்வுகளை உருவாக்கும் பணியில் உள்ளீர்கள். ஆனால் இது புதுமையைப் பற்றியது மட்டுமல்ல; இது திட்டக் கட்டுப்பாடுகளுக்கு இடையிலான மென்மையான சமநிலையை வழிநடத்துவதாகும். நீங்கள் எடுக்கும் ஒவ்வொரு முடிவும் உங்கள் பட்ஜெட், உங்கள் மாதிரிகளின் துல்லியம் மற்றும் உங்கள் மேம்பாட்டு செயல்முறையின் செயல்திறனைப் பாதிக்கிறது. உங்கள் AI பேரரசை உருவாக்கும்போது மூலோபாயம் வகுக்கவும், எதிர்பாராத சவால்களுக்கு ஏற்ப மாற்றிக்கொள்ளவும், வள நிர்வாகத்தில் தேர்ச்சி பெறவும் கற்றுக்கொள்ளுங்கள். வெற்றிக்கான உங்கள் வழியை மேம்படுத்தி இறுதி AI கட்டிடக் கலைஞர் ஆக முடியுமா?" },
+      "title": { "en": "About", "es": "Acerca de", "hi": "के बारे में", "ta": "பற்றி" }
+    }
+  ],
+  "name": { "en": "Architects of AI", "es": "Arquitectos de IA", "hi": "एआई के आर्किटेक्ट्स", "ta": "AI இன் கட்டிடக் கலைஞர்கள்" },
+  "playerColors": [
+    "text-red-600",
+    "text-blue-600",
+    "text-yellow-600",
+    "text-green-600"
+  ],
+  "resources": [
+    {
+      "barColor": "bg-green-500",
+      "icon": "MoneyIcon",
+      "initialValue": 1500,
+      "name": { "en": "Budget", "es": "Presupuesto", "hi": "बजट", "ta": "பட்ஜெட்" }
+    },
+    {
+      "barColor": "bg-blue-500",
+      "icon": "InfoIcon",
+      "initialValue": 80,
+      "name": { "en": "Accuracy", "es": "Precisión", "hi": "सटीकता", "ta": "துல்லியம்" }
+    },
+    {
+      "barColor": "bg-yellow-500",
+      "icon": "TimeIcon",
+      "initialValue": 100,
+      "name": { "en": "Efficiency", "es": "Eficiencia", "hi": "दक्षता", "ta": "செயல்திறன்" }
+    }
+  ],
+  "communityChestCards": [
+    {
+      "description": { "en": "Receive an grant for open-source contributions. Boosts your project.", "es": "Recibe una subvención por contribuciones de código abierto. Impulsa tu proyecto.", "hi": "ओपन-सोर्स योगदान के लिए एक अनुदान प्राप्त करें। आपकी परियोजना को बढ़ावा देता है।", "ta": "திறந்த மூல பங்களிப்புகளுக்கு ஒரு மானியம் பெறுங்கள். உங்கள் திட்டத்தை அதிகரிக்கிறது." },
+      "resourceChanges": [
+        { "name": "budget", "value": 150 },
+        { "name": "efficiency", "value": 5 }
+      ]
+    },
+    {
+      "description": { "en": "Attend an industry conference. Gain insights but incur costs.", "es": "Asiste a una conferencia de la industria. Obtén conocimientos pero incurre en costos.", "hi": "एक उद्योग सम्मेलन में भाग लें। अंतर्दृष्टि प्राप्त करें लेकिन लागतें वहन करें।", "ta": "ஒரு தொழில் மாநாட்டில் கலந்து கொள்ளுங்கள். நுண்ணறிவுகளைப் பெறுங்கள் ஆனால் செலவுகளைச் சந்திக்கவும்." },
+      "resourceChanges": [
+        { "name": "budget", "value": -50 },
+        { "name": "accuracy", "value": 5 }
+      ]
+    },
+    {
+      "description": { "en": "Your team identifies a critical bug early. Saves future rework.", "es": "Tu equipo identifica un error crítico a tiempo. Ahorra reelaboración futura.", "hi": "आपकी टीम एक महत्वपूर्ण बग की जल्दी पहचान कर लेती है। भविष्य के पुनर्कार्य को बचाता है।", "ta": "உங்கள் குழு ஒரு முக்கியமான பிழையை ஆரம்பத்திலேயே கண்டறிகிறது. எதிர்கால மறுவேலையைச் சேமிக்கிறது." },
+      "resourceChanges": [
+        { "name": "accuracy", "value": 10 },
+        { "name": "efficiency", "value": 10 }
+      ]
+    },
+    {
+      "description": { "en": "Public opinion shifts against your AI's application. Requires a pivot.", "es": "La opinión pública se vuelve en contra de la aplicación de tu IA. Requiere un pivote.", "hi": "आपके एआई के आवेदन के खिलाफ जनमत बदल जाता है। एक धुरी की आवश्यकता है।", "ta": "உங்கள் AI இன் பயன்பாட்டிற்கு எதிராக பொதுக் கருத்து மாறுகிறது. ஒரு திருப்புமுனை தேவை." },
+      "resourceChanges": [
+        { "name": "accuracy", "value": -15 },
+        { "name": "budget", "value": -75 }
+      ]
+    },
+    {
+      "description": { "en": "A successful marketing campaign boosts your project's visibility.", "es": "Una campaña de marketing exitosa aumenta la visibilidad de tu proyecto.", "hi": "एक सफल विपणन अभियान आपकी परियोजना की दृश्यता को बढ़ाता है।", "ta": "ஒரு வெற்றிகரமான சந்தைப்படுத்தல் பிரச்சாரம் உங்கள் திட்டத்தின் தெரிவுநிலையை அதிகரிக்கிறது." },
+      "resourceChanges": [
+        { "name": "budget", "value": 100 }
+      ]
+    },
+    {
+      "description": { "en": "Mandatory team-building exercise. Costs time but improves morale.", "es": "Ejercicio de creación de equipos obligatorio. Cuesta tiempo pero mejora la moral.", "hi": "अनिवार्य टीम-निर्माण व्यायाम। समय लगता है लेकिन मनोबल में सुधार होता है।", "ta": "கட்டாய குழு உருவாக்கும் பயிற்சி. நேரத்தைச் செலவழிக்கிறது ஆனால் மன உறுதியை மேம்படுத்துகிறது." },
+      "resourceChanges": [
+        { "name": "efficiency", "value": -5 },
+        { "name": "budget", "value": -25 }
+      ]
+    }
+  ],
+  "groundingInReality": true,
+  "positivity": 0.5,
+  "pregeneratedScenarios": {
+    "Data Acquisition": [
+      {
+        "choices": [
+          {
+            "outcome": {
+              "explanation": { "en": "Investing in the premium dataset provided a significant boost to model performance, leveraging its high relevance and quality. However, the licensing fees put a notable dent in your budget, and integration required unforeseen effort.", "es": "Invertir en el conjunto de datos premium proporcionó un impulso significativo al rendimiento del modelo, aprovechando su alta relevancia y calidad. Sin embargo, las tarifas de licencia hicieron una mella notable en su presupuesto, y la integración requirió un esfuerzo imprevisto.", "hi": "प्रीमियम डेटासेट में निवेश करने से मॉडल के प्रदर्शन में एक महत्वपूर्ण बढ़ावा मिला, इसकी उच्च प्रासंगिकता और गुणवत्ता का लाभ उठाते हुए। हालांकि, लाइसेंसिंग शुल्क ने आपके बजट में एक उल्लेखनीय सेंध लगा दी, और एकीकरण के लिए अप्रत्याशित प्रयास की आवश्यकता थी।", "ta": "பிரீமியம் தரவுத்தொகுப்பில் முதலீடு செய்வது மாதிரி செயல்திறனுக்கு குறிப்பிடத்தக்க ஊக்கத்தை அளித்தது, அதன் உயர் பொருத்தம் மற்றும் தரத்தைப் பயன்படுத்துகிறது. இருப்பினும், உரிமக் கட்டணம் உங்கள் பட்ஜெட்டில் ஒரு குறிப்பிடத்தக்க பாதிப்பை ஏற்படுத்தியது, மற்றும் ஒருங்கிணைப்புக்கு எதிர்பாராத முயற்சி தேவைப்பட்டது." },
+              "resourceChanges": [
+                { "name": "budget", "value": -150 },
+                { "name": "accuracy", "value": 100 },
+                { "name": "efficiency", "value": -20 }
+              ]
+            },
+            "text": { "en": "Acquire the premium dataset, despite the cost.", "es": "Adquirir el conjunto de datos premium, a pesar del costo.", "hi": "लागत के बावजूद प्रीमियम डेटासेट प्राप्त करें।", "ta": "செலவைப் பொருட்படுத்தாமல் பிரீமியம் தரவுத்தொகுப்பைப் பெறுங்கள்." }
+          },
+          {
+            "outcome": {
+              "explanation": { "en": "You saved significant budget by avoiding the premium dataset. While your current models remain stable, you've missed out on a potential leap in quality, and future accuracy improvements might be harder to achieve with existing data.", "es": "Ahorró un presupuesto significativo al evitar el conjunto de datos premium. Si bien sus modelos actuales permanecen estables, se ha perdido un posible salto en la calidad y las futuras mejoras de precisión podrían ser más difíciles de lograr con los datos existentes.", "hi": "आपने प्रीमियम डेटासेट से बचकर महत्वपूर्ण बजट बचाया। जबकि आपके वर्तमान मॉडल स्थिर रहते हैं, आपने गुणवत्ता में एक संभावित छलांग खो दी है, और मौजूदा डेटा के साथ भविष्य में सटीकता में सुधार प्राप्त करना कठिन हो सकता है।", "ta": "பிரீமியம் தரவுத்தொகுப்பைத் தவிர்ப்பதன் மூலம் நீங்கள் குறிப்பிடத்தக்க பட்ஜெட்டைச் சேமித்துள்ளீர்கள். உங்கள் தற்போதைய மாதிரிகள் நிலையானதாக இருந்தாலும், தரத்தில் ஒரு சாத்தியமான பாய்ச்சலை நீங்கள் இழந்துவிட்டீர்கள், மேலும் தற்போதுள்ள தரவுகளுடன் எதிர்கால துல்லிய மேம்பாடுகளை அடைவது கடினமாக இருக்கலாம்." },
+              "resourceChanges": [
+                { "name": "budget", "value": 20 },
+                { "name": "accuracy", "value": -30 },
+                { "name": "efficiency", "value": 10 }
+              ]
+            },
+            "text": { "en": "Decline the premium dataset and rely on existing sources.", "es": "Rechazar el conjunto de datos premium y confiar en las fuentes existentes.", "hi": "प्रीमियम डेटासेट को अस्वीकार करें और मौजूदा स्रोतों पर भरोसा करें।", "ta": "பிரீமியம் தரவுத்தொகுப்பை நிராகரித்து, தற்போதுள்ள மூலங்களை நம்பியிருங்கள்." }
+          }
+        ],
+        "description": { "en": "Your data acquisition team has discovered a highly curated, premium dataset from an external vendor. It promises exceptional relevance and quality for your next AI model, but its licensing fee is substantial. Acquiring it would drain a significant portion of your remaining budget for this phase.", "es": "Su equipo de adquisición de datos ha descubierto un conjunto de datos premium y altamente seleccionado de un proveedor externo. Promete una relevancia y calidad excepcionales para su próximo modelo de IA, pero su tarifa de licencia es sustancial. Adquirirlo agotaría una parte significativa de su presupuesto restante para esta fase.", "hi": "आपकी डेटा अधिग्रहण टीम ने एक बाहरी विक्रेता से एक अत्यधिक क्यूरेटेड, प्रीमियम डेटासेट की खोज की है। यह आपके अगले एआई मॉडल के लिए असाधारण प्रासंगिकता और गुणवत्ता का वादा करता है, लेकिन इसका लाइसेंसिंग शुल्क पर्याप्त है। इसे प्राप्त करने से इस चरण के लिए आपके शेष बजट का एक महत्वपूर्ण हिस्सा खत्म हो जाएगा।", "ta": "உங்கள் தரவு கையகப்படுத்தல் குழு ஒரு வெளிப்புற விற்பனையாளரிடமிருந்து மிகவும் நிர்வகிக்கப்பட்ட, பிரீமியம் தரவுத்தொகுப்பைக் கண்டறிந்துள்ளது. இது உங்கள் அடுத்த AI மாதிரிக்கு விதிவிலக்கான பொருத்தம் மற்றும் தரத்தை உறுதியளிக்கிறது, ஆனால் அதன் உரிமக் கட்டணம் கணிசமானது. அதைப் பெறுவது இந்த கட்டத்திற்கான உங்கள் மீதமுள்ள பட்ஜெட்டின் குறிப்பிடத்தக்க பகுதியை வடிகட்டிவிடும்." },
+        "title": { "en": "The Premium Dataset Dilemma", "es": "El dilema del conjunto de datos premium", "hi": "प्रीमियम डेटासेट दुविधा", "ta": "பிரீமியம் தரவுத்தொகுப்பு குழப்பம்" },
+        "id": "data-acquisition-0",
+        "custom": false,
+        "enabled": true
+      }
+    ]
+  }
+}

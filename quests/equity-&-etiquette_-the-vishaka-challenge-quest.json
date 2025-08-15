@@ -1,0 +1,217 @@
+
+{
+  "board": {
+    "jailPosition": 10,
+    "locations": [
+      {
+        "description": { "en": "Welcome to the company! Start your journey towards a respectful workplace.", "es": "¡Bienvenido a la empresa! Comienza tu viaje hacia un lugar de trabajo respetuoso.", "hi": "कंपनी में आपका स्वागत है! एक सम्मानजनक कार्यस्थल की ओर अपनी यात्रा शुरू करें।", "ta": "நிறுவனத்திற்கு வரவேற்கிறோம்! மரியாதைக்குரிய பணியிடத்தை நோக்கிய உங்கள் பயணத்தைத் தொடங்குங்கள்." },
+        "name": { "en": "Onboarding Day", "es": "Día de Incorporación", "hi": "ऑनबोर्डिंग दिवस", "ta": "பணியாளர் அறிமுக நாள்" },
+        "type": "START"
+      },
+      {
+        "description": { "en": "Understanding the core of workplace conduct policies.", "es": "Comprender el núcleo de las políticas de conducta en el lugar de trabajo.", "hi": "कार्यस्थल आचरण नीतियों के मूल को समझना।", "ta": "பணியிட நடத்தை விதிகளின் மையத்தைப் புரிந்துகொள்வது." },
+        "name": { "en": "Policy Fundamentals", "es": "Fundamentos de la Política", "hi": "नीति के मूल सिद्धांत", "ta": "கொள்கை அடிப்படைகள்" },
+        "type": "PROPERTY",
+        "color": "bg-blue-600"
+      },
+      {
+        "description": { "en": "Community support for building a cohesive and respectful team.", "es": "Apoyo comunitario para construir un equipo cohesionado y respetuoso.", "hi": "एक एकजुट और सम्मानजनक टीम बनाने के लिए सामुदायिक समर्थन।", "ta": "ஒருங்கிணைந்த மற்றும் மரியாதைக்குரிய குழுவை உருவாக்குவதற்கான சமூக ஆதரவு." },
+        "name": { "en": "Team Harmony Fund", "es": "Fondo de Armonía del Equipo", "hi": "टीम सद्भाव निधि", "ta": "குழு நல்லிணக்க நிதி" },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "description": { "en": "Learning proactive steps to prevent harassment and discrimination.", "es": "Aprender pasos proactivos para prevenir el acoso y la discriminación.", "hi": "उत्पीड़न और भेदभाव को रोकने के लिए सक्रिय कदम सीखना।", "ta": "தொந்தரவு மற்றும் பாகுபாட்டைத் தடுக்க முன்கூட்டிய நடவடிக்கைகளைக் கற்றுக்கொள்வது." },
+        "name": { "en": "Prevention Protocols", "es": "Protocolos de Prevención", "hi": "निवारण प्रोटोकॉल", "ta": "தடுப்பு நெறிமுறைகள்" },
+        "type": "PROPERTY",
+        "color": "bg-blue-600"
+      },
+      {
+        "description": { "en": "Skipped a crucial awareness session. Pay the price in knowledge.", "es": "Te saltaste una sesión de concienciación crucial. Paga el precio en conocimiento.", "hi": "एक महत्वपूर्ण जागरूकता सत्र छोड़ दिया। ज्ञान में कीमत चुकाएं।", "ta": "ஒரு முக்கியமான விழிப்புணர்வு அமர்வைத் தவிர்த்துவிட்டீர்கள். அறிவில் விலை கொடுக்கவும்." },
+        "name": { "en": "Missed Training Penalty", "es": "Penalización por Formación Omitida", "hi": "छूटे हुए प्रशिक्षण का जुर्माना", "ta": "தவறிய பயிற்சி அபராதம்" },
+        "type": "TAX"
+      },
+      {
+        "description": { "en": "Your first point of contact for guidance and support.", "es": "Tu primer punto de contacto para orientación y apoyo.", "hi": "मार्गदर्शन और समर्थन के लिए आपका पहला संपर्क बिंदु।", "ta": "வழிகாட்டுதல் மற்றும் ஆதரவிற்கான உங்கள் முதல் தொடர்பு புள்ளி." },
+        "name": { "en": "HR Department", "es": "Departamento de RR.HH.", "hi": "मानव संसाधन विभाग", "ta": "மனிதவளத் துறை" },
+        "type": "UTILITY"
+      },
+      {
+        "description": { "en": "A dedicated space for addressing concerns fairly and confidentially.", "es": "Un espacio dedicado para abordar las preocupaciones de manera justa y confidencial.", "hi": "चिंताओं को निष्पक्ष और गोपनीय रूप से संबोधित करने के लिए एक समर्पित स्थान।", "ta": "கவலைகளை நியாயமாகவும் ரகசியமாகவும் தீர்க்க ஒரு பிரத்யேக இடம்." },
+        "name": { "en": "Grievance Redressal Point", "es": "Punto de Resolución de Quejas", "hi": "शिकायत निवारण बिंदु", "ta": "குறை தீர்க்கும் புள்ளி" },
+        "type": "PROPERTY",
+        "color": "bg-pink-600"
+      },
+      {
+        "description": { "en": "Draw a card and face a realistic workplace situation.", "es": "Saca una carta y enfréntate a una situación laboral realista.", "hi": "एक कार्ड निकालें और एक यथार्थवादी कार्यस्थल की स्थिति का सामना करें।", "ta": "ஒரு அட்டையை எடுத்து ஒரு யதார்த்தமான பணியிட சூழ்நிலையை எதிர்கொள்ளுங்கள்." },
+        "name": { "en": "Workplace Scenario Card", "es": "Carta de Escenario Laboral", "hi": "कार्यस्थल परिदृश्य कार्ड", "ta": "பணியிட காட்சி அட்டை" },
+        "type": "CHANCE"
+      },
+      {
+        "description": { "en": "The body responsible for investigating and resolving complaints.", "es": "El organismo responsable de investigar y resolver las quejas.", "hi": "शिकायतों की जांच और समाधान के लिए जिम्मेदार निकाय।", "ta": "புகார்களை விசாரித்து தீர்க்கும் பொறுப்பான அமைப்பு." },
+        "name": { "en": "Internal Committee (IC)", "es": "Comité Interno (CI)", "hi": "आंतरिक समिति (आईसी)", "ta": "உள் குழு (IC)" },
+        "type": "PROPERTY",
+        "color": "bg-pink-600"
+      },
+      {
+        "description": { "en": "An allegation has been made. Go to Reflective Corner.", "es": "Se ha hecho una acusación. Ve al Rincón de Reflexión.", "hi": "एक आरोप लगाया गया है। चिंतन कोने में जाओ।", "ta": "ஒரு குற்றச்சாட்டு சுமத்தப்பட்டுள்ளது. பிரதிபலிப்பு மூலைக்குச் செல்லுங்கள்." },
+        "name": { "en": "Misconduct Allegation", "es": "Acusación de Mala Conducta", "hi": "कदाचार का आरोप", "ta": "தவறான நடத்தை குற்றச்சாட்டு" },
+        "type": "GO_TO_JAIL"
+      },
+      {
+        "description": { "en": "Time to reflect on guidelines and responsible behavior. (Jail)", "es": "Es hora de reflexionar sobre las directrices y el comportamiento responsable. (Cárcel)", "hi": "दिशानिर्देशों और जिम्मेदार व्यवहार पर चिंतन करने का समय। (जेल)", "ta": "வழிகாட்டுதல்கள் மற்றும் பொறுப்பான நடத்தை பற்றி சிந்திக்க வேண்டிய நேரம். (சிறை)" },
+        "name": { "en": "Reflective Corner", "es": "Rincón de Reflexión", "hi": "चिंतन कोना", "ta": "பிரதிபலிப்பு மூலை" },
+        "type": "JAIL"
+      },
+      {
+        "description": { "en": "Share your thoughts and contribute to a positive environment.", "es": "Comparte tus pensamientos y contribuye a un ambiente positivo.", "hi": "अपने विचार साझा करें और एक सकारात्मक वातावरण में योगदान करें।", "ta": "உங்கள் எண்ணங்களைப் பகிர்ந்து கொண்டு நேர்மறையான சூழலுக்கு பங்களிக்கவும்." },
+        "name": { "en": "Employee Feedback Channel", "es": "Canal de Retroalimentación de Empleados", "hi": "कर्मचारी प्रतिक्रिया चैनल", "ta": "ஊழியர் பின்னூட்ட அலைவரிசை" },
+        "type": "PROPERTY",
+        "color": "bg-orange-600"
+      },
+      {
+        "description": { "en": "Participate in events celebrating our diverse workforce.", "es": "Participa en eventos que celebran nuestra fuerza laboral diversa.", "hi": "हमारे विविध कार्यबल का जश्न मनाने वाले कार्यक्रमों में भाग लें।", "ta": "எங்கள் பன்முகத்தன்மை கொண்ட தொழிலாளர்களைக் கொண்டாடும் நிகழ்வுகளில் பங்கேற்கவும்." },
+        "name": { "en": "Diversity & Inclusion Event", "es": "Evento de Diversidad e Inclusión", "hi": "विविधता और समावेशन कार्यक्रम", "ta": "பன்முகத்தன்மை மற்றும் உள்ளடக்கிய நிகழ்வு" },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "description": { "en": "Connect with experienced colleagues for guidance and support.", "es": "Conéctate con colegas experimentados para obtener orientación y apoyo.", "hi": "मार्गदर्शन और समर्थन के लिए अनुभवी सहयोगियों से जुड़ें।", "ta": "வழிகாட்டுதல் மற்றும் ஆதரவிற்காக அனுபவம் வாய்ந்த சக ஊழியர்களுடன் இணையுங்கள்." },
+        "name": { "en": "Mentorship Program", "es": "Programa de Mentoría", "hi": "मेंटरशिप कार्यक्रम", "ta": "வழிகாட்டித் திட்டம்" },
+        "type": "PROPERTY",
+        "color": "bg-orange-600"
+      },
+      {
+        "description": { "en": "For advice on complex legal aspects of workplace conduct.", "es": "Para obtener asesoramiento sobre aspectos legales complejos de la conducta en el lugar de trabajo.", "hi": "कार्यस्थल आचरण के जटिल कानूनी पहलुओं पर सलाह के लिए।", "ta": "பணியிட நடத்தையின் சிக்கலான சட்ட அம்சங்கள் குறித்த ஆலோசனைக்கு." },
+        "name": { "en": "Legal Counsel Office", "es": "Oficina de Asesoría Legal", "hi": "कानूनी सलाहकार कार्यालय", "ta": "சட்ட ஆலோசகர் அலுவலகம்" },
+        "type": "UTILITY"
+      },
+      {
+        "description": { "en": "Learn how to safely and effectively intervene in inappropriate situations.", "es": "Aprende a intervenir de manera segura y efectiva en situaciones inapropiadas.", "hi": "अनुचित स्थितियों में सुरक्षित और प्रभावी ढंग से हस्तक्षेप करना सीखें।", "ta": "பொருத்தமற்ற சூழ்நிலைகளில் பாதுகாப்பாகவும் திறமையாகவும் தலையிடுவது எப்படி என்பதைக் கற்றுக்கொள்ளுங்கள்." },
+        "name": { "en": "Bystander Intervention Training", "es": "Capacitación en Intervención de Testigos", "hi": "दर्शक हस्तक्षेप प्रशिक्षण", "ta": "பார்வையாளர் தலையீட்டுப் பயிற்சி" },
+        "type": "PROPERTY",
+        "color": "bg-red-600"
+      },
+      {
+        "description": { "en": "Draw a card and deal with an unexpected workplace incident.", "es": "Saca una carta y lidia con un incidente laboral inesperado.", "hi": "एक कार्ड निकालें और एक अप्रत्याशित कार्यस्थल घटना से निपटें।", "ta": "ஒரு அட்டையை எடுத்து எதிர்பாராத பணியிட சம்பவத்தைச் சமாளிக்கவும்." },
+        "name": { "en": "Workplace Incident Card", "es": "Carta de Incidente Laboral", "hi": "कार्यस्थल घटना कार्ड", "ta": "பணியிட சம்பவ அட்டை" },
+        "type": "CHANCE"
+      },
+      {
+        "description": { "en": "Contributing to continuous improvement of workplace safety policies.", "es": "Contribuir a la mejora continua de las políticas de seguridad en el lugar de trabajo.", "hi": "कार्यस्थल सुरक्षा नीतियों के निरंतर सुधार में योगदान देना।", "ta": "பணியிட பாதுகாப்பு கொள்கைகளின் தொடர்ச்சியான முன்னேற்றத்திற்கு பங்களித்தல்." },
+        "name": { "en": "Preventive Measures Taskforce", "es": "Grupo de Trabajo de Medidas Preventivas", "hi": "निवारक उपाय कार्यबल", "ta": "தடுப்பு நடவடிக்கைகள் பணிக்குழு" },
+        "type": "PROPERTY",
+        "color": "bg-red-600"
+      },
+      {
+        "description": { "en": "Actions have consequences. A lapse in judgment costs reputation.", "es": "Las acciones tienen consecuencias. Un lapso en el juicio cuesta la reputación.", "hi": "कार्यों के परिणाम होते हैं। निर्णय में एक चूक प्रतिष्ठा को नुकसान पहुंचाती है।", "ta": "செயல்களுக்கு விளைவுகள் உண்டு. தீர்ப்பில் ஒரு தவறு நற்பெயருக்கு செலவாகும்." },
+        "name": { "en": "Reputational Damage Fine", "es": "Multa por Daño a la Reputación", "hi": "प्रतिष्ठा क्षति जुर्माना", "ta": "நற்பெயர் பாதிப்பு அபராதம்" },
+        "type": "TAX"
+      },
+      {
+        "description": { "en": "A day to celebrate collective efforts in building a respectful and inclusive environment.", "es": "Un día para celebrar los esfuerzos colectivos en la construcción de un entorno respetuoso e inclusivo.", "hi": "एक सम्मानजनक और समावेशी वातावरण बनाने में सामूहिक प्रयासों का जश्न मनाने का दिन।", "ta": "மரியாதைக்குரிய மற்றும் உள்ளடக்கிய சூழலை உருவாக்குவதில் கூட்டு முயற்சிகளைக் கொண்டாட ஒரு நாள்." },
+        "name": { "en": "Positive Workplace Culture Day", "es": "Día de la Cultura Laboral Positiva", "hi": "सकारात्मक कार्यस्थल संस्कृति दिवस", "ta": "நேர்மறையான பணியிட கலாச்சார நாள்" },
+        "type": "FREE_PARKING"
+      }
+    ]
+  },
+  "chanceCards": [
+    {
+      "description": { "en": "You proactively reported a potentially discriminatory remark. Your vigilance is rewarded!", "es": "Informaste proactivamente de un comentario potencialmente discriminatorio. ¡Tu vigilancia es recompensada!", "hi": "आपने सक्रिय रूप से एक संभावित भेदभावपूर्ण टिप्पणी की सूचना दी। आपकी सतर्कता को पुरस्कृत किया जाता है!", "ta": "சாத்தியமான பாகுபாடான கருத்தை நீங்கள் முன்கூட்டியே புகாரளித்தீர்கள். உங்கள் விழிப்புணர்வு வெகுமதி அளிக்கப்படுகிறது!" },
+      "resourceChanges": [
+        { "name": "awareness", "value": 20 },
+        { "name": "trust", "value": 10 }
+      ]
+    },
+    {
+      "description": { "en": "Missed an important update on recent policy changes. A lapse in your awareness.", "es": "Te perdiste una actualización importante sobre cambios recientes en la política. Un lapso en tu conciencia.", "hi": "हालिया नीति परिवर्तनों पर एक महत्वपूर्ण अपडेट छूट गया। आपकी जागरूकता में एक चूक।", "ta": "சமீபத்திய கொள்கை மாற்றங்கள் குறித்த ஒரு முக்கியமான புதுப்பிப்பைத் தவறவிட்டீர்கள். உங்கள் விழிப்புணர்வில் ஒரு குறைபாடு." },
+      "resourceChanges": [
+        { "name": "awareness", "value": -15 }
+      ]
+    }
+  ],
+  "description": { "en": "Navigate the workplace, understand your rights and responsibilities, and build a safe environment guided by the Vishaka Guidelines.", "es": "Navega por el lugar de trabajo, comprende tus derechos y responsabilidades, y construye un entorno seguro guiado por las Directrices de Vishaka.", "hi": "कार्यस्थल को नेविगेट करें, अपने अधिकारों और जिम्मेदारियों को समझें, और विशाखा दिशानिर्देशों द्वारा निर्देशित एक सुरक्षित वातावरण का निर्माण करें।", "ta": "பணியிடத்தில் செல்லவும், உங்கள் உரிமைகள் மற்றும் பொறுப்புகளைப் புரிந்து கொள்ளவும், மற்றும் விஷாகா வழிகாட்டுதல்களால் வழிநடத்தப்படும் ஒரு பாதுகாப்பான சூழலை உருவாக்கவும்." },
+  "footerSections": [
+    {
+      "content": { "en": "<strong>Objective:</strong> Navigate the workplace board, manage your resources (Awareness, Trust, Wellbeing), and learn about ethical conduct based on the Vishaka Guidelines. The player who best demonstrates understanding and maintains a positive impact on the workplace wins. <ul><li><strong>Movement:</strong> Roll the dice and move your token.</li><li><strong>Spaces:</strong> Land on 'Policy' spaces to acquire knowledge, 'Utility' for support, 'Tax' for penalties, and 'Card' spaces for unexpected events.</li><li><strong>Resources:</strong> Gain 'Awareness' by engaging with policies and training. Build 'Trust' through responsible actions and fostering a safe environment. Maintain 'Wellbeing' by contributing positively and seeking support.</li><li><strong>Going to Reflective Corner:</strong> If you land on 'Misconduct Allegation' or draw a card sending you there, you must reflect for a turn, losing some 'Wellbeing'.</li><li><strong>Bankruptcy:</strong> If any resource drops to 0, you lose the game, indicating a failure to uphold workplace standards.</li></ul>", "es": "<strong>Objetivo:</strong> Navega por el tablero del lugar de trabajo, gestiona tus recursos (Conciencia, Confianza, Bienestar) y aprende sobre la conducta ética basada en las Directrices de Vishaka. El jugador que mejor demuestre comprensión y mantenga un impacto positivo en el lugar de trabajo gana. <ul><li><strong>Movimiento:</strong> Lanza los dados y mueve tu ficha.</li><li><strong>Casillas:</strong> Aterriza en casillas de 'Política' para adquirir conocimientos, 'Utilidad' para obtener apoyo, 'Impuestos' para penalizaciones y casillas de 'Carta' para eventos inesperados.</li><li><strong>Recursos:</strong> Gana 'Conciencia' participando en políticas y formación. Construye 'Confianza' a través de acciones responsables y fomentando un entorno seguro. Mantén el 'Bienestar' contribuyendo positivamente y buscando apoyo.</li><li><strong>Ir al Rincón de Reflexión:</strong> Si aterrizas en 'Acusación de Mala Conducta' o sacas una carta que te envía allí, debes reflexionar durante un turno, perdiendo algo de 'Bienestar'.</li><li><strong>Bancarrota:</strong> Si algún recurso cae a 0, pierdes el juego, lo que indica un fracaso en el mantenimiento de los estándares del lugar de trabajo.</li></ul>", "hi": "<strong>उद्देश्य:</strong> कार्यस्थल बोर्ड को नेविगेट करें, अपने संसाधनों (जागरूकता, विश्वास, कल्याण) का प्रबंधन करें, और विशाखा दिशानिर्देशों के आधार पर नैतिक आचरण के बारे में जानें। जो खिलाड़ी सबसे अच्छी समझ प्रदर्शित करता है और कार्यस्थल पर सकारात्मक प्रभाव बनाए रखता है, वह जीतता है। <ul><li><strong>गति:</strong> पासा फेंकें और अपनी गोटी चलाएं।</li><li><strong>स्थान:</strong> ज्ञान प्राप्त करने के लिए 'नीति' स्थानों पर, समर्थन के लिए 'उपयोगिता', दंड के लिए 'कर', और अप्रत्याशित घटनाओं के लिए 'कार्ड' स्थानों पर उतरें।</li><li><strong>संसाधन:</strong> नीतियों और प्रशिक्षण के साथ जुड़कर 'जागरूकता' प्राप्त करें। जिम्मेदार कार्यों और एक सुरक्षित वातावरण को बढ़ावा देकर 'विश्वास' बनाएं। सकारात्मक योगदान और समर्थन मांगकर 'कल्याण' बनाए रखें।</li><li><strong>चिंतन कोने में जाना:</strong> यदि आप 'कदाचार का आरोप' पर उतरते हैं या आपको वहां भेजने वाला कार्ड निकालते हैं, तो आपको एक बारी के लिए चिंतन करना होगा, जिससे कुछ 'कल्याण' खो जाएगा।</li><li><strong>दिवालियापन:</strong> यदि कोई संसाधन 0 पर आ जाता है, तो आप खेल हार जाते हैं, जो कार्यस्थल मानकों को बनाए रखने में विफलता का संकेत देता है।</li></ul>", "ta": "<strong>நோக்கம்:</strong> பணியிட பலகையை வழிநடத்துங்கள், உங்கள் வளங்களை (விழிப்புணர்வு, நம்பிக்கை, நல்வாழ்வு) நிர்வகிக்கவும், மற்றும் விஷாகா வழிகாட்டுதல்களின் அடிப்படையில் நெறிமுறை நடத்தை பற்றி அறியவும். சிறந்த புரிதலை வெளிப்படுத்தி பணியிடத்தில் நேர்மறையான தாக்கத்தை பராமரிக்கும் வீரர் வெற்றி பெறுவார். <ul><li><strong>நகர்வு:</strong> பகடையை உருட்டி உங்கள் டோக்கனை நகர்த்தவும்.</li><li><strong>இடங்கள்:</strong> அறிவைப் பெற 'கொள்கை' இடங்களிலும், ஆதரவிற்காக 'பயன்பாடு', அபராதங்களுக்கு 'வரி', மற்றும் எதிர்பாராத நிகழ்வுகளுக்கு 'அட்டை' இடங்களிலும் இறங்கவும்.</li><li><strong>வளங்கள்:</strong> கொள்கைகள் மற்றும் பயிற்சிகளில் ஈடுபடுவதன் மூலம் 'விழிப்புணர்வை'ப் பெறுங்கள். பொறுப்பான செயல்கள் மற்றும் பாதுகாப்பான சூழலை வளர்ப்பதன் மூலம் 'நம்பிக்கையை' உருவாக்குங்கள். நேர்மறையாக பங்களிப்பதன் மூலமும் ஆதரவைத் தேடுவதன் மூலமும் 'நல்வாழ்வைப்' பராமரிக்கவும்.</li><li><strong>பிரதிபலிப்பு மூலைக்குச் செல்லுதல்:</strong> நீங்கள் 'தவறான நடத்தை குற்றச்சாட்டு' மீது இறங்கினால் அல்லது உங்களை அங்கு அனுப்பும் ஒரு அட்டையை எடுத்தால், நீங்கள் ஒரு திருப்பத்திற்கு பிரதிபலிக்க வேண்டும், சில 'நல்வாழ்வை' இழக்க நேரிடும்.</li><li><strong>திவால்:</strong> ஏதேனும் வளம் 0 ஆகக் குறைந்தால், நீங்கள் விளையாட்டை இழக்கிறீர்கள், இது பணியிடத் தரங்களைப் பராமரிக்கத் தவறியதைக் குறிக்கிறது.</li></ul>" },
+      "title": { "en": "Rules", "es": "Reglas", "hi": "नियम", "ta": "விதிகள்" }
+    },
+    {
+      "content": { "en": "This game is designed to introduce employees to the core principles and importance of the <strong>Vishaka Guidelines</strong>. These guidelines, laid down by the Supreme Court of India in 1997, were a landmark judgment to provide a framework for preventing sexual harassment of women in the workplace until a legislative act was enacted. They emphasize the employer's responsibility to provide a safe working environment and established the Internal Complaints Committee (ICC). The subsequent <strong>Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013</strong>, formalized these guidelines into law. Through interactive scenarios and resource management, 'Equity & Etiquette' aims to foster a deeper understanding of respectful conduct, grievance redressal mechanisms, and the collective responsibility in building an inclusive and safe professional environment for everyone. Our aim is to promote awareness and empower employees to contribute positively to workplace culture.", "es": "Este juego está diseñado para presentar a los empleados los principios básicos y la importancia de las <strong>Directrices de Vishaka</strong>. Estas directrices, establecidas por el Tribunal Supremo de la India en 1997, fueron una sentencia histórica para proporcionar un marco para prevenir el acoso sexual de las mujeres en el lugar de trabajo hasta que se promulgara una ley legislativa. Hacen hincapié en la responsabilidad del empleador de proporcionar un entorno de trabajo seguro y establecieron el Comité Interno de Quejas (ICC). La posterior <strong>Ley de Acoso Sexual de Mujeres en el Lugar de Trabajo (Prevención, Prohibición y Reparación) de 2013</strong>, formalizó estas directrices en ley. A través de escenarios interactivos y gestión de recursos, 'Equidad y Etiqueta' tiene como objetivo fomentar una comprensión más profunda de la conducta respetuosa, los mecanismos de resolución de quejas y la responsabilidad colectiva en la construcción de un entorno profesional inclusivo y seguro para todos. Nuestro objetivo es promover la conciencia y capacitar a los empleados para que contribuyan positivamente a la cultura del lugar de trabajo.", "hi": "यह खेल कर्मचारियों को <strong>विशाखा दिशानिर्देशों</strong> के मूल सिद्धांतों और महत्व से परिचित कराने के लिए डिज़ाइन किया गया है। 1997 में भारत के सर्वोच्च न्यायालय द्वारा निर्धारित ये दिशानिर्देश, एक विधायी अधिनियम लागू होने तक कार्यस्थल पर महिलाओं के यौन उत्पीड़न को रोकने के लिए एक रूपरेखा प्रदान करने के लिए एक ऐतिहासिक निर्णय थे। वे एक सुरक्षित कार्य वातावरण प्रदान करने और आंतरिक शिकायत समिति (आईसीसी) की स्थापना के लिए नियोक्ता की जिम्मेदारी पर जोर देते हैं। बाद में <strong>कार्यस्थल पर महिलाओं का यौन उत्पीड़न (रोकथाम, निषेध और निवारण) अधिनियम, 2013</strong> ने इन दिशानिर्देशों को कानून में औपचारिक रूप दिया। इंटरैक्टिव परिदृश्यों और संसाधन प्रबंधन के माध्यम से, 'इक्विटी एंड एटिकेट' का उद्देश्य सम्मानजनक आचरण, शिकायत निवारण तंत्र, और सभी के लिए एक समावेशी और सुरक्षित पेशेवर वातावरण बनाने में सामूहिक जिम्मेदारी की गहरी समझ को बढ़ावा देना है। हमारा उद्देश्य जागरूकता को बढ़ावा देना और कर्मचारियों को कार्यस्थल संस्कृति में सकारात्मक योगदान देने के लिए सशक्त बनाना है।", "ta": "இந்த விளையாட்டு ஊழியர்களுக்கு <strong>விஷாகா வழிகாட்டுதல்களின்</strong> முக்கியக் கோட்பாடுகள் மற்றும் முக்கியத்துவத்தை அறிமுகப்படுத்த வடிவமைக்கப்பட்டுள்ளது. 1997 இல் இந்திய உச்ச நீதிமன்றத்தால் வகுக்கப்பட்ட இந்த வழிகாட்டுதல்கள், ஒரு சட்டமியற்றும் சட்டம் இயற்றப்படும் வரை பணியிடத்தில் பெண்களின் பாலியல் துன்புறுத்தலைத் தடுப்பதற்கான ஒரு கட்டமைப்பை வழங்குவதற்கான ஒரு மைல்கல் தீர்ப்பாகும். அவை ஒரு பாதுகாப்பான பணிச்சூழலை வழங்குவதற்கான முதலாளியின் பொறுப்பை வலியுறுத்துகின்றன மற்றும் உள் Beschwerde கமிட்டியை (ICC) நிறுவின. அடுத்தடுத்த <strong>பணியிடத்தில் பெண்களின் பாலியல் துன்புறுத்தல் (தடுப்பு, தடை மற்றும் தீர்வு) சட்டம், 2013</strong>, இந்த வழிகாட்டுதல்களை சட்டமாக முறைப்படுத்தியது. ஊடாடும் காட்சிகள் மற்றும் வள மேலாண்மை மூலம், 'சமபங்கு மற்றும் நன்னடத்தை' மரியாதைக்குரிய நடத்தை, குறை தீர்க்கும் வழிமுறைகள் மற்றும் அனைவருக்கும் உள்ளடக்கிய மற்றும் பாதுகாப்பான தொழில்முறை சூழலை உருவாக்குவதில் கூட்டுப் பொறுப்பு பற்றிய ஆழமான புரிதலை வளர்ப்பதை நோக்கமாகக் கொண்டுள்ளது. எங்கள் நோக்கம் விழிப்புணர்வை ஊக்குவிப்பதும், பணியிடக் கலாச்சாரத்திற்கு நேர்மறையாக பங்களிக்க ஊழியர்களுக்கு அதிகாரம் அளிப்பதும் ஆகும்." },
+      "title": { "en": "About", "es": "Acerca de", "hi": "के बारे में", "ta": "பற்றி" }
+    }
+  ],
+  "name": { "en": "Equity & Etiquette: The Vishaka Challenge", "es": "Equidad y Etiqueta: El Desafío Vishaka", "hi": "इक्विटी और शिष्टाचार: विशाखा चुनौती", "ta": "சமபங்கு மற்றும் நன்னடத்தை: விஷாகா சவால்" },
+  "playerColors": [
+    "text-red-600",
+    "text-blue-600",
+    "text-green-600",
+    "text-yellow-600"
+  ],
+  "resources": [
+    {
+      "barColor": "bg-blue-500",
+      "icon": "InfoIcon",
+      "initialValue": 100,
+      "name": { "en": "Awareness", "es": "Conciencia", "hi": "जागरूकता", "ta": "விழிப்புணர்வு" },
+      "maximumValue": 200,
+      "minimumValue": 0
+    },
+    {
+      "barColor": "bg-green-500",
+      "icon": "MoneyIcon",
+      "initialValue": 100,
+      "name": { "en": "Trust", "es": "Confianza", "hi": "विश्वास", "ta": "நம்பிக்கை" },
+      "maximumValue": 200,
+      "minimumValue": 0
+    },
+    {
+      "barColor": "bg-purple-500",
+      "icon": "TimeIcon",
+      "initialValue": 100,
+      "name": { "en": "Wellbeing", "es": "Bienestar", "hi": "कल्याण", "ta": "நல்வாழ்வு" },
+      "maximumValue": 200,
+      "minimumValue": 0
+    }
+  ],
+  "communityChestCards": [
+    {
+      "description": { "en": "Company-wide 'Speak Up' campaign launched. Everyone gains courage to report.", "es": "Se lanzó la campaña 'Habla' en toda la empresa. Todos ganan valor para informar.", "hi": "कंपनी-व्यापी 'बोलो' अभियान शुरू किया गया। सभी को रिपोर्ट करने का साहस मिलता है।", "ta": "நிறுவனம் தழுவிய 'குரல் கொடு' பிரச்சாரம் தொடங்கப்பட்டது. புகாரளிக்க அனைவருக்கும் தைரியம் கிடைக்கிறது." },
+      "resourceChanges": [
+        { "name": "awareness", "value": 15 },
+        { "name": "trust", "value": 10 }
+      ]
+    },
+    {
+      "description": { "en": "Employee recognition for fostering an inclusive environment. Feel good and inspire others!", "es": "Reconocimiento de empleados por fomentar un entorno inclusivo. ¡Siéntete bien e inspira a otros!", "hi": "एक समावेशी वातावरण को बढ़ावा देने के लिए कर्मचारी मान्यता। अच्छा महसूस करें और दूसरों को प्रेरित करें!", "ta": "ஒரு உள்ளடக்கிய சூழலை வளர்ப்பதற்காக ஊழியர் அங்கீகாரம். நன்றாக உணருங்கள் மற்றும் மற்றவர்களை ஊக்குவிக்கவும்!" },
+      "resourceChanges": [
+        { "name": "wellbeing", "value": 25 },
+        { "name": "trust", "value": 5 }
+      ]
+    }
+  ],
+  "groundingInReality": true,
+  "positivity": 0.5,
+  "pregeneratedScenarios": {
+    "Policy Fundamentals": [
+      {
+        "title": { "en": "The Unnoticed Policy Gap", "es": "La Brecha de Política Inadvertida", "hi": "अनदेखी नीतिगत खामी", "ta": "கவனிக்கப்படாத கொள்கை இடைவெளி" },
+        "description": { "en": "You've just joined \"Policy Fundamentals,\" a company committed to a safe workplace. During an introductory session, you notice a senior manager making a series of comments that, while not overtly aggressive, create an uncomfortable atmosphere for a colleague. You recall hearing about workplace policies, but the company's internal portal seems to lack clear information on how to report such incidents or who constitutes the Internal Complaints Committee (ICC), which is a key body mandated by the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, stemming from the Vishaka Guidelines. The Supreme Court recently highlighted \"serious lapses\" in the enforcement of this Act across many organizations, urging immediate compliance. [17] You wonder if this company is one of them.", "es": "Acabas de unirte a \"Fundamentos de la Política\", una empresa comprometida con un lugar de trabajo seguro. Durante una sesión introductoria, notas que un gerente senior hace una serie de comentarios que, aunque no son abiertamente agresivos, crean una atmósfera incómoda para un colega. Recuerdas haber oído hablar de las políticas del lugar de trabajo, pero el portal interno de la empresa parece carecer de información clara sobre cómo informar de tales incidentes o quién constituye el Comité Interno de Quejas (ICC), que es un organismo clave exigido por la Ley de Acoso Sexual de Mujeres en el Lugar de Trabajo (Prevención, Prohibición y Reparación) de 2013, derivada de las Directrices de Vishaka. El Tribunal Supremo destacó recientemente \"graves deficiencias\" en la aplicación de esta Ley en muchas organizaciones, instando al cumplimiento inmediato. [17] Te preguntas si esta empresa es una de ellas.", "hi": "आपने अभी-अभी \"नीति के मूल सिद्धांत\" नामक एक कंपनी में शामिल हुए हैं, जो एक सुरक्षित कार्यस्थल के लिए प्रतिबद्ध है। एक परिचयात्मक सत्र के दौरान, आप देखते हैं कि एक वरिष्ठ प्रबंधक कई ऐसी टिप्पणियां करता है, जो खुले तौर पर आक्रामक न होते हुए भी, एक सहकर्मी के लिए एक असहज माहौल बनाती हैं। आपको कार्यस्थल की नीतियों के बारे में सुनने की याद है, लेकिन कंपनी के आंतरिक पोर्टल पर ऐसी घटनाओं की रिपोर्ट कैसे करें या आंतरिक शिकायत समिति (आईसीसी) में कौन शामिल है, इस बारे में स्पष्ट जानकारी का अभाव लगता है, जो कि विशाखा दिशानिर्देशों से उपजा कार्यस्थल पर महिलाओं का यौन उत्पीड़न (रोकथाम, निषेध और निवारण) अधिनियम, 2013 द्वारा अनिवार्य एक प्रमुख निकाय है। सुप्रीम कोर्ट ने हाल ही में कई संगठनों में इस अधिनियम के प्रवर्तन में \"गंभीर चूकों\" पर प्रकाश डाला, और तत्काल अनुपालन का आग्रह किया। [17] आप सोचते हैं कि क्या यह कंपनी उनमें से एक है।", "ta": "நீங்கள் இப்போதுதான் \"கொள்கை அடிப்படைகள்\" என்ற நிறுவனத்தில் சேர்ந்துள்ளீர்கள், இது ஒரு பாதுகாப்பான பணியிடத்திற்கு உறுதியளித்துள்ளது. ஒரு அறிமுக அமர்வின் போது, ஒரு மூத்த மேலாளர் வெளிப்படையாக ஆக்கிரோஷமாக இல்லாவிட்டாலும், ஒரு சக ஊழியருக்கு சங்கடமான சூழ்நிலையை உருவாக்கும் தொடர்ச்சியான கருத்துக்களை வெளியிடுவதை நீங்கள் கவனிக்கிறீர்கள். பணியிடக் கொள்கைகளைப் பற்றி கேள்விப்பட்டதை நீங்கள் நினைவுகூர்கிறீர்கள், ஆனால் நிறுவனத்தின் உள் போர்ட்டலில் இதுபோன்ற சம்பவங்களைப் புகாரளிப்பது எப்படி அல்லது விஷாகா வழிகாட்டுதல்களிலிருந்து உருவான பணியிடத்தில் பெண்களின் பாலியல் துன்புறுத்தல் (தடுப்பு, தடை மற்றும் தீர்வு) சட்டம், 2013 ஆல் கட்டாயப்படுத்தப்பட்ட ஒரு முக்கிய அமைப்பான உள் புகார்கள் குழு (ICC) யார் என்பது குறித்த தெளிவான தகவல்கள் இல்லை என்று தெரிகிறது. உச்ச நீதிமன்றம் சமீபத்தில் பல நிறுவனங்களில் இந்தச் சட்டத்தை அமல்படுத்துவதில் \"கடுமையான குறைபாடுகளை\" எடுத்துரைத்தது, உடனடி இணக்கத்தை வலியுறுத்தியது. [17] இந்த நிறுவனம் அவர்களில் ஒன்றா என்று நீங்கள் ஆச்சரியப்படுகிறீர்கள்." },
+        "choices": [
+          {
+            "text": { "en": "Discreetly inquire with HR about the functioning and composition of the ICC and the official policy for addressing workplace misconduct.", "es": "Preguntar discretamente a RR.HH. sobre el funcionamiento y la composición del ICC y la política oficial para abordar la mala conducta en el lugar de trabajo.", "hi": "आईसीसी के कामकाज और संरचना और कार्यस्थल पर कदाचार को संबोधित करने की आधिकारिक नीति के बारे में मानव संसाधन से सावधानी से पूछताछ करें।", "ta": "ஐசிசியின் செயல்பாடு மற்றும் கலவை மற்றும் பணியிடத் தவறான நடத்தையை நிவர்த்தி செய்வதற்கான அதிகாரப்பூர்வ கொள்கை குறித்து மனிதவளத் துறையிடம் விவேகமாக விசாரிக்கவும்." },
+            "outcome": {
+              "explanation": { "en": "By taking a proactive approach to understand the policy and the ICC's structure, you demonstrate awareness and contribute to a safer environment. You discover that while the company has a policy on paper, the ICC's members haven't been adequately trained or publicized, reflecting the \"serious lapses\" noted by the Supreme Court. Your inquiry prompts a review. [17]", "es": "Al adoptar un enfoque proactivo para comprender la política y la estructura del ICC, demuestras conciencia y contribuyes a un entorno más seguro. Descubres que, si bien la empresa tiene una política en papel, los miembros del ICC no han sido capacitados o publicitados adecuadamente, lo que refleja las \"graves deficiencias\" señaladas por el Tribunal Supremo. Tu consulta provoca una revisión. [17]", "hi": "नीति और आईसीसी की संरचना को समझने के लिए एक सक्रिय दृष्टिकोण अपनाकर, आप जागरूकता प्रदर्शित करते हैं और एक सुरक्षित वातावरण में योगदान करते हैं। आप पाते हैं कि जबकि कंपनी के पास कागज पर एक नीति है, आईसीसी के सदस्यों को पर्याप्त रूप से प्रशिक्षित या प्रचारित नहीं किया गया है, जो सुप्रीम कोर्ट द्वारा नोट की गई \"गंभीर चूकों\" को दर्शाता है। आपकी पूछताछ एक समीक्षा को प्रेरित करती है। [17]", "ta": "கொள்கை மற்றும் ஐசிசியின் கட்டமைப்பைப் புரிந்துகொள்ள ஒரு முன்கூட்டிய அணுகுமுறையை மேற்கொள்வதன் மூலம், நீங்கள் விழிப்புணர்வை வெளிப்படுத்தி பாதுகாப்பான சூழலுக்கு பங்களிக்கிறீர்கள். நிறுவனம் காகிதத்தில் ஒரு கொள்கையைக் கொண்டிருந்தாலும், ஐசிசியின் உறுப்பினர்கள் போதுமான அளவு பயிற்சி பெறவில்லை அல்லது விளம்பரப்படுத்தப்படவில்லை என்பதை நீங்கள் கண்டறிகிறீர்கள், இது உச்ச நீதிமன்றத்தால் குறிப்பிடப்பட்ட \"கடுமையான குறைபாடுகளை\" பிரதிபலிக்கிறது. உங்கள் விசாரணை ஒரு மதிப்பாய்வைத் தூண்டுகிறது. [17]" },
+              "resourceChanges": [
+                { "name": "awareness", "value": 2 },
+                { "name": "trust", "value": 1 },
+                { "name": "wellbeing", "value": 1 }
+              ]
+            }
+          }
+        ],
+        "id": "policy-fundamentals-0",
+        "custom": false,
+        "enabled": true
+      }
+    ]
+  }
+}

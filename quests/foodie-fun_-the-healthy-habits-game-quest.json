@@ -1,0 +1,103 @@
+
+{
+  "board": {
+    "jailPosition": 6,
+    "locations": [
+      {
+        "description": { "en": "Start your journey towards a healthier family diet. Collect your initial resources as you pass by or land here.", "es": "Comienza tu viaje hacia una dieta familiar más saludable. Recoge tus recursos iniciales al pasar o aterrizar aquí.", "hi": "एक स्वस्थ पारिवारिक आहार की ओर अपनी यात्रा शुरू करें। यहाँ से गुजरते या उतरते समय अपने प्रारंभिक संसाधन एकत्र करें।", "ta": "ஆரோக்கியமான குடும்ப உணவு முறையை நோக்கிய உங்கள் பயணத்தைத் தொடங்குங்கள். நீங்கள் கடந்து செல்லும்போது அல்லது இங்கே இறங்கும்போது உங்கள் ஆரம்ப வளங்களை சேகரிக்கவும்." },
+        "name": { "en": "Family Kitchen Prep", "es": "Preparación en la Cocina Familiar", "hi": "पारिवारिक रसोई की तैयारी", "ta": "குடும்ப சமையலறை தயாரிப்பு" },
+        "type": "START"
+      },
+      {
+        "description": { "en": "A quick and delicious option to start the day right. Invest in nutritious breakfast choices.", "es": "Una opción rápida y deliciosa para empezar bien el día. Invierte en opciones de desayuno nutritivas.", "hi": "दिन की सही शुरुआत के लिए एक त्वरित और स्वादिष्ट विकल्प। पौष्टिक नाश्ते के विकल्पों में निवेश करें।", "ta": "நாளை சரியாகத் தொடங்க ஒரு விரைவான மற்றும் சுவையான வழி. சத்தான காலை உணவுத் தேர்வுகளில் முதலீடு செய்யுங்கள்." },
+        "name": { "en": "Morning Munchies", "es": "Bocadillos Matutinos", "hi": "सुबह का नाश्ता", "ta": "காலைச் சிற்றுண்டிகள்" },
+        "type": "PROPERTY",
+        "color": "bg-red-500"
+      },
+      {
+        "description": { "en": "Load up on essential vitamins and fiber with a delightful fruit-filled breakfast.", "es": "Cárgate de vitaminas y fibra esenciales con un delicioso desayuno lleno de frutas.", "hi": "एक रमणीय फल से भरे नाश्ते के साथ आवश्यक विटामिन और फाइबर से भरपूर हो जाएं।", "ta": "ஒரு மகிழ்ச்சியான பழம் நிறைந்த காலை உணவுடன் அத்தியாவசிய வைட்டமின்கள் மற்றும் நார்ச்சத்துக்களை ஏற்றிக்கொள்ளுங்கள்." },
+        "name": { "en": "Fruity Breakfast Bar", "es": "Barra de Desayuno Frutal", "hi": "फ्रूटी ब्रेकफास्ट बार", "ta": "பழ காலை உணவு பார்" },
+        "type": "PROPERTY",
+        "color": "bg-red-500"
+      },
+      {
+        "description": { "en": "Draw a card that offers a 'Nutrition Nudge' or a tricky food challenge.", "es": "Saca una carta que ofrezca un 'Empujón Nutricional' o un desafío alimentario complicado.", "hi": "एक कार्ड निकालें जो 'पोषण संकेत' या एक मुश्किल भोजन चुनौती प्रदान करता है।", "ta": "ஒரு 'ஊட்டச்சத்து உந்துதல்' அல்லது ஒரு தந்திரமான உணவு சவாலை வழங்கும் ஒரு அட்டையை எடுக்கவும்." },
+        "name": { "en": "Nutrition Nudge", "es": "Empujón Nutricional", "hi": "पोषण संकेत", "ta": "ஊட்டச்சத்து உந்துதல்" },
+        "type": "CHANCE"
+      },
+      {
+        "description": { "en": "Craft a balanced and satisfying lunch without compromising on health or flavor.", "es": "Elabora un almuerzo equilibrado y satisfactorio sin comprometer la salud o el sabor.", "hi": "स्वास्थ्य या स्वाद से समझौता किए बिना एक संतुलित और संतोषजनक दोपहर का भोजन तैयार करें।", "ta": "உடல்நலம் அல்லது சுவையில் சமரசம் செய்யாமல் ஒரு சீரான மற்றும் திருப்திகரமான மதிய உணவைத் தயாரிக்கவும்." },
+        "name": { "en": "Sensible Sandwich Spot", "es": "Lugar de Sándwiches Sensatos", "hi": "समझदार सैंडविच स्पॉट", "ta": "அறிவார்ந்த சாண்ட்விச் இடம்" },
+        "type": "PROPERTY",
+        "color": "bg-blue-500"
+      },
+      {
+        "description": { "en": "Unexpected price increases at the grocery store. Pay up!", "es": "Aumentos de precios inesperados en la tienda de comestibles. ¡Paga!", "hi": "किराने की दुकान पर अप्रत्याशित मूल्य वृद्धि। भुगतान करो!", "ta": "மளிகைக் கடையில் எதிர்பாராத விலை உயர்வு. பணம் செலுத்துங்கள்!" },
+        "name": { "en": "Grocery Bill Shock!", "es": "¡Sorpresa en la Cuenta del Supermercado!", "hi": "किराने का बिल शॉक!", "ta": "மளிகைப் பட்டியல் அதிர்ச்சி!" },
+        "type": "TAX"
+      },
+      {
+        "description": { "en": "Sent here for a 'Time-Out' from making poor food choices. Lose a turn unless you pay a 'Taste' or 'Time' penalty.", "es": "Enviado aquí para un 'Tiempo Fuera' por tomar malas decisiones alimentarias. Pierdes un turno a menos que pagues una penalización de 'Sabor' o 'Tiempo'.", "hi": "खराब भोजन विकल्प बनाने से 'टाइम-आउट' के लिए यहां भेजा गया। एक 'स्वाद' या 'समय' दंड का भुगतान करने तक एक बारी खो दें।", "ta": "மோசமான உணவுத் தேர்வுகளைச் செய்ததற்காக ஒரு 'டைம்-அவுட்'டுக்காக இங்கே அனுப்பப்பட்டீர்கள். 'சுவை' அல்லது 'நேரம்' அபராதம் செலுத்தாத வரை ஒரு திருப்பத்தை இழக்கவும்." },
+        "name": { "en": "Time-Out Table", "es": "Mesa de Tiempo Fuera", "hi": "टाइम-आउट टेबल", "ta": "டைம்-அவுட் மேசை" },
+        "type": "JAIL"
+      }
+    ]
+  },
+  "chanceCards": [],
+  "description": { "en": "Navigate the culinary world, balancing taste, health, and preparation time to nourish your family with wholesome food choices.", "es": "Navega por el mundo culinario, equilibrando el sabor, la salud y el tiempo de preparación para nutrir a tu familia con opciones de alimentos saludables.", "hi": "अपने परिवार को पौष्टिक भोजन विकल्पों के साथ पोषण देने के लिए स्वाद, स्वास्थ्य और तैयारी के समय को संतुलित करते हुए पाक दुनिया को नेविगेट करें।", "ta": "சமையல் உலகை வழிநடத்துங்கள், உங்கள் குடும்பத்திற்கு ஆரோக்கியமான உணவுத் தேர்வுகளுடன் ஊட்டமளிக்க சுவை, ஆரோக்கியம் மற்றும் தயாரிப்பு நேரத்தை சமநிலைப்படுத்துங்கள்." },
+  "footerSections": [],
+  "name": { "en": "Foodie Fun: The Healthy Habits Game", "es": "Diversión Gastronómica: El Juego de los Hábitos Saludables", "hi": "फूडी फन: स्वस्थ आदतों का खेल", "ta": "உணவுப் பிரியர் வேடிக்கை: ஆரோக்கியமான பழக்கவழக்கங்கள் விளையாட்டு" },
+  "playerColors": [
+    "text-red-600",
+    "text-blue-600",
+    "text-green-600",
+    "text-purple-600"
+  ],
+  "resources": [
+    {
+      "barColor": "bg-purple-500",
+      "icon": "MoneyIcon",
+      "initialValue": 150,
+      "name": { "en": "Taste", "es": "Sabor", "hi": "स्वाद", "ta": "சுவை" }
+    },
+    {
+      "barColor": "bg-green-500",
+      "icon": "InfoIcon",
+      "initialValue": 150,
+      "name": { "en": "Health", "es": "Salud", "hi": "स्वास्थ्य", "ta": "ஆரோக்கியம்" }
+    },
+    {
+      "barColor": "bg-blue-500",
+      "icon": "TimeIcon",
+      "initialValue": 100,
+      "name": { "en": "Time", "es": "Tiempo", "hi": "समय", "ta": "நேரம்" }
+    }
+  ],
+  "communityChestCards": [],
+  "groundingInReality": true,
+  "positivity": 0.7,
+  "pregeneratedScenarios": {
+    "Morning Munchies": [
+      {
+        "choices": [
+          {
+            "outcome": {
+              "explanation": { "en": "You opt for the sugary cereal. The kids are thrilled with the familiar taste and vibrant colors, gobbling it down quickly. While breakfast was a breeze, you know it wasn't the most nutritious start to their day.", "es": "Optas por el cereal azucarado. Los niños están encantados con el sabor familiar y los colores vibrantes, devorándolo rápidamente. Aunque el desayuno fue muy fácil, sabes que no fue el comienzo más nutritivo para su día.", "hi": "आप मीठे अनाज का विकल्प चुनते हैं। बच्चे परिचित स्वाद और जीवंत रंगों से रोमांचित हैं, इसे जल्दी से खा रहे हैं। जबकि नाश्ता एक हवा थी, आप जानते हैं कि यह उनके दिन की सबसे पौष्टिक शुरुआत नहीं थी।", "ta": "நீங்கள் சர்க்கரை தானியத்தைத் தேர்வு செய்கிறீர்கள். குழந்தைகள் பழக்கமான சுவை மற்றும் துடிப்பான வண்ணங்களில் மகிழ்ச்சியடைகிறார்கள், அதை விரைவாக விழுங்குகிறார்கள். காலை உணவு ஒரு தென்றலாக இருந்தபோதிலும், அது அவர்களின் நாளின் மிகவும் சத்தான தொடக்கமாக இல்லை என்று உங்களுக்குத் தெரியும்." },
+              "resourceChanges": [
+                { "name": "taste", "value": 2 },
+                { "name": "health", "value": -3 },
+                { "name": "time", "value": 2 }
+              ]
+            },
+            "text": { "en": "Serve the sugary, kid-friendly cereal.", "es": "Servir el cereal azucarado y apto para niños.", "hi": "मीठा, बच्चों के अनुकूल अनाज परोसें।", "ta": "சர்க்கரை நிறைந்த, குழந்தைகளுக்கான தானியத்தை பரிமாறவும்." }
+          }
+        ],
+        "description": { "en": "It's a chaotic weekday morning, and time is of the essence before school and work. Your children are asking for breakfast, and you have two distinct options: a colorful, sugary cereal that's quick and easy, or a more substantial, healthier oatmeal that requires a few extra minutes of preparation.", "es": "Es una mañana caótica de un día de semana, y el tiempo es esencial antes de la escuela y el trabajo. Tus hijos piden el desayuno y tienes dos opciones distintas: un cereal colorido y azucarado que es rápido y fácil, o una avena más sustanciosa y saludable que requiere unos minutos adicionales de preparación.", "hi": "यह एक अराजक कार्यदिवस की सुबह है, और स्कूल और काम से पहले समय का सार है। आपके बच्चे नाश्ते के लिए पूछ रहे हैं, और आपके पास दो अलग-अलग विकल्प हैं: एक रंगीन, मीठा अनाज जो त्वरित और आसान है, या एक अधिक पर्याप्त, स्वास्थ्यवर्धक दलिया जिसे तैयार करने में कुछ अतिरिक्त मिनट लगते हैं।", "ta": "இது ஒரு குழப்பமான வாரநாள் காலை, மற்றும் பள்ளி மற்றும் வேலைக்கு முன் நேரம் மிக முக்கியம். உங்கள் குழந்தைகள் காலை உணவைக் கேட்கிறார்கள், உங்களுக்கு இரண்டு தனித்துவமான விருப்பங்கள் உள்ளன: விரைவான மற்றும் எளிதான வண்ணமயமான, சர்க்கரை நிறைந்த தானியம், அல்லது சில கூடுதல் நிமிடங்கள் தயாரிப்பு தேவைப்படும் கணிசமான, ஆரோக்கியமான ஓட்ஸ்." },
+        "title": { "en": "The Hectic Morning Dilemma", "es": "El Dilema de la Mañana Agitada", "hi": "व्यस्त सुबह की दुविधा", "ta": "பரபரப்பான காலை நேர குழப்பம்" },
+        "id": "morning-munchies-0",
+        "custom": false,
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+
+{
+  "board": {
+    "jailPosition": 8,
+    "locations": [
+      {
+        "description": { "en": "Your daily commute begins! Collect initial resources as you pass.", "es": "¡Comienza tu viaje diario! Recoge recursos iniciales al pasar.", "hi": "आपकी दैनिक यात्रा शुरू होती है! गुजरते समय प्रारंभिक संसाधन एकत्र करें।", "ta": "உங்கள் தினசரி பயணம் தொடங்குகிறது! கடந்து செல்லும்போது ஆரம்ப வளங்களை சேகரிக்கவும்." },
+        "name": { "en": "START: City Central Station", "es": "INICIO: Estación Central de la Ciudad", "hi": "शुरू: सिटी सेंट्रल स्टेशन", "ta": "தொடக்கம்: நகர மத்திய நிலையம்" },
+        "type": "START"
+      },
+      {
+        "description": { "en": "A convenient, but sometimes unreliable, local ride. Essential for last-mile connectivity.", "es": "Un viaje local conveniente, pero a veces poco fiable. Esencial para la conectividad de última milla.", "hi": "एक सुविधाजनक, लेकिन कभी-कभी अविश्वसनीय, स्थानीय सवारी। अंतिम-मील कनेक्टिविटी के लिए आवश्यक।", "ta": "ஒரு வசதியான, ஆனால் சில நேரங்களில் நம்பமுடியாத, உள்ளூர் சவாரி. கடைசி மைல் இணைப்புக்கு அவசியம்." },
+        "name": { "en": "Local Auto-Rickshaw Stand", "es": "Parada de Auto-Rickshaw Local", "hi": "स्थानीय ऑटो-रिक्शा स्टैंड", "ta": "உள்ளூர் ஆட்டோ ரிக்ஷா நிறுத்தம்" },
+        "type": "PROPERTY",
+        "color": "bg-amber-800"
+      },
+      {
+        "description": { "en": "Unexpected events and community opportunities within the city.", "es": "Eventos inesperados y oportunidades comunitarias dentro de la ciudad.", "hi": "शहर के भीतर अप्रत्याशित घटनाएं और सामुदायिक अवसर।", "ta": "நகரத்திற்குள் எதிர்பாராத நிகழ்வுகள் மற்றும் சமூக வாய்ப்புகள்." },
+        "name": { "en": "Urban Life Events", "es": "Eventos de la Vida Urbana", "hi": "शहरी जीवन की घटनाएँ", "ta": "நகர்ப்புற வாழ்க்கை நிகழ்வுகள்" },
+        "type": "COMMUNITY_CHEST"
+      }
+    ]
+  },
+  "chanceCards": [],
+  "description": { "en": "Navigate the bustling public transit networks of Urban India, balancing time, money, and safety to become the ultimate commuter!", "es": "¡Navega por las bulliciosas redes de transporte público de la India urbana, equilibrando tiempo, dinero y seguridad para convertirte en el viajero definitivo!", "hi": "शहरी भारत के हलचल भरे सार्वजनिक पारगमन नेटवर्क को नेविगेट करें, समय, धन और सुरक्षा को संतुलित करते हुए परम कम्यूटर बनें!", "ta": "நகர்ப்புற இந்தியாவின் பரபரப்பான பொதுப் போக்குவரத்து நெட்வொர்க்குகளில் செல்லவும், நேரம், பணம் மற்றும் பாதுகாப்பை சமநிலைப்படுத்தி இறுதிப் பயணியாகுங்கள்!" },
+  "footerSections": [],
+  "name": { "en": "Metro Master: Urban Transit Challenge", "es": "Metro Master: Desafío de Tránsito Urbano", "hi": "मेट्रो मास्टर: शहरी पारगमन चुनौती", "ta": "மெட்ரோ மாஸ்டர்: நகர்ப்புற போக்குவரத்து சவால்" },
+  "playerColors": [
+    "text-red-600",
+    "text-blue-600",
+    "text-green-600",
+    "text-purple-600"
+  ],
+  "resources": [
+    {
+      "barColor": "bg-green-500",
+      "icon": "MoneyIcon",
+      "initialValue": 1500,
+      "name": { "en": "Rupees", "es": "Rupias", "hi": "रुपये", "ta": "ரூபாய்" }
+    },
+    {
+      "barColor": "bg-blue-500",
+      "icon": "TimeIcon",
+      "initialValue": 180,
+      "name": { "en": "Minutes", "es": "Minutos", "hi": "मिनट", "ta": "நிமிடங்கள்" }
+    },
+    {
+      "barColor": "bg-yellow-500",
+      "icon": "InfoIcon",
+      "initialValue": 100,
+      "name": { "en": "Safety Score", "es": "Puntuación de Seguridad", "hi": "सुरक्षा स्कोर", "ta": "பாதுகாப்பு மதிப்பெண்" }
+    }
+  ],
+  "communityChestCards": [],
+  "groundingInReality": true,
+  "positivity": 0.6
+}

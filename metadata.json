@@ -1,0 +1,6 @@
+{
+  "name": "Copy of QuestCraft",
+  "description": "An interactive board game engine powered by generative AI. Supports Google Gemini and OpenAI-compatible APIs. Play pre-made quests or use the AI-powered Quest Maker to create your own unique games. Load custom games by providing a simple JSON configuration.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

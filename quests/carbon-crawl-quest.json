@@ -1,0 +1,265 @@
+
+{
+  "name": {
+    "en": "Carbon Crawl",
+    "es": "Avance del Carbono",
+    "hi": "कार्बन क्रॉल",
+    "ta": "கார்பன் கிரால்"
+  },
+  "description": {
+    "en": "Navigate a sustainable future while keeping costs, environmental concerns, and irreversibility in check.",
+    "es": "Navega un futuro sostenible manteniendo bajo control los costos, las preocupaciones ambientales y la irreversibilidad.",
+    "hi": "लागत, पर्यावरणीय चिंताओं और अपरिवर्तनीयता को ध्यान में रखते हुए एक स्थायी भविष्य को नेविगेट करें।",
+    "ta": "செலவுகள், சுற்றுச்சூழல் கவலைகள் மற்றும் மீளமுடியாத தன்மையைக் கட்டுக்குள் வைத்திருக்கும் போது ஒரு நிலையான எதிர்காலத்தை வழிநடத்துங்கள்."
+  },
+  "positivity": 0.5,
+  "groundingInReality": false,
+  "resources": [
+    {
+      "name": { "en": "Cost", "es": "Costo", "hi": "लागत", "ta": "செலவு" },
+      "icon": "MoneyIcon",
+      "barColor": "bg-blue-500",
+      "initialValue": 1000,
+      "minimumValue": 0,
+      "maximumValue": 2000
+    },
+    {
+      "name": { "en": "Environmental Concerns", "es": "Preocupaciones Ambientales", "hi": "पर्यावरणीय चिंताएँ", "ta": "சுற்றுச்சூழல் கவலைகள்" },
+      "icon": "InfoIcon",
+      "barColor": "bg-green-500",
+      "initialValue": 100,
+      "minimumValue": 0,
+      "maximumValue": 200
+    },
+    {
+      "name": { "en": "Irreversibility", "es": "Irreversibilidad", "hi": "अपरिवर्तनीयता", "ta": "மீளமுடியாத தன்மை" },
+      "icon": "TimeIcon",
+      "barColor": "bg-red-500",
+      "initialValue": 0,
+      "minimumValue": 0,
+      "maximumValue": 200
+    }
+  ],
+  "playerColors": [
+    "text-red-600",
+    "text-blue-600",
+    "text-green-600",
+    "text-yellow-600"
+  ],
+  "board": {
+    "jailPosition": 9,
+    "locations": [
+      {
+        "name": { "en": "Green Launch", "es": "Lanzamiento Verde", "hi": "ग्रीन लॉन्च", "ta": "பசுமை வெளியீடு" },
+        "description": { "en": "Start your journey to a sustainable future.", "es": "Comienza tu viaje hacia un futuro sostenible.", "hi": "एक स्थायी भविष्य की अपनी यात्रा शुरू करें।", "ta": "ஒரு நிலையான எதிர்காலத்திற்கான உங்கள் பயணத்தைத் தொடங்குங்கள்." },
+        "type": "START"
+      },
+      {
+        "name": { "en": "Eco Market", "es": "Eco Mercado", "hi": "इको मार्केट", "ta": "சுற்றுச்சூழல் சந்தை" },
+        "description": { "en": "Buy green products, pay rent.", "es": "Compra productos ecológicos, paga el alquiler.", "hi": "हरे उत्पाद खरीदें, किराया दें।", "ta": "பசுமைப் பொருட்களை வாங்குங்கள், வாடகை செலுத்துங்கள்." },
+        "type": "PROPERTY",
+        "color": "bg-yellow-600"
+      },
+      {
+        "name": { "en": "Carbon Tax", "es": "Impuesto al Carbono", "hi": "कार्बन टैक्स", "ta": "கார்பன் வரி" },
+        "description": { "en": "Pay environmental tax for your emissions.", "es": "Paga el impuesto ambiental por tus emisiones.", "hi": "अपने उत्सर्जन के लिए पर्यावरण कर का भुगतान करें।", "ta": "உங்கள் உமிழ்வுகளுக்கு சுற்றுச்சூழல் வரி செலுத்துங்கள்." },
+        "type": "TAX"
+      },
+      {
+        "name": { "en": "Chance", "es": "Suerte", "hi": "संयोग", "ta": "வாய்ப்பு" },
+        "description": { "en": "Turn of fate may alter your path.", "es": "Un giro del destino puede alterar tu camino.", "hi": "भाग्य का फेर आपके रास्ते को बदल सकता है।", "ta": "விதியின் திருப்பம் உங்கள் பாதையை மாற்றக்கூடும்." },
+        "type": "CHANCE"
+      },
+      {
+        "name": { "en": "Solar Farm", "es": "Granja Solar", "hi": "सौर फार्म", "ta": "சூரியப் பண்ணை" },
+        "description": { "en": "Develop solar energy, increase environmental gain.", "es": "Desarrolla energía solar, aumenta la ganancia ambiental.", "hi": "सौर ऊर्जा विकसित करें, पर्यावरणीय लाभ बढ़ाएं।", "ta": "சூரிய ஆற்றலை உருவாக்குங்கள், சுற்றுச்சூழல் ஆதாயத்தை அதிகரிக்கவும்." },
+        "type": "PROPERTY",
+        "color": "bg-yellow-600"
+      },
+      {
+        "name": { "en": "Recycling Center", "es": "Centro de Reciclaje", "hi": "पुनर्चक्रण केंद्र", "ta": "மறுசுழற்சி மையம்" },
+        "description": { "en": "Collect recycled resources.", "es": "Recoge recursos reciclados.", "hi": "पुनर्नवीनीकरण संसाधन एकत्र करें।", "ta": "மறுசுழற்சி செய்யப்பட்ட வளங்களை சேகரிக்கவும்." },
+        "type": "UTILITY"
+      },
+      {
+        "name": { "en": "Wind Farm", "es": "Parque Eólico", "hi": "पवन चक्की फार्म", "ta": "காற்றாலைப் பண்ணை" },
+        "description": { "en": "Harness wind power for future.", "es": "Aprovecha la energía eólica para el futuro.", "hi": "भविष्य के लिए पवन ऊर्जा का उपयोग करें।", "ta": "எதிர்காலத்திற்காக காற்று சக்தியைப் பயன்படுத்துங்கள்." },
+        "type": "PROPERTY",
+        "color": "bg-green-600"
+      },
+      {
+        "name": { "en": "Community Chest", "es": "Caja de Comunidad", "hi": "सामुदायिक संदूक", "ta": "சமூக நிதி" },
+        "description": { "en": "Community support or setback.", "es": "Apoyo o contratiempo de la comunidad.", "hi": "सामुदायिक समर्थन या झटका।", "ta": "சமூக ஆதரவு அல்லது பின்னடைவு." },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "name": { "en": "Algae Farm", "es": "Granja de Algas", "hi": "शैवाल फार्म", "ta": "பாசிப் பண்ணை" },
+        "description": { "en": "Grow algae to sequester CO2.", "es": "Cultiva algas para secuestrar CO2.", "hi": "CO2 को अलग करने के लिए शैवाल उगाएं।", "ta": "CO2-ஐப் பிரிக்க பாசிகளை வளர்க்கவும்." },
+        "type": "PROPERTY",
+        "color": "bg-green-600"
+      },
+      {
+        "name": { "en": "Sustain Bottleneck", "es": "Atasco Sostenible", "hi": "सस्टेन बॉटलनेक", "ta": "நிலையான தடை" },
+        "description": { "en": "All unsustainable choices cost you time and resources.", "es": "Todas las elecciones insostenibles te cuestan tiempo y recursos.", "hi": "सभी अस्थिर विकल्पों में आपको समय और संसाधनों की लागत आती है।", "ta": "அனைத்து நிலையற்ற தேர்வுகளும் உங்களுக்கு நேரத்தையும் வளங்களையும் செலவழிக்கின்றன." },
+        "type": "JAIL"
+      },
+      {
+        "name": { "en": "Rest Zone", "es": "Zona de Descanso", "hi": "आराम क्षेत्र", "ta": "ஓய்வு மண்டலம்" },
+        "description": { "en": "Recharge and recover resources.", "es": "Recarga y recupera recursos.", "hi": "संसाधनों को रिचार्ज और पुनर्प्राप्त करें।", "ta": "வளங்களை ரீசார்ஜ் செய்து மீட்டெடுக்கவும்." },
+        "type": "FREE_PARKING"
+      },
+      {
+        "name": { "en": "Ozone Mission", "es": "Misión Ozono", "hi": "ओजोन मिशन", "ta": "ஓசோன் மிஷன்" },
+        "description": { "en": "Focus on ozone recovery programs.", "es": "Enfócate en los programas de recuperación de ozono.", "hi": "ओजोन रिकवरी कार्यक्रमों पर ध्यान केंद्रित करें।", "ta": "ஓசோன் மீட்பு திட்டங்களில் கவனம் செலுத்துங்கள்." },
+        "type": "PROPERTY",
+        "color": "bg-blue-600"
+      },
+      {
+        "name": { "en": "Climate Conference", "es": "Conferencia sobre el Clima", "hi": "जलवायु सम्मेलन", "ta": "காலநிலை மாநாடு" },
+        "description": { "en": "Global leaders discuss climate action.", "es": "Líderes mundiales discuten la acción climática.", "hi": "वैश्विक नेता जलवायु कार्रवाई पर चर्चा करते हैं।", "ta": "உலகத் தலைவர்கள் காலநிலை நடவடிக்கை குறித்து விவாதிக்கின்றனர்." },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "name": { "en": "Water Crossing", "es": "Cruce de Agua", "hi": "जल पारगमन", "ta": "நீர்ப் பாதை" },
+        "description": { "en": "Utilize water resources wisely.", "es": "Utiliza los recursos hídricos sabiamente.", "hi": "जल संसाधनों का बुद्धिमानी से उपयोग करें।", "ta": "நீர் வளங்களை புத்திசாலித்தனமாகப் பயன்படுத்துங்கள்." },
+        "type": "UTILITY"
+      },
+      {
+        "name": { "en": "Global Summit", "es": "Cumbre Global", "hi": "वैश्विक शिखर सम्मेलन", "ta": "உலகளாவிய உச்சிமாநாடு" },
+        "description": { "en": "Attend the global climate summit.", "es": "Asiste a la cumbre climática mundial.", "hi": "वैश्विक जलवायु शिखर सम्मेलन में भाग लें।", "ta": "உலகளாவிய காலநிலை உச்சிமாநாட்டில் கலந்து கொள்ளுங்கள்." },
+        "type": "PROPERTY",
+        "color": "bg-red-600"
+      },
+      {
+        "name": { "en": "Chance", "es": "Suerte", "hi": "संयोग", "ta": "வாய்ப்பு" },
+        "description": { "en": "A twist may swing your resources.", "es": "Un giro puede cambiar tus recursos.", "hi": "एक मोड़ आपके संसाधनों को प्रभावित कर सकता है।", "ta": "ஒரு திருப்பம் உங்கள் வளங்களை மாற்றக்கூடும்." },
+        "type": "CHANCE"
+      },
+      {
+        "name": { "en": "Carbon Sink", "es": "Sumidero de Carbono", "hi": "कार्बन सिंक", "ta": "கார்பன் தொட்டி" },
+        "description": { "en": "Invest in natural carbon sinks.", "es": "Invierte en sumideros de carbono naturales.", "hi": "प्राकृतिक कार्बन सिंक में निवेश करें।", "ta": "இயற்கை கார்பன் தொட்டிகளில் முதலீடு செய்யுங்கள்." },
+        "type": "PROPERTY",
+        "color": "bg-green-600"
+      },
+      {
+        "name": { "en": "Endangered Species", "es": "Especies en Peligro", "hi": "लुप्तप्राय प्रजातियां", "ta": "அழிந்துவரும் உயிரினங்கள்" },
+        "description": { "en": "Protect biodiversity to boost environment.", "es": "Protege la biodiversidad para impulsar el medio ambiente.", "hi": "पर्यावरण को बढ़ावा देने के लिए जैव विविधता की रक्षा करें।", "ta": "சுற்றுச்சூழலை மேம்படுத்த பல்லுயிர் பெருக்கத்தைப் பாதுகாக்கவும்." },
+        "type": "PROPERTY",
+        "color": "bg-yellow-600"
+      },
+      {
+        "name": { "en": "Non-Sustainable Detour", "es": "Desvío No Sostenible", "hi": "गैर-टिकाऊ चक्कर", "ta": "நிலையற்ற மாற்றுப்பாதை" },
+        "description": { "en": "You've fallen off track, go to jail!", "es": "¡Te has desviado del camino, ve a la cárcel!", "hi": "आप रास्ते से भटक गए हैं, जेल जाओ!", "ta": "நீங்கள் தடம்புரண்டுவிட்டீர்கள், சிறைக்குச் செல்லுங்கள்!" },
+        "type": "GO_TO_JAIL"
+      },
+      {
+        "name": { "en": "Carbon Credit", "es": "Crédito de Carbono", "hi": "कार्बन क्रेडिट", "ta": "கார்பன் கிரெடிட்" },
+        "description": { "en": "Sell credits to reduce cost.", "es": "Vende créditos para reducir el costo.", "hi": "लागत कम करने के लिए क्रेडिट बेचें।", "ta": "செலவைக் குறைக்க கிரெடிட்களை விற்கவும்." },
+        "type": "PROPERTY",
+        "color": "bg-orange-600"
+      }
+    ]
+  },
+  "chanceCards": [
+    {
+      "description": { "en": "Solar Eclipse: A sudden solar flare increases your cost but boosts environmental concerns.", "es": "Eclipse Solar: Una llamarada solar repentina aumenta tu costo pero impulsa las preocupaciones ambientales.", "hi": "सूर्य ग्रहण: एक अचानक सौर ज्वाला आपकी लागत बढ़ाती है लेकिन पर्यावरणीय चिंताओं को बढ़ाती है।", "ta": "சூரிய கிரகணம்: ஒரு திடீர் சூரிய எரிப்பு உங்கள் செலவை அதிகரிக்கிறது ஆனால் சுற்றுச்சூழல் கவலைகளை அதிகரிக்கிறது." },
+      "resourceChanges": [
+        { "name": "cost", "value": 100 },
+        { "name": "environmental concerns", "value": 10 }
+      ]
+    },
+    {
+      "description": { "en": "Oil Spill: A disaster rises your cost and irreversibility.", "es": "Derrame de Petróleo: Un desastre aumenta tu costo e irreversibilidad.", "hi": "तेल रिसाव: एक आपदा आपकी लागत और अपरिवर्तनीयता को बढ़ाती है।", "ta": "எண்ணெய்க் கசிவு: ஒரு பேரழிவு உங்கள் செலவையும் மீளமுடியாத தன்மையையும் அதிகரிக்கிறது." },
+      "resourceChanges": [
+        { "name": "cost", "value": 200 },
+        { "name": "irreversibility", "value": 20 }
+      ]
+    },
+    {
+      "description": { "en": "Community Cleanup: Volunteers reduce your environmental concerns.", "es": "Limpieza Comunitaria: Los voluntarios reducen tus preocupaciones ambientales.", "hi": "सामुदायिक सफाई: स्वयंसेवक आपकी पर्यावरणीय चिंताओं को कम करते हैं।", "ta": "சமூக தூய்மைப் பணி: தன்னார்வலர்கள் உங்கள் சுற்றுச்சூழல் கவலைகளைக் குறைக்கிறார்கள்." },
+      "resourceChanges": [
+        { "name": "environmental concerns", "value": -15 }
+      ]
+    },
+    {
+      "description": { "en": "Wind Turbine Break: Pay maintenance cost.", "es": "Avería de Turbina Eólica: Paga el costo de mantenimiento.", "hi": "पवन टरबाइन टूटना: रखरखाव लागत का भुगतान करें।", "ta": "காற்றாலை உடைப்பு: பராமரிப்புச் செலவைச் செலுத்துங்கள்." },
+      "resourceChanges": [
+        { "name": "cost", "value": 150 }
+      ]
+    },
+    {
+      "description": { "en": "Carbon Credits Sale: You earn money, reducing cost.", "es": "Venta de Créditos de Carbono: Ganas dinero, reduciendo el costo.", "hi": "कार्बन क्रेडिट बिक्री: आप पैसा कमाते हैं, लागत कम करते हैं।", "ta": "கார்பன் கிரெடிட் விற்பனை: நீங்கள் பணம் சம்பாதிக்கிறீர்கள், செலவைக் குறைக்கிறீர்கள்." },
+      "resourceChanges": [
+        { "name": "cost", "value": -300 }
+      ]
+    },
+    {
+      "description": { "en": "Reforestation Success: Increase environmental concerns, decrease irreversibility.", "es": "Éxito en la Reforestación: Aumenta las preocupaciones ambientales, disminuye la irreversibilidad.", "hi": "वनरोपण सफलता: पर्यावरणीय चिंताएं बढ़ाएं, अपरिवर्तनीयता घटाएं।", "ta": "காடு வளர்ப்பு வெற்றி: சுற்றுச்சூழல் கவலைகளை அதிகரிக்கவும், மீளமுடியாத தன்மையைக் குறைக்கவும்." },
+      "resourceChanges": [
+        { "name": "environmental concerns", "value": 20 },
+        { "name": "irreversibility", "value": -10 }
+      ]
+    }
+  ],
+  "communityChestCards": [
+    {
+      "description": { "en": "Government Grant: Reduce cost with funding.", "es": "Subvención del Gobierno: Reduce el costo con financiación.", "hi": "सरकारी अनुदान: धन के साथ लागत कम करें।", "ta": "அரசு மானியம்: நிதியுதவியுடன் செலவைக் குறைக்கவும்." },
+      "resourceChanges": [
+        { "name": "cost", "value": -200 }
+      ]
+    },
+    {
+      "description": { "en": "Research Patent: Boost environmental concerns through innovation.", "es": "Patente de Investigación: Impulsa las preocupaciones ambientales a través de la innovación.", "hi": "अनुसंधान पेटेंट: नवाचार के माध्यम से पर्यावरणीय चिंताओं को बढ़ावा दें।", "ta": "ஆராய்ச்சி காப்புரிமை: புதுமை மூலம் சுற்றுச்சூழல் கவலைகளை அதிகரிக்கவும்." },
+      "resourceChanges": [
+        { "name": "environmental concerns", "value": 15 }
+      ]
+    },
+    {
+      "description": { "en": "Legal Fine: Pay a fine, reducing cost, and harming environment.", "es": "Multa Legal: Paga una multa, reduciendo el costo y dañando el medio ambiente.", "hi": "कानूनी जुर्माना: जुर्माना अदा करें, लागत कम करें, और पर्यावरण को नुकसान पहुंचाएं।", "ta": "சட்ட அபராதம்: அபராதம் செலுத்துங்கள், செலவைக் குறைத்து, சுற்றுச்சூழலுக்கு தீங்கு விளைவிக்கவும்." },
+      "resourceChanges": [
+        { "name": "cost", "value": 100 },
+        { "name": "environmental concerns", "value": -5 }
+      ]
+    },
+    {
+      "description": { "en": "Climate Award: Reduce irreversibility thanks to positive impact.", "es": "Premio Climático: Reduce la irreversibilidad gracias al impacto positivo.", "hi": "जलवायु पुरस्कार: सकारात्मक प्रभाव के कारण अपरिवर्तनीयता को कम करें।", "ta": "காலநிலை விருது: நேர்மறையான தாக்கத்திற்கு நன்றி, மீளமுடியாத தன்மையைக் குறைக்கவும்." },
+      "resourceChanges": [
+        { "name": "irreversibility", "value": -15 }
+      ]
+    }
+  ],
+  "footerSections": [
+    {
+      "title": { "en": "Rules", "es": "Reglas", "hi": "नियम", "ta": "விதிகள்" },
+      "content": { "en": "<ul><li>Roll the die and move your token the corresponding number of spaces.</li><li>Landing on a Property costs you rent, unless you own it.</li><li>Chance and Community Chest cards may increase or decrease your resources.</li><li>Pay taxes or fines on TAX squares.</li><li>Three visits to Jail (index 9) or landing on GO_TO_JAIL sends you to Jail unless you escape with a card.</li><li>First player to reduce Cost to 0 without any negative resource values wins.</li></ul>", "es": "<ul><li>Lanza el dado y mueve tu ficha el número correspondiente de espacios.</li><li>Aterrizar en una Propiedad te cuesta el alquiler, a menos que la poseas.</li><li>Las cartas de Suerte y Caja de Comunidad pueden aumentar o disminuir tus recursos.</li><li>Paga impuestos o multas en las casillas de IMPUESTOS.</li><li>Tres visitas a la Cárcel (índice 9) o aterrizar en IR A LA CÁRCEL te envía a la Cárcel a menos que escapes con una carta.</li><li>El primer jugador que reduzca el Costo a 0 sin ningún valor de recurso negativo gana.</li></ul>", "hi": "<ul><li>पासा फेंकें और अपनी गोटी को संबंधित संख्या में स्थानों पर ले जाएं।</li><li>किसी संपत्ति पर उतरने पर आपको किराया देना पड़ता है, जब तक कि आप उसके मालिक न हों।</li><li>संयोग और सामुदायिक संदूक कार्ड आपके संसाधनों को बढ़ा या घटा सकते हैं।</li><li>कर वर्गों पर कर या जुर्माना अदा करें।</li><li>जेल (सूचकांक 9) में तीन दौरे या जेल जाओ पर उतरना आपको जेल भेजता है जब तक कि आप एक कार्ड के साथ बच नहीं जाते।</li><li>लागत को 0 तक कम करने वाला पहला खिलाड़ी बिना किसी नकारात्मक संसाधन मूल्य के जीतता है।</li></ul>", "ta": "<ul><li>பகடையை உருட்டி, உங்கள் டோக்கனை அதற்கேற்ற எண்ணிக்கையிலான இடங்களுக்கு நகர்த்தவும்.</li><li>ஒரு சொத்தில் இறங்கினால், நீங்கள் அதை சொந்தமாக்காத வரை, வாடகை செலுத்த வேண்டும்.</li><li>வாய்ப்பு மற்றும் சமூக நிதி அட்டைகள் உங்கள் வளங்களை அதிகரிக்கலாம் அல்லது குறைக்கலாம்.</li><li>வரி சதுரங்களில் வரிகள் அல்லது அபராதங்களைச் செலுத்துங்கள்.</li><li>சிறைக்கு (குறியீட்டெண் 9) மூன்று முறை செல்வது அல்லது சிறைக்குச் செல் என்பதில் இறங்குவது, ஒரு அட்டையுடன் தப்பிக்காத வரை உங்களை சிறைக்கு அனுப்பும்.</li><li>எந்தவொரு எதிர்மறை வள மதிப்பும் இல்லாமல் செலவை 0 ஆகக் குறைக்கும் முதல் வீரர் வெற்றி பெறுவார்.</li></ul>" }
+    },
+    {
+      "title": { "en": "About", "es": "Acerca de", "hi": "के बारे में", "ta": "பற்றி" },
+      "content": { "en": "<p>Carbon Crawl is a board game that teaches 20‑year‑old students about the economics of climate action. Manage your Cost, Environmental Concerns, and Irreversibility to build a sustainable future, while understanding how choices ripple through the ecosystem.</p>", "es": "<p>Carbon Crawl es un juego de mesa que enseña a estudiantes de 20 años sobre la economía de la acción climática. Gestiona tu Costo, Preocupaciones Ambientales e Irreversibilidad para construir un futuro sostenible, mientras comprendes cómo las elecciones repercuten en el ecosistema.</p>", "hi": "<p>कार्बन क्रॉल एक बोर्ड गेम है जो 20 साल के छात्रों को जलवायु कार्रवाई के अर्थशास्त्र के बारे में सिखाता है। एक स्थायी भविष्य बनाने के लिए अपनी लागत, पर्यावरणीय चिंताओं और अपरिवर्तनीयता का प्रबंधन करें, जबकि यह समझें कि विकल्प पारिस्थितिकी तंत्र के माध्यम से कैसे लहर पैदा करते हैं।</p>", "ta": "<p>கார்பன் கிரால் என்பது 20 வயது மாணவர்களுக்கு காலநிலை நடவடிக்கையின் பொருளாதாரம் பற்றி கற்பிக்கும் ஒரு பலகை விளையாட்டு ஆகும். உங்கள் செலவு, சுற்றுச்சூழல் கவலைகள் மற்றும் மீளமுடியாத தன்மையை நிர்வகித்து ஒரு நிலையான எதிர்காலத்தை உருவாக்குங்கள், அதே நேரத்தில் தேர்வுகள் சுற்றுச்சூழல் அமைப்பு முழுவதும் எவ்வாறு பரவுகின்றன என்பதைப் புரிந்து கொள்ளுங்கள்.</p>" }
+    }
+  ],
+  "pregeneratedScenarios": {
+    "Eco Market": [
+      {
+        "title": { "en": "Solar Surplus or Trade‑off", "es": "Excedente Solar o Compensación", "hi": "सौर अधिशेष या ट्रेड-ऑफ", "ta": "சூரிய உபரி அல்லது வர்த்தகம்" },
+        "description": { "en": "While trading at the Eco Market, you encounter a vendor offering a bulk discount on high‑efficiency solar panels, but the installation requires leasing a dedicated display area that locks you into a long‑term spot. You can also negotiate on the lease terms or offer a partnership with a local NGO to share the panels after the initial use and keep the market flexible for future innovations.", "es": "Mientras comercias en el Eco Mercado, te encuentras con un vendedor que ofrece un descuento por volumen en paneles solares de alta eficiencia, pero la instalación requiere arrendar un área de exhibición dedicada que te bloquea en un lugar a largo plazo. También puedes negociar los términos del arrendamiento u ofrecer una asociación con una ONG local para compartir los paneles después del uso inicial y mantener el mercado flexible para futuras innovaciones.", "hi": "इको मार्केट में व्यापार करते समय, आप एक विक्रेता से मिलते हैं जो उच्च दक्षता वाले सौर पैनलों पर थोक छूट की पेशकश कर रहा है, लेकिन स्थापना के लिए एक समर्पित प्रदर्शन क्षेत्र को पट्टे पर देने की आवश्यकता होती है जो आपको दीर्घकालिक स्थान पर बंद कर देता है। आप पट्टे की शर्तों पर भी बातचीत कर सकते हैं या प्रारंभिक उपयोग के बाद पैनलों को साझा करने और भविष्य के नवाचारों के लिए बाजार को लचीला रखने के लिए एक स्थानीय गैर सरकारी संगठन के साथ साझेदारी की पेशकश कर सकते हैं।", "ta": "சுற்றுச்சூழல் சந்தையில் வர்த்தகம் செய்யும்போது, அதிக செயல்திறன் கொண்ட சோலார் பேனல்களில் மொத்த தள்ளுபடியை வழங்கும் ஒரு விற்பனையாளரை நீங்கள் சந்திக்கிறீர்கள், ஆனால் நிறுவலுக்கு ஒரு பிரத்யேக காட்சிப் பகுதியை குத்தகைக்கு எடுக்க வேண்டும், இது உங்களை நீண்ட கால இடத்தில் பூட்டிவிடும். நீங்கள் குத்தகை விதிமுறைகளில் பேச்சுவார்த்தை நடத்தலாம் அல்லது ஆரம்ப பயன்பாட்டிற்குப் பிறகு பேனல்களைப் பகிர்ந்து கொள்ளவும், எதிர்கால கண்டுபிடிப்புகளுக்கு சந்தையை நெகிழ்வாக வைத்திருக்கவும் ஒரு உள்ளூர் தன்னார்வ தொண்டு நிறுவனத்துடன் கூட்டாண்மையை வழங்கலாம்." },
+        "choices": [
+          {
+            "text": { "en": "Buy 10 panels now at a 20% discount and pay upfront", "es": "Comprar 10 paneles ahora con un 20% de descuento y pagar por adelantado", "hi": "अब 10 पैनल 20% छूट पर खरीदें और अग्रिम भुगतान करें", "ta": "இப்போது 10 பேனல்களை 20% தள்ளுபடியில் வாங்கி, முன்பணம் செலுத்துங்கள்" },
+            "outcome": {
+              "explanation": { "en": "You secure a substantial discount and get the panels immediately, saving costs on the long run but tying your resources to upfront cash.", "es": "Aseguras un descuento sustancial y obtienes los paneles de inmediato, ahorrando costos a largo plazo pero atando tus recursos al efectivo por adelantado.", "hi": "आप एक बड़ी छूट सुरक्षित करते हैं और तुरंत पैनल प्राप्त करते हैं, जिससे लंबी अवधि में लागत बचती है लेकिन आपके संसाधनों को अग्रिम नकदी से बांध दिया जाता है।", "ta": "நீங்கள் கணிசமான தள்ளுபடியைப் பெற்று, உடனடியாக பேனல்களைப் பெறுவீர்கள், நீண்ட காலத்திற்கு செலவுகளைச் சேமிப்பீர்கள், ஆனால் உங்கள் வளங்களை முன்பணத்துடன் பிணைக்கிறீர்கள்." },
+              "resourceChanges": [
+                { "name": "cost", "value": 200 },
+                { "name": "environmental concerns", "value": -50 },
+                { "name": "irreversibility", "value": 0 }
+              ]
+            }
+          }
+        ],
+        "id": "eco-market-0",
+        "custom": false,
+        "enabled": true
+      }
+    ]
+  }
+}

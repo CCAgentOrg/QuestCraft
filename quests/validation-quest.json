@@ -1,0 +1,115 @@
+
+{
+    "name": {
+        "en": "Schema Validation Quest",
+        "es": "Misión de Validación de Esquema",
+        "hi": "स्कीमा सत्यापन क्वेस्ट",
+        "ta": "ஸ்கீமா சரிபார்ப்பு குவெஸ்ட்"
+    },
+    "description": {
+        "en": "A test quest that includes every possible field for validation purposes.",
+        "es": "Una misión de prueba que incluye todos los campos posibles para fines de validación.",
+        "hi": "एक परीक्षण क्वेस्ट जिसमें सत्यापन उद्देश्यों के लिए हर संभव फ़ील्ड शामिल है।",
+        "ta": "சரிபார்ப்பு நோக்கங்களுக்காக சாத்தியமான ஒவ்வொரு புலத்தையும் உள்ளடக்கிய ஒரு சோதனை குவெஸ்ட்."
+    },
+    "positivity": 0.5,
+    "groundingInReality": false,
+    "resources": [
+        { "name": { "en": "Resource A", "es": "Recurso A", "hi": "संसाधन ए", "ta": "வளம் அ" }, "icon": "MoneyIcon", "barColor": "bg-red-500", "initialValue": 100 },
+        { "name": { "en": "Resource B", "es": "Recurso B", "hi": "संसाधन बी", "ta": "வளம் ஆ" }, "icon": "TimeIcon", "barColor": "bg-blue-500", "initialValue": 100 },
+        { "name": { "en": "Resource C", "es": "Recurso C", "hi": "संसाधन सी", "ta": "வளம் இ" }, "icon": "InfoIcon", "barColor": "bg-yellow-500", "initialValue": 100 }
+    ],
+    "playerColors": ["text-red-500", "text-blue-500", "text-green-500", "text-purple-500"],
+    "board": {
+        "jailPosition": 5,
+        "locations": [
+            { "name": { "en": "Start", "es": "Inicio", "hi": "शुरू", "ta": "தொடக்கம்" }, "description": { "en": "The starting point.", "es": "El punto de partida.", "hi": "प्रारंभिक बिंदु।", "ta": "தொடக்க புள்ளி." }, "type": "START" },
+            { "name": { "en": "Property 1", "es": "Propiedad 1", "hi": "संपत्ति 1", "ta": "சொத்து 1" }, "description": { "en": "A standard property.", "es": "Una propiedad estándar.", "hi": "एक मानक संपत्ति।", "ta": "ஒரு நிலையான சொத்து." }, "type": "PROPERTY", "color": "bg-indigo-500" },
+            { "name": { "en": "Community Chest", "es": "Caja de Comunidad", "hi": "सामुदायिक संदूक", "ta": "சமூக நிதி" }, "description": { "en": "Draw a community chest card.", "es": "Saca una carta de caja de comunidad.", "hi": "एक सामुदायिक संदूक कार्ड निकालें।", "ta": "ஒரு சமூக நிதி அட்டையை எடுக்கவும்." }, "type": "COMMUNITY_CHEST" },
+            { "name": { "en": "Tax 1", "es": "Impuesto 1", "hi": "कर 1", "ta": "வரி 1" }, "description": { "en": "Pay your taxes.", "es": "Paga tus impuestos.", "hi": "अपने करों का भुगतान करें।", "ta": "உங்கள் வரிகளை செலுத்துங்கள்." }, "type": "TAX" },
+            { "name": { "en": "Utility 1", "es": "Utilidad 1", "hi": "उपयोगिता 1", "ta": "பயன்பாடு 1" }, "description": { "en": "A standard utility.", "es": "Una utilidad estándar.", "hi": "एक मानक उपयोगिता।", "ta": "ஒரு நிலையான பயன்பாடு." }, "type": "UTILITY" },
+            { "name": { "en": "Jail", "es": "Cárcel", "hi": "जेल", "ta": "சிறை" }, "description": { "en": "Just visiting.", "es": "Solo de visita.", "hi": "बस यात्रा।", "ta": "சும்மா வருகை." }, "type": "JAIL" },
+            { "name": { "en": "Property 2", "es": "Propiedad 2", "hi": "संपत्ति 2", "ta": "சொத்து 2" }, "description": { "en": "A property.", "es": "Una propiedad.", "hi": "एक संपत्ति।", "ta": "ஒரு சொத்து." }, "type": "PROPERTY", "color": "bg-blue-400" },
+            { "name": { "en": "Chance", "es": "Suerte", "hi": "संयोग", "ta": "வாய்ப்பு" }, "description": { "en": "Draw a chance card.", "es": "Saca una carta de suerte.", "hi": "एक संयोग कार्ड निकालें।", "ta": "ஒரு வாய்ப்பு அட்டையை எடுக்கவும்." }, "type": "CHANCE" },
+            { "name": { "en": "Property 3", "es": "Propiedad 3", "hi": "संपत्ति 3", "ta": "சொத்து 3" }, "description": { "en": "A property.", "es": "Una propiedad.", "hi": "एक संपत्ति।", "ta": "ஒரு சொத்து." }, "type": "PROPERTY", "color": "bg-blue-400" },
+            { "name": { "en": "Property 4", "es": "Propiedad 4", "hi": "संपत्ति 4", "ta": "சொத்து 4" }, "description": { "en": "A property.", "es": "Una propiedad.", "hi": "एक संपत्ति।", "ta": "ஒரு சொத்து." }, "type": "PROPERTY", "color": "bg-blue-400" },
+            { "name": { "en": "Free Parking", "es": "Estacionamiento Gratuito", "hi": "मुफ्त पार्किंग", "ta": "இலவச நிறுத்தம்" }, "description": { "en": "Rest and relax.", "es": "Descansa y relájate.", "hi": "आराम करें और तनावमुक्त हों।", "ta": "ஓய்வெடுத்து ஆசுவாசப்படுத்திக்கொள்ளுங்கள்." }, "type": "FREE_PARKING" },
+            { "name": { "en": "Property 5", "es": "Propiedad 5", "hi": "संपत्ति 5", "ta": "சொத்து 5" }, "description": { "en": "A property.", "es": "Una propiedad.", "hi": "एक संपत्ति।", "ta": "ஒரு சொத்து." }, "type": "PROPERTY", "color": "bg-pink-500" },
+            { "name": { "en": "Chance", "es": "Suerte", "hi": "संयोग", "ta": "வாய்ப்பு" }, "description": { "en": "Draw a card.", "es": "Saca una carta.", "hi": "एक कार्ड निकालें।", "ta": "ஒரு அட்டையை எடுக்கவும்." }, "type": "CHANCE" },
+            { "name": { "en": "Utility 2", "es": "Utilidad 2", "hi": "उपयोगिता 2", "ta": "பயன்பாடு 2" }, "description": { "en": "A utility.", "es": "Una utilidad.", "hi": "एक उपयोगिता।", "ta": "ஒரு பயன்பாடு." }, "type": "UTILITY" },
+            { "name": { "en": "Property 6", "es": "Propiedad 6", "hi": "संपत्ति 6", "ta": "சொத்து 6" }, "description": { "en": "A property.", "es": "Una propiedad.", "hi": "एक संपत्ति।", "ta": "ஒரு சொத்து." }, "type": "PROPERTY", "color": "bg-pink-500" },
+            { "name": { "en": "Go To Jail", "es": "Ve a la Cárcel", "hi": "जेल जाओ", "ta": "சிறைக்குச் செல்" }, "description": { "en": "Go directly to jail.", "es": "Ve directamente a la cárcel.", "hi": "सीधे जेल जाओ।", "ta": "நேராக சிறைக்குச் செல்லுங்கள்." }, "type": "GO_TO_JAIL" },
+            { "name": { "en": "Property 7", "es": "Propiedad 7", "hi": "संपत्ति 7", "ta": "சொத்து 7" }, "description": { "en": "A property.", "es": "Una propiedad.", "hi": "एक संपत्ति।", "ta": "ஒரு சொத்து." }, "type": "PROPERTY", "color": "bg-green-500" },
+            { "name": { "en": "Community Chest", "es": "Caja de Comunidad", "hi": "सामुदायिक संदूक", "ta": "சமூக நிதி" }, "description": { "en": "Draw a card.", "es": "Saca una carta.", "hi": "एक कार्ड निकालें।", "ta": "ஒரு அட்டையை எடுக்கவும்." }, "type": "COMMUNITY_CHEST" },
+            { "name": { "en": "Property 8", "es": "Propiedad 8", "hi": "संपत्ति 8", "ta": "சொத்து 8" }, "description": { "en": "A property.", "es": "Una propiedad.", "hi": "एक संपत्ति।", "ta": "ஒரு சொத்து." }, "type": "PROPERTY", "color": "bg-green-500" },
+            { "name": { "en": "Tax 2", "es": "Impuesto 2", "hi": "कर 2", "ta": "வரி 2" }, "description": { "en": "Pay tax.", "es": "Paga el impuesto.", "hi": "कर का भुगतान करें।", "ta": "வரி செலுத்துங்கள்." }, "type": "TAX" }
+        ]
+    },
+    "chanceCards": [
+        { 
+            "description": { "en": "This is a chance card. You gain 10 Resource A and lose 5 Resource B.", "es": "Esta es una carta de suerte. Ganas 10 del Recurso A y pierdes 5 del Recurso B.", "hi": "यह एक संयोग कार्ड है। आप 10 संसाधन ए प्राप्त करते हैं और 5 संसाधन बी खो देते हैं।", "ta": "இது ஒரு வாய்ப்பு அட்டை. நீங்கள் 10 வளம் அ பெற்று, 5 வளம் ஆ இழக்கிறீர்கள்." }, 
+            "resourceChanges": [
+                { "name": "resource a", "value": 10 }, 
+                { "name": "resource b", "value": -5 }
+            ] 
+        },
+        { 
+            "description": { "en": "Another chance card! Nothing happens.", "es": "¡Otra carta de suerte! No pasa nada.", "hi": "एक और संयोग कार्ड! कुछ नहीं होता।", "ta": "இன்னொரு வாய்ப்பு அட்டை! ஒன்றும் நடக்கவில்லை." }, 
+            "resourceChanges": []
+        }
+    ],
+    "communityChestCards": [
+        { 
+            "description": { "en": "This is a community chest card. You gain 10 Resource B and lose 5 Resource C.", "es": "Esta es una carta de caja de comunidad. Ganas 10 del Recurso B y pierdes 5 del Recurso C.", "hi": "यह एक सामुदायिक संदूक कार्ड है। आप 10 संसाधन बी प्राप्त करते हैं और 5 संसाधन सी खो देते हैं।", "ta": "இது ஒரு சமூக நிதி அட்டை. நீங்கள் 10 வளம் ஆ பெற்று, 5 வளம் இ இழக்கிறீர்கள்." }, 
+            "resourceChanges": [
+                { "name": "resource b", "value": 10 }, 
+                { "name": "resource c", "value": -5 }
+            ]
+        }
+    ],
+    "footerSections": [
+        {
+            "title": { "en": "Validation Rules", "es": "Reglas de Validación", "hi": "सत्यापन नियम", "ta": "சரிபார்ப்பு விதிகள்" },
+            "content": { "en": "This section contains rules. It can use <strong>HTML</strong>, <ul><li>Like</li><li>This</li></ul>", "es": "Esta sección contiene reglas. Puede usar <strong>HTML</strong>, <ul><li>Como</li><li>Esto</li></ul>", "hi": "इस खंड में नियम हैं। यह <strong>एचटीएमएल</strong> का उपयोग कर सकता है, <ul><li>जैसे</li><li>यह</li></ul>", "ta": "இந்த பிரிவில் விதிகள் உள்ளன. இது <strong>HTML</strong>-ஐ பயன்படுத்தலாம், <ul><li>இதுபோல</li><li>இது</li></ul>" }
+        },
+        {
+            "title": { "en": "About This Quest", "es": "Acerca de Esta Misión", "hi": "इस क्वेस्ट के बारे में", "ta": "இந்த குவெஸ்ட் பற்றி" },
+            "content": { "en": "This quest is for testing the schema and providing a baseline example for custom quest creation.", "es": "Esta misión es para probar el esquema y proporcionar un ejemplo base para la creación de misiones personalizadas.", "hi": "यह क्वेस्ट स्कीमा का परीक्षण करने और कस्टम क्वेस्ट निर्माण के लिए एक आधारभूत उदाहरण प्रदान करने के लिए है।", "ta": "இந்த குவெஸ்ட் ஸ்கீமாவை சோதிப்பதற்கும், தனிப்பயன் குவெஸ்ட் உருவாக்கத்திற்கான ஒரு அடிப்படை உதாரணத்தை வழங்குவதற்கும் ஆகும்." }
+        }
+    ],
+    "pregeneratedScenarios": {
+        "Property 1": [
+            {
+                "id": "prop-1",
+                "title": { "en": "A Pregenerated Scenario", "es": "Un Escenario Pre-generado", "hi": "एक पूर्व-निर्मित परिदृश्य", "ta": "ஒரு முன் உருவாக்கப்பட்ட காட்சி" },
+                "description": { "en": "This is a sample pregenerated scenario for a property space. You must make a choice.", "es": "Este es un escenario de muestra pre-generado para un espacio de propiedad. Debes tomar una decisión.", "hi": "यह एक संपत्ति स्थान के लिए एक नमूना पूर्व-निर्मित परिदृश्य है। आपको एक विकल्प चुनना होगा।", "ta": "இது ஒரு சொத்து இடத்திற்கான ஒரு மாதிரி முன் உருவாக்கப்பட்ட காட்சி. நீங்கள் ஒரு தேர்வை செய்ய வேண்டும்." },
+                "choices": [
+                    {
+                        "text": { "en": "Choice 1", "es": "Elección 1", "hi": "विकल्प 1", "ta": "தேர்வு 1" },
+                        "outcome": {
+                            "explanation": { "en": "You chose the first option. A wise decision.", "es": "Elegiste la primera opción. Una sabia decisión.", "hi": "आपने पहला विकल्प चुना। एक बुद्धिमानी भरा निर्णय।", "ta": "நீங்கள் முதல் விருப்பத்தைத் தேர்ந்தெடுத்தீர்கள். ஒரு புத்திசாலித்தனமான முடிவு." },
+                            "resourceChanges": [
+                                { "name": "resource a", "value": -10 },
+                                { "name": "resource b", "value": 5 }
+                            ]
+                        }
+                    },
+                    {
+                        "text": { "en": "Choice 2", "es": "Elección 2", "hi": "विकल्प 2", "ta": "தேர்வு 2" },
+                        "outcome": {
+                            "explanation": { "en": "You chose the second option. An interesting tactic.", "es": "Elegiste la segunda opción. Una táctica interesante.", "hi": "आपने दूसरा विकल्प चुना। एक दिलचस्प युक्ति।", "ta": "நீங்கள் இரண்டாவது விருப்பத்தைத் தேர்ந்தெடுத்தீர்கள். ஒரு சுவாரஸ்யமான தந்திரம்." },
+                            "resourceChanges": [
+                                { "name": "resource a", "value": 5 },
+                                { "name": "resource b", "value": -10 }
+                            ]
+                        }
+                    }
+                ],
+                "sourceUrl": "https://example.com",
+                "sourceTitle": { "en": "Example Source Article", "es": "Artículo de Fuente de Ejemplo", "hi": "उदाहरण स्रोत लेख", "ta": "எடுத்துக்காட்டு மூலக் கட்டுரை" },
+                "custom": false,
+                "enabled": true
+            }
+        ]
+    }
+}

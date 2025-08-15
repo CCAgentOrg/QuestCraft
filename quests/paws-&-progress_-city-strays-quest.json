@@ -1,0 +1,1609 @@
+{
+  "board": {
+    "jailPosition": 5,
+    "locations": [
+      {
+        "description": {
+          "en": "Begin your journey to create a harmonious urban ecosystem for all residents, human and animal.",
+          "es": "Comienza tu viaje para crear un ecosistema urbano armonioso para todos los residentes, humanos y animales.",
+          "hi": "सभी निवासियों, मानव और पशु के लिए एक सामंजस्यपूर्ण शहरी पारिस्थितिकी तंत्र बनाने की अपनी यात्रा शुरू करें।",
+          "ta": "மனித மற்றும் விலங்கு என அனைத்து குடியிருப்பாளர்களுக்கும் இணக்கமான நகர்ப்புற சுற்றுச்சூழல் அமைப்பை உருவாக்க உங்கள் பயணத்தைத் தொடங்குங்கள்."
+        },
+        "name": {
+          "en": "START: City Dawn",
+          "es": "INICIO: Amanecer de la Ciudad",
+          "hi": "शुरुआत: शहर का प्रभात",
+          "ta": "ஆரம்பம்: நகர விடியல்"
+        },
+        "type": "START"
+      },
+      {
+        "description": {
+          "en": "A bustling market known for its stray dog presence. Requires careful management for coexistence.",
+          "es": "Un mercado bullicioso conocido por la presencia de perros callejeros. Requiere una gestión cuidadosa para la coexistencia.",
+          "hi": "यह एक व्यस्त बाजार है जो अपनी आवारा कुत्ते की उपस्थिति के लिए जाना जाता है। सह-अस्तित्व के लिए सावधानीपूर्वक प्रबंधन की आवश्यकता है।",
+          "ta": "தெரு நாய்கள் அதிகமாக உள்ள பரபரப்பான சந்தை. சகவாழ்விற்கான கவனமான மேலாண்மை தேவை."
+        },
+        "name": {
+          "en": "Old City Bazaar",
+          "es": "Bazar de la Ciudad Vieja",
+          "hi": "पुराना शहर बाजार",
+          "ta": "பழைய நகர பஜார்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-red-600"
+      },
+      {
+        "description": {
+          "en": "Draw an 'Incident Card' and react to unexpected urban events affecting strays.",
+          "es": "Roba una 'Tarjeta de Incidente' y reacciona a eventos urbanos inesperados que afectan a los perros callejeros.",
+          "hi": "एक 'घटना कार्ड' निकालें और आवारा कुत्तों को प्रभावित करने वाली अप्रत्याशित शहरी घटनाओं पर प्रतिक्रिया दें।",
+          "ta": "ஒரு 'சம்பவ அட்டையை' எடுக்கவும் மற்றும் தெருநாய்களை பாதிக்கும் எதிர்பாராத நகர்ப்புற நிகழ்வுகளுக்கு பதிலளிக்கவும்."
+        },
+        "name": {
+          "en": "Incident Card",
+          "es": "Tarjeta de Incidente",
+          "hi": "घटना कार्ड",
+          "ta": "சம்பவ அட்டை"
+        },
+        "type": "CHANCE"
+      },
+      {
+        "description": {
+          "en": "A grassroots initiative providing temporary shelter and care for vulnerable dogs.",
+          "es": "Una iniciativa de base que proporciona refugio temporal y cuidado a perros vulnerables.",
+          "hi": "कमजोर कुत्तों के लिए अस्थायी आश्रय और देखभाल प्रदान करने वाली एक जमीनी पहल।",
+          "ta": "பாதிக்கப்படக்கூடிய நாய்களுக்கு தற்காலிக தங்குமிடம் மற்றும் பராமரிப்பை வழங்கும் ஒரு அடிமட்ட முயற்சி."
+        },
+        "name": {
+          "en": "Slumdog Sanctuary",
+          "es": "Santuario de Perros Callejeros",
+          "hi": "स्लमडॉग अभयारण्य",
+          "ta": "தெருநாய் சரணாலயம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-red-600"
+      },
+      {
+        "description": {
+          "en": "Incur unexpected administrative overheads or fines for minor regulatory oversights.",
+          "es": "Incurre en gastos administrativos inesperados o multas por pequeñas infracciones reglamentarias.",
+          "hi": "छोटी नियामक चूकों के लिए अप्रत्याशित प्रशासनिक ओवरहेड या जुर्माना लगता है।",
+          "ta": "சிறு ஒழுங்குமுறை குறைபாடுகளுக்கான எதிர்பாராத நிர்வாகச் செலவுகள் அல்லது அபராதங்களைச் சந்திக்கவும்."
+        },
+        "name": {
+          "en": "Bureaucracy Blight",
+          "es": "Maleza Burocrática",
+          "hi": "नौकरशाही का प्रकोप",
+          "ta": "அரசு அலுவலக சிக்கல்"
+        },
+        "type": "TAX"
+      },
+      {
+        "description": {
+          "en": "Dogs are brought here for observation, treatment, or temporary shelter. Pay for their care.",
+          "es": "Los perros son traídos aquí para observación, tratamiento o refugio temporal. Paga por su cuidado.",
+          "hi": "कुत्तों को यहां अवलोकन, उपचार या अस्थायी आश्रय के लिए लाया जाता है। उनके देखभाल के लिए भुगतान करें।",
+          "ta": "நாய்கள் இங்கு கண்காணிப்பு, சிகிச்சை அல்லது தற்காலிக தங்குமிடத்திற்காக கொண்டுவரப்படுகின்றன. அவற்றின் பராமரிப்புக்கு பணம் செலுத்துங்கள்."
+        },
+        "name": {
+          "en": "Animal Shelter Holding",
+          "es": "Retención en Refugio Animal",
+          "hi": "पशु आश्रय हिरासत",
+          "ta": "விலங்கு தங்குமிடம்"
+        },
+        "type": "JAIL"
+      },
+      {
+        "description": {
+          "en": "A park or green belt where both humans and animals seek solace. Requires upkeep.",
+          "es": "Un parque o cinturón verde donde tanto humanos como animales buscan consuelo. Requiere mantenimiento.",
+          "hi": "एक पार्क या हरित पट्टी जहाँ मनुष्य और पशु दोनों शांति पाते हैं। रखरखाव की आवश्यकता है।",
+          "ta": "மனிதர்களும் விலங்குகளும் அமைதியைத் தேடும் ஒரு பூங்கா அல்லது பசுமைப் பகுதி. பராமரிப்பு தேவை."
+        },
+        "name": {
+          "en": "Urban Green Space",
+          "es": "Espacio Verde Urbano",
+          "hi": "शहरी हरा-भरा स्थान",
+          "ta": "நகர்ப்புற பசுமைப் பகுதி"
+        },
+        "type": "PROPERTY",
+        "color": "bg-orange-600"
+      },
+      {
+        "description": {
+          "en": "Essential for disease diagnosis, vaccination drives, and scientific research.",
+          "es": "Esencial para el diagnóstico de enfermedades, campañas de vacunación e investigación científica.",
+          "hi": "रोग निदान, टीकाकरण अभियान और वैज्ञानिक अनुसंधान के लिए आवश्यक।",
+          "ta": "நோய் கண்டறிதல், தடுப்பூசி இயக்கங்கள் மற்றும் அறிவியல் ஆராய்ச்சிக்கு அவசியம்."
+        },
+        "name": {
+          "en": "Veterinary Lab",
+          "es": "Laboratorio Veterinario",
+          "hi": "पशु चिकित्सा प्रयोगशाला",
+          "ta": "கால்நடை ஆய்வகம்"
+        },
+        "type": "UTILITY"
+      },
+      {
+        "description": {
+          "en": "Modern living complexes with residents often concerned about stray dog presence.",
+          "es": "Complejos de vida modernos con residentes a menudo preocupados por la presencia de perros callejeros.",
+          "hi": "आधुनिक आवासीय परिसर जहां के निवासी अक्सर आवारा कुत्तों की उपस्थिति को लेकर चिंतित रहते हैं।",
+          "ta": "தெரு நாய்களின் இருப்பு குறித்து குடியிருப்பாளர்கள் பெரும்பாலும் கவலைப்படும் நவீன குடியிருப்பு வளாகங்கள்."
+        },
+        "name": {
+          "en": "High-Rise Residential",
+          "es": "Residencial de Gran Altura",
+          "hi": "ऊंची आवासीय इमारतें",
+          "ta": "உயரமான குடியிருப்பு பகுதி"
+        },
+        "type": "PROPERTY",
+        "color": "bg-orange-600"
+      },
+      {
+        "description": {
+          "en": "Draw a 'Community Action' card and benefit from or contribute to local initiatives.",
+          "es": "Roba una tarjeta de 'Acción Comunitaria' y benefíciate o contribuye a iniciativas locales.",
+          "hi": "एक 'सामुदायिक कार्रवाई' कार्ड निकालें और स्थानीय पहलों से लाभ उठाएं या उनमें योगदान करें।",
+          "ta": "ஒரு 'சமூக நடவடிக்கை' அட்டையை எடுக்கவும் மற்றும் உள்ளூர் முயற்சிகளுக்கு பயனடையவும் அல்லது பங்களிக்கவும்."
+        },
+        "name": {
+          "en": "Community Action",
+          "es": "Acción Comunitaria",
+          "hi": "सामुदायिक कार्रवाई",
+          "ta": "சமூக நடவடிக்கை"
+        },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "description": {
+          "en": "A vibrant public space where children and adults gather, requiring careful stray management.",
+          "es": "Un espacio público vibrante donde se reúnen niños y adultos, lo que requiere una gestión cuidadosa de los perros callejeros.",
+          "hi": "एक जीवंत सार्वजनिक स्थान जहां बच्चे और वयस्क इकट्ठा होते हैं, जिसके लिए आवारा कुत्तों का सावधानीपूर्वक प्रबंधन आवश्यक है।",
+          "ta": "குழந்தைகள் மற்றும் பெரியவர்கள் கூடும் ஒரு துடிப்பான பொது இடம், இதற்கு தெருநாய்களை கவனமாக நிர்வகிக்க வேண்டும்."
+        },
+        "name": {
+          "en": "Community Playground",
+          "es": "Parque Comunitario",
+          "hi": "सामुदायिक खेल का मैदान",
+          "ta": "சமூக விளையாட்டு மைதானம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-orange-600"
+      },
+      {
+        "description": {
+          "en": "A dedicated space for controlled interaction and behavior training for adopted dogs.",
+          "es": "Un espacio dedicado a la interacción controlada y el entrenamiento de comportamiento para perros adoptados.",
+          "hi": "अपनाए गए कुत्तों के लिए नियंत्रित बातचीत और व्यवहार प्रशिक्षण के लिए एक समर्पित स्थान।",
+          "ta": "தத்தெடுக்கப்பட்ட நாய்களுக்கு கட்டுப்படுத்தப்பட்ட தொடர்பு மற்றும் நடத்தை பயிற்சிக்கு அர்ப்பணிக்கப்பட்ட இடம்."
+        },
+        "name": {
+          "en": "Dog Park & Training",
+          "es": "Parque y Entrenamiento Canino",
+          "hi": "डॉग पार्क और प्रशिक्षण",
+          "ta": "நாய் பூங்கா மற்றும் பயிற்சி"
+        },
+        "type": "PROPERTY",
+        "color": "bg-yellow-600"
+      },
+      {
+        "description": {
+          "en": "Draw an 'Incident Card' and react to unexpected urban events affecting strays.",
+          "es": "Roba una 'Tarjeta de Incidente' y reacciona a eventos urbanos inesperados que afectan a los perros callejeros.",
+          "hi": "एक 'घटना कार्ड' निकालें और आवारा कुत्तों को प्रभावित करने वाली अप्रत्याशित शहरी घटनाओं पर प्रतिक्रिया दें।",
+          "ta": "ஒரு 'சம்பவ அட்டையை' எடுக்கவும் மற்றும் தெருநாய்களை பாதிக்கும் எதிர்பாராத நகர்ப்புற நிகழ்வுகளுக்கு பதிலளிக்கவும்."
+        },
+        "name": {
+          "en": "Incident Card",
+          "es": "Tarjeta de Incidente",
+          "hi": "घटना कार्ड",
+          "ta": "சம்பவ அட்டை"
+        },
+        "type": "CHANCE"
+      },
+      {
+        "description": {
+          "en": "A space to educate the public on responsible pet ownership and humane stray management.",
+          "es": "Un espacio para educar al público sobre la tenencia responsable de mascotas y el manejo humanitario de perros callejeros.",
+          "hi": "जिम्मेदार पालतू स्वामित्व और मानवीय आवारा प्रबंधन पर जनता को शिक्षित करने का एक स्थान।",
+          "ta": "பொறுப்பான செல்லப்பிராணி உரிமையாளர் மற்றும் மனிதாபிமான தெருநாய்கள் மேலாண்மை குறித்து பொதுமக்களுக்கு கல்வி கற்பிப்பதற்கான ஒரு இடம்."
+        },
+        "name": {
+          "en": "Public Awareness Campaign",
+          "es": "Campaña de Concienciación Pública",
+          "hi": "जन जागरूकता अभियान",
+          "ta": "பொது விழிப்புணர்வு பிரச்சாரம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-yellow-600"
+      },
+      {
+        "description": {
+          "en": "A place of peace and positive community collaboration. No immediate costs, just good vibes.",
+          "es": "Un lugar de paz y colaboración comunitaria positiva. Sin costos inmediatos, solo buenas vibras.",
+          "hi": "शांति और सकारात्मक सामुदायिक सहयोग का स्थान। कोई तत्काल लागत नहीं, बस अच्छी भावनाएँ।",
+          "ta": "அமைதி மற்றும் நேர்மறையான சமூக ஒத்துழைப்பின் இடம். உடனடி செலவுகள் இல்லை, நல்ல உணர்வுகள் மட்டுமே."
+        },
+        "name": {
+          "en": "Community Spirit Hub",
+          "es": "Centro de Espíritu Comunitario",
+          "hi": "सामुदायिक भावना केंद्र",
+          "ta": "சமூக மனப்பான்மை மையம்"
+        },
+        "type": "FREE_PARKING"
+      },
+      {
+        "description": {
+          "en": "Crucial for waste management, impacting stray dog scavenging and hygiene.",
+          "es": "Crucial para la gestión de residuos, afectando el hurto de perros callejeros y la higiene.",
+          "hi": "अपशिष्ट प्रबंधन के लिए महत्वपूर्ण, आवारा कुत्तों के खाने और स्वच्छता को प्रभावित करता है।",
+          "ta": "கழிவு மேலாண்மைக்கு முக்கியமானது, தெரு நாய்களின் உணவு தேடல் மற்றும் சுகாதாரத்தை பாதிக்கும்."
+        },
+        "name": {
+          "en": "Municipal Waste Hub",
+          "es": "Centro de Residuos Municipales",
+          "hi": "नगरपालिका अपशिष्ट केंद्र",
+          "ta": "நகராட்சி கழிவு மையம்"
+        },
+        "type": "UTILITY"
+      },
+      {
+        "description": {
+          "en": "An event connecting abandoned animals with loving homes, reducing stray population.",
+          "es": "Un evento que conecta animales abandonados con hogares amorosos, reduciendo la población de perros callejeros.",
+          "hi": "त्यागे गए जानवरों को प्यार करने वाले घरों से जोड़ने वाला एक कार्यक्रम, आवारा आबादी को कम करता है।",
+          "ta": "கைவிடப்பட்ட விலங்குகளை அன்பான வீடுகளுடன் இணைக்கும் ஒரு நிகழ்வு, தெருநாய்களின் எண்ணிக்கையை குறைக்கும்."
+        },
+        "name": {
+          "en": "Adoption & Rehabilitation Center",
+          "es": "Centro de Adopción y Rehabilitación",
+          "hi": "गोद लेने और पुनर्वास केंद्र",
+          "ta": "தத்தெடுப்பு மற்றும் மறுவாழ்வு மையம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-yellow-600"
+      },
+      {
+        "description": {
+          "en": "Draw a 'Community Action' card and benefit from or contribute to local initiatives.",
+          "es": "Roba una tarjeta de 'Acción Comunitaria' y benefíciate o contribuye a iniciativas locales.",
+          "hi": "एक 'सामुदायिक कार्रवाई' कार्ड निकालें और स्थानीय पहलों से लाभ उठाएं या उनमें योगदान करें।",
+          "ta": "ஒரு 'சமூக நடவடிக்கை' அட்டையை எடுக்கவும் மற்றும் உள்ளூர் முயற்சிகளுக்கு பயனடையவும் அல்லது பங்களிக்கவும்."
+        },
+        "name": {
+          "en": "Community Action",
+          "es": "Acción Comunitaria",
+          "hi": "सामुदायिक कार्रवाई",
+          "ta": "சமூக நடவடிக்கை"
+        },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "description": {
+          "en": "A busy commercial street where interactions between humans and strays are frequent.",
+          "es": "Una calle comercial concurrida donde las interacciones entre humanos y perros callejeros son frecuentes.",
+          "hi": "एक व्यस्त व्यावसायिक सड़क जहाँ मनुष्य और आवारा कुत्तों के बीच अक्सर बातचीत होती है।",
+          "ta": "மனிதர்களுக்கும் தெருநாய்களுக்கும் இடையே அடிக்கடி தொடர்பு ஏற்படும் ஒரு பரபரப்பான வணிக வீதி."
+        },
+        "name": {
+          "en": "Local Market Lane",
+          "es": "Callejón del Mercado Local",
+          "hi": "स्थानीय बाजार गली",
+          "ta": "உள்ளூர் சந்தை சந்து"
+        },
+        "type": "PROPERTY",
+        "color": "bg-red-600"
+      },
+      {
+        "description": {
+          "en": "Encounter a situation that requires immediate intervention. Head straight to Animal Shelter Holding!",
+          "es": "Encuentra una situación que requiere intervención inmediata. ¡Dirígete directamente al Refugio Animal!",
+          "hi": "एक ऐसी स्थिति का सामना करें जिसके लिए तत्काल हस्तक्षेप की आवश्यकता है। सीधे पशु आश्रय हिरासत में जाएं!",
+          "ta": "உடனடி தலையீடு தேவைப்படும் ஒரு சூழ்நிலையை சந்திக்கவும். நேரடியாக விலங்கு தங்குமிடத்திற்கு செல்லுங்கள்!"
+        },
+        "name": {
+          "en": "Go to Pound",
+          "es": "Ir al Perrera",
+          "hi": "पशु आश्रय पर जाएँ",
+          "ta": "விலங்கு காப்பகத்திற்குச் செல்லவும்"
+        },
+        "type": "GO_TO_JAIL"
+      }
+    ]
+  },
+  "chanceCards": [
+    {
+      "description": {
+        "en": "Rabies Scare! A reported case causes panic. Community Safety decreases.",
+        "es": "¡Susto de Rabia! Un caso reportado causa pánico. La Seguridad Comunitaria disminuye.",
+        "hi": "रेबीज का डर! एक रिपोर्ट किए गए मामले से घबराहट फैलती है। सामुदायिक सुरक्षा घट जाती है।",
+        "ta": "ரேபிஸ் பயம்! ஒரு அறிவிக்கப்பட்ட வழக்கு பீதியை ஏற்படுத்துகிறது. சமூக பாதுகாப்பு குறைகிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "community safety",
+          "value": -20
+        },
+        {
+          "name": "local support",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Successful Sterilization Drive! Many dogs spayed/neutered. Animal Welfare and Community Safety increase, but it cost resources.",
+        "es": "¡Campaña de Esterilización Exitosa! Muchos perros castrados/esterilizados. El Bienestar Animal y la Seguridad Comunitaria aumentan, pero costó recursos.",
+        "hi": "सफल नसबंदी अभियान! कई कुत्तों का नसबंदी/वंध्याकरण किया गया। पशु कल्याण और सामुदायिक सुरक्षा बढ़ती है, लेकिन इसमें संसाधनों का खर्च आया।",
+        "ta": "வெற்றிகரமான கருத்தடை இயக்கம்! பல நாய்கள் கருத்தடை செய்யப்பட்டன. விலங்கு நலன் மற்றும் சமூக பாதுகாப்பு அதிகரிக்கிறது, ஆனால் அதற்கு வளங்கள் தேவைப்பட்டன."
+      },
+      "resourceChanges": [
+        {
+          "name": "animal welfare",
+          "value": 30
+        },
+        {
+          "name": "community safety",
+          "value": 15
+        },
+        {
+          "name": "local support",
+          "value": -20
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Illegal Garbage Dumping. Leads to unsanitary conditions and attracts more strays. Community Safety and Animal Welfare decrease.",
+        "es": "Vertido Ilegal de Basura. Conduce a condiciones insalubres y atrae más perros callejeros. La Seguridad Comunitaria y el Bienestar Animal disminuyen.",
+        "hi": "अवैध कचरा डंपिंग। यह अस्वच्छ परिस्थितियों की ओर ले जाता है और अधिक आवारा कुत्तों को आकर्षित करता है। सामुदायिक सुरक्षा और पशु कल्याण घटते हैं।",
+        "ta": "சட்டவிரோத குப்பை கொட்டுதல். இது சுகாதாரமற்ற நிலைமைகளுக்கு வழிவகுக்கிறது மற்றும் மேலும் தெருநாய்களை ஈர்க்கிறது. சமூக பாதுகாப்பு மற்றும் விலங்கு நலன் குறைகிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "community safety",
+          "value": -15
+        },
+        {
+          "name": "animal welfare",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Festival Crowds. Dogs are stressed, but public sympathy brings in donations. Animal Welfare decreases, Local Support increases.",
+        "es": "Multitudes Festivas. Los perros están estresados, pero la simpatía pública trae donaciones. El Bienestar Animal disminuye, el Apoyo Local aumenta.",
+        "hi": "त्योहारों की भीड़। कुत्ते तनाव में हैं, लेकिन जनता की सहानुभूति से दान आता है। पशु कल्याण घटता है, स्थानीय सहायता बढ़ती है।",
+        "ta": "திருவிழா கூட்டங்கள். நாய்கள் மன அழுத்தத்தில் உள்ளன, ஆனால் பொது மக்கள் இரக்கத்தால் நன்கொடைகள் வருகின்றன. விலங்கு நலன் குறைகிறது, உள்ளூர் ஆதரவு அதிகரிக்கிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "animal welfare",
+          "value": -10
+        },
+        {
+          "name": "local support",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Unexpected Philanthropist! A wealthy donor contributes significantly. Local Support increases.",
+        "es": "¡Filántropo Inesperado! Un donante adinerado contribuye significativamente. El Apoyo Local aumenta.",
+        "hi": "अप्रत्याशित परोपकारी! एक धनी दाता महत्वपूर्ण योगदान देता है। स्थानीय सहायता बढ़ती है।",
+        "ta": "எதிர்பாராத பணக்கார நன்கொடையாளர்! ஒரு பணக்கார நன்கொடையாளர் கணிசமாக பங்களிக்கிறார். உள்ளூர் ஆதரவு அதிகரிக்கிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "local support",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Media Exposure: An animal cruelty case gains national attention. Animal Welfare and Community Safety decrease due to negative perception.",
+        "es": "Exposición Mediática: Un caso de crueldad animal obtiene atención nacional. El Bienestar Animal y la Seguridad Comunitaria disminuyen debido a la percepción negativa.",
+        "hi": "मीडिया कवरेज: एक पशु क्रूरता मामला राष्ट्रीय ध्यान आकर्षित करता है। नकारात्मक धारणा के कारण पशु कल्याण और सामुदायिक सुरक्षा घटती है।",
+        "ta": "ஊடக வெளிப்பாடு: ஒரு விலங்கு வன்கொடுமை வழக்கு தேசிய கவனத்தை ஈர்க்கிறது. எதிர்மறையான கருத்து காரணமாக விலங்கு நலன் மற்றும் சமூக பாதுகாப்பு குறைகிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "animal welfare",
+          "value": -20
+        },
+        {
+          "name": "community safety",
+          "value": -15
+        },
+        {
+          "name": "local support",
+          "value": -10
+        }
+      ]
+    }
+  ],
+  "description": {
+    "en": "Navigate the urban landscape of an Indian city to balance community safety and animal welfare, fostering sustainable human-animal co-existence.",
+    "es": "Navega por el paisaje urbano de una ciudad india para equilibrar la seguridad comunitaria y el bienestar animal, fomentando una coexistencia sostenible entre humanos y animales.",
+    "hi": "भारतीय शहर के शहरी परिदृश्य में नेविगेट करें ताकि सामुदायिक सुरक्षा और पशु कल्याण को संतुलित किया जा सके, मानव-पशु सह-अस्तित्व को बढ़ावा दिया जा सके।",
+    "ta": "இந்திய நகரத்தின் நகர்ப்புற நிலப்பரப்பில் வழிநடத்தி, சமூக பாதுகாப்பையும் விலங்கு நலனையும் சமநிலைப்படுத்தி, நிலையான மனித-விலங்கு சகவாழ்வை மேம்படுத்துங்கள்."
+  },
+  "footerSections": [
+    {
+      "content": {
+        "en": "<ul><li><strong>Objective:</strong> Maintain a healthy balance of Community Safety, Animal Welfare, and Local Support resources. The game ends after a set number of rounds, or if any player's resource drops to 0. The player with the highest total resource score wins.</li><li><strong>Gameplay:</strong> Roll dice to move around the board. Land on 'Property' spaces to invest in initiatives. 'Incident Card' and 'Community Action' spaces require drawing a card with immediate resource impacts.</li><li><strong>Managing Resources:</strong> Every action, good or bad, affects your resources. Aim to keep all three above zero and growing!</li><li><strong>Jail (Animal Shelter Holding):</strong> If sent to 'Animal Shelter Holding', you must pay a fee or wait turns to be released.</li><li><strong>Winning:</strong> The game encourages long-term strategic thinking and balanced resource management over simple accumulation.</li></ul>",
+        "es": "<ul><li><strong>Objetivo:</strong> Mantener un equilibrio saludable de recursos de Seguridad Comunitaria, Bienestar Animal y Apoyo Local. El juego termina después de un número determinado de rondas, o si los recursos de cualquier jugador caen a 0. Gana el jugador con la puntuación total de recursos más alta.</li><li><strong>Jugabilidad:</strong> Tira los dados para moverte por el tablero. Cae en las casillas de 'Propiedad' para invertir en iniciativas. Las casillas de 'Tarjeta de Incidente' y 'Acción Comunitaria' requieren robar una carta con impactos inmediatos en los recursos.</li><li><strong>Gestión de Recursos:</strong> Cada acción, buena o mala, afecta tus recursos. ¡Intenta mantener los tres por encima de cero y creciendo!</li><li><strong>Cárcel (Retención en Refugio Animal):</strong> Si eres enviado a 'Retención en Refugio Animal', debes pagar una tarifa o esperar turnos para ser liberado.</li><li><strong>Ganar:</strong> El juego fomenta el pensamiento estratégico a largo plazo y la gestión equilibrada de los recursos por encima de la simple acumulación.</li></ul>",
+        "hi": "<ul><li><strong>उद्देश्य:</strong> सामुदायिक सुरक्षा, पशु कल्याण और स्थानीय सहायता संसाधनों का एक स्वस्थ संतुलन बनाए रखें। खेल निश्चित संख्या में राउंड के बाद समाप्त होता है, या यदि किसी खिलाड़ी का संसाधन 0 पर गिर जाता है। उच्चतम कुल संसाधन स्कोर वाला खिलाड़ी जीतता है।</li><li><strong>गेमप्ले:</strong> बोर्ड पर घूमने के लिए पासे फेंकें। पहलों में निवेश करने के लिए 'संपत्ति' स्थानों पर उतरें। 'घटना कार्ड' और 'सामुदायिक कार्रवाई' स्थानों पर संसाधनों पर तत्काल प्रभाव वाले कार्ड को निकालना आवश्यक है।</li><li><strong>संसाधनों का प्रबंधन:</strong> हर क्रिया, अच्छी या बुरी, आपके संसाधनों को प्रभावित करती है। तीनों को शून्य से ऊपर और बढ़ते रहने का लक्ष्य रखें!</li><li><strong>जेल (पशु आश्रय हिरासत):</strong> यदि आपको 'पशु आश्रय हिरासत' में भेजा जाता है, तो आपको शुल्क का भुगतान करना होगा या रिहा होने के लिए बारी का इंतजार करना होगा।</li><li><strong>जीत:</strong> खेल साधारण संचय के बजाय दीर्घकालिक रणनीतिक सोच और संतुलित संसाधन प्रबंधन को प्रोत्साहित करता है।</li></ul>",
+        "ta": "<ul><li><strong>நோக்கம்:</strong> சமூக பாதுகாப்பு, விலங்கு நலன் மற்றும் உள்ளூர் ஆதரவு வளங்களை ஆரோக்கியமாக சமநிலைப்படுத்துதல். குறிப்பிட்ட எண்ணிக்கையிலான சுற்றுகளுக்குப் பிறகு அல்லது எந்த வீரரின் வளமும் 0 ஆக குறைந்தால் ஆட்டம் முடிவடையும். அதிக மொத்த வள மதிப்பெண் பெற்ற வீரர் வெற்றி பெறுவார்.</li><li><strong>விளையாட்டு:</strong> பலகையைச் சுற்றி நகர பகடைகளை உருட்டவும். முயற்சிகளில் முதலீடு செய்ய 'சொத்து' இடங்களில் இறங்கவும். 'சம்பவ அட்டை' மற்றும் 'சமூக நடவடிக்கை' இடங்களில் உடனடி வள தாக்கங்களை கொண்ட அட்டையை எடுக்க வேண்டும்.</li><li><strong>வளங்களை நிர்வகித்தல்:</strong> ஒவ்வொரு செயலும், நல்லதோ கெட்டதோ, உங்கள் வளங்களை பாதிக்கிறது. மூன்றையும் பூஜ்ஜியத்திற்கு மேல் வைத்து வளர இலக்கு வையுங்கள்!</li><li><strong>சிறை (விலங்கு தங்குமிடம்):</strong> 'விலங்கு தங்குமிடம்' அனுப்பப்பட்டால், நீங்கள் கட்டணம் செலுத்த வேண்டும் அல்லது விடுவிக்கப்படுவதற்கு காத்திருக்க வேண்டும்.</li><li><strong>வெற்றி:</strong> விளையாட்டு எளிமையான குவிப்புக்கு பதிலாக நீண்ட கால மூலோபாய சிந்தனை மற்றும் சமச்சீரான வள மேலாண்மையை ஊக்குவிக்கிறது.</li></ul>"
+      },
+      "title": {
+        "en": "Rules",
+        "es": "Reglas",
+        "hi": "नियम",
+        "ta": "விதிகள்"
+      }
+    },
+    {
+      "content": {
+        "en": "<strong>Paws & Progress: City Strays</strong> invites players to step into the shoes of urban planners and animal welfare advocates in a bustling Indian city. This educational board game highlights the complex, often challenging, yet ultimately rewarding task of managing stray dog populations. It moves beyond simple solutions, encouraging players to explore humane and sustainable strategies that balance public safety with the well-being of street animals. By managing Community Safety, Animal Welfare, and Local Support, players learn about interconnected challenges and the importance of community involvement in fostering a harmonious co-existence between humans and animals.",
+        "es": "<strong>Patas y Progreso: Perros Callejeros de la Ciudad</strong> invita a los jugadores a ponerse en la piel de planificadores urbanos y defensores del bienestar animal en una bulliciosa ciudad india. Este juego de mesa educativo destaca la tarea compleja, a menudo desafiante, pero en última instancia gratificante, de gestionar las poblaciones de perros callejeros. Va más allá de soluciones simples, animando a los jugadores a explorar estrategias humanitarias y sostenibles que equilibren la seguridad pública con el bienestar de los animales callejeros. Al gestionar la Seguridad Comunitaria, el Bienestar Animal y el Apoyo Local, los jugadores aprenden sobre desafíos interconectados y la importancia de la participación comunitaria en el fomento de una coexistencia armoniosa entre humanos y animales.",
+        "hi": "<strong>पंजे और प्रगति: शहर के आवारा कुत्ते</strong> खिलाड़ियों को एक हलचल भरे भारतीय शहर में शहरी योजनाकारों और पशु कल्याण अधिवक्ताओं की भूमिका निभाने के लिए आमंत्रित करता है। यह शैक्षिक बोर्ड गेम आवारा कुत्तों की आबादी के प्रबंधन के जटिल, अक्सर चुनौतीपूर्ण, फिर भी अंततः पुरस्कृत कार्य पर प्रकाश डालता है। यह सरल समाधानों से परे जाता है, खिलाड़ियों को मानवीय और टिकाऊ रणनीतियों का पता लगाने के लिए प्रोत्साहित करता है जो सार्वजनिक सुरक्षा को सड़क पर रहने वाले जानवरों के कल्याण के साथ संतुलित करते हैं। सामुदायिक सुरक्षा, पशु कल्याण और स्थानीय सहायता का प्रबंधन करके, खिलाड़ी परस्पर जुड़े हुए चुनौतियों और मानव और जानवरों के बीच एक सामंजस्यपूर्ण सह-अस्तित्व को बढ़ावा देने में सामुदायिक भागीदारी के महत्व के बारे में सीखते हैं।",
+        "ta": "<strong>கால் மற்றும் முன்னேற்றம்: நகரத்தின் தெருநாய்கள்</strong> விளையாட்டு வீரர்கள் ஒரு பரபரப்பான இந்திய நகரத்தில் நகர்ப்புற திட்டமிடுபவர்கள் மற்றும் விலங்கு நல ஆர்வலர்களின் பொறுப்புகளை ஏற்க அழைக்கிறது. இந்த கல்விப் பலகை விளையாட்டு, தெருநாய் எண்ணிக்கையை நிர்வகிப்பதில் உள்ள சிக்கலான, பெரும்பாலும் சவாலான, ஆனால் இறுதியில் பலனளிக்கும் பணியை எடுத்துக்காட்டுகிறது. இது எளிய தீர்வுகளுக்கு அப்பாற்பட்டு, பொது பாதுகாப்பையும் தெருவிலங்குகளின் நலனையும் சமநிலைப்படுத்தும் மனிதாபிமான மற்றும் நிலையான உத்திகளை ஆராய வீரர்களை ஊக்குவிக்கிறது. சமூக பாதுகாப்பு, விலங்கு நலன் மற்றும் உள்ளூர் ஆதரவை நிர்வகிப்பதன் மூலம், வீரர்கள் ஒன்றோடொன்று தொடர்புடைய சவால்கள் மற்றும் மனிதர்களுக்கும் விலங்குகளுக்கும் இடையில் இணக்கமான சகவாழ்வை வளர்ப்பதில் சமூக பங்கேற்பின் முக்கியத்துவம் பற்றி கற்றுக்கொள்கிறார்கள்."
+      },
+      "title": {
+        "en": "About",
+        "es": "Acerca de",
+        "hi": "के बारे में",
+        "ta": "பற்றி"
+      }
+    }
+  ],
+  "name": {
+    "en": "Paws & Progress: City Strays",
+    "es": "Patas y Progreso: Perros Callejeros de la Ciudad",
+    "hi": "पंजे और प्रगति: शहर के आवारा कुत्ते",
+    "ta": "கால் மற்றும் முன்னேற்றம்: நகரத்தின் தெருநாய்கள்"
+  },
+  "playerColors": [
+    "text-red-600",
+    "text-blue-600",
+    "text-green-600",
+    "text-yellow-600"
+  ],
+  "resources": [
+    {
+      "barColor": "bg-blue-500",
+      "icon": "InfoIcon",
+      "initialValue": 100,
+      "name": {
+        "en": "Community Safety",
+        "es": "Seguridad Comunitaria",
+        "hi": "सामुदायिक सुरक्षा",
+        "ta": "சமூக பாதுகாப்பு"
+      },
+      "maximumValue": 200,
+      "minimumValue": 0
+    },
+    {
+      "barColor": "bg-green-500",
+      "icon": "InfoIcon",
+      "initialValue": 100,
+      "name": {
+        "en": "Animal Welfare",
+        "es": "Bienestar Animal",
+        "hi": "पशु कल्याण",
+        "ta": "விலங்கு நலன்"
+      },
+      "maximumValue": 200,
+      "minimumValue": 0
+    },
+    {
+      "barColor": "bg-yellow-500",
+      "icon": "MoneyIcon",
+      "initialValue": 100,
+      "name": {
+        "en": "Local Support",
+        "es": "Apoyo Local",
+        "hi": "स्थानीय सहायता",
+        "ta": "உள்ளூர் ஆதரவு"
+      },
+      "maximumValue": 200,
+      "minimumValue": 0
+    }
+  ],
+  "communityChestCards": [
+    {
+      "description": {
+        "en": "Launch ABC (Animal Birth Control) Program! Significant impact on population control. Animal Welfare and Community Safety increase, but costs Local Support.",
+        "es": "¡Lanzar Programa ABC (Control de Natalidad Animal)! Impacto significativo en el control de la población. El Bienestar Animal y la Seguridad Comunitaria aumentan, pero cuesta Apoyo Local.",
+        "hi": "एबीसी (पशु जन्म नियंत्रण) कार्यक्रम शुरू करें! जनसंख्या नियंत्रण पर महत्वपूर्ण प्रभाव। पशु कल्याण और सामुदायिक सुरक्षा बढ़ती है, लेकिन स्थानीय सहायता की लागत आती है।",
+        "ta": "ABC (விலங்கு பிறப்புக் கட்டுப்பாடு) திட்டத்தை தொடங்கவும்! மக்கள் தொகை கட்டுப்பாடு மீது குறிப்பிடத்தக்க தாக்கம். விலங்கு நலன் மற்றும் சமூக பாதுகாப்பு அதிகரிக்கும், ஆனால் உள்ளூர் ஆதரவுக்கு செலவாகும்."
+      },
+      "resourceChanges": [
+        {
+          "name": "animal welfare",
+          "value": 40
+        },
+        {
+          "name": "community safety",
+          "value": 25
+        },
+        {
+          "name": "local support",
+          "value": -30
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Fund Community Outreach. Educate residents on humane interactions. Local Support and Community Safety increase.",
+        "es": "Financiar Extensión Comunitaria. Educar a los residentes sobre interacciones humanas. El Apoyo Local y la Seguridad Comunitaria aumentan.",
+        "hi": "सामुदायिक आउटरीच को निधि दें। निवासियों को मानवीय बातचीत पर शिक्षित करें। स्थानीय सहायता और सामुदायिक सुरक्षा बढ़ती है।",
+        "ta": "சமூக outreach-க்கு நிதியளிக்கவும். மனிதாபிமான தொடர்புகள் குறித்து குடியிருப்பாளர்களுக்கு கல்வி கற்பிக்கவும். உள்ளூர் ஆதரவு மற்றும் சமூக பாதுகாப்பு அதிகரிக்கும்."
+      },
+      "resourceChanges": [
+        {
+          "name": "local support",
+          "value": 20
+        },
+        {
+          "name": "community safety",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Establish Adoption Camps. Successful adoptions boost Animal Welfare and Local Support.",
+        "es": "Establecer Campamentos de Adopción. Las adopciones exitosas impulsan el Bienestar Animal y el Apoyo Local.",
+        "hi": "गोद लेने के शिविर स्थापित करें। सफल गोद लेने से पशु कल्याण और स्थानीय सहायता को बढ़ावा मिलता है।",
+        "ta": "தத்தெடுப்பு முகாம்களை நிறுவுங்கள். வெற்றிகரமான தத்தெடுப்புகள் விலங்கு நலன் மற்றும் உள்ளூர் ஆதரவை அதிகரிக்கும்."
+      },
+      "resourceChanges": [
+        {
+          "name": "animal welfare",
+          "value": 25
+        },
+        {
+          "name": "local support",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Improve Waste Management. Better garbage collection reduces stray food sources and improves hygiene. Community Safety and Animal Welfare increase, but costs Local Support.",
+        "es": "Mejorar la Gestión de Residuos. Una mejor recolección de basura reduce las fuentes de alimento para los perros callejeros y mejora la higiene. La Seguridad Comunitaria y el Bienestar Animal aumentan, pero cuesta Apoyo Local.",
+        "hi": "अपशिष्ट प्रबंधन में सुधार करें। बेहतर कचरा संग्रहण आवारा कुत्तों के भोजन स्रोतों को कम करता है और स्वच्छता में सुधार करता है। सामुदायिक सुरक्षा और पशु कल्याण बढ़ते हैं, लेकिन स्थानीय सहायता की लागत आती है।",
+        "ta": "கழிவு மேலாண்மையை மேம்படுத்துங்கள். சிறந்த குப்பை சேகரிப்பு தெருநாய்களின் உணவு ஆதாரங்களைக் குறைத்து, சுகாதாரத்தை மேம்படுத்துகிறது. சமூக பாதுகாப்பு மற்றும் விலங்கு நலன் அதிகரிக்கும், ஆனால் உள்ளூர் ஆதரவுக்கு செலவாகும்."
+      },
+      "resourceChanges": [
+        {
+          "name": "community safety",
+          "value": 20
+        },
+        {
+          "name": "animal welfare",
+          "value": 15
+        },
+        {
+          "name": "local support",
+          "value": -15
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Volunteer Drive! A surge of new volunteers boosts Local Support and helps directly with Animal Welfare efforts.",
+        "es": "¡Campaña de Voluntariado! Un aumento de nuevos voluntarios impulsa el Apoyo Local y ayuda directamente con los esfuerzos de Bienestar Animal.",
+        "hi": "स्वयंसेवक अभियान! नए स्वयंसेवकों की संख्या में वृद्धि स्थानीय सहायता को बढ़ावा देती है और सीधे पशु कल्याण प्रयासों में मदद करती है।",
+        "ta": "தன்னார்வலர் இயக்கம்! புதிய தன்னார்வலர்களின் வருகை உள்ளூர் ஆதரவை அதிகரிக்கிறது மற்றும் விலங்கு நல முயற்சிகளுக்கு நேரடியாக உதவுகிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "local support",
+          "value": 25
+        },
+        {
+          "name": "animal welfare",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Community Clean-up Day. Residents collaborate to clean public spaces. Boosts Community Safety and Local Support.",
+        "es": "Día de Limpieza Comunitaria. Los residentes colaboran para limpiar espacios públicos. Impulsa la Seguridad Comunitaria y el Apoyo Local.",
+        "hi": "सामुदायिक सफाई दिवस। निवासी सार्वजनिक स्थानों को साफ करने के लिए सहयोग करते हैं। सामुदायिक सुरक्षा और स्थानीय सहायता को बढ़ावा देता है।",
+        "ta": "சமூக துப்புரவு நாள். குடியிருப்பாளர்கள் பொது இடங்களை சுத்தம் செய்ய ஒத்துழைக்கிறார்கள். சமூக பாதுகாப்பு மற்றும் உள்ளூர் ஆதரவை அதிகரிக்கிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "community safety",
+          "value": 15
+        },
+        {
+          "name": "local support",
+          "value": 10
+        }
+      ]
+    }
+  ],
+  "groundingInReality": true,
+  "positivity": 0.5,
+  "pregeneratedScenarios": {
+    "Old City Bazaar": [
+      {
+        "title": {
+          "en": "Bazaar Barkers: A Coexistence Challenge",
+          "es": "Ladridos del Bazar: Un Desafío de Coexistencia",
+          "hi": "बाज़ार में भौंकते कुत्ते: सह-अस्तित्व की चुनौती",
+          "ta": "கடைத்தெரு நாய்களின் சத்தம்: ஒரு சகவாழ்வு சவால்"
+        },
+        "description": {
+          "en": "In the bustling Old City Bazaar, a group of stray dogs has taken to congregating around a popular food stall, hoping for scraps. While some vendors and customers feel sympathy, others are concerned about hygiene, potential nips, and the overall impression on visitors. The tension is rising, and shopkeepers are looking for a sustainable solution.",
+          "es": "En el bullicioso Bazar de la Ciudad Vieja, un grupo de perros callejeros se ha reunido alrededor de un popular puesto de comida, esperando sobras. Si bien algunos vendedores y clientes sienten simpatía, otros están preocupados por la higiene, posibles mordiscos y la impresión general en los visitantes. La tensión está aumentando y los tenderos buscan una solución sostenible.",
+          "hi": "हलचल भरे पुराने शहर के बाज़ार में, आवारा कुत्तों का एक समूह भोजन के एक लोकप्रिय स्टॉल के आसपास इकट्ठा हो रहा है, जो जूठन की उम्मीद कर रहा है। जबकि कुछ विक्रेता और ग्राहक सहानुभूति रखते हैं, अन्य स्वच्छता, संभावित काटने और आगंतुकों पर समग्र प्रभाव के बारे में चिंतित हैं। तनाव बढ़ रहा है, और दुकानदार एक स्थायी समाधान की तलाश में हैं।",
+          "ta": "பழைய நகர பஜாரில், ஒரு பிரபலமான உணவுக்கடைக்கு அருகில் தெரு நாய்கள் கூடி, மிச்சமுள்ள உணவை எதிர்பார்த்து காத்திருக்கின்றன. சில கடைக்காரர்களும் வாடிக்கையாளர்களும் அனுதாபப்படுகையில், மற்றவர்கள் சுகாதாரம், கடித்துவிடுமோ என்ற பயம் மற்றும் பார்வையாளர்களிடம் ஏற்படும் பொதுவான பிம்பம் குறித்து கவலைப்படுகிறார்கள். பதற்றம் அதிகரித்து வருகிறது, கடைக்காரர்கள் ஒரு நிலையான தீர்வைத் தேடுகிறார்கள்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Collaborate with local animal welfare organizations to establish designated feeding spots away from the main stalls and organize a sterilization and vaccination drive for the bazaar's stray dogs.",
+              "es": "Colaborar con organizaciones locales de bienestar animal para establecer puntos de alimentación designados lejos de los puestos principales y organizar una campaña de esterilización y vacunación para los perros callejeros del bazar.",
+              "hi": "मुख्य स्टॉलों से दूर निर्दिष्ट खिलाने के स्थान स्थापित करने और बाज़ार के आवारा कुत्तों के लिए नसबंदी और टीकाकरण अभियान आयोजित करने के लिए स्थानीय पशु कल्याण संगठनों के साथ सहयोग करें।",
+              "ta": "முக்கிய கடைகளில் இருந்து விலகி, நாய்களுக்கு உணவளிப்பதற்கான குறிப்பிட்ட இடங்களை அமைப்பதற்கும், பஜாரில் உள்ள தெரு நாய்களுக்கு கருத்தடை மற்றும் தடுப்பூசி முகாம் நடத்துவதற்கும் உள்ளூர் விலங்குகள் நல அமைப்புகளுடன் இணைந்து செயல்படுங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "This approach, based on successful community-led initiatives like those promoted by Stray Buddy, improves animal welfare by providing care and controlling the population humanely. It also enhances community safety by reducing disease transmission (rabies) and managing dog behavior, while fostering local support through active participation. [2, 4, 5, 7, 15]",
+                "es": "Este enfoque, basado en iniciativas comunitarias exitosas como las promovidas por Stray Buddy, mejora el bienestar animal al brindar cuidado y controlar la población de manera humana. También mejora la seguridad de la comunidad al reducir la transmisión de enfermedades (rabia) y gestionar el comportamiento de los perros, al mismo tiempo que fomenta el apoyo local a través de la participación activa. [2, 4, 5, 7, 15]",
+                "hi": "आवारा बडी जैसे सफल सामुदायिक-नेतृत्व वाले पहलों पर आधारित यह दृष्टिकोण, देखभाल प्रदान करके और आबादी को मानवीय रूप से नियंत्रित करके पशु कल्याण में सुधार करता है। यह रोग संचरण (रेबीज) को कम करके और कुत्ते के व्यवहार का प्रबंधन करके सामुदायिक सुरक्षा को भी बढ़ाता है, जबकि सक्रिय भागीदारी के माध्यम से स्थानीय समर्थन को बढ़ावा देता है। [2, 4, 5, 7, 15]",
+                "ta": "ஸ்ட்ரே பட்டி போன்ற சமூகத்தால் நடத்தப்படும் வெற்றிகரமான திட்டங்களை அடிப்படையாகக் கொண்ட இந்த அணுகுமுறை, விலங்குகளுக்குப் பராமரிப்பு அளிப்பதன் மூலமும், அவற்றின் எண்ணிக்கையை மனிதாபிமான முறையில் கட்டுப்படுத்துவதன் மூலமும் விலங்கு நலனை மேம்படுத்துகிறது. இது நோய்ப் பரவலை (ரேபிஸ்) குறைப்பதன் மூலமும், நாய்களின் நடத்தையை நிர்வகிப்பதன் மூலமும் சமூகப் பாதுகாப்பை மேம்படுத்துகிறது, மேலும் செயலில் பங்கேற்பதன் மூலம் உள்ளூர் ஆதரவையும் வளர்க்கிறது. [2, 4, 5, 7, 15]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 1
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 2
+                },
+                {
+                  "name": "local support",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Contact the municipal authorities and advocate for the immediate capture and relocation of all stray dogs from the bazaar to an animal shelter outside the city.",
+              "es": "Póngase en contacto con las autoridades municipales y abogue por la captura y reubicación inmediata de todos los perros callejeros del bazar a un refugio de animales fuera de la ciudad.",
+              "hi": "नगरपालिका अधिकारियों से संपर्क करें और बाज़ार से सभी आवारा कुत्तों को तुरंत पकड़ने और शहर के बाहर एक पशु आश्रय में स्थानांतरित करने की वकालत करें।",
+              "ta": "நகராட்சி அதிகாரிகளைத் தொடர்புகொண்டு, பஜாரில் உள்ள அனைத்து தெரு நாய்களையும் உடனடியாகப் பிடித்து நகரத்திற்கு வெளியே உள்ள விலங்குகள் காப்பகத்திற்கு மாற்ற வாதாடுங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "While this might provide immediate relief for some, mass relocation of stray dogs is often impractical due to limited shelter capacity and can lead to stress and health issues for the animals. It can also erode local support if perceived as inhumane and may not be a long-term solution as new dogs may enter the area, or the relocated ones try to return. [8, 9, 11, 14]",
+                "es": "Si bien esto podría brindar un alivio inmediato para algunos, la reubicación masiva de perros callejeros a menudo no es práctica debido a la limitada capacidad de los refugios y puede provocar estrés y problemas de salud para los animales. También puede erosionar el apoyo local si se percibe como inhumano y podría no ser una solución a largo plazo, ya que nuevos perros podrían ingresar al área o los reubicados intentarían regresar. [8, 9, 11, 14]",
+                "hi": "हालांकि यह कुछ लोगों को तत्काल राहत प्रदान कर सकता है, लेकिन सीमित आश्रय क्षमता के कारण आवारा कुत्तों का बड़े पैमाने पर पुनर्वास अक्सर अव्यावहारिक होता है और जानवरों के लिए तनाव और स्वास्थ्य समस्याओं का कारण बन सकता है। यदि इसे अमानवीय माना जाता है तो यह स्थानीय समर्थन को भी कम कर सकता है और यह एक दीर्घकालिक समाधान नहीं हो सकता है क्योंकि नए कुत्ते क्षेत्र में प्रवेश कर सकते हैं, या स्थानांतरित किए गए लोग लौटने की कोशिश कर सकते हैं। [8, 9, 11, 14]",
+                "ta": "இது சிலருக்கு உடனடி நிவாரணம் அளித்தாலும், வரையறுக்கப்பட்ட தங்குமிடம் வசதி காரணமாக தெரு நாய்களைப் பெருமளவில் இடமாற்றுவது பெரும்பாலும் நடைமுறைக்கு சாத்தியமற்றது மற்றும் விலங்குகளுக்கு மன அழுத்தம் மற்றும் உடல்நலப் பிரச்சினைகளை ஏற்படுத்தும். இது மனிதாபிமானமற்றதாகக் கருதப்பட்டால் உள்ளூர் ஆதரவை சிதைக்கக்கூடும் மற்றும் புதிய நாய்கள் பகுதிக்குள் வரலாம் அல்லது இடமாற்றப்பட்ட நாய்கள் திரும்ப வர முயற்சிப்பதால் இது ஒரு நீண்டகால தீர்வாக இருக்காது. [8, 9, 11, 14]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 1
+                },
+                {
+                  "name": "animal welfare",
+                  "value": -1
+                },
+                {
+                  "name": "local support",
+                  "value": -1
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.straybuddy.org/about-us",
+        "sourceTitle": {
+          "en": "Stray Buddy: Self-managed community initiatives for dog population management",
+          "es": "Stray Buddy: Iniciativas comunitarias autogestionadas para el manejo de la población canina",
+          "hi": "आवारा बडी: कुत्ते जनसंख्या प्रबंधन के लिए स्व-प्रबंधित सामुदायिक पहल",
+          "ta": "ஸ்ட்ரே பட்டி: நாய்கள் எண்ணிக்கையை நிர்வகிப்பதற்கான சுயமாக இயங்கும் சமூக முன்முயற்சிகள்"
+        },
+        "id": "old-city-bazaar-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Slumdog Sanctuary": [
+      {
+        "title": {
+          "en": "The New Arrivals",
+          "es": "Los Nuevos Huéspedes",
+          "hi": "नये मेहमान",
+          "ta": "புதிய வருகைகள்"
+        },
+        "description": {
+          "en": "A litter of adorable puppies has been discovered near the entrance of Slumdog Sanctuary. While some local children are excited, a few adults in the community express concerns about the growing number of dogs and potential health risks. The sanctuary needs to address these worries while ensuring the puppies' well-being and promoting harmonious coexistence.",
+          "es": "Una camada de adorables cachorros ha sido descubierta cerca de la entrada del Santuario Slumdog. Mientras algunos niños locales están emocionados, algunos adultos de la comunidad expresan preocupación por el creciente número de perros y los posibles riesgos para la salud. El santuario debe abordar estas preocupaciones mientras asegura el bienestar de los cachorros y promueve la coexistencia armoniosa.",
+          "hi": "स्लमडॉग सैंक्चुअरी के प्रवेश द्वार के पास प्यारे पिल्लों का एक झुंड पाया गया है। जहाँ कुछ स्थानीय बच्चे उत्साहित हैं, वहीं समुदाय के कुछ वयस्क कुत्तों की बढ़ती संख्या और संभावित स्वास्थ्य जोखिमों के बारे में चिंता व्यक्त कर रहे हैं। अभयारण्य को पिल्लों के कल्याण को सुनिश्चित करते हुए और सामंजस्यपूर्ण सह-अस्तित्व को बढ़ावा देते हुए इन चिंताओं को दूर करने की आवश्यकता है।",
+          "ta": "ஸ்லம்டாக் சரணாலயத்தின் நுழைவாயிலுக்கு அருகில் அழகான நாய்க்குட்டிகள் கண்டுபிடிக்கப்பட்டுள்ளன. சில உள்ளூர் குழந்தைகள் உற்சாகமாக இருந்தாலும், சமூகத்தில் உள்ள சில பெரியவர்கள் நாய்களின் எண்ணிக்கை அதிகரிப்பது மற்றும் சாத்தியமான உடல்நல அபாயங்கள் குறித்து கவலை தெரிவிக்கின்றனர். நாய்க்குட்டிகளின் நலனை உறுதிசெய்து, இணக்கமான சகவாழ்வை மேம்படுத்துகையில், இந்த கவலைகளை சரணாலயம் தீர்க்க வேண்டும்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Organize a community meeting to educate residents about responsible dog care, the benefits of sterilization and vaccination (ABC/ARV), and seek volunteers to help foster the puppies temporarily.",
+              "es": "Organizar una reunión comunitaria para educar a los residentes sobre el cuidado responsable de los perros, los beneficios de la esterilización y vacunación (ABC/ARV), y buscar voluntarios para ayudar a acoger a los cachorros temporalmente.",
+              "hi": "जिम्मेदार कुत्ता पालन, नसबंदी और टीकाकरण (एबीसी/एआरवी) के लाभों के बारे में निवासियों को शिक्षित करने के लिए एक सामुदायिक बैठक आयोजित करें, और पिल्लों को अस्थायी रूप से पालने में मदद करने के लिए स्वयंसेवकों की तलाश करें।",
+              "ta": "பொறுப்பான நாய்ப் பராமரிப்பு, கருத்தடை மற்றும் தடுப்பூசி (ABC/ARV) நன்மைகள் குறித்து குடியிருப்பாளர்களுக்கு கல்வி கற்பிக்க சமூகக் கூட்டத்தை ஏற்பாடு செய்து, நாய்க்குட்டிகளை தற்காலிகமாக வளர்க்க தன்னார்வலர்களைத் தேடுங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The community meeting helps address fears with facts about rabies prevention and population control through ABC/ARV. Local residents, understanding the humane approach, offer support, increasing local support and fostering a sense of shared responsibility for animal welfare and community safety. Puppies are vaccinated and sterilized when old enough. [3, 9, 12, 14]",
+                "es": "La reunión comunitaria ayuda a abordar los miedos con hechos sobre la prevención de la rabia y el control de la población mediante ABC/ARV. Los residentes locales, al comprender el enfoque humano, ofrecen apoyo, lo que aumenta el apoyo local y fomenta un sentido de responsabilidad compartida por el bienestar animal y la seguridad de la comunidad. Los cachorros son vacunados y esterilizados cuando tienen la edad suficiente. [3, 9, 12, 14]",
+                "hi": "सामुदायिक बैठक रेबीज की रोकथाम और एबीसी/एआरवी के माध्यम से जनसंख्या नियंत्रण के बारे में तथ्यों के साथ डर को दूर करने में मदद करती है। स्थानीय निवासी, मानवीय दृष्टिकोण को समझते हुए, समर्थन प्रदान करते हैं, जिससे स्थानीय समर्थन बढ़ता है और पशु कल्याण और सामुदायिक सुरक्षा के लिए साझा जिम्मेदारी की भावना को बढ़ावा मिलता है। पिल्लों को बड़े होने पर टीका लगाया जाता है और नसबंदी की जाती है। [3, 9, 12, 14]",
+                "ta": "ரேபிஸ் தடுப்பு மற்றும் ABC/ARV மூலம் மக்கள் தொகை கட்டுப்பாடு பற்றிய உண்மைகளுடன் அச்சங்களை நீக்க சமூகக் கூட்டம் உதவுகிறது. மனிதாபிமான அணுகுமுறையைப் புரிந்துகொண்ட உள்ளூர்வாசிகள் ஆதரவை வழங்குகிறார்கள், உள்ளூர் ஆதரவை அதிகரிக்கிறார்கள் மற்றும் விலங்கு நலன் மற்றும் சமூக பாதுகாப்பிற்கான பகிரப்பட்ட பொறுப்புணர்வைக் foster செய்கிறார்கள். நாய்க்குட்டிகள் போதுமான வயது வந்ததும் தடுப்பூசி போடப்பட்டு கருத்தடை செய்யப்படுகின்றன. [3, 9, 12, 14]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 20
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 25
+                },
+                {
+                  "name": "local support",
+                  "value": 30
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Focus solely on finding immediate adoption homes for the puppies through online campaigns, aiming to rehome them quickly outside the immediate neighborhood.",
+              "es": "Centrarse únicamente en encontrar hogares de adopción inmediatos para los cachorros a través de campañas en línea, con el objetivo de reubicarlos rápidamente fuera del vecindario inmediato.",
+              "hi": "पिल्लों के लिए ऑनलाइन अभियानों के माध्यम से तत्काल गोद लेने वाले घर खोजने पर ही ध्यान केंद्रित करें, जिसका उद्देश्य उन्हें तुरंत आस-पास के क्षेत्र से बाहर फिर से घर देना है।",
+              "ta": "நாய்க்குட்டிகளுக்கு உடனடி தத்தெடுப்பு வீடுகளை ஆன்லைன் பிரச்சாரங்கள் மூலம் கண்டறிவதில் மட்டுமே கவனம் செலுத்துங்கள், அவற்றை உடனடியாக அருகிலுள்ள பகுதியிலிருந்து வெளியேற்ற வேண்டும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "While some puppies find homes, the rapid rehoming approach doesn't address the underlying community concerns about stray dog populations or educate residents on long-term solutions like ABC/ARV. Without local understanding and participation, new litters might continue to appear, and community fears may persist, impacting long-term safety and welfare. [4, 5, 11]",
+                "es": "Aunque algunos cachorros encuentran hogar, el enfoque de reubicación rápida no aborda las preocupaciones subyacentes de la comunidad sobre las poblaciones de perros callejeros ni educa a los residentes sobre soluciones a largo plazo como ABC/ARV. Sin la comprensión y participación local, nuevas camadas podrían seguir apareciendo, y los temores de la comunidad podrían persistir, afectando la seguridad y el bienestar a largo plazo. [4, 5, 11]",
+                "hi": "जबकि कुछ पिल्लों को घर मिल जाते हैं, त्वरित पुनर्वास दृष्टिकोण आवारा कुत्तों की आबादी के बारे में समुदाय की अंतर्निहित चिंताओं को संबोधित नहीं करता है और न ही निवासियों को एबीसी/एआरवी जैसे दीर्घकालिक समाधानों के बारे में शिक्षित करता है। स्थानीय समझ और भागीदारी के बिना, नए पिल्ले पैदा होते रह सकते हैं, और सामुदायिक भय बना रह सकता है, जिससे दीर्घकालिक सुरक्षा और कल्याण प्रभावित होगा। [4, 5, 11]",
+                "ta": "சில நாய்க்குட்டிகள் வீடுகளைக் கண்டறிந்தாலும், விரைவான மறுவாழ்வு அணுகுமுறை தெரு நாய்களின் எண்ணிக்கையைப் பற்றிய சமூகக் கவலைகளை நிவர்த்தி செய்யவில்லை அல்லது ABC/ARV போன்ற நீண்டகால தீர்வுகளை குடியிருப்பாளர்களுக்குக் கற்பிக்கவில்லை. உள்ளூர் புரிதல் மற்றும் பங்கேற்பு இல்லாமல், புதிய குட்டிகள் தொடர்ந்து தோன்றக்கூடும், மேலும் சமூக அச்சங்கள் நீடிக்கக்கூடும், இது நீண்டகால பாதுகாப்பு மற்றும் நலனைப் பாதிக்கும். [4, 5, 11]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 5
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 10
+                },
+                {
+                  "name": "local support",
+                  "value": -10
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://bluecrosspune.in/stray-dogs-in-india-practical-steps-to-improve-welfare-in-your-area/",
+        "sourceTitle": {
+          "en": "Stray Dogs In India: Practical Steps to Improve Welfare in Your Area - Blue Cross Pune",
+          "es": "Perros Callejeros en India: Pasos Prácticos para Mejorar el Bienestar en Su Área - Blue Cross Pune",
+          "hi": "भारत में आवारा कुत्ते: आपके क्षेत्र में कल्याण में सुधार के लिए व्यावहारिक कदम - ब्लू क्रॉस पुणे",
+          "ta": "இந்தியாவில் தெருநாய்கள்: உங்கள் பகுதியில் நலனை மேம்படுத்துவதற்கான நடைமுறை படிகள் - ப்ளூ கிராஸ் புனே"
+        },
+        "id": "slumdog-sanctuary-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Urban Green Space": [
+      {
+        "title": {
+          "en": "The Park's Paws and People",
+          "es": "Las patas y la gente del parque",
+          "hi": "पार्क के पंजे और लोग",
+          "ta": "பூங்காவின் பாதங்களும் மக்களும்"
+        },
+        "description": {
+          "en": "The newly revitalized urban park has become a popular spot for both families and a growing community of stray dogs. While some visitors enjoy interacting with the friendly canines, others worry about potential safety issues, especially with children playing. A local resident welfare association meeting is being held to address these concerns and find a balanced solution for human-animal coexistence.",
+          "es": "El parque urbano recién revitalizado se ha convertido en un lugar popular tanto para familias como para una creciente comunidad de perros callejeros. Mientras que algunos visitantes disfrutan interactuando con los amigables caninos, otros se preocupan por posibles problemas de seguridad, especialmente con los niños jugando. Se está llevando a cabo una reunión de la asociación de bienestar de residentes locales para abordar estas preocupaciones y encontrar una solución equilibrada para la coexistencia entre humanos y animales.",
+          "hi": "नया शहरी पार्क परिवारों और आवारा कुत्तों के बढ़ते समुदाय दोनों के लिए एक लोकप्रिय स्थान बन गया है। जहाँ कुछ आगंतुक मिलनसार कुत्तों के साथ बातचीत का आनंद लेते हैं, वहीं अन्य संभावित सुरक्षा मुद्दों के बारे में चिंतित हैं, खासकर बच्चों के खेलने के साथ। इन चिंताओं को दूर करने और मानव-पशु सह-अस्तित्व के लिए एक संतुलित समाधान खोजने के लिए एक स्थानीय निवासी कल्याण संघ की बैठक आयोजित की जा रही है।",
+          "ta": "புதிதாக புத்துயிர் பெற்ற நகர்ப்புற பூங்கா குடும்பங்களுக்கும், பெருகிவரும் தெருநாய்களுக்கும் ஒரு பிரபலமான இடமாக மாறியுள்ளது. சில பார்வையாளர்கள் நட்பு நாய்களுடன் பழகி மகிழ்கையில், மற்றவர்கள் பாதுகாப்புப் பிரச்சினைகள் குறித்து கவலைப்படுகிறார்கள், குறிப்பாக குழந்தைகள் விளையாடும்போது. இந்த கவலைகளைத் தீர்க்கவும், மனித-விலங்கு சகவாழ்வுக்கு ஒரு சமநிலையான தீர்வைக் கண்டறியவும் ஒரு உள்ளூர் குடியுரிமை நலச் சங்கக் கூட்டம் நடத்தப்படுகிறது."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Advocate for a community-led 'Adopt, Vaccinate, and Sterilize' (AVS) program, coupled with designated feeding zones within the park, managed by volunteers.",
+              "es": "Abogar por un programa comunitario de 'Adopción, Vacunación y Esterilización' (AVS), junto con zonas de alimentación designadas dentro del parque, gestionadas por voluntarios.",
+              "hi": "स्वयंसेवकों द्वारा प्रबंधित पार्क के भीतर निर्दिष्ट भोजन क्षेत्रों के साथ, एक समुदाय-नेतृत्व वाले 'अपनाओ, टीका लगाओ और नसबंदी करो' (एवीएस) कार्यक्रम की वकालत करें।",
+              "ta": "சமூகத்தால் நடத்தப்படும் 'தத்தெடுப்பு, தடுப்பூசி மற்றும் கருத்தடை' (AVS) திட்டத்தை ஆதரிக்கவும், பூங்காவிற்குள் தன்னார்வலர்களால் நிர்வகிக்கப்படும் குறிப்பிட்ட உணவு மண்டலங்களுடன்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "Implementing a structured AVS program helps manage the dog population humanely, reduces health risks like rabies, and fosters responsible pet ownership. Designated feeding spots prevent scattered food and promote cleaner park spaces, while volunteer involvement strengthens local support and creates a harmonious environment. This approach aligns with Animal Birth Control (ABC) Rules in India. [2, 8, 16, 18, 20]",
+                "es": "La implementación de un programa AVS estructurado ayuda a gestionar la población canina de forma humana, reduce los riesgos para la salud como la rabia y fomenta la tenencia responsable de mascotas. Los puntos de alimentación designados evitan la dispersión de alimentos y promueven espacios de parque más limpios, mientras que la participación de voluntarios fortalece el apoyo local y crea un ambiente armonioso. Este enfoque se alinea con las Reglas de Control de Nacimientos de Animales (ABC) en India. [2, 8, 16, 18, 20]",
+                "hi": "एक संरचित एवीएस कार्यक्रम लागू करने से कुत्तों की आबादी को मानवीय ढंग से प्रबंधित करने, रेबीज जैसे स्वास्थ्य जोखिमों को कम करने और जिम्मेदार पालतू स्वामित्व को बढ़ावा देने में मदद मिलती है। निर्दिष्ट भोजन स्थान बिखरे हुए भोजन को रोकते हैं और स्वच्छ पार्क स्थानों को बढ़ावा देते हैं, जबकि स्वयंसेवक भागीदारी स्थानीय समर्थन को मजबूत करती है और एक सामंजस्यपूर्ण वातावरण बनाती है। यह दृष्टिकोण भारत में पशु जन्म नियंत्रण (एबीसी) नियमों के अनुरूप है। [2, 8, 16, 18, 20]",
+                "ta": "ஒரு கட்டமைக்கப்பட்ட AVS திட்டத்தை செயல்படுத்துவது நாய்களின் எண்ணிக்கையை மனிதாபிமான முறையில் நிர்வகிக்க உதவுகிறது, ரேபிஸ் போன்ற சுகாதார அபாயங்களைக் குறைக்கிறது மற்றும் பொறுப்பான செல்லப்பிராணி உரிமையை ஊக்குவிக்கிறது. நியமிக்கப்பட்ட உணவுப் பகுதிகள் சிதறிய உணவைத் தடுப்பதோடு, பூங்காப் பகுதிகளைச் சுத்தமாகப் பராமரிக்கவும் உதவுகின்றன, அதே நேரத்தில் தன்னார்வலர்களின் ஈடுபாடு உள்ளூர் ஆதரவை வலுப்படுத்தி நல்லிணக்கமான சூழலை உருவாக்குகிறது. இந்த அணுகுமுறை இந்தியாவில் உள்ள விலங்கு பிறப்பு கட்டுப்பாட்டு (ABC) விதிகளுடன் ஒத்துப்போகிறது. [2, 8, 16, 18, 20]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 20
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 25
+                },
+                {
+                  "name": "local support",
+                  "value": 15
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Request the municipal corporation to relocate all stray dogs from the park to a distant animal shelter to prioritize public safety.",
+              "es": "Solicitar a la corporación municipal que reubique a todos los perros callejeros del parque a un refugio de animales lejano para priorizar la seguridad pública.",
+              "hi": "सार्वजनिक सुरक्षा को प्राथमिकता देने के लिए नगर निगम से पार्क से सभी आवारा कुत्तों को दूर के पशु आश्रय में स्थानांतरित करने का अनुरोध करें।",
+              "ta": "பொதுப் பாதுகாப்பிற்கு முன்னுரிமை அளிக்க பூங்காவில் உள்ள அனைத்து தெருநாய்களையும் தொலைதூர விலங்கு காப்பகத்திற்கு மாற்ற நகராட்சி கழகத்தை கோரவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "While this might offer a temporary sense of increased safety, relocating animals without addressing underlying issues can lead to new dog populations filling the void, or stress for the relocated animals. It can also cause distress among animal welfare advocates and may not be a sustainable long-term solution, straining local support if not handled with care. The Supreme Court has expressed concerns about simply relocating dogs without proper facilities or management. [2, 3, 20]",
+                "es": "Aunque esto podría ofrecer una sensación temporal de mayor seguridad, la reubicación de animales sin abordar los problemas subyacentes puede llevar a que nuevas poblaciones de perros llenen el vacío, o a estrés para los animales reubicados. También puede causar angustia entre los defensores del bienestar animal y puede no ser una solución sostenible a largo plazo, tensando el apoyo local si no se maneja con cuidado. El Tribunal Supremo ha expresado su preocupación por la simple reubicación de perros sin las instalaciones o la gestión adecuadas. [2, 3, 20]",
+                "hi": "हालांकि यह बढ़ी हुई सुरक्षा की एक अस्थायी भावना प्रदान कर सकता है, अंतर्निहित मुद्दों को संबोधित किए बिना जानवरों को स्थानांतरित करने से नए कुत्तों की आबादी रिक्त स्थान भर सकती है, या स्थानांतरित जानवरों के लिए तनाव हो सकता है। यह पशु कल्याण अधिवक्ताओं के बीच भी संकट पैदा कर सकता है और दीर्घकालिक टिकाऊ समाधान नहीं हो सकता है, यदि सावधानी से नहीं संभाला गया तो स्थानीय समर्थन पर दबाव पड़ेगा। सर्वोच्च न्यायालय ने उचित सुविधाओं या प्रबंधन के बिना केवल कुत्तों को स्थानांतरित करने के बारे में चिंता व्यक्त की है। [2, 3, 20]",
+                "ta": "இது தற்காலிகமாக அதிகரித்த பாதுகாப்பு உணர்வை அளித்தாலும், அடிப்படைப் பிரச்சினைகளை சரிசெய்யாமல் விலங்குகளை இடமாற்றுவது புதிய நாய் கூட்டங்கள் வெற்றிடத்தை நிரப்ப வழிவகுக்கும், அல்லது இடமாற்றப்பட்ட விலங்குகளுக்கு மன அழுத்தத்தை ஏற்படுத்தும். இது விலங்கு நல ஆர்வலர்களிடையே மன உளைச்சலையும் ஏற்படுத்தலாம் மற்றும் நீண்டகால நிலையான தீர்வாக இருக்காது, கவனமாக கையாளப்படாவிட்டால் உள்ளூர் ஆதரவை பாதிக்கலாம். உரிய வசதிகள் அல்லது மேலாண்மை இல்லாமல் நாய்களை இடமாற்றுவது குறித்து உச்ச நீதிமன்றம் கவலைகளைத் தெரிவித்துள்ளது. [2, 3, 20]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 10
+                },
+                {
+                  "name": "animal welfare",
+                  "value": -15
+                },
+                {
+                  "name": "local support",
+                  "value": -10
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://timesofindia.indiatimes.com/city/delhi/delhi-stray-dog-crackdown-700-caught-near-red-fort-ahead-of-independence-day-helpline-phase-wise-removal-drive-planned-by-mcd/articleshow/112440332.cms",
+        "sourceTitle": {
+          "en": "Stray Dog Management in Indian Cities: Balancing Safety and Welfare",
+          "es": "Gestión de perros callejeros en ciudades indias: equilibrio entre seguridad y bienestar",
+          "hi": "भारतीय शहरों में आवारा कुत्ता प्रबंधन: सुरक्षा और कल्याण का संतुलन",
+          "ta": "இந்திய நகரங்களில் தெருநாய் மேலாண்மை: பாதுகாப்பு மற்றும் நலனை சமநிலைப்படுத்துதல்"
+        },
+        "id": "urban-green-space-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Veterinary Lab": [
+      {
+        "title": {
+          "en": "The Community Vaccination Drive",
+          "es": "Campaña de Vacunación Comunitaria",
+          "hi": "सामुदायिक टीकाकरण अभियान",
+          "ta": "சமூக தடுப்பூசி இயக்கம்"
+        },
+        "description": {
+          "en": "The veterinary lab is spearheading a critical city-wide rabies vaccination drive for stray animals. The goal is to protect both animals and the community from this deadly disease, but resources and time are limited, requiring strategic decisions.",
+          "es": "El laboratorio veterinario está liderando una campaña crucial de vacunación antirrábica en toda la ciudad para animales callejeros. El objetivo es proteger tanto a los animales como a la comunidad de esta enfermedad mortal, pero los recursos y el tiempo son limitados, lo que requiere decisiones estratégicas.",
+          "hi": "पशु चिकित्सा प्रयोगशाला आवारा पशुओं के लिए शहरव्यापी रेबीज टीकाकरण अभियान चला रही है। लक्ष्य जानवरों और समुदाय दोनों को इस जानलेवा बीमारी से बचाना है, लेकिन संसाधन और समय सीमित हैं, जिसके लिए रणनीतिक निर्णयों की आवश्यकता है।",
+          "ta": "கால்நடை ஆய்வகம் தெரு விலங்குகளுக்கு நகரம் முழுவதும் ரேபிஸ் தடுப்பூசி இயக்கத்தை முன்னெடுத்துள்ளது. விலங்குகளையும் சமூகத்தையும் இந்த ஆபத்தான நோயிலிருந்தும் பாதுகாக்க வேண்டும் என்பதே இதன் நோக்கம், ஆனால் வளங்களும் நேரமும் குறைவாக இருப்பதால், வியூக முடிவுகள் தேவைப்படும்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Focus on rapid, large-scale vaccination by deploying mobile units to cover as many areas as possible quickly.",
+              "es": "Concéntrese en la vacunación rápida y a gran escala desplegando unidades móviles para cubrir tantas áreas como sea posible rápidamente.",
+              "hi": "तेज, बड़े पैमाने पर टीकाकरण पर ध्यान केंद्रित करें, अधिक से अधिक क्षेत्रों को तेजी से कवर करने के लिए मोबाइल इकाइयों को तैनात करें।",
+              "ta": "வேகமான, பெரிய அளவிலான தடுப்பூசிக்கு முக்கியத்துவம் கொடுத்து, முடிந்தவரை பல பகுதிகளையும் விரைவாக உள்ளடக்குவதற்கு மொபைல் யூனிட்களைப் பயன்படுத்துங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "This approach quickly increases overall vaccination coverage, significantly enhancing community safety and animal welfare by reducing rabies risk. However, the speed might limit in-depth community engagement and understanding.",
+                "es": "Este enfoque aumenta rápidamente la cobertura general de vacunación, mejorando significativamente la seguridad comunitaria y el bienestar animal al reducir el riesgo de rabia. Sin embargo, la velocidad podría limitar la participación y comprensión profunda de la comunidad.",
+                "hi": "यह दृष्टिकोण समग्र टीकाकरण कवरेज को तेजी से बढ़ाता है, रेबीज के जोखिम को कम करके सामुदायिक सुरक्षा और पशु कल्याण को काफी हद तक बढ़ाता है। हालांकि, गति गहन सामुदायिक जुड़ाव और समझ को सीमित कर सकती है।",
+                "ta": "இந்த அணுகுமுறை ஒட்டுமொத்த தடுப்பூசி கவரேஜை விரைவாக அதிகரிக்கிறது, ரேபிஸ் அபாயத்தைக் குறைப்பதன் மூலம் சமூக பாதுகாப்பு மற்றும் விலங்கு நலனை கணிசமாக மேம்படுத்துகிறது. இருப்பினும், வேகம் ஆழமான சமூக ஈடுபாடு மற்றும் புரிதலைக் கட்டுப்படுத்தலாம்."
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 20
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 15
+                },
+                {
+                  "name": "local support",
+                  "value": 5
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Prioritize community engagement and education, conducting vaccination camps in local neighborhoods with public awareness sessions and volunteer training.",
+              "es": "Priorice la participación y educación comunitaria, realizando campamentos de vacunación en los barrios locales con sesiones de concienciación pública y capacitación de voluntarios.",
+              "hi": "सामुदायिक जुड़ाव और शिक्षा को प्राथमिकता दें, सार्वजनिक जागरूकता सत्रों और स्वयंसेवक प्रशिक्षण के साथ स्थानीय मुहल्लों में टीकाकरण शिविर आयोजित करें।",
+              "ta": "சமூக ஈடுபாடு மற்றும் கல்விக்கு முன்னுரிமை அளியுங்கள், பொது விழிப்புணர்வு அமர்வுகள் மற்றும் தன்னார்வத் தொண்டர் பயிற்சியுடன் உள்ளூர் சுற்றுப்புறங்களில் தடுப்பூசி முகாம்களை நடத்துங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "This approach fosters strong local support and long-term awareness about animal health, creating a sustainable model for future co-existence. While the initial vaccination rate might be slower, it builds lasting community partnership.",
+                "es": "Este enfoque fomenta un fuerte apoyo local y una conciencia a largo plazo sobre la salud animal, creando un modelo sostenible para la coexistencia futura. Si bien la tasa de vacunación inicial podría ser más lenta, construye una asociación comunitaria duradera.",
+                "hi": "यह दृष्टिकोण पशु स्वास्थ्य के बारे में मजबूत स्थानीय समर्थन और दीर्घकालिक जागरूकता को बढ़ावा देता है, जिससे भविष्य के सह-अस्तित्व के लिए एक स्थायी मॉडल तैयार होता है। जबकि प्रारंभिक टीकाकरण दर धीमी हो सकती है, यह स्थायी सामुदायिक साझेदारी का निर्माण करता है।",
+                "ta": "இந்த அணுகுமுறை விலங்கு ஆரோக்கியம் குறித்த வலுவான உள்ளூர் ஆதரவையும் நீண்டகால விழிப்புணர்வையும் வளர்க்கிறது, எதிர்கால சகவாழ்வுக்கு நிலையான மாதிரியை உருவாக்குகிறது. ஆரம்ப தடுப்பூசி விகிதம் மெதுவாக இருந்தாலும், இது நீடித்த சமூக கூட்டாண்மையை உருவாக்குகிறது."
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 10
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 10
+                },
+                {
+                  "name": "local support",
+                  "value": 20
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.who.int/india/news/detail/25-10-2021-adopt-one-health-stop-rabies-india-launches-new-national-action-plan-for-dog-mediated-rabies-elimination-by-2030",
+        "sourceTitle": {
+          "en": "Adopt One Health, Stop Rabies: India launches new national action plan for dog mediated rabies elimination by 2030",
+          "es": "Adoptar 'Una Salud', Detener la Rabia: India lanza un nuevo plan de acción nacional para la eliminación de la rabia transmitida por perros para 2030",
+          "hi": "वन हेल्थ अपनाएं, रेबीज रोकें: भारत ने 2030 तक कुत्ते-जनित रेबीज उन्मूलन के लिए नई राष्ट्रीय कार्य योजना शुरू की",
+          "ta": "'ஒரு ஆரோக்கியம்' திட்டத்தை ஏற்று, ரேபிஸை நிறுத்துங்கள்: 2030-க்குள் நாய் மூலம் பரவும் ரேபிஸை ஒழிப்பதற்கான புதிய தேசிய செயல் திட்டத்தை இந்தியா அறிமுகப்படுத்தியுள்ளது"
+        },
+        "id": "veterinary-lab-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "High-Rise Residential": [
+      {
+        "title": {
+          "en": "Community Canine Conundrum",
+          "es": "Dilema Canino Comunitario",
+          "hi": "सामुदायिक श्वान दुविधा",
+          "ta": "சமூக நாய்கள் சிக்கல்"
+        },
+        "description": {
+          "en": "A recent incident involving a stray dog barking aggressively at a child in the complex playground has stirred panic among residents. Parents are demanding immediate action to remove all stray dogs, while a few compassionate residents are advocating for their humane treatment. As a newly elected member of the Residents' Welfare Association (RWA), you must propose a solution that addresses both community safety and animal welfare.",
+          "es": "Un incidente reciente en el que un perro callejero ladró agresivamente a un niño en el parque del complejo ha sembrado el pánico entre los residentes. Los padres exigen medidas inmediatas para retirar a todos los perros callejeros, mientras que algunos residentes compasivos abogan por su trato humano. Como miembro recién elegido de la Asociación de Bienestar de Residentes (RWA), debe proponer una solución que aborde tanto la seguridad de la comunidad como el bienestar animal.",
+          "hi": "कॉम्प्लेक्स के खेल के मैदान में एक आवारा कुत्ते द्वारा एक बच्चे पर आक्रामक रूप से भौंकने की हालिया घटना ने निवासियों के बीच दहशत पैदा कर दी है। माता-पिता सभी आवारा कुत्तों को हटाने के लिए तत्काल कार्रवाई की मांग कर रहे हैं, जबकि कुछ दयालु निवासी उनके मानवीय उपचार की वकालत कर रहे हैं। रेजिडेंट्स वेलफेयर एसोसिएशन (RWA) के नव-निर्वाचित सदस्य के रूप में, आपको एक ऐसा समाधान प्रस्तावित करना होगा जो सामुदायिक सुरक्षा और पशु कल्याण दोनों को संबोधित करे।",
+          "ta": "சமீபத்தில் வளாகத்தின் விளையாட்டு மைதானத்தில் ஒரு தெரு நாய் குழந்தையை ஆக்ரோஷமாக குரைத்த சம்பவம் குடியிருப்பாளர்கள் மத்தியில் பீதியை ஏற்படுத்தியுள்ளது. அனைத்து தெரு நாய்களையும் உடனடியாக அகற்ற பெற்றோர்கள் கோரிக்கை விடுத்துள்ளனர், அதே சமயம் சில கருணையுள்ள குடியிருப்பாளர்கள் அவற்றுக்கு மனிதாபிமான சிகிச்சை அளிக்க வாதிடுகின்றனர். குடியிருப்போர் நலச் சங்கத்தின் (RWA) புதிதாக தேர்ந்தெடுக்கப்பட்ட உறுப்பினராக, சமூகப் பாதுகாப்பு மற்றும் விலங்கு நலன் இரண்டையும் கவனத்தில் கொள்ளும் ஒரு தீர்வை நீங்கள் முன்மொழிய வேண்டும்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Advocate for municipal authorities to immediately capture and relocate all stray dogs to a distant shelter, emphasizing resident safety.",
+              "es": "Abogar por que las autoridades municipales capturen y reubiquen inmediatamente a todos los perros callejeros en un refugio distante, enfatizando la seguridad de los residentes.",
+              "hi": "निवासियों की सुरक्षा पर जोर देते हुए, नगर निगम के अधिकारियों से सभी आवारा कुत्तों को तुरंत पकड़कर दूर के आश्रय में स्थानांतरित करने की वकालत करें।",
+              "ta": "குடியிருப்பாளர்களின் பாதுகாப்பை வலியுறுத்தி, அனைத்து தெரு நாய்களையும் உடனடியாக பிடித்து தொலைதூர தங்குமிடத்திற்கு மாற்ற நகராட்சி அதிகாரிகளுக்கு வாதிடுங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "While this choice addresses immediate safety concerns by removing the dogs from the premises, it strains animal welfare resources and may not be a sustainable long-term solution. Relocation often faces logistical challenges, and without addressing the root causes, new dogs might move into the vacated territory, a phenomenon known as the 'vacuum effect'. It also disregards the Animal Birth Control (ABC) Rules, 2023, which prioritize sterilization and return.",
+                "es": "Si bien esta opción aborda las preocupaciones inmediatas de seguridad al retirar a los perros de las instalaciones, ejerce presión sobre los recursos de bienestar animal y puede no ser una solución sostenible a largo plazo. La reubicación a menudo enfrenta desafíos logísticos, y sin abordar las causas fundamentales, nuevos perros podrían mudarse al territorio desocupado, un fenómeno conocido como el 'efecto vacío'. También ignora las Reglas de Control de Natalidad Animal (ABC) de 2023, que priorizan la esterilización y el regreso.",
+                "hi": "हालांकि यह विकल्प परिसर से कुत्तों को हटाकर तत्काल सुरक्षा चिंताओं को दूर करता है, लेकिन यह पशु कल्याण संसाधनों पर दबाव डालता है और एक स्थायी दीर्घकालिक समाधान नहीं हो सकता है। स्थानांतरण अक्सर तार्किक चुनौतियों का सामना करता है, और मूल कारणों को संबोधित किए बिना, नए कुत्ते खाली किए गए क्षेत्र में प्रवेश कर सकते हैं, जिसे 'वैक्यूम प्रभाव' के रूप में जाना जाता है। यह पशु जन्म नियंत्रण (ABC) नियम, 2023 को भी अनदेखा करता है, जो नसबंदी और वापसी को प्राथमिकता देता है।",
+                "ta": "இந்த தேர்வு வளாகத்திலிருந்து நாய்களை அகற்றுவதன் மூலம் உடனடி பாதுகாப்பு கவலைகளை நிவர்த்தி செய்தாலும், இது விலங்கு நல வளங்களுக்கு அழுத்தத்தை அளிக்கிறது மற்றும் நீண்ட காலத்திற்கு நிலையான தீர்வாக இருக்காது. இடமாற்றம் பெரும்பாலும் தளவாட சவால்களை எதிர்கொள்கிறது, மேலும் மூல காரணங்களை நிவர்த்தி செய்யாவிட்டால், 'வெற்றிட விளைவு' என்று அழைக்கப்படும் ஒரு நிகழ்வு மூலம் புதிய நாய்கள் காலி செய்யப்பட்ட பகுதிக்குள் நுழையக்கூடும். இது கருத்தடை மற்றும் திரும்ப அளிப்பதற்கு முன்னுரிமை அளிக்கும் விலங்கு பிறப்பு கட்டுப்பாட்டு (ABC) விதிகள், 2023 ஐயும் புறக்கணிக்கிறது."
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 2
+                },
+                {
+                  "name": "animal welfare",
+                  "value": -1
+                },
+                {
+                  "name": "local support",
+                  "value": -1
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Propose a comprehensive Animal Birth Control (ABC) program for the complex's stray dogs, including sterilization, vaccination, and establishing designated feeding spots away from high-traffic areas, in collaboration with local animal welfare groups.",
+              "es": "Proponer un programa integral de Control de Natalidad Animal (ABC) para los perros callejeros del complejo, que incluya esterilización, vacunación y el establecimiento de puntos de alimentación designados lejos de las áreas de alto tráfico, en colaboración con grupos locales de bienestar animal.",
+              "hi": "कॉम्प्लेक्स के आवारा कुत्तों के लिए एक व्यापक पशु जन्म नियंत्रण (ABC) कार्यक्रम का प्रस्ताव करें, जिसमें नसबंदी, टीकाकरण और उच्च यातायात वाले क्षेत्रों से दूर निर्दिष्ट भोजन स्पॉट स्थापित करना शामिल है, जो स्थानीय पशु कल्याण समूहों के सहयोग से किया जाएगा।",
+              "ta": "உள்ளூர் விலங்கு நலக் குழுக்களுடன் இணைந்து, வளாகத்தின் தெரு நாய்களுக்கான விரிவான விலங்கு பிறப்பு கட்டுப்பாட்டு (ABC) திட்டத்தை முன்மொழியுங்கள், இதில் கருத்தடை, தடுப்பூசி மற்றும் அதிக போக்குவரத்து உள்ள பகுதிகளிலிருந்து விலகி குறிப்பிட்ட உணவு வழங்கும் இடங்களை நிறுவுதல் ஆகியவை அடங்கும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "This approach promotes sustainable human-animal coexistence. Sterilization and vaccination reduce the population and health risks (like rabies), while designated feeding spots mitigate conflicts and territorial behavior. It requires more community involvement and collaboration with animal welfare organizations but fosters long-term harmony and aligns with the Animal Birth Control Rules, 2023.",
+                "es": "Este enfoque promueve la coexistencia sostenible entre humanos y animales. La esterilización y la vacunación reducen la población y los riesgos para la salud (como la rabia), mientras que los puntos de alimentación designados mitigan los conflictos y el comportamiento territorial. Requiere una mayor participación comunitaria y colaboración con organizaciones de bienestar animal, pero fomenta la armonía a largo plazo y se alinea con las Reglas de Control de Natalidad Animal de 2023.",
+                "hi": "यह दृष्टिकोण स्थायी मानव-पशु सह-अस्तित्व को बढ़ावा देता है। नसबंदी और टीकाकरण से जनसंख्या और स्वास्थ्य जोखिम (जैसे रेबीज) कम होते हैं, जबकि निर्दिष्ट भोजन स्पॉट संघर्षों और क्षेत्रीय व्यवहार को कम करते हैं। इसमें अधिक सामुदायिक भागीदारी और पशु कल्याण संगठनों के साथ सहयोग की आवश्यकता होती है, लेकिन यह दीर्घकालिक सद्भाव को बढ़ावा देता है और पशु जन्म नियंत्रण नियम, 2023 के साथ संरेखित होता है।",
+                "ta": "இந்த அணுகுமுறை நிலையான மனித-விலங்கு சகவாழ்வை ஊக்குவிக்கிறது. கருத்தடை மற்றும் தடுப்பூசி மக்கள் தொகை மற்றும் சுகாதார அபாயங்களைக் (ரேபிஸ் போன்றவை) குறைக்கின்றன, அதே சமயம் நியமிக்கப்பட்ட உணவுப் பகுதிகள் மோதல்களையும் பிராந்திய நடத்தையையும் குறைக்கின்றன. இதற்கு அதிக சமூக ஈடுபாடு மற்றும் விலங்கு நல அமைப்புகளுடன் ஒத்துழைப்பு தேவை, ஆனால் இது நீண்டகால இணக்கத்தை வளர்க்கிறது மற்றும் விலங்கு பிறப்பு கட்டுப்பாட்டு விதிகள், 2023 உடன் ஒத்துப்போகிறது."
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 1
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 2
+                },
+                {
+                  "name": "local support",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.news9live.com/india/stray-dog-menace-rising-attacks-in-bengalurus-suncity-apartment-yavatmal-2432822",
+        "sourceTitle": {
+          "en": "Stray Dog Menace: Rising Attacks in Bengaluru's Suncity Apartment & Yavatmal | News9",
+          "es": "Amenaza de perros callejeros: Aumento de ataques en el apartamento Suncity de Bengaluru y Yavatmal | News9",
+          "hi": "आवारा कुत्तों का खतरा: बेंगलुरु के सनसिटी अपार्टमेंट और यवतमाल में बढ़ते हमले | News9",
+          "ta": "தெரு நாய் அச்சுறுத்தல்: பெங்களூரு சன்சிட்டி அடுக்குமாடி குடியிருப்பு மற்றும் யாவத்மாலில் அதிகரித்து வரும் தாக்குதல்கள் | News9"
+        },
+        "id": "high-rise-residential-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Community Playground": [
+      {
+        "title": {
+          "en": "Playtime with Paws",
+          "es": "Hora de juego con patas",
+          "hi": "पंजों के साथ खेल का समय",
+          "ta": "கால்களுடன் விளையாட்டு நேரம்"
+        },
+        "description": {
+          "en": "Children at the community playground are excited to play, but a group of friendly stray dogs has also made the playground their home, often resting on the swings or near the slide. Some parents are worried about the children's safety, while others regularly feed the dogs. The Resident Welfare Association (RWA) needs to find a balanced solution for coexistence.",
+          "es": "Los niños en el parque infantil de la comunidad están emocionados de jugar, pero un grupo de perros callejeros amigables también ha hecho del parque su hogar, a menudo descansando en los columpios o cerca del tobogán. Algunos padres están preocupados por la seguridad de los niños, mientras que otros alimentan regularmente a los perros. La Asociación de Residentes (RWA) necesita encontrar una solución equilibrada para la coexistencia.",
+          "hi": "समुदाय के खेल के मैदान में बच्चे खेलने के लिए उत्साहित हैं, लेकिन दोस्ताना आवारा कुत्तों के एक समूह ने भी खेल के मैदान को अपना घर बना लिया है, जो अक्सर झूले या स्लाइड के पास आराम करते हैं। कुछ माता-पिता बच्चों की सुरक्षा को लेकर चिंतित हैं, जबकि अन्य नियमित रूप से कुत्तों को खाना खिलाते हैं। रेजिडेंट वेलफेयर एसोसिएशन (RWA) को सह-अस्तित्व के लिए एक संतुलित समाधान खोजने की जरूरत है।",
+          "ta": "சமூக விளையாட்டு மைதானத்தில் குழந்தைகள் உற்சாகமாக விளையாடிக் கொண்டிருக்கிறார்கள், ஆனால் சில நட்பான தெரு நாய்களும் விளையாட்டு மைதானத்தை தங்கள் வீடாக மாற்றிக்கொண்டுள்ளன, அடிக்கடி ஊஞ்சல்களிலோ அல்லது சறுக்கு மரத்தின் அருகிலோ ஓய்வெடுக்கின்றன. சில பெற்றோர் குழந்தைகளின் பாதுகாப்பு குறித்து கவலைப்படுகிறார்கள், அதேசமயம் மற்றவர்கள் நாய்களுக்கு தொடர்ந்து உணவளிக்கிறார்கள். குடியிருப்பு நல சங்கம் (RWA) சகவாழ்வுக்கான சமநிலையான தீர்வைக் கண்டறிய வேண்டும்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Organize a community workshop on safe interaction, responsible feeding practices, and vaccination drives for the dogs.",
+              "es": "Organizar un taller comunitario sobre interacción segura, prácticas de alimentación responsable y campañas de vacunación para los perros.",
+              "hi": "कुत्तों के साथ सुरक्षित बातचीत, जिम्मेदार खिलाने के तरीकों और टीकाकरण अभियान पर एक सामुदायिक कार्यशाला आयोजित करें।",
+              "ta": "நாய்களுடனான பாதுகாப்பான தொடர்பு, பொறுப்பான உணவு பழக்கவழக்கங்கள் மற்றும் தடுப்பூசி முகாம்கள் குறித்து சமூகப் பட்டறையை ஏற்பாடு செய்யுங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The workshop helps educate residents, especially children, on how to safely interact with the dogs and encourages responsible feeding at designated spots. This leads to better community understanding and supports Animal Birth Control (ABC) and vaccination efforts, fostering long-term coexistence. [9, 13, 17]",
+                "es": "El taller ayuda a educar a los residentes, especialmente a los niños, sobre cómo interactuar de forma segura con los perros y fomenta la alimentación responsable en lugares designados. Esto conduce a una mejor comprensión comunitaria y apoya los esfuerzos de Control de Natalidad Animal (ABC) y vacunación, fomentando la coexistencia a largo plazo.",
+                "hi": "कार्यशाला निवासियों, विशेष रूप से बच्चों को कुत्तों के साथ सुरक्षित रूप से बातचीत करने के तरीके के बारे में शिक्षित करने में मदद करती है और निर्दिष्ट स्थानों पर जिम्मेदार खिलाने को प्रोत्साहित करती है। इससे सामुदायिक समझ बेहतर होती है और पशु जन्म नियंत्रण (ABC) और टीकाकरण प्रयासों का समर्थन मिलता है, जिससे दीर्घकालिक सह-अस्तित्व को बढ़ावा मिलता है।",
+                "ta": "இந்த பட்டறை குடியிருப்பாளர்களுக்கு, குறிப்பாக குழந்தைகளுக்கு, நாய்களுடன் பாதுகாப்பாக எவ்வாறு பழகுவது என்பது குறித்து கற்பிக்கிறது மற்றும் நியமிக்கப்பட்ட இடங்களில் பொறுப்பான உணவு வழங்குவதை ஊக்குவிக்கிறது. இது சமூக புரிதலை மேம்படுத்துகிறது மற்றும் விலங்கு பிறப்பு கட்டுப்பாடு (ABC) மற்றும் தடுப்பூசி முயற்சிகளை ஆதரிக்கிறது, நீண்டகால சகவாழ்வை வளர்க்கிறது."
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 1
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 2
+                },
+                {
+                  "name": "local support",
+                  "value": 2
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Request the municipal corporation to round up the dogs and relocate them to an animal shelter.",
+              "es": "Solicitar a la corporación municipal que recoja a los perros y los reubique en un refugio de animales.",
+              "hi": "नगर निगम से कुत्तों को पकड़ने और उन्हें पशु आश्रय में स्थानांतरित करने का अनुरोध करें।",
+              "ta": "நகராட்சி நிர்வாகத்திடம் நாய்களைப் பிடித்து விலங்கு தங்குமிடத்திற்கு மாற்றக் கோருங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "While initially increasing perceived safety, relocating the dogs might not be a sustainable solution as new strays could move into the area. It could also strain shelter resources and draw criticism from animal welfare advocates, potentially reducing local support. [12, 14, 15, 16, 19, 20]",
+                "es": "Aunque inicialmente aumenta la percepción de seguridad, la reubicación de los perros podría no ser una solución sostenible, ya que nuevos perros callejeros podrían mudarse al área. También podría agotar los recursos del refugio y generar críticas de los defensores del bienestar animal, reduciendo potencialmente el apoyo local.",
+                "hi": "हालांकि शुरू में perceived सुरक्षा बढ़ती है, कुत्तों को स्थानांतरित करना एक स्थायी समाधान नहीं हो सकता है क्योंकि नए आवारा कुत्ते क्षेत्र में आ सकते हैं। यह आश्रय संसाधनों पर भी दबाव डाल सकता है और पशु कल्याण अधिवक्ताओं से आलोचना को आकर्षित कर सकता है, जिससे स्थानीय समर्थन संभावित रूप से कम हो सकता है।",
+                "ta": "ஆரம்பத்தில் பாதுகாப்பு உணர்வை அதிகரித்தாலும், நாய்களை இடமாற்றுவது ஒரு நிலையான தீர்வாக இருக்காது, ஏனெனில் புதிய தெரு நாய்கள் அப்பகுதிக்கு வரக்கூடும். இது தங்குமிட வளங்களுக்கு அழுத்தத்தை ஏற்படுத்தலாம் மற்றும் விலங்கு நல ஆர்வலர்களிடமிருந்து விமர்சனங்களை ஈர்க்கலாம், இது உள்ளூர் ஆதரவைக் குறைக்கலாம்."
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 2
+                },
+                {
+                  "name": "animal welfare",
+                  "value": -1
+                },
+                {
+                  "name": "local support",
+                  "value": -1
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.google.com/search?q=Humane+Society+International+India+stray+dog+education+vadodara",
+        "sourceTitle": {
+          "en": "Humane Education and Community Dog Management in India",
+          "es": "Educación Humana y Gestión de Perros Comunitarios en India",
+          "hi": "भारत में मानवीय शिक्षा और सामुदायिक कुत्ता प्रबंधन",
+          "ta": "இந்தியாவில் மனிதநேயக் கல்வி மற்றும் சமூக நாய் மேலாண்மை"
+        },
+        "id": "community-playground-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Dog Park & Training": [
+      {
+        "title": {
+          "en": "Pawsitive Beginnings: Community Adoption & Training Fair",
+          "es": "Comienzos Positivos: Feria Comunitaria de Adopción y Entrenamiento",
+          "hi": "सकारात्मक शुरुआत: सामुदायिक गोद लेने और प्रशिक्षण मेला",
+          "ta": "நேர்மறையான தொடக்கங்கள்: சமூக தத்தெடுப்பு மற்றும் பயிற்சி கண்காட்சி"
+        },
+        "description": {
+          "en": "The city's dog park is buzzing with excitement! The local animal welfare group, in partnership with the municipal corporation, is hosting a 'Pawsitive Beginnings' fair. This event aims to find loving homes for Indie puppies rescued from the streets and offer basic training tips for new adopters to ensure smooth integration into urban families. However, some residents are concerned about potential overcrowding and noise.",
+          "es": "¡El parque para perros de la ciudad está lleno de emoción! El grupo local de bienestar animal, en colaboración con la corporación municipal, está organizando una feria 'Comienzos Positivos'. Este evento tiene como objetivo encontrar hogares amorosos para cachorros Indie rescatados de las calles y ofrecer consejos básicos de entrenamiento para los nuevos adoptantes, asegurando una integración fluida en las familias urbanas. Sin embargo, algunos residentes están preocupados por la posible sobrepoblación y el ruido.",
+          "hi": "शहर का डॉग पार्क उत्साह से गुलजार है! स्थानीय पशु कल्याण समूह, नगर निगम के साथ मिलकर, 'सकारात्मक शुरुआत' मेले की मेजबानी कर रहा है। इस आयोजन का उद्देश्य सड़कों से बचाए गए इंडी पिल्लों के लिए प्यार भरे घर ढूंढना और नए अपनाने वालों के लिए बुनियादी प्रशिक्षण युक्तियाँ प्रदान करना है ताकि शहरी परिवारों में उनका सुचारु एकीकरण सुनिश्चित हो सके। हालांकि, कुछ निवासियों को संभावित भीड़भाड़ और शोर के बारे में चिंता है।",
+          "ta": "நகரத்தின் நாய் பூங்கா உற்சாகத்துடன் பரபரக்கிறது! உள்ளூர் விலங்கு நலக் குழு, மாநகராட்சியுடன் இணைந்து, 'நேர்மறையான தொடக்கங்கள்' கண்காட்சியை நடத்துகிறது. இந்த நிகழ்வு தெருக்களிலிருந்து மீட்கப்பட்ட இண்டி நாய்க்குட்டிகளுக்கு அன்பான வீடுகளைக் கண்டுபிடிப்பதையும், புதிய தத்தெடுப்பவர்களுக்கு அடிப்படைப் பயிற்சி குறிப்புகளை வழங்குவதையும் நோக்கமாகக் கொண்டுள்ளது, இதனால் அவை நகர்ப்புற குடும்பங்களில் சீராக ஒருங்கிணைக்கப்படும். இருப்பினும், சில குடியிருப்பாளர்கள் அதிக கூட்டம் மற்றும் இரைச்சல் குறித்து கவலைப்படுகிறார்கள்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Prioritize controlled access and strict rules: Announce designated time slots for different activities and limit the number of attendees at any given moment. Emphasize immediate basic obedience training sessions for adopted dogs and mandatory pet parent registration.",
+              "es": "Priorizar el acceso controlado y las reglas estrictas: Anunciar franjas horarias designadas para diferentes actividades y limitar el número de asistentes en cualquier momento. Enfatizar sesiones de entrenamiento de obediencia básica inmediatas para perros adoptados y el registro obligatorio de los padres de mascotas.",
+              "hi": "नियंत्रित पहुंच और सख्त नियमों को प्राथमिकता दें: विभिन्न गतिविधियों के लिए निर्धारित समय स्लॉट की घोषणा करें और किसी भी समय उपस्थित लोगों की संख्या सीमित करें। गोद लिए गए कुत्तों के लिए तत्काल बुनियादी आज्ञाकारिता प्रशिक्षण सत्रों और अनिवार्य पालतू माता-पिता पंजीकरण पर जोर दें।",
+              "ta": "கட்டுப்படுத்தப்பட்ட அணுகல் மற்றும் கடுமையான விதிகளை முன்னுரிமைப்படுத்துங்கள்: வெவ்வேறு செயல்பாடுகளுக்கு நியமிக்கப்பட்ட நேர இடங்களை அறிவித்து, எந்த நேரத்திலும் பங்கேற்பாளர்களின் எண்ணிக்கையை கட்டுப்படுத்துங்கள். தத்தெடுக்கப்பட்ட நாய்களுக்கு உடனடி அடிப்படை கீழ்ப்படிதல் பயிற்சி அமர்வுகளுக்கும், கட்டாய செல்லப்பிராணி பெற்றோர் பதிவுக்கும் முக்கியத்துவம் கொடுங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The event is orderly and well-managed, reducing concerns about noise and overcrowding. While fewer impulse adoptions occur, those that do are from families who are truly committed and well-informed, leading to higher long-term success rates for adopted dogs. Community members appreciate the organized approach.",
+                "es": "El evento es ordenado y bien gestionado, lo que reduce las preocupaciones sobre el ruido y el hacinamiento. Aunque se producen menos adopciones impulsivas, las que sí ocurren provienen de familias verdaderamente comprometidas y bien informadas, lo que lleva a mayores tasas de éxito a largo plazo para los perros adoptados. Los miembros de la comunidad aprecian el enfoque organizado.",
+                "hi": "आयोजन सुव्यवस्थित और अच्छी तरह से प्रबंधित है, जिससे शोर और भीड़भाड़ के बारे में चिंताएं कम होती हैं। जबकि कम तात्कालिक दत्तक ग्रहण होते हैं, जो होते हैं वे वास्तव में प्रतिबद्ध और सुविज्ञ परिवारों से होते हैं, जिससे गोद लिए गए कुत्तों के लिए उच्च दीर्घकालिक सफलता दर प्राप्त होती है। समुदाय के सदस्य संगठित दृष्टिकोण की सराहना करते हैं।",
+                "ta": "நிகழ்வு ஒழுங்காகவும் சிறப்பாகவும் நிர்வகிக்கப்படுகிறது, இது சத்தம் மற்றும் கூட்ட நெரிசல் குறித்த கவலைகளைக் குறைக்கிறது. உடனடித் தத்தெடுப்புகள் குறைவாக இருந்தாலும், அவை உண்மையாக அர்ப்பணிப்புடன் மற்றும் நன்கு அறிந்த குடும்பங்களால் நடைபெறுகின்றன, இது தத்தெடுக்கப்பட்ட நாய்களுக்கு அதிக நீண்டகால வெற்றி விகிதங்களுக்கு வழிவகுக்கிறது. சமூக உறுப்பினர்கள் ஒழுங்கமைக்கப்பட்ட அணுகுமுறையைப் பாராட்டுகிறார்கள்."
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 2
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 1
+                },
+                {
+                  "name": "local support",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Promote open community engagement and interactive sessions: Encourage potential adopters to spend extended time with the puppies, offer free basic grooming and health check-ups, and highlight stories of successful Indie adoptions and their positive impact on families.",
+              "es": "Promover la participación comunitaria abierta y sesiones interactivas: Animar a los posibles adoptantes a pasar más tiempo con los cachorros, ofrecer aseo básico y chequeos de salud gratuitos, y destacar historias de adopciones exitosas de perros Indie y su impacto positivo en las familias.",
+              "hi": "खुले सामुदायिक जुड़ाव और इंटरैक्टिव सत्रों को बढ़ावा दें: संभावित अपनाने वालों को पिल्लों के साथ अधिक समय बिताने के लिए प्रोत्साहित करें, मुफ्त बुनियादी संवारने और स्वास्थ्य जांच की पेशकश करें, और सफल इंडी गोद लेने और परिवारों पर उनके सकारात्मक प्रभाव की कहानियों को उजागर करें।",
+              "ta": "திறந்த சமூக ஈடுபாடு மற்றும் ஊடாடும் அமர்வுகளை ஊக்குவிக்கவும்: நாய்க்குட்டிகளுடன் நீண்ட நேரம் செலவழிக்க வருங்கால தத்தெடுப்பவர்களை ஊக்குவிக்கவும், இலவச அடிப்படை சீர்ப்படுத்தல் மற்றும் சுகாதார பரிசோதனைகளை வழங்கவும், மேலும் வெற்றிகரமான இண்டி தத்தெடுப்புகள் மற்றும் குடும்பங்களில் அவற்றின் நேர்மறையான தாக்கம் பற்றிய கதைகளை முன்னிலைப்படுத்தவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The lively atmosphere attracts many families, leading to a higher number of adoptions. The focus on interaction helps build stronger bonds between potential owners and puppies. While there might be some initial noise, the heartwarming stories and visible joy foster greater community empathy towards stray animals, improving local support for animal welfare initiatives.",
+                "es": "El ambiente animado atrae a muchas familias, lo que lleva a un mayor número de adopciones. El enfoque en la interacción ayuda a construir lazos más fuertes entre los posibles dueños y los cachorros. Aunque pueda haber algo de ruido inicial, las conmovedoras historias y la alegría visible fomentan una mayor empatía comunitaria hacia los animales callejeros, mejorando el apoyo local a las iniciativas de bienestar animal.",
+                "hi": "जीवंत माहौल कई परिवारों को आकर्षित करता है, जिससे अधिक दत्तक ग्रहण होते हैं। बातचीत पर ध्यान केंद्रित करने से संभावित मालिकों और पिल्लों के बीच मजबूत बंधन बनाने में मदद मिलती है। जबकि कुछ प्रारंभिक शोर हो सकता है, दिल को छू लेने वाली कहानियाँ और दृश्यमान खुशी आवारा जानवरों के प्रति अधिक सामुदायिक सहानुभूति को बढ़ावा देती है, जिससे पशु कल्याण पहलों के लिए स्थानीय समर्थन में सुधार होता है।",
+                "ta": "கலகலப்பான சூழ்நிலை பல குடும்பங்களை ஈர்க்கிறது, இது அதிக எண்ணிக்கையிலான தத்தெடுப்புகளுக்கு வழிவகுக்கிறது. இடைவினையில் கவனம் செலுத்துவது சாத்தியமான உரிமையாளர்களுக்கும் நாய்க்குட்டிகளுக்கும் இடையில் வலுவான பிணைப்புகளை உருவாக்க உதவுகிறது. ஆரம்பத்தில் சில சத்தம் இருக்கலாம் என்றாலும், மனதைத் தொடும் கதைகளும் புலப்படும் மகிழ்ச்சியும் தெரு விலங்குகள் மீது அதிக சமூக அனுதாபத்தை வளர்க்கின்றன, விலங்கு நல முயற்சிகளுக்கான உள்ளூர் ஆதரவை மேம்படுத்துகின்றன."
+              },
+              "resourceChanges": [
+                {
+                  "name": "animal welfare",
+                  "value": 2
+                },
+                {
+                  "name": "local support",
+                  "value": 2
+                },
+                {
+                  "name": "community safety",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.thehindu.com/news/cities/Hyderabad/ghmc-to-organise-stray-puppy-adoption-drive-in-hyderabad-on-august-17/article68516007.ece",
+        "sourceTitle": {
+          "en": "GHMC to organise stray puppy adoption drive in Hyderabad on August 17 - The Hindu",
+          "es": "GHMC organizará una campaña de adopción de cachorros callejeros en Hyderabad el 17 de agosto - The Hindu",
+          "hi": "GHMC 17 अगस्त को हैदराबाद में आवारा पिल्लों को गोद लेने का अभियान चलाएगा - द हिंदू",
+          "ta": "ஆகஸ்ட் 17 அன்று ஹைதராபாத்தில் GHMC தெரு நாய்க்குட்டிகள் தத்தெடுப்பு இயக்கத்தை ஏற்பாடு செய்யும் - தி இந்து"
+        },
+        "id": "dog-park-&-training-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Public Awareness Campaign": [
+      {
+        "title": {
+          "en": "The Community Dog Conundrum",
+          "es": "El Enigma del Perro Comunitario",
+          "hi": "सामुदायिक कुत्ते का पहेली",
+          "ta": "சமூக நாய் புதிர்"
+        },
+        "description": {
+          "en": "At the public awareness campaign, people are gathering. You notice a group of parents expressing concerns about stray dogs in their neighborhood, particularly regarding safety and hygiene, despite local efforts for Animal Birth Control (ABC) and vaccination. Your task is to address their concerns effectively and promote understanding.",
+          "es": "En la campaña de concientización pública, la gente se está reuniendo. Observas a un grupo de padres expresando preocupaciones sobre los perros callejeros en su vecindario, particularmente en cuanto a seguridad e higiene, a pesar de los esfuerzos locales para el Control de Natalidad Animal (ABC) y la vacunación. Tu tarea es abordar sus preocupaciones de manera efectiva y promover la comprensión.",
+          "hi": "जनजागरूकता अभियान में लोग जमा हो रहे हैं। आप देखते हैं कि माता-पिता का एक समूह अपने पड़ोस में आवारा कुत्तों के बारे में चिंता व्यक्त कर रहा है, खासकर सुरक्षा और स्वच्छता के संबंध में, पशु जन्म नियंत्रण (एबीसी) और टीकाकरण के स्थानीय प्रयासों के बावजूद। आपका कार्य उनकी चिंताओं को प्रभावी ढंग से संबोधित करना और समझ को बढ़ावा देना है।",
+          "ta": "பொது விழிப்புணர்வு பிரச்சாரத்தில் மக்கள் கூடுகிறார்கள். உங்கள் அக்கம் பக்கத்தில் உள்ள தெருநாய்கள் குறித்து, குறிப்பாக பாதுகாப்பு மற்றும் சுகாதாரம் தொடர்பாக, உள்ளூர் விலங்கு பிறப்பு கட்டுப்பாடு (ABC) மற்றும் தடுப்பூசி முயற்சிகள் இருந்தபோதிலும், பெற்றோர்கள் ஒரு குழு கவலைகளை வெளிப்படுத்துவதை நீங்கள் கவனிக்கிறீர்கள். அவர்களின் கவலைகளை திறம்பட நிவர்த்தி செய்து புரிதலை வளர்ப்பதே உங்கள் பணி."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Explain how ABC and ARV programs make community dogs calmer, healthier, and safer, reducing risks and controlling population.",
+              "es": "Explicar cómo los programas ABC y ARV hacen que los perros comunitarios sean más tranquilos, sanos y seguros, reduciendo riesgos y controlando la población.",
+              "hi": "बताएं कि एबीसी और एआरवी कार्यक्रम सामुदायिक कुत्तों को कैसे शांत, स्वस्थ और सुरक्षित बनाते हैं, जोखिम कम करते हैं और आबादी को नियंत्रित करते हैं।",
+              "ta": "ABC மற்றும் ARV திட்டங்கள் சமூக நாய்களை எவ்வாறு அமைதியாகவும், ஆரோக்கியமாகவும், பாதுகாப்பாகவும் ஆக்குகின்றன, அபாயங்களைக் குறைத்து மக்கள் தொகையைக் கட்டுப்படுத்துகின்றன என்பதை விளக்கவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "You successfully educated the parents about the scientific benefits of ABC and ARV, highlighting how these programs contribute to both animal well-being and community safety by creating a stable, healthier stray dog population. This increased their understanding and willingness to support such initiatives. [2, 12]",
+                "es": "Educaste con éxito a los padres sobre los beneficios científicos de ABC y ARV, destacando cómo estos programas contribuyen tanto al bienestar animal como a la seguridad de la comunidad al crear una población de perros callejeros estable y más saludable. Esto aumentó su comprensión y disposición a apoyar tales iniciativas. [2, 12]",
+                "hi": "आपने माता-पिता को एबीसी और एआरवी के वैज्ञानिक लाभों के बारे में सफलतापूर्वक शिक्षित किया, यह उजागर करते हुए कि ये कार्यक्रम एक स्थिर, स्वस्थ आवारा कुत्ते की आबादी बनाकर पशु कल्याण और सामुदायिक सुरक्षा दोनों में कैसे योगदान करते हैं। इससे उनकी समझ और ऐसी पहलों का समर्थन करने की इच्छा बढ़ी। [2, 12]",
+                "ta": "ABC மற்றும் ARV இன் அறிவியல் நன்மைகள் குறித்து பெற்றோர்களுக்கு நீங்கள் வெற்றிகரமாகக் கற்பித்தீர்கள், இந்தத் திட்டங்கள் எவ்வாறு ஒரு நிலையான, ஆரோக்கியமான தெருநாய் மக்கள்தொகையை உருவாக்குவதன் மூலம் விலங்குகளின் நலன் மற்றும் சமூக பாதுகாப்பு இரண்டிற்கும் பங்களிக்கின்றன என்பதை எடுத்துக்காட்டினீர்கள். இது அவர்களின் புரிதலையும் அத்தகைய முயற்சிகளை ஆதரிப்பதற்கான விருப்பத்தையும் அதிகரித்தது. [2, 12]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 10
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 5
+                },
+                {
+                  "name": "local support",
+                  "value": 5
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Suggest forming local \"Stray Buddy\" groups to create designated feeding spots and encourage humane interaction, fostering a sense of community ownership.",
+              "es": "Sugerir la formación de grupos locales \"Stray Buddy\" para crear puntos de alimentación designados y fomentar la interacción humana, promoviendo un sentido de propiedad comunitaria.",
+              "hi": "निर्धारित भोजन स्थल बनाने और मानवीय बातचीत को प्रोत्साहित करने के लिए स्थानीय \"स्ट्रे बडी\" समूह बनाने का सुझाव दें, जिससे सामुदायिक स्वामित्व की भावना को बढ़ावा मिले।",
+              "ta": "உணவுப் புள்ளிகளை உருவாக்குவதற்கும் மனிதாபிமான தொடர்புகளை ஊக்குவிப்பதற்கும் உள்ளூர் \"ஸ்ட்ரே பட்டி\" குழுக்களை உருவாக்குமாறு பரிந்துரைக்கவும், இது சமூக உரிமையுணர்வை வளர்க்கும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "By emphasizing community involvement and humane interaction, you helped the parents see a proactive role they can play. Establishing feeding spots and local groups can lead to better monitoring of stray dogs and reduced conflict, as well-fed dogs are less likely to scavenge aggressively. [4, 5, 10]",
+                "es": "Al enfatizar la participación comunitaria y la interacción humana, ayudaste a los padres a ver un papel proactivo que pueden desempeñar. El establecimiento de puntos de alimentación y grupos locales puede llevar a un mejor monitoreo de los perros callejeros y a la reducción de conflictos, ya que los perros bien alimentados tienen menos probabilidades de buscar alimento agresivamente. [4, 5, 10]",
+                "hi": "सामुदायिक भागीदारी और मानवीय बातचीत पर जोर देकर, आपने माता-पिता को एक सक्रिय भूमिका निभाने में मदद की। भोजन स्थल और स्थानीय समूह स्थापित करने से आवारा कुत्तों की बेहतर निगरानी हो सकती है और संघर्ष कम हो सकता है, क्योंकि अच्छी तरह से खिलाए गए कुत्तों के आक्रामक रूप से भोजन की तलाश करने की संभावना कम होती है। [4, 5, 10]",
+                "ta": "சமூக ஈடுபாடு மற்றும் மனிதாபிமான தொடர்புகளுக்கு முக்கியத்துவம் அளிப்பதன் மூலம், பெற்றோர்கள் ஒரு செயலூக்கமான பங்கைக் காண நீங்கள் உதவினீர்கள். உணவுப் புள்ளிகள் மற்றும் உள்ளூர் குழுக்களை நிறுவுவது தெருநாய்களை சிறப்பாகக் கண்காணிப்பதற்கும் மோதலைக் குறைப்பதற்கும் வழிவகுக்கும், ஏனெனில் நன்கு உணவளிக்கப்பட்ட நாய்கள் ஆக்ரோஷமாக உணவு தேடும் வாய்ப்பு குறைவு. [4, 5, 10]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 5
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 10
+                },
+                {
+                  "name": "local support",
+                  "value": 10
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFmGb__KFxN_UsEI2HYWhldMJYStQoapgnE3UdMD_fJg3qQTwtzgRxh007zE57o1X4sfuiPmHJz7lxLaEad47uZQHg38i3QcWwB4L3FiCfiqJgsxdpbVNo_MfjVCDhYoFRRxcRq0Rl7VYZkhXNWNjiqw46RUZg0WR4t6tPqxe01Hx2D3GZLnuXMEuRyC8pu7B85rRVjsHKCxooh6FQNuRzuC44xENef6w4d_W5o80TY",
+        "sourceTitle": {
+          "en": "Stray Dogs Management in India: Balancing Public Safety with Animal Welfare",
+          "es": "Manejo de Perros Callejeros en India: Equilibrando la Seguridad Pública con el Bienestar Animal",
+          "hi": "भारत में आवारा कुत्तों का प्रबंधन: सार्वजनिक सुरक्षा और पशु कल्याण का संतुलन",
+          "ta": "இந்தியாவில் தெருநாய்கள் மேலாண்மை: பொது பாதுகாப்பு மற்றும் விலங்கு நலனை சமநிலைப்படுத்துதல்"
+        },
+        "id": "public-awareness-campaign-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Municipal Waste Hub": [
+      {
+        "title": {
+          "en": "The Overwhelmed Waste Hub",
+          "es": "El Centro de Residuos Abrumado",
+          "hi": "अतिभारित अपशिष्ट केंद्र",
+          "ta": "அதிகப்படியான கழிவு மையம்"
+        },
+        "description": {
+          "en": "At the city's main municipal waste hub, you observe a large number of stray dogs scavenging through unsegregated waste. This creates a challenging situation for both the sanitation workers and the dogs, as open waste can lead to hygiene issues and the dogs are at risk from ingesting harmful materials. The local community is concerned about both the cleanliness of the area and the welfare of the animals.",
+          "es": "En el principal centro de residuos municipales de la ciudad, observas un gran número de perros callejeros buscando comida entre los residuos sin clasificar. Esto crea una situación desafiante tanto para los trabajadores de saneamiento como para los perros, ya que los residuos abiertos pueden generar problemas de higiene y los perros corren el riesgo de ingerir materiales dañinos. La comunidad local está preocupada tanto por la limpieza de la zona como por el bienestar de los animales.",
+          "hi": "शहर के मुख्य नगर निगम अपशिष्ट केंद्र पर, आप बड़ी संख्या में आवारा कुत्तों को बिना अलग किए गए कचरे में से खाना ढूंढते हुए देखते हैं। यह स्वच्छता कर्मचारियों और कुत्तों दोनों के लिए एक चुनौतीपूर्ण स्थिति पैदा करता है, क्योंकि खुले कचरे से स्वच्छता संबंधी समस्याएं हो सकती हैं और कुत्तों को हानिकारक सामग्री खाने का खतरा होता है। स्थानीय समुदाय क्षेत्र की स्वच्छता और जानवरों के कल्याण दोनों को लेकर चिंतित है।",
+          "ta": "நகரின் முக்கிய நகராட்சி கழிவு மையத்தில், வகைப்படுத்தப்படாத கழிவுகளில் அதிக எண்ணிக்கையிலான தெரு நாய்கள் உணவு தேடுவதை நீங்கள் கவனிக்கிறீர்கள். திறந்த கழிவுகள் சுகாதாரப் பிரச்சினைகளுக்கு வழிவகுக்கும் மற்றும் நாய்கள் தீங்கு விளைவிக்கும் பொருட்களை உட்கொள்ளும் அபாயத்தில் இருப்பதால், இது சுகாதாரப் பணியாளர்களுக்கும் நாய்களுக்கும் ஒரு சவாலான சூழ்நிலையை உருவாக்குகிறது. உள்ளூர் சமூகம் அப்பகுதியின் தூய்மை மற்றும் விலங்குகளின் நலன் குறித்து கவலை கொண்டுள்ளது."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Advocate for better waste segregation and enclosed bins at the hub.",
+              "es": "Abogar por una mejor segregación de residuos y contenedores cerrados en el centro.",
+              "hi": "केंद्र पर बेहतर कचरा अलगाव और बंद डिब्बे के लिए वकालत करें।",
+              "ta": "மையத்தில் சிறந்த கழிவுப் பிரிப்பு மற்றும் மூடிய கொள்கலன்களுக்காகப் பரிந்துரைக்கவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "Improved waste management leads to a cleaner environment and reduces immediate health risks for the community by minimizing exposed waste. While stray dogs might initially struggle to find food, they will be less exposed to hazardous materials, promoting a safer environment for everyone in the long run. This also encourages the community to support more sustainable waste practices. [2, 5]",
+                "es": "Una mejor gestión de residuos conduce a un ambiente más limpio y reduce los riesgos de salud inmediatos para la comunidad al minimizar los residuos expuestos. Aunque los perros callejeros puedan inicialmente tener dificultades para encontrar comida, estarán menos expuestos a materiales peligrosos, promoviendo un entorno más seguro para todos a largo plazo. Esto también anima a la comunidad a apoyar prácticas de residuos más sostenibles. [2, 5]",
+                "hi": "बेहतर अपशिष्ट प्रबंधन से स्वच्छ वातावरण बनता है और खुले कचरे को कम करके समुदाय के लिए तत्काल स्वास्थ्य जोखिम कम होते हैं। जबकि आवारा कुत्तों को शुरू में भोजन खोजने में कठिनाई हो सकती है, वे खतरनाक सामग्रियों के कम संपर्क में आएंगे, जिससे लंबे समय में सभी के लिए एक सुरक्षित वातावरण को बढ़ावा मिलेगा। यह समुदाय को अधिक टिकाऊ अपशिष्ट प्रथाओं का समर्थन करने के लिए भी प्रोत्साहित करता है। [2, 5]",
+                "ta": "மேம்பட்ட கழிவு மேலாண்மை ஒரு தூய்மையான சூழலை உருவாக்குகிறது மற்றும் வெளிப்படும் கழிவுகளைக் குறைப்பதன் மூலம் சமூகத்திற்கு உடனடி சுகாதார அபாயங்களைக் குறைக்கிறது. தெரு நாய்கள் ஆரம்பத்தில் உணவு தேடுவதில் சிரமப்படலாம் என்றாலும், அவை அபாயகரமான பொருட்களுக்கு குறைவாக வெளிப்படும், நீண்ட காலத்திற்கு அனைவருக்கும் பாதுகாப்பான சூழலை ஊக்குவிக்கும். இது சமூகத்தை மேலும் நிலையான கழிவு நடைமுறைகளை ஆதரிக்கவும் ஊக்குவிக்கிறது. [2, 5]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 20
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 5
+                },
+                {
+                  "name": "local support",
+                  "value": 15
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Partner with a local animal welfare organization to initiate an Animal Birth Control (ABC) and vaccination drive at the waste hub.",
+              "es": "Asociarse con una organización local de bienestar animal para iniciar una campaña de Control de Natalidad Animal (ABC) y vacunación en el centro de residuos.",
+              "hi": "अपशिष्ट केंद्र पर पशु जन्म नियंत्रण (एबीसी) और टीकाकरण अभियान शुरू करने के लिए एक स्थानीय पशु कल्याण संगठन के साथ साझेदारी करें।",
+              "ta": "கழிவு மையத்தில் விலங்கு பிறப்பு கட்டுப்பாடு (ABC) மற்றும் தடுப்பூசி இயக்கத்தைத் தொடங்க ஒரு உள்ளூர் விலங்கு நல அமைப்போடு இணைந்து செயல்படுங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "Initiating an ABC and vaccination drive directly addresses the root cause of stray dog overpopulation and reduces the risk of rabies, significantly improving both animal welfare and long-term community safety. This humane approach also strengthens local support from those who care for animals and recognize the benefits of population control. [4, 8, 10]",
+                "es": "Iniciar una campaña de ABC y vacunación aborda directamente la causa raíz de la sobrepoblación de perros callejeros y reduce el riesgo de rabia, mejorando significativamente tanto el bienestar animal como la seguridad comunitaria a largo plazo. Este enfoque humano también fortalece el apoyo local de quienes se preocupan por los animales y reconocen los beneficios del control de la población. [4, 8, 10]",
+                "hi": "एबीसी और टीकाकरण अभियान शुरू करने से आवारा कुत्तों की अत्यधिक आबादी के मूल कारण को सीधे संबोधित किया जाता है और रेबीज के जोखिम को कम किया जाता है, जिससे पशु कल्याण और दीर्घकालिक सामुदायिक सुरक्षा दोनों में काफी सुधार होता है। यह मानवीय दृष्टिकोण जानवरों की परवाह करने वाले और जनसंख्या नियंत्रण के लाभों को पहचानने वाले लोगों से स्थानीय समर्थन को भी मजबूत करता है। [4, 8, 10]",
+                "ta": "ஒரு ABC மற்றும் தடுப்பூசி இயக்கத்தைத் தொடங்குவது, தெரு நாய்கள் அதிகப்படியான எண்ணிக்கையில் இருப்பதற்கான அடிப்படைக் காரணத்தை நேரடியாக நிவர்த்தி செய்கிறது மற்றும் ரேபிஸ் அபாயத்தைக் குறைக்கிறது, விலங்கு நலன் மற்றும் நீண்ட கால சமூகப் பாதுகாப்பு ஆகிய இரண்டையும் கணிசமாக மேம்படுத்துகிறது. இந்த மனிதாபிமான அணுகுமுறை, விலங்குகளைப் பற்றி அக்கறை கொண்டவர்களிடமிருந்தும், மக்கள் தொகை கட்டுப்பாட்டின் நன்மைகளை அங்கீகரிப்பவர்களிடமிருந்தும் உள்ளூர் ஆதரவை பலப்படுத்துகிறது. [4, 8, 10]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "animal welfare",
+                  "value": 20
+                },
+                {
+                  "name": "community safety",
+                  "value": 10
+                },
+                {
+                  "name": "local support",
+                  "value": 10
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://civilsdaily.com/news/link-between-poor-solid-waste-management-and-stray-dog-attacks/",
+        "sourceTitle": {
+          "en": "Link between poor Solid Waste Management and Stray Dog Attacks - CivilsDaily",
+          "es": "Vínculo entre la mala gestión de residuos sólidos y los ataques de perros callejeros - CivilsDaily",
+          "hi": "खराब ठोस अपशिष्ट प्रबंधन और आवारा कुत्ते के हमलों के बीच संबंध - CivilsDaily",
+          "ta": "மோசமான திடக்கழிவு மேலாண்மைக்கும் தெருநாய் தாக்குதல்களுக்கும் இடையிலான தொடர்பு - சிவில்ஸ்டெய்லி"
+        },
+        "id": "municipal-waste-hub-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Adoption & Rehabilitation Center": [
+      {
+        "title": {
+          "en": "The Indie Dog Adoption Fair Dilemma",
+          "es": "El Dilema de la Feria de Adopción de Perros 'Indie'",
+          "hi": "देसी कुत्तों के दत्तक ग्रहण मेले की दुविधा",
+          "ta": "இந்திய நாட்டு நாய்கள் தத்தெடுப்பு கண்காட்சி தர்மசங்கடம்"
+        },
+        "description": {
+          "en": "The Adoption & Rehabilitation Center is bustling with its special 'Indie Dog Adoption Fair,' aiming to find homes for wonderful Indian street dogs. However, a small group of local residents approaches you, expressing apprehension about the number of dogs and citing past issues with strays in their neighborhood. You need to balance promoting these deserving animals with addressing community safety concerns and maintaining local support. [7, 8, 9, 10, 11]",
+          "es": "El Centro de Adopción y Rehabilitación está lleno con su 'Feria de Adopción de Perros Indie' especial, con el objetivo de encontrar hogares para maravillosos perros callejeros indios. Sin embargo, un pequeño grupo de residentes locales se le acerca, expresando aprensión sobre la cantidad de perros y citando problemas pasados con perros callejeros en su vecindario. Debe equilibrar la promoción de estos animales merecedores con la atención a las preocupaciones de seguridad de la comunidad y el mantenimiento del apoyo local. [7, 8, 9, 10, 11]",
+          "hi": "दत्तक ग्रहण और पुनर्वास केंद्र अपने विशेष 'देसी कुत्तों के दत्तक ग्रहण मेले' के साथ गुलजार है, जिसका लक्ष्य अद्भुत भारतीय देसी कुत्तों के लिए घर खोजना है। हालांकि, स्थानीय निवासियों का एक छोटा समूह आपसे संपर्क करता है, जो कुत्तों की संख्या के बारे में चिंता व्यक्त करते हैं और अपने पड़ोस में आवारा कुत्तों के साथ पिछली समस्याओं का हवाला देते हैं। आपको इन योग्य जानवरों को बढ़ावा देना और सामुदायिक सुरक्षा चिंताओं को दूर करना तथा स्थानीय समर्थन बनाए रखना होगा। [7, 8, 9, 10, 11]",
+          "ta": "தத்தெடுப்பு மற்றும் மறுவாழ்வு மையம் அதன் சிறப்பு 'இந்திய நாட்டு நாய்கள் தத்தெடுப்பு கண்காட்சி'யுடன் பரபரப்பாக உள்ளது, அற்புதமான இந்தியத் தெருநாய்களுக்கு வீடுகளைக் கண்டறிவதை நோக்கமாகக் கொண்டுள்ளது. இருப்பினும், ஒரு சிறிய குழு உள்ளூர்வாசிகள் உங்களை அணுகி, நாய்களின் எண்ணிக்கை குறித்து அச்சம் தெரிவித்து, தங்கள் பகுதியில் உள்ள தெருநாய்களுடன் கடந்தகால சிக்கல்களைக் குறிப்பிடுகின்றனர். நீங்கள் இந்தத் தகுதியான விலங்குகளை ஊக்குவிப்பதையும், சமூகப் பாதுகாப்புக் கவலைகளை நிவர்த்தி செய்வதையும், உள்ளூர் ஆதரவைப் பராமரிப்பதையும் சமநிலைப்படுத்த வேண்டும். [7, 8, 9, 10, 11]"
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Organize a community meeting to address concerns directly, offering information on responsible pet ownership, free training workshops for adopted dogs, and a helpline for new adopters. Emphasize the center's commitment to community safety. [2, 3, 4, 5, 6]",
+              "es": "Organice una reunión comunitaria para abordar las preocupaciones directamente, ofreciendo información sobre la tenencia responsable de mascotas, talleres de capacitación gratuitos para perros adoptados y una línea de ayuda para nuevos adoptantes. Enfatice el compromiso del centro con la seguridad de la comunidad. [2, 3, 4, 5, 6]",
+              "hi": "चिंताओं को सीधे संबोधित करने के लिए एक सामुदायिक बैठक आयोजित करें, जिम्मेदार पालतू स्वामित्व पर जानकारी, गोद लिए गए कुत्तों के लिए मुफ्त प्रशिक्षण कार्यशालाएं और नए गोद लेने वालों के लिए एक हेल्पलाइन प्रदान करें। सामुदायिक सुरक्षा के प्रति केंद्र की प्रतिबद्धता पर जोर दें। [2, 3, 4, 5, 6]",
+              "ta": "சமூகக் கூட்டத்தை ஏற்பாடு செய்து, கவலைகளை நேரடியாக நிவர்த்தி செய்யுங்கள், பொறுப்பான செல்லப்பிராணி உரிமையை, தத்தெடுக்கப்பட்ட நாய்களுக்கான இலவச பயிற்சி பட்டறைகள் மற்றும் புதிய தத்தெடுப்பாளர்களுக்கான உதவி தொலைபேசி எண் குறித்து தகவல்களை வழங்குங்கள். சமூகப் பாதுகாப்பிற்கான மையத்தின் உறுதிப்பாட்டை வலியுறுத்துங்கள். [2, 3, 4, 5, 6]"
+            },
+            "outcome": {
+              "explanation": {
+                "en": "By actively listening and providing practical solutions and support, you build strong trust with the local community. This reassurance increases their confidence in the center's operations, leading to greater long-term support and a safer environment for both residents and animals. More people become open to adoption. [2, 6, 10]",
+                "es": "Al escuchar activamente y proporcionar soluciones prácticas y apoyo, usted construye una fuerte confianza con la comunidad local. Esta tranquilidad aumenta su confianza en las operaciones del centro, lo que lleva a un mayor apoyo a largo plazo y un entorno más seguro tanto para los residentes como para los animales. Más personas se abren a la adopción. [2, 6, 10]",
+                "hi": "सक्रिय रूप से सुनकर और व्यावहारिक समाधान व सहायता प्रदान करके, आप स्थानीय समुदाय के साथ एक मजबूत विश्वास बनाते हैं। यह आश्वासन केंद्र के संचालन में उनके विश्वास को बढ़ाता है, जिससे दीर्घकालिक समर्थन और निवासियों और जानवरों दोनों के लिए एक सुरक्षित वातावरण बनता है। अधिक लोग दत्तक ग्रहण के लिए तैयार होते हैं। [2, 6, 10]",
+                "ta": "செயலூக்கத்துடன் கேட்டு, நடைமுறைத் தீர்வுகளையும் ஆதரவையும் வழங்குவதன் மூலம், நீங்கள் உள்ளூர் சமூகத்துடன் வலுவான நம்பிக்கையை உருவாக்குகிறீர்கள். இந்த மறுஉறுதி மையத்தின் செயல்பாடுகளில் அவர்களின் நம்பிக்கையை அதிகரிக்கிறது, இது நீண்ட கால ஆதரவு மற்றும் குடியிருப்பாளர்கள் மற்றும் விலங்குகள் இருவருக்கும் பாதுகாப்பான சூழலுக்கு வழிவகுக்கிறது. அதிகமானோர் தத்தெடுக்கத் தயாராகின்றனர். [2, 6, 10]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 2
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 1
+                },
+                {
+                  "name": "local support",
+                  "value": 2
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Highlight the resilience, intelligence, and adaptability of Indie dogs through testimonials from successful adopters and expert talks. Focus on dispelling myths and showcasing their unique qualities, encouraging immediate adoption based on merit. [7, 8, 9, 12]",
+              "es": "Destaque la resiliencia, inteligencia y adaptabilidad de los perros Indie a través de testimonios de adoptantes exitosos y charlas de expertos. Concéntrese en disipar mitos y mostrar sus cualidades únicas, fomentando la adopción inmediata basada en el mérito. [7, 8, 9, 12]",
+              "hi": "सफल दत्तक ग्रहण करने वालों की प्रशंसापत्र और विशेषज्ञ वार्ताओं के माध्यम से देसी कुत्तों के लचीलेपन, बुद्धिमत्ता और अनुकूलन क्षमता को उजागर करें। मिथकों को दूर करने और उनके अद्वितीय गुणों को प्रदर्शित करने पर ध्यान केंद्रित करें, योग्यता के आधार पर तत्काल दत्तक ग्रहण को प्रोत्साहित करें। [7, 8, 9, 12]",
+              "ta": "வெற்றிகரமான தத்தெடுப்பாளர்களின் சாட்சியங்கள் மற்றும் நிபுணர் பேச்சுகள் மூலம் இந்திய நாட்டு நாய்களின் நெகிழ்ச்சி, புத்திசாலித்தனம் மற்றும் தகவமைப்பு திறனை எடுத்துக்காட்டவும். கட்டுக்கதைகளை அகற்றி, அவற்றின் தனித்துவமான குணாதிசயங்களைக் காண்பிப்பதில் கவனம் செலுத்தி, தகுதியின் அடிப்படையில் உடனடி தத்தெடுப்பை ஊக்குவிக்கவும். [7, 8, 9, 12]"
+            },
+            "outcome": {
+              "explanation": {
+                "en": "While directly championing Indie dogs educates many about their wonderful qualities, it may not immediately soothe the anxieties of those focused on past issues. Some residents might feel their specific concerns weren't fully addressed, potentially leading to slower initial growth in local support, though it can foster a stronger pro-Indie community over time. [11, 13, 14, 15]",
+                "es": "Aunque defender directamente a los perros Indie educa a muchos sobre sus maravillosas cualidades, es posible que no alivie inmediatamente las ansiedades de aquellos centrados en problemas pasados. Algunos residentes podrían sentir que sus preocupaciones específicas no fueron abordadas completamente, lo que podría llevar a un crecimiento inicial más lento en el apoyo local, aunque puede fomentar una comunidad más pro-Indie con el tiempo. [11, 13, 14, 15]",
+                "hi": "जबकि देसी कुत्तों का सीधे समर्थन करना कई लोगों को उनके अद्भुत गुणों के बारे में शिक्षित करता है, यह उन लोगों की चिंताओं को तुरंत शांत नहीं कर सकता है जो पिछली समस्याओं पर ध्यान केंद्रित कर रहे हैं। कुछ निवासियों को लग सकता है कि उनकी विशिष्ट चिंताओं को पूरी तरह से संबोधित नहीं किया गया, जिससे स्थानीय समर्थन में धीमी प्रारंभिक वृद्धि हो सकती है, हालांकि यह समय के साथ एक मजबूत देसी समर्थक समुदाय को बढ़ावा दे सकता है। [11, 13, 14, 15]",
+                "ta": "நேரடியாக இந்திய நாட்டு நாய்களைப் பற்றி வாதிடுவது அவற்றின் அற்புதமான குணங்களைப் பற்றி பலருக்குக் கற்பித்தாலும், கடந்தகால சிக்கல்களில் கவனம் செலுத்தும் நபர்களின் கவலைகளை உடனடியாகப் போக்காது. சில குடியிருப்பாளர்கள் தங்கள் குறிப்பிட்ட கவலைகள் முழுமையாக நிவர்த்தி செய்யப்படவில்லை என்று உணரலாம், இது உள்ளூர் ஆதரவில் ஆரம்பத்தில் மெதுவான வளர்ச்சியை ஏற்படுத்தக்கூடும், இருப்பினும் இது காலப்போக்கில் வலுவான இந்திய நாட்டு நாய்கள் சார்பு சமூகத்தை வளர்க்கும். [11, 13, 14, 15]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 0
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 2
+                },
+                {
+                  "name": "local support",
+                  "value": -1
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://timesofindia.indiatimes.com/readers-blog/pet-pals/why-adopting-a-stray-is-now-a-popular-option-for-pet-lovers-11534/",
+        "sourceTitle": {
+          "en": "The Times of India: Why adopting a stray is now a popular option for pet lovers",
+          "es": "The Times of India: Por qué adoptar un perro callejero es ahora una opción popular para los amantes de las mascotas",
+          "hi": "द टाइम्स ऑफ़ इंडिया: आवारा कुत्ते को गोद लेना अब पालतू जानवरों के प्रेमियों के लिए एक लोकप्रिय विकल्प क्यों है",
+          "ta": "தி டைம்ஸ் ஆஃப் இந்தியா: தெரு நாயை தத்தெடுப்பது செல்லப்பிராணி பிரியர்களுக்கு இப்போது ஏன் ஒரு பிரபலமான விருப்பமாக உள்ளது"
+        },
+        "id": "adoption-&-rehabilitation-center-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Local Market Lane": [
+      {
+        "title": {
+          "en": "The Market Lane Scavenger",
+          "es": "El Carroñero del Mercado",
+          "hi": "बाजार लेन का कचरा बीनने वाला",
+          "ta": "சந்தை வீதி குப்பை தேடுபவன்"
+        },
+        "description": {
+          "en": "In the bustling Local Market Lane, a persistent stray dog is often seen rummaging through overflowing garbage bins near a busy food stall. While some vendors are frustrated by the mess and potential health concerns, others in the community feel sympathetic towards the hungry animal, especially since the market generates a lot of food waste.",
+          "es": "En la concurrida Calle del Mercado Local, un perro callejero persistente es visto a menudo hurgando en cubos de basura desbordados cerca de un puesto de comida concurrido. Mientras que algunos vendedores están frustrados por el desorden y las posibles preocupaciones de salud, otros en la comunidad sienten simpatía por el animal hambriento, especialmente porque el mercado genera muchos residuos de alimentos.",
+          "hi": "व्यस्त स्थानीय बाजार लेन में, एक लगातार आवारा कुत्ता अक्सर एक व्यस्त खाद्य स्टाल के पास कूड़ेदानों में भोजन की तलाश करता देखा जाता है। जबकि कुछ विक्रेता गंदगी और संभावित स्वास्थ्य संबंधी चिंताओं से निराश हैं, समुदाय में अन्य लोग भूखे जानवर के प्रति सहानुभूति महसूस करते हैं, खासकर जब बाजार बहुत सारा खाद्य अपशिष्ट उत्पन्न करता है।",
+          "ta": "விறுவிறுப்பான உள்ளூர் சந்தை வீதியில், ஒரு பிடிவாதமான தெரு நாய், பரபரப்பான உணவு கடைகளுக்கு அருகில் நிரம்பி வழியும் குப்பைத் தொட்டிகளில் உணவு தேடுவதைக் காணப்படுகிறது. சில வணிகர்கள் குழப்பம் மற்றும் சாத்தியமான சுகாதாரப் பிரச்சினைகளால் விரக்தியடைந்தாலும், சமூகத்தில் உள்ள மற்றவர்கள் பசியுள்ள விலங்கு மீது பரிவு காட்டுகிறார்கள், குறிப்பாக சந்தை நிறைய உணவு கழிவுகளை உருவாக்குவதால்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Organize with local shopkeepers to secure the waste bins and request the municipal corporation for more frequent waste collection.",
+              "es": "Organícese con los comerciantes locales para asegurar los cubos de basura y solicite a la corporación municipal una recolección de residuos más frecuente.",
+              "hi": "स्थानीय दुकानदारों के साथ मिलकर कचरे के डिब्बे सुरक्षित करें और नगर निगम से अधिक बार कचरा उठाने का अनुरोध करें।",
+              "ta": "உள்ளூர் கடைக்காரர்களுடன் இணைந்து குப்பைக் கொள்கலன்களைப் பாதுகாக்க ஏற்பாடு செய்யுங்கள், மேலும் நகராட்சி அதிகாரிகளிடம் அடிக்கடி குப்பைகளை சேகரிக்கக் கோருங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "Securing waste bins and improving waste collection helps keep the market clean and reduces potential health hazards for humans. However, this might make it harder for the stray dog to find food, requiring a more long-term solution for animal welfare.",
+                "es": "Asegurar los cubos de basura y mejorar la recolección de residuos ayuda a mantener el mercado limpio y reduce los posibles riesgos para la salud humana. Sin embargo, esto podría dificultar que el perro callejero encuentre comida, lo que requeriría una solución a más largo plazo para el bienestar animal.",
+                "hi": "कचरे के डिब्बे सुरक्षित करने और कचरा संग्रहण में सुधार से बाजार को साफ रखने में मदद मिलती है और मनुष्यों के लिए संभावित स्वास्थ्य खतरों को कम किया जा सकता है। हालांकि, इससे आवारा कुत्ते को भोजन ढूंढना मुश्किल हो सकता है, जिसके लिए पशु कल्याण के लिए एक दीर्घकालिक समाधान की आवश्यकता होगी।",
+                "ta": "குப்பைக் கொள்கலன்களைப் பாதுகாப்பதும், குப்பை சேகரிப்பை மேம்படுத்துவதும் சந்தையை சுத்தமாக வைத்திருக்க உதவுகிறது மற்றும் மனிதர்களுக்கு ஏற்படக்கூடிய சுகாதார அபாயங்களைக் குறைக்கிறது. இருப்பினும், இது தெரு நாய்க்கு உணவு தேடுவதை கடினமாக்கலாம், விலங்கு நலனுக்கான நீண்ட கால தீர்வு தேவைப்படும்."
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 2
+                },
+                {
+                  "name": "animal welfare",
+                  "value": -1
+                },
+                {
+                  "name": "local support",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Coordinate with local animal welfare volunteers to establish a designated, hygienic feeding spot away from the main thoroughfare, and initiate a community discussion about responsible food waste disposal.",
+              "es": "Coordine con voluntarios locales de bienestar animal para establecer un punto de alimentación designado e higiénico lejos de la vía principal, e inicie una discusión comunitaria sobre la eliminación responsable de residuos de alimentos.",
+              "hi": "स्थानीय पशु कल्याण स्वयंसेवकों के साथ समन्वय स्थापित करें ताकि मुख्य मार्ग से दूर एक निर्दिष्ट, स्वच्छ भोजन स्थान स्थापित किया जा सके, और जिम्मेदार खाद्य अपशिष्ट निपटान के बारे में एक सामुदायिक चर्चा शुरू करें।",
+              "ta": "உள்ளூர் விலங்கு நல தொண்டர்களுடன் இணைந்து, முக்கிய சாலையிலிருந்து விலகி ஒரு ஒதுக்கப்பட்ட, சுகாதாரமான உணவு வழங்கும் இடத்தை அமைக்கவும், மேலும் பொறுப்பான உணவு கழிவு அகற்றுவது குறித்து ஒரு சமூக விவாதத்தைத் தொடங்கவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "Creating a designated feeding spot ensures the stray dog is fed without creating a mess in the market, fostering humane coexistence. Discussing responsible waste disposal also helps the overall environment in the long run. This requires community cooperation and commitment.",
+                "es": "Crear un punto de alimentación designado asegura que el perro callejero sea alimentado sin crear desorden en el mercado, fomentando la coexistencia humana. Discutir la eliminación responsable de residuos también ayuda al medio ambiente en general a largo plazo. Esto requiere cooperación y compromiso comunitario.",
+                "hi": "एक निर्दिष्ट भोजन स्थान बनाने से आवारा कुत्ते को बाजार में गंदगी फैलाए बिना भोजन मिलता है, जिससे मानवीय सह-अस्तित्व को बढ़ावा मिलता है। जिम्मेदार अपशिष्ट निपटान पर चर्चा करने से लंबी अवधि में समग्र पर्यावरण में भी मदद मिलती है। इसके लिए सामुदायिक सहयोग और प्रतिबद्धता की आवश्यकता है।",
+                "ta": "ஒரு ஒதுக்கப்பட்ட உணவு வழங்கும் இடத்தை உருவாக்குவது, சந்தையில் குப்பையை உருவாக்காமல் தெரு நாய்க்கு உணவு கிடைப்பதை உறுதிசெய்து, மனிதாபிமான சகவாழ்வை வளர்க்கிறது. பொறுப்பான கழிவு அகற்றுவது குறித்து விவாதிப்பது நீண்ட காலத்திற்கு ஒட்டுமொத்த சூழலுக்கும் உதவுகிறது. இதற்கு சமூக ஒத்துழைப்பும் அர்ப்பணிப்பும் தேவை."
+              },
+              "resourceChanges": [
+                {
+                  "name": "community safety",
+                  "value": 1
+                },
+                {
+                  "name": "animal welfare",
+                  "value": 2
+                },
+                {
+                  "name": "local support",
+                  "value": 2
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.epw.in/journal/2019/47/review-urban-affairs/urban-waste--human-animal-interface-delhi.html",
+        "sourceTitle": {
+          "en": "Urban waste and the human–animal interface in Delhi - CABI Digital Library",
+          "es": "Residuos urbanos y la interfaz humano-animal en Delhi - CABI Digital Library",
+          "hi": "दिल्ली में शहरी कचरा और मानव-पशु इंटरफेस - CABI डिजिटल लाइब्रेरी",
+          "ta": "டெல்லியில் நகர்ப்புற கழிவுகள் மற்றும் மனித-விலங்கு தொடர்பு - CABI டிஜிட்டல் நூலகம்"
+        },
+        "id": "local-market-lane-0",
+        "custom": false,
+        "enabled": true
+      }
+    ]
+  }
+}
