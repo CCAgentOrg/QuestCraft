@@ -1,11 +1,11 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
-import type { QuestConfig, ResourceDefinition, BoardLocation, ScenariosByLocation, AiProviderSettings } from '../types';
+import type { QuestConfig, ResourceDefinition, BoardLocation, ScenariosByLocation, ChanceCard, ResourceChange, LanguageCode } from '../types';
 import { enhanceQuestIdea, generateQuestOutline, generatePregeneratedScenarios } from '../services/aiService';
 import { BoardLocationType } from '../types';
-import { settingsService } from '../services/settingsService';
 import { useTranslation } from '../services/i18n';
 import { getLocalizedString } from '../utils/localization';
+import { IconMap } from '../constants';
 
 interface QuestMakerPageProps {
     onLoadQuest: (questConfig: QuestConfig) => void;
@@ -13,10 +13,12 @@ interface QuestMakerPageProps {
 }
 
 type WizardStep = 'CONFIG' | 'REFINE' | 'GENERATING' | 'FINISH';
+type RefineStep = 'DETAILS' | 'RESOURCES' | 'BOARD' | 'CARDS';
 
 const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpdate }) => {
     const { t, language } = useTranslation();
     const [step, setStep] = useState<WizardStep>('CONFIG');
+    const [refineStep, setRefineStep] = useState<RefineStep>('DETAILS');
     const [idea, setIdea] = useState('');
     const [numLocations, setNumLocations] = useState(20);
     const [numScenarios, setNumScenarios] = useState(1);
@@ -67,6 +69,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
             const quest = await generateQuestOutline(idea, numLocations, positivity, groundingInReality);
             setDraftQuest(quest);
             setStep('REFINE');
+            setRefineStep('DETAILS');
         } catch (e: any) {
             console.error(e);
             setError(`Failed to generate quest. An API error occurred: ${e.message}. Please check your API settings and see console for details.`);
@@ -104,7 +107,6 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                 }
             } catch(e: any) {
                 console.error(`Failed to generate scenarios for ${locationName}`, e);
-                // Non-fatal error, we can continue
             }
             generatedCount++;
             setScenarioProgress(Math.round((generatedCount / total) * 100));
@@ -113,12 +115,6 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
         setDraftQuest(prev => prev ? ({ ...prev, pregeneratedScenarios: allGeneratedScenarios }) : null);
         setCurrentScenarioGen('');
         setStep('FINISH');
-    };
-
-    const handleUpdateField = <T extends keyof QuestConfig>(field: T, value: QuestConfig[T]) => {
-        if (draftQuest) {
-            setDraftQuest({ ...draftQuest, [field]: value });
-        }
     };
     
     const downloadJson = () => {
@@ -142,8 +138,86 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
         });
     };
     
+    // --- Generic Update Handlers ---
+    const handleDraftUpdate = (updateFn: (draft: QuestConfig) => QuestConfig) => {
+        setDraftQuest(prev => prev ? updateFn(prev) : null);
+    };
+
+    const handleSimpleFieldChange = <T extends keyof QuestConfig>(field: T, value: QuestConfig[T]) => {
+        handleDraftUpdate(draft => ({ ...draft, [field]: value }));
+    };
+
+    const handleNestedLocalizedChange = <T extends 'name' | 'description'>(
+        field: T,
+        lang: LanguageCode,
+        value: string
+    ) => {
+        handleDraftUpdate(draft => ({
+            ...draft,
+            [field]: { ...draft[field], [lang]: value }
+        }));
+    };
+
+    const handleArrayItemChange = <K,>(
+        arrayField: keyof QuestConfig,
+        index: number,
+        itemUpdate: Partial<K>
+    ) => {
+        handleDraftUpdate(draft => {
+            const newArray = [...(draft[arrayField] as K[])];
+            newArray[index] = { ...newArray[index], ...itemUpdate };
+            return { ...draft, [arrayField]: newArray };
+        });
+    };
+    
+    const handleBoardLocationChange = (index: number, locationUpdate: Partial<BoardLocation>) => {
+        handleDraftUpdate(draft => {
+            const newLocations = [...draft.board.locations];
+            newLocations[index] = { ...newLocations[index], ...locationUpdate };
+            const newBoard = { ...draft.board, locations: newLocations };
+            return { ...draft, board: newBoard };
+        });
+    };
+
+    const handleResourceChangeUpdate = (cardType: 'chanceCards' | 'communityChestCards', cardIndex: number, changeIndex: number, changeUpdate: Partial<ResourceChange>) => {
+        handleDraftUpdate(draft => {
+            const cards = [...(draft[cardType] || [])];
+            const card = { ...cards[cardIndex] };
+            const resourceChanges = [...(card.resourceChanges || [])];
+            resourceChanges[changeIndex] = { ...resourceChanges[changeIndex], ...changeUpdate };
+            card.resourceChanges = resourceChanges;
+            cards[cardIndex] = card;
+            return { ...draft, [cardType]: cards };
+        });
+    };
+
+    const handleAddResourceChange = (cardType: 'chanceCards' | 'communityChestCards', cardIndex: number) => {
+        handleDraftUpdate(draft => {
+            const cards = [...(draft[cardType] || [])];
+            const card = { ...cards[cardIndex] };
+            const resourceChanges = [...(card.resourceChanges || []), { name: draft.resources[0]?.name.en.toLowerCase() || '', value: 0 }];
+            card.resourceChanges = resourceChanges;
+            cards[cardIndex] = card;
+            return { ...draft, [cardType]: cards };
+        });
+    };
+
+    const handleRemoveResourceChange = (cardType: 'chanceCards' | 'communityChestCards', cardIndex: number, changeIndex: number) => {
+        handleDraftUpdate(draft => {
+            const cards = [...(draft[cardType] || [])];
+            const card = { ...cards[cardIndex] };
+            const resourceChanges = [...(card.resourceChanges || [])];
+            resourceChanges.splice(changeIndex, 1);
+            card.resourceChanges = resourceChanges;
+            cards[cardIndex] = card;
+            return { ...draft, [cardType]: cards };
+        });
+    };
+
+    // --- RENDER FUNCTIONS ---
+    
     const renderConfigStep = () => (
-        <div className="space-y-4">
+        <div className="p-6">
             <h2 className="text-2xl font-bold text-orange-400 mb-2">{t('step1Title')}</h2>
             <p className="text-gray-400 mb-4">{t('step1Description')}</p>
             <div className="relative">
@@ -172,7 +246,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                     <span>{t('enhance')}</span>
                 </button>
             </div>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <div>
                     <label htmlFor="num-locations" className="block text-sm font-medium text-gray-400">{t('boardLocations')}</label>
                     <input type="number" id="num-locations" value={numLocations} onChange={(e) => setNumLocations(parseInt(e.target.value, 10) || 0)}
@@ -209,61 +283,176 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                     <p className="text-xs text-gray-500 mt-1">{t('groundInRealityModelHint')}</p>
                 </div>
             </div>
-            <button
-                onClick={handleGenerateOutline}
-                disabled={isLoading || isEnhancing}
-                className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-500 text-white font-bold py-3 px-4 rounded-lg transition"
-            >
-                {isLoading ? t('generating') : t('generateOutline')}
-            </button>
+            <div className="p-4 mt-auto border-t border-gray-700">
+                <button
+                    onClick={handleGenerateOutline}
+                    disabled={isLoading || isEnhancing}
+                    className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-500 text-white font-bold py-3 px-4 rounded-lg transition"
+                >
+                    {isLoading ? t('generating') : t('generateOutline')}
+                </button>
+            </div>
         </div>
     );
     
+    const renderDetailsStep = (dq: QuestConfig) => (
+        <div className="space-y-4">
+            <div>
+                <label className="block text-sm font-medium text-gray-400">{t('questName')}</label>
+                <input type="text" value={getLocalizedString(dq.name, language)} onChange={(e) => handleNestedLocalizedChange('name', language, e.target.value)} className="mt-1 w-full p-2 bg-gray-900 border border-gray-600 rounded-md" />
+            </div>
+            <div>
+                <label className="block text-sm font-medium text-gray-400">{t('description')}</label>
+                <input type="text" value={getLocalizedString(dq.description, language)} onChange={(e) => handleNestedLocalizedChange('description', language, e.target.value)} className="mt-1 w-full p-2 bg-gray-900 border border-gray-600 rounded-md" />
+            </div>
+        </div>
+    );
+
+    const renderResourcesStep = (dq: QuestConfig) => (
+        <div className="space-y-4">
+            {dq.resources.map((res, index) => (
+                <details key={index} open className="bg-gray-900/50 p-3 rounded-lg">
+                    <summary className="font-semibold cursor-pointer">{t('resource')} #{index+1}: {getLocalizedString(res.name, language)}</summary>
+                    <div className="mt-3 pt-3 border-t border-gray-700 space-y-3">
+                        <div>
+                            <label className="block text-xs text-gray-400">{t('resourceName')}</label>
+                            <input type="text" value={getLocalizedString(res.name, language)} onChange={e => handleArrayItemChange('resources', index, { name: {...res.name, [language]: e.target.value}})} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                        </div>
+                        <div className="grid grid-cols-2 gap-3">
+                             <div>
+                                <label className="block text-xs text-gray-400">{t('icon')}</label>
+                                <select value={res.icon} onChange={e => handleArrayItemChange('resources', index, { icon: e.target.value as ResourceDefinition['icon'] })} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm">
+                                    {Object.keys(IconMap).map(iconName => <option key={iconName} value={iconName}>{iconName}</option>)}
+                                </select>
+                            </div>
+                            <div>
+                                <label className="block text-xs text-gray-400">{t('barColor')}</label>
+                                <input type="text" value={res.barColor} onChange={e => handleArrayItemChange('resources', index, { barColor: e.target.value })} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-3 gap-3">
+                            <div>
+                                <label className="block text-xs text-gray-400">{t('min')}</label>
+                                <input type="number" value={res.minimumValue ?? ''} onChange={e => handleArrayItemChange('resources', index, { minimumValue: parseInt(e.target.value) })} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                            </div>
+                            <div>
+                                <label className="block text-xs text-gray-400">{t('initial')}</label>
+                                <input type="number" value={res.initialValue} onChange={e => handleArrayItemChange('resources', index, { initialValue: parseInt(e.target.value) })} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                            </div>
+                             <div>
+                                <label className="block text-xs text-gray-400">{t('max')}</label>
+                                <input type="number" value={res.maximumValue ?? ''} onChange={e => handleArrayItemChange('resources', index, { maximumValue: parseInt(e.target.value) })} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            ))}
+        </div>
+    );
+
+    const renderBoardStep = (dq: QuestConfig) => (
+        <div className="space-y-4">
+            {dq.board.locations.map((loc, index) => (
+                <details key={index} className="bg-gray-900/50 p-3 rounded-lg">
+                    <summary className="font-semibold cursor-pointer">#{index} {getLocalizedString(loc.name, language)} ({loc.type})</summary>
+                     <div className="mt-3 pt-3 border-t border-gray-700 space-y-3">
+                        <div>
+                            <label className="block text-xs text-gray-400">{t('locationName')}</label>
+                            <input type="text" value={getLocalizedString(loc.name, language)} onChange={e => handleBoardLocationChange(index, { name: {...loc.name, [language]: e.target.value}})} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                        </div>
+                         <div>
+                            <label className="block text-xs text-gray-400">{t('description')}</label>
+                            <input type="text" value={getLocalizedString(loc.description, language)} onChange={e => handleBoardLocationChange(index, { description: {...loc.description, [language]: e.target.value}})} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                        </div>
+                        <div className="grid grid-cols-2 gap-3">
+                            <div>
+                                <label className="block text-xs text-gray-400">{t('type')}</label>
+                                <select value={loc.type} onChange={e => handleBoardLocationChange(index, { type: e.target.value as BoardLocationType })} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm">
+                                    {Object.values(BoardLocationType).map(type => <option key={type} value={type}>{type}</option>)}
+                                </select>
+                            </div>
+                            {(loc.type === BoardLocationType.PROPERTY || loc.type === BoardLocationType.UTILITY) && (
+                                <div>
+                                    <label className="block text-xs text-gray-400">{t('color')}</label>
+                                    <input type="text" value={loc.color ?? ''} onChange={e => handleBoardLocationChange(index, { color: e.target.value })} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                                </div>
+                            )}
+                        </div>
+                     </div>
+                </details>
+            ))}
+        </div>
+    );
+
+    const renderCardsStep = (dq: QuestConfig) => (
+        <div className="space-y-6">
+            <section>
+                <h3 className="font-bold text-lg mb-2">{t('chanceCards')}</h3>
+                <div className="space-y-4">
+                    {(dq.chanceCards || []).map((card, cardIndex) => (
+                         <details key={cardIndex} className="bg-gray-900/50 p-3 rounded-lg">
+                             <summary className="font-semibold cursor-pointer">#{cardIndex + 1}</summary>
+                             <div className="mt-3 pt-3 border-t border-gray-700 space-y-3">
+                                <label className="block text-xs text-gray-400">{t('description')}</label>
+                                <textarea value={getLocalizedString(card.description, language)} onChange={e => handleArrayItemChange('chanceCards', cardIndex, { description: {...card.description, [language]: e.target.value}})} className="mt-1 w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                                <h4 className="text-sm font-semibold">{t('resourceChanges')}</h4>
+                                {card.resourceChanges.map((change, changeIndex) => (
+                                    <div key={changeIndex} className="flex gap-2 items-center">
+                                        <select value={change.name} onChange={e => handleResourceChangeUpdate('chanceCards', cardIndex, changeIndex, { name: e.target.value })} className="flex-1 p-2 bg-gray-700 border border-gray-600 rounded-md text-sm">
+                                            {dq.resources.map(r => <option key={getLocalizedString(r.name, 'en')} value={getLocalizedString(r.name, 'en').toLowerCase()}>{getLocalizedString(r.name, language)}</option>)}
+                                        </select>
+                                        <input type="number" value={change.value} onChange={e => handleResourceChangeUpdate('chanceCards', cardIndex, changeIndex, { value: parseInt(e.target.value) })} className="w-24 p-2 bg-gray-700 border border-gray-600 rounded-md text-sm" />
+                                        <button onClick={() => handleRemoveResourceChange('chanceCards', cardIndex, changeIndex)} className="text-red-400 p-1">X</button>
+                                    </div>
+                                ))}
+                                <button onClick={() => handleAddResourceChange('chanceCards', cardIndex)} className="text-sm text-green-400 hover:underline">{t('addChange')}</button>
+                             </div>
+                         </details>
+                    ))}
+                </div>
+            </section>
+        </div>
+    );
+    
+    const RefineTabButton: React.FC<{ step: RefineStep, children: React.ReactNode }> = ({ step: s, children }) => (
+        <button onClick={() => setRefineStep(s)} className={`px-4 py-2 text-sm font-medium transition-colors ${refineStep === s ? 'border-b-2 border-orange-500 text-white' : 'text-gray-400 hover:text-white'}`}>
+            {children}
+        </button>
+    );
+
     return (
         <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-6 p-4 md:p-6 overflow-hidden">
             {/* Left Panel: Controls */}
             <div className="bg-gray-800 border border-gray-700 rounded-xl flex flex-col overflow-hidden">
-                 <div className="p-6 overflow-y-auto">
-                    {error && <div className="bg-red-900/50 border border-red-700 text-red-300 p-3 rounded-md mb-4">{error}</div>}
-                    
-                    <details open={step === 'CONFIG'}>
-                        <summary className="text-lg font-bold cursor-pointer">{t('step1Title')}</summary>
-                        <div className="pt-4">
-                            {renderConfigStep()}
+                 {error && <div className="bg-red-900/50 border border-red-700 text-red-300 p-3 rounded-md m-4">{error}</div>}
+                 
+                 {step === 'CONFIG' && renderConfigStep()}
+
+                 {step === 'REFINE' && draftQuest && (
+                     <>
+                        <div className="flex border-b border-gray-700 px-2 flex-wrap">
+                            <RefineTabButton step="DETAILS">{t('details')}</RefineTabButton>
+                            <RefineTabButton step="RESOURCES">{t('resources')}</RefineTabButton>
+                            <RefineTabButton step="BOARD">{t('board')}</RefineTabButton>
+                            <RefineTabButton step="CARDS">{t('cards')}</RefineTabButton>
                         </div>
-                    </details>
-                    
-                    <div className="border-t border-gray-700 my-4"></div>
-                    
-                    <details open={step === 'REFINE'}>
-                        <summary className="text-lg font-bold cursor-pointer">{t('step2Title')}</summary>
-                        <div className="pt-4">
-                            {!draftQuest ? (
-                                <p className="text-gray-500">{t('generateOutlineFirst')}</p>
-                            ) : (
-                                <div className="space-y-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-400">{t('questName')}</label>
-                                        <input type="text" value={getLocalizedString(draftQuest.name, language)} onChange={(e) => handleUpdateField('name', {...draftQuest.name, [language]: e.target.value })} className="mt-1 w-full p-2 bg-gray-900 border border-gray-600 rounded-md" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-400">{t('description')}</label>
-                                        <input type="text" value={getLocalizedString(draftQuest.description, language)} onChange={(e) => handleUpdateField('description', {...draftQuest.description, [language]: e.target.value })} className="mt-1 w-full p-2 bg-gray-900 border border-gray-600 rounded-md" />
-                                    </div>
-                                </div>
-                            )}
+                        <div className="p-6 flex-grow overflow-y-auto">
+                            {refineStep === 'DETAILS' && renderDetailsStep(draftQuest)}
+                            {refineStep === 'RESOURCES' && renderResourcesStep(draftQuest)}
+                            {refineStep === 'BOARD' && renderBoardStep(draftQuest)}
+                            {refineStep === 'CARDS' && renderCardsStep(draftQuest)}
                         </div>
-                    </details>
-                 </div>
-                 <div className="p-4 mt-auto border-t border-gray-700">
-                    <button 
-                        onClick={handleGenerateScenarios} 
-                        disabled={!draftQuest || step === 'GENERATING' || step === 'CONFIG'}
-                        className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-500 text-white font-bold py-3 px-4 rounded-lg transition"
-                    >
-                        {t('nextGenerateScenarios')}
-                    </button>
-                </div>
+                        <div className="p-4 mt-auto border-t border-gray-700">
+                            <button 
+                                onClick={handleGenerateScenarios} 
+                                disabled={!draftQuest}
+                                className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-500 text-white font-bold py-3 px-4 rounded-lg transition"
+                            >
+                                {t('nextGenerateScenarios')}
+                            </button>
+                        </div>
+                     </>
+                 )}
             </div>
             
             {/* Right Panel: Output */}

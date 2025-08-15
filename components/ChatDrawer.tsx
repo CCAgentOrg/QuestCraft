@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import showdown from 'showdown';
 import Drawer from './Drawer';
-import { chatManager } from '../services/aiService';
+import { chatManager, loadPrompt } from '../services/aiService';
 import { settingsService } from '../services/settingsService';
 import type { ChatMessage, Page, QuestConfig } from '../types';
 import { useTranslation } from '../services/i18n';
@@ -23,15 +23,17 @@ interface ChatDrawerProps {
     page: Page;
     questConfig: QuestConfig | null;
     draftQuest: QuestConfig | null;
+    onApplyQuestUpdate: (config: QuestConfig) => void;
 }
 
-const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfig, draftQuest }) => {
+const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfig, draftQuest, onApplyQuestUpdate }) => {
     const { t } = useTranslation();
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [systemInstruction, setSystemInstruction] = useState('');
     const [welcomeMessage, setWelcomeMessage] = useState('');
+    const [appliedUpdates, setAppliedUpdates] = useState<Set<string>>(new Set());
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const isGemini = settingsService.getAiSettings().providerId === 'gemini';
 
@@ -50,15 +52,22 @@ const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfi
         const updateContext = async () => {
             if (page === 'maker' && draftQuest) {
                 const draftQuestJson = JSON.stringify(draftQuest, null, 2);
-                setSystemInstruction(`You are an expert game design assistant. The user is creating a quest. Here is the current JSON configuration: \n${draftQuestJson}\n\n Help them refine it. You can suggest changes to balance, theme, or add new content. If you suggest JSON changes, provide only the JSON snippet to be changed or added.`);
+                const instruction = await loadPrompt('prompts/chat-maker.txt', { draftQuestJson });
+                setSystemInstruction(instruction);
                 setWelcomeMessage(t('chatWelcomeMaker'));
             } else if (page === 'game' && questConfig) {
                 const questConfigJson = JSON.stringify(questConfig, null, 2);
-                setSystemInstruction(`You are a helpful game master for the board game '${getLocalizedString(questConfig.name, 'en')}'. The game's theme is '${getLocalizedString(questConfig.description, 'en')}'. Help players with rules or thematic questions about the game. Be friendly and engaging. Here is the full game configuration for your reference:\n\n${questConfigJson}`);
+                const instruction = await loadPrompt('prompts/chat-game.txt', { 
+                    questName: getLocalizedString(questConfig.name, 'en'),
+                    questDescription: getLocalizedString(questConfig.description, 'en'),
+                    questConfigJson
+                });
+                setSystemInstruction(instruction);
                 setWelcomeMessage(t('chatWelcomeGame'));
             } else {
                 const docsContext = await fetchDocsContext();
-                setSystemInstruction(`You are QuestCraft AI, a helpful assistant for the QuestCraft board game engine. You have the following documentation as your knowledge base. Use it to answer questions about how to play, how to create quests, or the game's features.\n\n# QuestCraft Documentation\n\n${docsContext}`);
+                const instruction = await loadPrompt('prompts/chat-general.txt', { docsContext });
+                setSystemInstruction(instruction);
                 setWelcomeMessage(t('chatWelcomeGeneral'));
             }
         };
@@ -96,13 +105,47 @@ const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfi
 
         try {
             const stream = chatManager.sendMessageStream(input);
+            let fullResponseText = "";
             for await (const chunk of stream) {
-                setMessages(prev => prev.map(msg => 
-                    msg.id === modelResponseId 
-                        ? { ...msg, content: msg.content + chunk }
+                fullResponseText += chunk;
+                // Update UI with intermediate text for streaming effect
+                setMessages(prev => prev.map(msg =>
+                    msg.id === modelResponseId
+                        ? { ...msg, content: fullResponseText }
                         : msg
                 ));
             }
+
+            // Once the stream is complete, process the full text for a JSON block
+            const startMarker = '[JSON_UPDATE_START]';
+            const endMarker = '[JSON_UPDATE_END]';
+            const startIndex = fullResponseText.indexOf(startMarker);
+            const endIndex = fullResponseText.indexOf(endMarker);
+
+            let finalContent = fullResponseText;
+            let questUpdateJson: QuestConfig | undefined = undefined;
+
+            if (page === 'maker' && startIndex !== -1 && endIndex !== -1 && endIndex > startIndex) {
+                const jsonString = fullResponseText.substring(startIndex + startMarker.length, endIndex).trim();
+                const textBefore = fullResponseText.substring(0, startIndex).trim();
+                const textAfter = fullResponseText.substring(endIndex + endMarker.length).trim();
+                finalContent = `${textBefore}\n${textAfter}`.trim();
+
+                try {
+                    questUpdateJson = JSON.parse(jsonString);
+                } catch (err) {
+                    console.error("Failed to parse JSON from chat response:", err);
+                    finalContent = fullResponseText; // Revert to full text on parse error
+                }
+            }
+            
+            // Final update to the message with parsed content
+            setMessages(prev => prev.map(msg =>
+                msg.id === modelResponseId
+                    ? { ...msg, content: finalContent, updatedQuestJson: questUpdateJson }
+                    : msg
+            ));
+
         } catch (error) {
             console.error(error);
              setMessages(prev => prev.map(msg => 
@@ -118,10 +161,16 @@ const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfi
     const handleClearChat = () => {
         if (window.confirm(t('chatClearConfirm'))) {
             setMessages([{ id: 'system-welcome', role: 'system', content: welcomeMessage }]);
+            setAppliedUpdates(new Set());
             if (systemInstruction) {
                 chatManager.initialize(systemInstruction); // Reset AI memory
             }
         }
+    };
+
+    const handleApplyUpdate = (msgId: string, config: QuestConfig) => {
+        onApplyQuestUpdate(config);
+        setAppliedUpdates(prev => new Set(prev).add(msgId));
     };
 
     return (
@@ -137,18 +186,22 @@ const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfi
                                 <div className="w-full text-center text-xs text-gray-400 italic py-2 border-b border-gray-700">{msg.content}</div>
                            ) : (
                              <div className={`p-3 rounded-lg max-w-lg ${msg.role === 'user' ? 'bg-indigo-600 text-white' : 'bg-gray-700 text-gray-200'}`}>
-                                <div className="prose prose-invert prose-p:my-0" dangerouslySetInnerHTML={{ __html: converter.makeHtml(msg.content) || '...' }} />
+                                <div className="prose prose-invert prose-p:my-0" dangerouslySetInnerHTML={{ __html: converter.makeHtml(msg.content) || (isLoading && msg.role === 'model' ? '...' : '') }} />
+                                {msg.updatedQuestJson && page === 'maker' && (
+                                    <div className="mt-2 pt-2 border-t border-gray-600">
+                                        <button
+                                            onClick={() => handleApplyUpdate(msg.id, msg.updatedQuestJson!)}
+                                            disabled={appliedUpdates.has(msg.id)}
+                                            className="w-full text-sm font-semibold py-2 px-3 rounded-lg transition-colors bg-green-700 hover:bg-green-600 disabled:bg-gray-500 disabled:cursor-not-allowed text-white"
+                                        >
+                                            {appliedUpdates.has(msg.id) ? t('changesApplied') : t('applyChanges')}
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                            )}
                         </div>
                     ))}
-                    {isLoading && (
-                         <div className="flex justify-start">
-                             <div className="p-3 rounded-lg max-w-lg bg-gray-700 text-gray-200">
-                                <div className="animate-pulse">...</div>
-                             </div>
-                         </div>
-                    )}
                     <div ref={messagesEndRef} />
                 </div>
                 <div className="mt-4 pt-4 border-t border-gray-700">

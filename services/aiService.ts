@@ -29,7 +29,7 @@ const maskApiKey = (key: string): string => {
 
 // --- Prompt Loading ---
 const promptCache = new Map<string, string>();
-const loadPrompt = async (path: string, replacements: Record<string, string | number> = {}): Promise<string> => {
+export const loadPrompt = async (path: string, replacements: Record<string, string | number> = {}): Promise<string> => {
     let template = promptCache.get(path);
     if (!template) {
         try {

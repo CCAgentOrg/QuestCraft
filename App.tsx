@@ -214,6 +214,10 @@ const App: React.FC = () => {
         }
     }, [t]);
 
+    const handleApplyQuestUpdate = useCallback((updatedConfig: QuestConfig) => {
+        setDraftQuestForChat(updatedConfig);
+    }, []);
+
     const renderPage = () => {
         switch (page) {
             case 'game':
@@ -301,6 +305,7 @@ const App: React.FC = () => {
                 page={page}
                 questConfig={questConfig}
                 draftQuest={draftQuestForChat}
+                onApplyQuestUpdate={handleApplyQuestUpdate}
             />
         </div>
     );

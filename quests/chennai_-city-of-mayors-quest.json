@@ -1,0 +1,1593 @@
+{
+  "board": {
+    "jailPosition": 4,
+    "locations": [
+      {
+        "description": {
+          "en": "The bustling heart of the city, where your mayoral journey begins. Pass here to collect your annual budget.",
+          "es": "El bullicioso corazón de la ciudad, donde comienza su viaje como alcalde. Pasa por aquí para recoger tu presupuesto anual.",
+          "hi": "शहर का हलचल भरा दिल, जहाँ से आपका महापौर का सफर शुरू होता है। अपना वार्षिक बजट एकत्र करने के लिए यहाँ से गुजरें।",
+          "ta": "நகரின் பரபரப்பான மையம், உங்கள் மேயர் பயணம் இங்கு தொடங்குகிறது. உங்கள் ஆண்டு பட்ஜெட்டைப் பெற இங்கு செல்லவும்."
+        },
+        "name": {
+          "en": "Chennai Central Station",
+          "es": "Estación Central de Chennai",
+          "hi": "चेन्नई सेंट्रल स्टेशन",
+          "ta": "சென்னை சென்ட்ரல் ரயில் நிலையம்"
+        },
+        "type": "START"
+      },
+      {
+        "description": {
+          "en": "A historic cultural hub, rich with ancient temples and traditional houses. Balancing preservation with modernization is key to keeping public trust.",
+          "es": "Un centro cultural histórico, rico en templos antiguos y casas tradicionales. Equilibrar la preservación con la modernización es clave para mantener la confianza pública.",
+          "hi": "एक ऐतिहासिक सांस्कृतिक केंद्र, जो प्राचीन मंदिरों और पारंपरिक घरों से समृद्ध है। आधुनिकीकरण के साथ संरक्षण को संतुलित करना सार्वजनिक विश्वास बनाए रखने की कुंजी है।",
+          "ta": "பண்டைய கோயில்கள் மற்றும் பாரம்பரிய வீடுகளுடன் கூடிய ஒரு வரலாற்றுச் சிறப்புமிக்க கலாச்சார மையம். நவீனமயமாக்கலுடன் பாதுகாப்பை சமநிலைப்படுத்துவது பொது நம்பிக்கையைத் தக்கவைக்க முக்கியம்."
+        },
+        "name": {
+          "en": "Mylapore Heritage Zone",
+          "es": "Zona Patrimonial de Mylapore",
+          "hi": "मयिलापुर विरासत क्षेत्र",
+          "ta": "மயிலாப்பூர் பாரம்பரிய மண்டலம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-red-600"
+      },
+      {
+        "description": {
+          "en": "Land here to face an unexpected event requiring your swift decision-making, with outcomes that can shift resources dramatically.",
+          "es": "Aterrice aquí para enfrentar un evento inesperado que requiere su rápida toma de decisiones, con resultados que pueden cambiar drásticamente los recursos.",
+          "hi": "अप्रत्याशित घटना का सामना करने के लिए यहाँ रुकें, जिसमें आपके त्वरित निर्णय की आवश्यकता होगी और इसके परिणाम संसाधनों को नाटकीय रूप से बदल सकते हैं।",
+          "ta": "உங்கள் விரைவான முடிவெடுக்கும் திறன் தேவைப்படும் எதிர்பாராத நிகழ்வை எதிர்கொள்ள இங்கு வாருங்கள். இது உங்கள் வளங்களை வியத்தகு முறையில் மாற்றலாம்."
+        },
+        "name": {
+          "en": "Mayor's Discretion",
+          "es": "Discreción del Alcalde",
+          "hi": "महापौर का विवेक",
+          "ta": "மேயரின் விருப்பம்"
+        },
+        "type": "CHANCE"
+      },
+      {
+        "description": {
+          "en": "Chennai's busiest shopping district, a source of immense commercial opportunity but also notorious for traffic congestion and waste management challenges.",
+          "es": "El distrito comercial más concurrido de Chennai, una fuente de inmensas oportunidades comerciales pero también conocido por la congestión del tráfico y los desafíos de gestión de residuos.",
+          "hi": "चेन्नई का सबसे व्यस्त शॉपिंग जिला, विशाल व्यावसायिक अवसरों का स्रोत है, लेकिन यातायात की भीड़ और अपशिष्ट प्रबंधन चुनौतियों के लिए भी कुख्यात है।",
+          "ta": "சென்னையின் பரபரப்பான வணிக மாவட்டம், வணிக வாய்ப்புகளுக்கு ஒரு ஆதாரம் ஆனால் போக்குவரத்து நெரிசல் மற்றும் கழிவு மேலாண்மை சவால்களுக்கும் பெயர் பெற்றது."
+        },
+        "name": {
+          "en": "T. Nagar Commercial Hub",
+          "es": "Centro Comercial T. Nagar",
+          "hi": "टी. नगर व्यावसायिक केंद्र",
+          "ta": "டி. நகர் வணிக மையம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-red-600"
+      },
+      {
+        "description": {
+          "en": "Caught for a lapse in oversight or public duty? Head to the Police Headquarters to reflect on your policies and the implications of your decisions.",
+          "es": "Atrapado por un descuido en la supervisión o el deber público? Dirígete a la Jefatura de Policía para reflexionar sobre tus políticas y las implicaciones de tus decisiones.",
+          "hi": "पर्यवेक्षण या सार्वजनिक कर्तव्य में चूक के लिए पकड़े गए? अपनी नीतियों और अपने निर्णयों के प्रभावों पर विचार करने के लिए पुलिस मुख्यालय जाएँ।",
+          "ta": "மேற்பார்வை அல்லது பொதுக் கடமையில் தவறியதால் சிக்கினீர்களா? உங்கள் கொள்கைகள் மற்றும் முடிவுகளின் தாக்கங்களைப் பற்றி சிந்திக்க போலீஸ் தலைமையகத்திற்குச் செல்லவும்."
+        },
+        "name": {
+          "en": "Police Headquarters",
+          "es": "Cuartel General de la Policía",
+          "hi": "पुलिस मुख्यालय",
+          "ta": "காவல் தலைமையகம்"
+        },
+        "type": "JAIL"
+      },
+      {
+        "description": {
+          "en": "A vibrant public space and popular recreation spot along the coast. Its upkeep and cleanliness directly reflect on public sentiment and city livability.",
+          "es": "Un espacio público vibrante y un lugar de recreo popular a lo largo de la costa. Su mantenimiento y limpieza se reflejan directamente en el sentimiento público y la habitabilidad de la ciudad.",
+          "hi": "समुद्र तट के किनारे एक जीवंत सार्वजनिक स्थान और लोकप्रिय मनोरंजन स्थल। इसका रखरखाव और स्वच्छता सीधे सार्वजनिक भावना और शहर की रहने की क्षमता पर निर्भर करती है।",
+          "ta": "கடலோரத்தில் அமைந்துள்ள ஒரு துடிப்பான பொது இடம் மற்றும் பிரபலமான பொழுதுபோக்கு இடம். இதன் பராமரிப்பு மற்றும் தூய்மை பொது மக்கள் மனநிலையையும் நகரத்தின் வாழும் திறனையும் நேரடியாகப் பிரதிபலிக்கிறது."
+        },
+        "name": {
+          "en": "Besant Nagar Beachfront",
+          "es": "Frente a la Playa de Besant Nagar",
+          "hi": "बेसंत नगर समुद्र तट",
+          "ta": "பெசன்ட் நகர் கடற்கரை"
+        },
+        "type": "PROPERTY",
+        "color": "bg-yellow-600"
+      },
+      {
+        "description": {
+          "en": "A chance to positively impact the community or benefit from collective efforts, potentially boosting public trust or urban resilience.",
+          "es": "Una oportunidad para impactar positivamente a la comunidad o beneficiarse de los esfuerzos colectivos, lo que podría aumentar la confianza pública o la resiliencia urbana.",
+          "hi": "समुदाय को सकारात्मक रूप से प्रभावित करने या सामूहिक प्रयासों से लाभ उठाने का एक अवसर, संभवतः सार्वजनिक विश्वास या शहरी लचीलेपन को बढ़ावा देना।",
+          "ta": "சமூகத்தை நேர்மறையாகப் பாதிக்கும் அல்லது கூட்டு முயற்சிகளிலிருந்து பயனடையும் ஒரு வாய்ப்பு, இது பொது நம்பிக்கையை அல்லது நகர்ப்புற தாங்குதிறனை அதிகரிக்கலாம்."
+        },
+        "name": {
+          "en": "Public Service Initiative",
+          "es": "Iniciativa de Servicio Público",
+          "hi": "सार्वजनिक सेवा पहल",
+          "ta": "பொதுச் சேவைத் திட்டம்"
+        },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "description": {
+          "en": "The nerve center for fresh produce and goods, vital for the city's supply chain and economy, but also prone to congestion and logistical nightmares.",
+          "es": "El centro neurálgico para productos frescos y bienes, vital para la cadena de suministro y la economía de la ciudad, pero también propenso a la congestión y a pesadillas logísticas.",
+          "hi": "ताजे उत्पादों और सामानों का तंत्रिका केंद्र, शहर की आपूर्ति श्रृंखला और अर्थव्यवस्था के लिए महत्वपूर्ण है, लेकिन भीड़भाड़ और रसद संबंधी समस्याओं के लिए भी प्रवण है।",
+          "ta": "புதிய பொருட்கள் மற்றும் பொருட்களுக்கான மைய நரம்பு, நகரத்தின் விநியோகச் சங்கிலிக்கும் பொருளாதாரத்திற்கும் முக்கியமானது, ஆனால் போக்குவரத்து நெரிசல் மற்றும் தளவாடக் கனவுகளுக்கும் ஆளாகிறது."
+        },
+        "name": {
+          "en": "Koyambedu Wholesale Market",
+          "es": "Mercado Mayorista de Koyambedu",
+          "hi": "कोयंबेडु थोक बाजार",
+          "ta": "கோயம்பேடு மொத்த சந்தை"
+        },
+        "type": "PROPERTY",
+        "color": "bg-yellow-600"
+      },
+      {
+        "description": {
+          "en": "Time to collect property taxes to fund essential city services. Citizens expect efficiency and fairness in how their contributions are managed.",
+          "es": "Es hora de recaudar impuestos sobre la propiedad para financiar servicios esenciales de la ciudad. Los ciudadanos esperan eficiencia y equidad en la gestión de sus contribuciones.",
+          "hi": "आवश्यक शहरी सेवाओं को वित्तपोषित करने के लिए संपत्ति कर एकत्र करने का समय। नागरिक अपनी योगदानों के प्रबंधन में दक्षता और निष्पक्षता की उम्मीद करते हैं।",
+          "ta": "அத்தியாவசிய நகர சேவைகளுக்கு நிதியளிக்க சொத்து வரிகளை வசூலிக்கும் நேரம். தங்கள் பங்களிப்புகள் எவ்வாறு நிர்வகிக்கப்படுகின்றன என்பதில் குடிமக்கள் செயல்திறன் மற்றும் நியாயத்தை எதிர்பார்க்கிறார்கள்."
+        },
+        "name": {
+          "en": "Property Tax Assessment",
+          "es": "Evaluación del Impuesto Predial",
+          "hi": "संपत्ति कर आकलन",
+          "ta": "சொத்து வரி மதிப்பீடு"
+        },
+        "type": "TAX"
+      },
+      {
+        "description": {
+          "en": "A tranquil urban oasis. Take a break from mayoral duties and enjoy the city's green lung. No immediate gains or losses here.",
+          "es": "Un oasis urbano tranquilo. Tómate un descanso de tus deberes de alcalde y disfruta del pulmón verde de la ciudad. Sin ganancias ni pérdidas inmediatas aquí.",
+          "hi": "एक शांत शहरी नखलिस्तान। महापौर के कर्तव्यों से छुट्टी लें और शहर के हरे-भरे फेफड़ों का आनंद लें। यहां कोई तत्काल लाभ या हानि नहीं है।",
+          "ta": "ஒரு அமைதியான நகர்ப்புற சோலை. மேயர் கடமைகளில் இருந்து ஓய்வு எடுத்து நகரத்தின் பசுமைப் பகுதிகளை அனுபவிக்கவும். இங்கு உடனடி லாபமோ நஷ்டமோ இல்லை."
+        },
+        "name": {
+          "en": "Guindy National Park",
+          "es": "Parque Nacional Guindy",
+          "hi": "गिंडी राष्ट्रीय उद्यान",
+          "ta": "கிண்டி தேசிய பூங்கா"
+        },
+        "type": "FREE_PARKING"
+      },
+      {
+        "description": {
+          "en": "A critical facility for processing the city's vast amounts of waste. Modernization of this site significantly improves urban health and environmental quality.",
+          "es": "Una instalación crítica para procesar las vastas cantidades de residuos de la ciudad. La modernización de este sitio mejora significativamente la salud urbana y la calidad ambiental.",
+          "hi": "शहर के विशाल कचरे को संसाधित करने के लिए एक महत्वपूर्ण सुविधा। इस साइट का आधुनिकीकरण शहरी स्वास्थ्य और पर्यावरणीय गुणवत्ता में काफी सुधार करता है।",
+          "ta": "நகரின் அதிக அளவிலான கழிவுகளைச் செயலாக்கும் ஒரு முக்கியமான வசதி. இந்த இடத்தின் நவீனமயமாக்கல் நகர்ப்புற சுகாதாரம் மற்றும் சுற்றுச்சூழல் தரத்தை கணிசமாக மேம்படுத்துகிறது."
+        },
+        "name": {
+          "en": "Perungudi Waste Management Site",
+          "es": "Sitio de Gestión de Residuos de Perungudi",
+          "hi": "पेरुंगुडी अपशिष्ट प्रबंधन स्थल",
+          "ta": "பெருங்குடி கழிவு மேலாண்மை தளம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-green-600"
+      },
+      {
+        "description": {
+          "en": "An unforeseen circumstance demands your attention and strategic response. Be prepared for either a windfall or a setback that affects your resources.",
+          "es": "Una circunstancia imprevista exige su atención y respuesta estratégica. Prepárese para una ganancia inesperada o un contratiempo que afecte sus recursos.",
+          "hi": "एक अप्रत्याशित परिस्थिति आपके ध्यान और रणनीतिक प्रतिक्रिया की मांग करती है। अपने संसाधनों को प्रभावित करने वाले अप्रत्याशित लाभ या झटके के लिए तैयार रहें।",
+          "ta": "எதிர்பாராத சூழ்நிலை உங்கள் கவனத்தையும் மூலோபாய பதிலையும் கோருகிறது. உங்கள் வளங்களை பாதிக்கும் ஒரு எதிர்பாராத லாபத்துக்கோ அல்லது பின்னடைவுக்கோ தயாராக இருங்கள்."
+        },
+        "name": {
+          "en": "Mayor's Discretion",
+          "es": "Discreción del Alcalde",
+          "hi": "महापौर का विवेक",
+          "ta": "மேயரின் விருப்பம்"
+        },
+        "type": "CHANCE"
+      },
+      {
+        "description": {
+          "en": "Essential for Chennai's water security, especially during droughts. Investment here boosts urban resilience and secures the city's future.",
+          "es": "Esencial para la seguridad hídrica de Chennai, especialmente durante las sequías. La inversión aquí aumenta la resiliencia urbana y asegura el futuro de la ciudad.",
+          "hi": "चेन्नई की जल सुरक्षा के लिए आवश्यक, खासकर सूखे के दौरान। यहां निवेश शहरी लचीलेपन को बढ़ावा देता है और शहर के भविष्य को सुरक्षित करता है।",
+          "ta": "சென்னையின் நீர் பாதுகாப்பிற்கு அத்தியாவசியமானது, குறிப்பாக வறட்சி காலங்களில். இங்கு முதலீடு செய்வது நகர்ப்புற தாங்குதிறனை அதிகரிக்கிறது மற்றும் நகரத்தின் எதிர்காலத்தைப் பாதுகாக்கிறது."
+        },
+        "name": {
+          "en": "Water Desalination Plant",
+          "es": "Planta Desalinizadora de Agua",
+          "hi": "जल विलवणीकरण संयंत्र",
+          "ta": "நீர் சுத்திகரிப்பு ஆலை"
+        },
+        "type": "PROPERTY",
+        "color": "bg-green-600"
+      },
+      {
+        "description": {
+          "en": "The backbone of Chennai's public transportation. Upgrading the fleet and expanding routes improves citizen mobility, reduces congestion, and enhances air quality.",
+          "es": "La columna vertebral del transporte público de Chennai. La mejora de la flota y la expansión de rutas mejora la movilidad ciudadana, reduce la congestión y mejora la calidad del aire.",
+          "hi": "चेन्नई के सार्वजनिक परिवहन की रीढ़। बेड़े का उन्नयन और मार्गों का विस्तार नागरिक गतिशीलता में सुधार करता है, भीड़भाड़ कम करता है और वायु गुणवत्ता बढ़ाता है।",
+          "ta": "சென்னையின் பொதுப் போக்குவரத்துக்கான முதுகெலும்பு. வாகனங்களை மேம்படுத்துதல் மற்றும் வழித்தடங்களை விரிவுபடுத்துதல் குடிமக்களின் நடமாட்டத்தை மேம்படுத்துகிறது, நெரிசலைக் குறைக்கிறது மற்றும் காற்றின் தரத்தை அதிகரிக்கிறது."
+        },
+        "name": {
+          "en": "MTC Bus Depot",
+          "es": "Depósito de Autobuses MTC",
+          "hi": "एमटीसी बस डिपो",
+          "ta": "எம்டிசி பேருந்து நிலையம்"
+        },
+        "type": "UTILITY"
+      },
+      {
+        "description": {
+          "en": "Your department is under intense scrutiny. A major audit has revealed irregularities. Go directly to Police Headquarters! Do not pass GO, do not collect budget.",
+          "es": "Tu departamento está bajo intenso escrutinio. Una auditoría importante ha revelado irregularidades. ¡Ve directamente al Cuartel General de la Policía! No pases por GO, no cobres presupuesto.",
+          "hi": "आपका विभाग गहन जांच के दायरे में है। एक बड़े ऑडिट में अनियमितताएं सामने आई हैं। सीधे पुलिस मुख्यालय जाएं! 'गो' से न गुजरें, बजट एकत्र न करें।",
+          "ta": "உங்கள் துறை தீவிர ஆய்வுக்கு உட்படுத்தப்பட்டுள்ளது. ஒரு பெரிய தணிக்கை முறைகேடுகளை வெளிப்படுத்தியுள்ளது. நேரடியாக காவல் தலைமையகத்திற்கு செல்லவும்! 'கோ' வழியாக செல்ல வேண்டாம், பட்ஜெட்டை பெற வேண்டாம்."
+        },
+        "name": {
+          "en": "Public Works Audit",
+          "es": "Auditoría de Obras Públicas",
+          "hi": "लोक निर्माण लेखापरीक्षा",
+          "ta": "பொதுப்பணித் தணிக்கை"
+        },
+        "type": "GO_TO_JAIL"
+      },
+      {
+        "description": {
+          "en": "Expanding the city's modern rapid transit system. This project is high cost, but offers immense long-term benefits for connectivity and environmental sustainability.",
+          "es": "Ampliación del moderno sistema de tránsito rápido de la ciudad. Este proyecto tiene un alto costo, pero ofrece inmensos beneficios a largo plazo para la conectividad y la sostenibilidad ambiental.",
+          "hi": "शहर की आधुनिक रैपिड ट्रांजिट प्रणाली का विस्तार। यह परियोजना उच्च लागत वाली है, लेकिन कनेक्टिविटी और पर्यावरणीय स्थिरता के लिए अत्यधिक दीर्घकालिक लाभ प्रदान करती है।",
+          "ta": "நகரின் நவீன விரைவுப் போக்குவரத்து அமைப்பை விரிவுபடுத்துகிறது. இந்தத் திட்டம் அதிக செலவுடையது, ஆனால் இணைப்பு மற்றும் சுற்றுச்சூழல் நிலைத்தன்மைக்கு நீண்டகால நன்மைகளை வழங்குகிறது."
+        },
+        "name": {
+          "en": "Chennai Metro Rail Expansion",
+          "es": "Expansión del Metro de Chennai",
+          "hi": "चेन्नई मेट्रो रेल विस्तार",
+          "ta": "சென்னை மெட்ரோ ரயில் விரிவாக்கம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-blue-600"
+      },
+      {
+        "description": {
+          "en": "An opportunity to demonstrate civic responsibility and gain public support, possibly through a local initiative or community event.",
+          "es": "Una oportunidad para demostrar responsabilidad cívica y ganar apoyo público, posiblemente a través de una iniciativa local o un evento comunitario.",
+          "hi": "नागरिक जिम्मेदारी प्रदर्शित करने और सार्वजनिक समर्थन प्राप्त करने का एक अवसर, संभवतः एक स्थानीय पहल या सामुदायिक कार्यक्रम के माध्यम से।",
+          "ta": "ஒரு உள்ளூர் முன்முயற்சி அல்லது சமூக நிகழ்வு மூலம் குடிமைப் பொறுப்பை வெளிப்படுத்தவும் பொது ஆதரவைப் பெறவும் ஒரு வாய்ப்பு."
+        },
+        "name": {
+          "en": "Public Service Initiative",
+          "es": "Iniciativa de Servicio Público",
+          "hi": "सार्वजनिक सेवा पहल",
+          "ta": "பொதுச் சேவைத் திட்டம்"
+        },
+        "type": "COMMUNITY_CHEST"
+      },
+      {
+        "description": {
+          "en": "The heart of Chennai's booming IT sector, attracting global investment and creating high-value jobs. A key to the city's economic future.",
+          "es": "El corazón del floreciente sector de TI de Chennai, que atrae inversiones globales y crea empleos de alto valor. Una clave para el futuro económico de la ciudad.",
+          "hi": "चेन्नई के बढ़ते आईटी क्षेत्र का केंद्र, जो वैश्विक निवेश को आकर्षित करता है और उच्च-मूल्य वाली नौकरियाँ पैदा करता है। यह शहर के आर्थिक भविष्य की कुंजी है।",
+          "ta": "சென்னையின் வளர்ந்து வரும் தகவல் தொழில்நுட்பத் துறையின் இதயம், உலகளாவிய முதலீட்டை ஈர்த்து உயர் மதிப்பு வேலைவாய்ப்புகளை உருவாக்குகிறது. நகரத்தின் பொருளாதார எதிர்காலத்திற்கு இது ஒரு முக்கியமாகும்."
+        },
+        "name": {
+          "en": "TIDEL Park IT Corridor",
+          "es": "Corredor de TI de TIDEL Park",
+          "hi": "टाइडल पार्क आईटी कॉरिडोर",
+          "ta": "டைடல் பார்க் தகவல் தொழில்நுட்ப வழித்தடம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-blue-600"
+      },
+      {
+        "description": {
+          "en": "Contribute to the city's long-term growth and resilience by investing in crucial infrastructure projects. This ensures the city can withstand future challenges.",
+          "es": "Contribuya al crecimiento y la resiliencia a largo plazo de la ciudad invirtiendo en proyectos de infraestructura cruciales. Esto asegura que la ciudad pueda resistir futuros desafíos.",
+          "hi": "महत्वपूर्ण बुनियादी ढांचा परियोजनाओं में निवेश करके शहर के दीर्घकालिक विकास और लचीलेपन में योगदान करें। यह सुनिश्चित करता है कि शहर भविष्य की चुनौतियों का सामना कर सके।",
+          "ta": "முக்கியமான உள்கட்டமைப்பு திட்டங்களில் முதலீடு செய்வதன் மூலம் நகரத்தின் நீண்டகால வளர்ச்சி மற்றும் தாங்குதிறனுக்கு பங்களிக்கவும். இது எதிர்கால சவால்களை நகரம் எதிர்கொள்ள முடியும் என்பதை உறுதிப்படுத்துகிறது."
+        },
+        "name": {
+          "en": "Infrastructure Development Fund",
+          "es": "Fondo de Desarrollo de Infraestructura",
+          "hi": "बुनियादी ढांचा विकास निधि",
+          "ta": "உள்கட்டமைப்பு மேம்பாட்டு நிதி"
+        },
+        "type": "TAX"
+      },
+      {
+        "description": {
+          "en": "The seat of municipal power. Owning this signifies your absolute control over city administration and the ability to enact major policy changes.",
+          "es": "La sede del poder municipal. Poseer esto significa su control absoluto sobre la administración de la ciudad y la capacidad de promulgar cambios importantes en las políticas.",
+          "hi": "नगरपालिका शक्ति का आसन। इसका स्वामित्व शहर प्रशासन पर आपके पूर्ण नियंत्रण और प्रमुख नीतिगत परिवर्तनों को लागू करने की क्षमता को दर्शाता है।",
+          "ta": "நகர ஆட்சியின் இருக்கை. இதை வைத்திருப்பது நகர நிர்வாகத்தின் மீதான உங்கள் முழுமையான கட்டுப்பாட்டையும், முக்கிய கொள்கை மாற்றங்களைச் செயல்படுத்தும் திறனையும் குறிக்கிறது."
+        },
+        "name": {
+          "en": "Chennai Corporation Building",
+          "es": "Edificio de la Corporación de Chennai",
+          "hi": "चेन्नई निगम भवन",
+          "ta": "சென்னை மாநகராட்சி கட்டிடம்"
+        },
+        "type": "PROPERTY",
+        "color": "bg-purple-600"
+      }
+    ]
+  },
+  "chanceCards": [
+    {
+      "description": {
+        "en": "You successfully implemented early warning systems and flood mitigation projects. Chennai is better prepared for the monsoon deluge!",
+        "es": "Implementaste con éxito sistemas de alerta temprana y proyectos de mitigación de inundaciones. ¡Chennai está mejor preparada para el diluvio monzónico!",
+        "hi": "आपने सफलतापूर्वक प्रारंभिक चेतावनी प्रणाली और बाढ़ शमन परियोजनाओं को लागू किया। चेन्नई अब मानसून की बाढ़ के लिए बेहतर ढंग से तैयार है!",
+        "ta": "நீங்கள் ஆரம்ப எச்சரிக்கை அமைப்புகளையும் வெள்ள தணிப்பு திட்டங்களையும் வெற்றிகரமாக செயல்படுத்தினீர்கள். சென்னை இப்போது பருவமழை வெள்ளத்திற்கு சிறப்பாக தயாராக உள்ளது!"
+      },
+      "resourceChanges": [
+        {
+          "name": "urban resilience",
+          "value": 10
+        },
+        {
+          "name": "public trust",
+          "value": 15
+        },
+        {
+          "name": "city funds",
+          "value": -200
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "An aging flyover in a major artery collapsed due to lack of maintenance. Urgent repairs are needed, causing traffic nightmares.",
+        "es": "Un paso elevado antiguo en una arteria principal colapsó por falta de mantenimiento. Se necesitan reparaciones urgentes, causando pesadillas de tráfico.",
+        "hi": "एक प्रमुख धमनी में एक पुराना फ्लाईओवर रखरखाव की कमी के कारण ढह गया। तत्काल मरम्मत की आवश्यकता है, जिससे यातायात में भारी बाधा उत्पन्न हो रही है।",
+        "ta": "ஒரு பெரிய போக்குவரத்து தமனியில் பழுதடைந்த மேம்பாலம் பராமரிப்பு இல்லாததால் இடிந்து விழுந்தது. அவசர பழுதுபார்ப்பு தேவை, இதனால் போக்குவரத்து நெரிசல் ஏற்படுகிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "urban resilience",
+          "value": -15
+        },
+        {
+          "name": "public trust",
+          "value": -10
+        },
+        {
+          "name": "city funds",
+          "value": -400
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Chennai hosted a major Global Investor Summit, attracting significant foreign direct investment and boosting the city's economic outlook.",
+        "es": "Chennai acogió una importante Cumbre Global de Inversores, atrayendo una inversión extranjera directa significativa y mejorando las perspectivas económicas de la ciudad.",
+        "hi": "चेन्नई ने एक प्रमुख वैश्विक निवेशक शिखर सम्मेलन की मेजबानी की, जिसने महत्वपूर्ण प्रत्यक्ष विदेशी निवेश आकर्षित किया और शहर के आर्थिक दृष्टिकोण को बढ़ावा दिया।",
+        "ta": "சென்னையில் ஒரு பெரிய உலகளாவிய முதலீட்டாளர் உச்சிமாநாடு நடைபெற்றது, இது குறிப்பிடத்தக்க வெளிநாட்டு நேரடி முதலீட்டை ஈர்த்து நகரத்தின் பொருளாதார எதிர்காலத்தை மேம்படுத்தியது."
+      },
+      "resourceChanges": [
+        {
+          "name": "city funds",
+          "value": 500
+        },
+        {
+          "name": "public trust",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "A sudden power grid failure plunges large parts of the city into darkness, causing widespread disruption and frustration.",
+        "es": "Una falla repentina en la red eléctrica sumerge grandes partes de la ciudad en la oscuridad, causando interrupciones y frustración generalizadas.",
+        "hi": "एक अचानक बिजली ग्रिड फेल होने से शहर के बड़े हिस्से अंधेरे में डूब गए, जिससे व्यापक व्यवधान और निराशा हुई।",
+        "ta": "திடீர் மின் கட்டமைப்பு தோல்வி நகரத்தின் பெரும்பகுதியை இருளில் மூழ்கடித்து, பரவலான இடையூறு மற்றும் விரக்தியை ஏற்படுத்துகிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "urban resilience",
+          "value": -10
+        },
+        {
+          "name": "public trust",
+          "value": -15
+        },
+        {
+          "name": "city funds",
+          "value": -100
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Your administration secured a prestigious national grant for the restoration and preservation of a historical landmark, enhancing cultural pride.",
+        "es": "Su administración obtuvo una prestigiosa subvención nacional para la restauración y preservación de un hito histórico, lo que mejoró el orgullo cultural.",
+        "hi": "आपके प्रशासन ने एक ऐतिहासिक स्थल के जीर्णोद्धार और संरक्षण के लिए एक प्रतिष्ठित राष्ट्रीय अनुदान प्राप्त किया, जिससे सांस्कृतिक गौरव बढ़ा।",
+        "ta": "உங்கள் நிர்வாகம் ஒரு வரலாற்றுச் சிறப்புமிக்க இடத்தின் மறுசீரமைப்பு மற்றும் பாதுகாப்புக்காக ஒரு மதிப்புமிக்க தேசிய மானியத்தைப் பெற்றது, இது கலாச்சாரப் பெருமையை மேம்படுத்தியது."
+      },
+      "resourceChanges": [
+        {
+          "name": "city funds",
+          "value": 150
+        },
+        {
+          "name": "public trust",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Fisherfolk protest new port development impacting traditional livelihoods. Requires careful negotiation and potential compensation.",
+        "es": "Los pescadores protestan contra el nuevo desarrollo portuario que afecta sus medios de vida tradicionales. Requiere una negociación cuidadosa y una posible compensación.",
+        "hi": "मछुआरे पारंपरिक आजीविका को प्रभावित करने वाले नए बंदरगाह विकास का विरोध करते हैं। इसके लिए सावधानीपूर्वक बातचीत और संभावित मुआवजे की आवश्यकता है।",
+        "ta": "புதிய துறைமுக வளர்ச்சி பாரம்பரிய வாழ்வாதாரங்களைப் பாதிப்பதாக மீனவர்கள் எதிர்ப்பு தெரிவிக்கின்றனர். கவனமான பேச்சுவார்த்தை மற்றும் சாத்தியமான இழப்பீடு தேவை."
+      },
+      "resourceChanges": [
+        {
+          "name": "public trust",
+          "value": -20
+        },
+        {
+          "name": "city funds",
+          "value": -50
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "A severe dengue outbreak challenges public health systems. Urgent public awareness campaigns and mosquito control measures are initiated.",
+        "es": "Un grave brote de dengue desafía los sistemas de salud pública. Se inician campañas urgentes de concientización pública y medidas de control de mosquitos.",
+        "hi": "डेंगू का एक गंभीर प्रकोप सार्वजनिक स्वास्थ्य प्रणालियों को चुनौती देता है। तत्काल सार्वजनिक जागरूकता अभियान और मच्छर नियंत्रण उपाय शुरू किए जाते हैं।",
+        "ta": "ஒரு தீவிர டெங்கு நோய் பரவல் பொது சுகாதார அமைப்புகளுக்கு சவாலாக உள்ளது. அவசர பொது விழிப்புணர்வு பிரச்சாரங்கள் மற்றும் கொசு கட்டுப்பாட்டு நடவடிக்கைகள் தொடங்கப்பட்டுள்ளன."
+      },
+      "resourceChanges": [
+        {
+          "name": "urban resilience",
+          "value": -10
+        },
+        {
+          "name": "public trust",
+          "value": -10
+        },
+        {
+          "name": "city funds",
+          "value": -250
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Your innovative waste-to-energy project successfully launches, generating revenue for the city and significantly reducing landfill burden.",
+        "es": "Su innovador proyecto de conversión de residuos en energía se lanza con éxito, generando ingresos para la ciudad y reduciendo significativamente la carga de los vertederos.",
+        "hi": "आपका अभिनव अपशिष्ट-से-ऊर्जा परियोजना सफलतापूर्वक शुरू हो गई है, जो शहर के लिए राजस्व उत्पन्न कर रही है और लैंडफिल के बोझ को काफी कम कर रही है।",
+        "ta": "உங்கள் புதுமையான கழிவிலிருந்து மின்சாரம் உற்பத்தி செய்யும் திட்டம் வெற்றிகரமாக தொடங்கப்பட்டது, இது நகரத்திற்கு வருவாயை ஈட்டி நிலப்பரப்பு சுமையைக் கணிசமாக குறைக்கிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "urban resilience",
+          "value": 15
+        },
+        {
+          "name": "city funds",
+          "value": 100
+        },
+        {
+          "name": "public trust",
+          "value": 10
+        }
+      ]
+    }
+  ],
+  "description": {
+    "en": "Embody the Mayor of Chennai, balancing critical resources to transform the city into a beacon of progress and livability.",
+    "es": "Encarna al Alcalde de Chennai, equilibrando recursos críticos para transformar la ciudad en un faro de progreso y habitabilidad.",
+    "hi": "चेन्नई के महापौर का रूप धारण करें, शहर को प्रगति और रहने योग्यता का प्रतीक बनाने के लिए महत्वपूर्ण संसाधनों को संतुलित करें।",
+    "ta": "சென்னையின் மேயராக, நகரத்தை வளர்ச்சி மற்றும் வாழக்கூடிய இடமாக மாற்ற அத்தியாவசிய வளங்களை சமநிலைப்படுத்துங்கள்."
+  },
+  "footerSections": [
+    {
+      "content": {
+        "en": "<ul><li><strong>Objective:</strong> Be the most successful Mayor by acquiring properties, managing city resources, and earning public trust. The game ends when a player goes bankrupt (any resource reaches 0).</li><li><strong>Gameplay:</strong> Roll the dice and move your token. Land on properties to acquire them or pay rent. Land on special spaces for events or taxes.</li><li><strong>Resources:</strong> Manage Public Trust, City Funds, and Urban Resilience. Keep them above zero!</li><li><strong>Winning:</strong> The last player remaining with all resources above zero wins.</li><li><strong>Bankruptcy:</strong> If any resource reaches 0, you lose and are declared bankrupt.</li></ul>",
+        "es": "<ul><li><strong>Objetivo:</strong> Sé el alcalde más exitoso adquiriendo propiedades, gestionando los recursos de la ciudad y ganando la confianza pública. El juego termina cuando un jugador quiebra (cualquier recurso llega a 0).</li><li><strong>Jugabilidad:</strong> Tira los dados y mueve tu ficha. Aterriza en propiedades para adquirirlas o pagar alquiler. Aterriza en espacios especiales para eventos o impuestos.</li><li><strong>Recursos:</strong> Gestiona la Confianza Pública, los Fondos de la Ciudad y la Resiliencia Urbana. ¡Mantenlos por encima de cero!</li><li><strong>Victoria:</strong> El último jugador que quede con todos los recursos por encima de cero gana.</li><li><strong>Bancarrota:</strong> Si algún recurso llega a 0, pierdes y eres declarado en quiebra.</li></ul>",
+        "hi": "<ul><li><strong>उद्देश्य:</strong> संपत्तियों का अधिग्रहण करके, शहर के संसाधनों का प्रबंधन करके और सार्वजनिक विश्वास अर्जित करके सबसे सफल महापौर बनें। खेल तब समाप्त होता है जब कोई खिलाड़ी दिवालिया हो जाता है (कोई भी संसाधन 0 तक पहुँच जाता है)।</li><li><strong>गेमप्ले:</strong> पासे फेंकें और अपने टोकन को आगे बढ़ाएं। संपत्तियों को खरीदने या किराया देने के लिए उन पर उतरें। घटनाओं या करों के लिए विशेष स्थानों पर उतरें।</li><li><strong>संसाधन:</strong> सार्वजनिक विश्वास, शहर के फंड और शहरी लचीलेपन का प्रबंधन करें। उन्हें शून्य से ऊपर रखें!</li><li><strong>जीतना:</strong> सभी संसाधनों को शून्य से ऊपर रखने वाला अंतिम खिलाड़ी जीतता है।</li><li><strong>दिवालियापन:</strong> यदि कोई संसाधन 0 तक पहुंच जाता है, तो आप हार जाते हैं और दिवालिया घोषित कर दिए जाते हैं।</li></ul>",
+        "ta": "<ul><li><strong>நோக்கம்:</strong> சொத்துக்களைப் பெற்று, நகர வளங்களை நிர்வகித்து, பொது நம்பிக்கையைப் பெற்று மிகவும் வெற்றிகரமான மேயராக இருங்கள். ஒரு வீரர் திவாலாகும்போது (எந்த வளமும் 0 ஐ அடையும்போது) விளையாட்டு முடிவடையும்.</li><li><strong>விளையாட்டு முறை:</strong> பகடைகளை உருட்டி உங்கள் டோக்கனை நகர்த்தவும். சொத்துக்களை வாங்க அல்லது வாடகை செலுத்த அவற்றில் இறங்கவும். நிகழ்வுகள் அல்லது வரிகளுக்கான சிறப்பு இடங்களில் இறங்கவும்.</li><li><strong>வளங்கள்:</strong> பொது நம்பிக்கை, நகர நிதி மற்றும் நகர்ப்புற தாங்குதிறன் ஆகியவற்றை நிர்வகிக்கவும். அவற்றை பூஜ்ஜியத்திற்கு மேல் வைத்திருக்கவும்!</li><li><strong>வெற்றி:</strong> அனைத்து வளங்களும் பூஜ்ஜியத்திற்கு மேல் உள்ள கடைசி வீரர் வெற்றி பெறுகிறார்.</li><li><strong>திவால்:</strong> ஏதேனும் ஒரு வளம் 0 ஐ அடைந்தால், நீங்கள் தோல்வியடைந்து திவாலாக அறிவிக்கப்படுவீர்கள்.</li></ul>"
+      },
+      "title": {
+        "en": "Rules",
+        "es": "Reglas",
+        "hi": "नियम",
+        "ta": "விதிகள்"
+      }
+    },
+    {
+      "content": {
+        "en": "<p><strong>Chennai: City of Mayors</strong> is a strategic board game where players take on the challenging role of Chennai's Mayor. Navigate the vibrant landscape of this major Indian metropolis, making tough decisions to balance Public Trust, City Funds, and Urban Resilience.</p><p>From preparing for the monsoon to expanding the Metro and managing waste, every choice impacts your city's future. Will you prioritize economic development, heritage preservation, or environmental sustainability? Your leadership will define Chennai's destiny!</p>",
+        "es": "<p><strong>Chennai: Ciudad de Alcaldes</strong> es un juego de mesa estratégico donde los jugadores asumen el desafiante papel del Alcalde de Chennai. Navega por el vibrante paisaje de esta importante metrópolis india, tomando decisiones difíciles para equilibrar la Confianza Pública, los Fondos de la Ciudad y la Resiliencia Urbana.</p><p>Desde la preparación para el monzón hasta la expansión del Metro y la gestión de residuos, cada elección impacta el futuro de tu ciudad. ¿Priorizarás el desarrollo económico, la preservación del patrimonio o la sostenibilidad ambiental? ¡Tu liderazgo definirá el destino de Chennai!</p>",
+        "hi": "<p><strong>चेन्नई: महापौरों का शहर</strong> एक रणनीतिक बोर्ड गेम है जहाँ खिलाड़ी चेन्नई के महापौर की चुनौतीपूर्ण भूमिका निभाते हैं। इस प्रमुख भारतीय महानगर के जीवंत परिदृश्य में नेविगेट करें, सार्वजनिक विश्वास, शहर के फंड और शहरी लचीलेपन को संतुलित करने के लिए कठिन निर्णय लें।</p><p>मानसून की तैयारी से लेकर मेट्रो के विस्तार और कचरा प्रबंधन तक, हर विकल्प आपके शहर के भविष्य को प्रभावित करता है। क्या आप आर्थिक विकास, विरासत संरक्षण या पर्यावरणीय स्थिरता को प्राथमिकता देंगे? आपका नेतृत्व चेन्नई के भाग्य को परिभाषित करेगा!</p>",
+        "ta": "<p><strong>சென்னை: மேயர்களின் நகரம்</strong> என்பது சென்னை மேயரின் சவாலான பாத்திரத்தை வீரர்கள் ஏற்கும் ஒரு மூலோபாய பலகை விளையாட்டு. பொது நம்பிக்கை, நகர நிதி மற்றும் நகர்ப்புற தாங்குதிறன் ஆகியவற்றை சமநிலைப்படுத்த கடினமான முடிவுகளை எடுத்து, இந்த பெரிய இந்திய பெருநகரத்தின் துடிப்பான நிலப்பரப்பில் செல்லவும்.</p><p>பருவமழைக்கான தயாரிப்பு முதல் மெட்ரோவை விரிவுபடுத்துதல் மற்றும் கழிவு மேலாண்மை வரை, ஒவ்வொரு தேர்வும் உங்கள் நகரத்தின் எதிர்காலத்தை பாதிக்கிறது. பொருளாதார வளர்ச்சி, பாரம்பரிய பாதுகாப்பு அல்லது சுற்றுச்சூழல் நிலைத்தன்மைக்கு முன்னுரிமை அளிப்பீர்களா? உங்கள் தலைமை சென்னையின் தலைவிதியை தீர்மானிக்கும்!</p>"
+      },
+      "title": {
+        "en": "About",
+        "es": "Acerca de",
+        "hi": "के बारे में",
+        "ta": "பற்றி"
+      }
+    }
+  ],
+  "name": {
+    "en": "Chennai: City of Mayors",
+    "es": "Chennai: Ciudad de Alcaldes",
+    "hi": "चेन्नई: महापौरों का शहर",
+    "ta": "சென்னை: மேயர்களின் நகரம்"
+  },
+  "playerColors": [
+    "text-red-600",
+    "text-blue-600",
+    "text-green-600",
+    "text-yellow-600"
+  ],
+  "resources": [
+    {
+      "barColor": "bg-blue-500",
+      "icon": "InfoIcon",
+      "initialValue": 100,
+      "name": {
+        "en": "Public Trust",
+        "es": "Confianza Pública",
+        "hi": "सार्वजनिक विश्वास",
+        "ta": "பொது நம்பிக்கை"
+      },
+      "maximumValue": 200,
+      "minimumValue": 0
+    },
+    {
+      "barColor": "bg-green-500",
+      "icon": "MoneyIcon",
+      "initialValue": 2000,
+      "name": {
+        "en": "City Funds",
+        "es": "Fondos de la Ciudad",
+        "hi": "शहर निधि",
+        "ta": "நகர நிதி"
+      },
+      "maximumValue": 4000,
+      "minimumValue": 0
+    },
+    {
+      "barColor": "bg-orange-500",
+      "icon": "TimeIcon",
+      "initialValue": 50,
+      "name": {
+        "en": "Urban Resilience",
+        "es": "Resiliencia Urbana",
+        "hi": "शहरी लचीलापन",
+        "ta": "நகர்ப்புற தாங்குதிறன்"
+      },
+      "maximumValue": 100,
+      "minimumValue": 0
+    }
+  ],
+  "communityChestCards": [
+    {
+      "description": {
+        "en": "Thousands of citizens participated in a city-wide cleanup drive, boosting morale and the city's appearance.",
+        "es": "Miles de ciudadanos participaron en una campaña de limpieza en toda la ciudad, lo que aumentó la moral y la apariencia de la ciudad.",
+        "hi": "शहरव्यापी सफाई अभियान में हजारों नागरिकों ने भाग लिया, जिससे मनोबल और शहर की उपस्थिति में वृद्धि हुई।",
+        "ta": "ஆயிரக்கணக்கான குடிமக்கள் நகர அளவிலான துப்புரவு இயக்கத்தில் பங்கேற்றனர், இது மன உறுதியையும் நகரத்தின் தோற்றத்தையும் மேம்படுத்தியது."
+      },
+      "resourceChanges": [
+        {
+          "name": "public trust",
+          "value": 25
+        },
+        {
+          "name": "urban resilience",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "You invested in new public libraries and learning centers, enhancing educational opportunities for citizens.",
+        "es": "Invertiste en nuevas bibliotecas públicas y centros de aprendizaje, mejorando las oportunidades educativas para los ciudadanos.",
+        "hi": "आपने नई सार्वजनिक पुस्तकालयों और शिक्षण केंद्रों में निवेश किया, जिससे नागरिकों के लिए शैक्षिक अवसरों में वृद्धि हुई।",
+        "ta": "புதிய பொது நூலகங்கள் மற்றும் கற்றல் மையங்களில் நீங்கள் முதலீடு செய்துள்ளீர்கள், குடிமக்களுக்கான கல்வி வாய்ப்புகளை மேம்படுத்தியுள்ளீர்கள்."
+      },
+      "resourceChanges": [
+        {
+          "name": "public trust",
+          "value": 15
+        },
+        {
+          "name": "city funds",
+          "value": -150
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "A public health campaign against plastic use or for hygiene shows remarkable results, leading to a healthier city.",
+        "es": "Una campaña de salud pública contra el uso de plástico o a favor de la higiene muestra resultados notables, lo que lleva a una ciudad más saludable.",
+        "hi": "प्लास्टिक के उपयोग के खिलाफ या स्वच्छता के लिए एक सार्वजनिक स्वास्थ्य अभियान उल्लेखनीय परिणाम दिखाता है, जिससे एक स्वस्थ शहर बनता है।",
+        "ta": "பிளாஸ்டிக் பயன்பாட்டிற்கு எதிரான அல்லது சுகாதாரத்திற்கான ஒரு பொது சுகாதார பிரச்சாரம் குறிப்பிடத்தக்க முடிவுகளைக் காட்டுகிறது, இது ஒரு ஆரோக்கியமான நகரத்திற்கு வழிவகுக்கிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "public trust",
+          "value": 10
+        },
+        {
+          "name": "urban resilience",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Due to efficient spending and higher than projected revenues, the city experiences an unexpected budget surplus!",
+        "es": "Debido a un gasto eficiente y a ingresos superiores a los proyectados, ¡la ciudad experimenta un superávit presupuestario inesperado!",
+        "hi": "कुशल खर्च और अनुमानित राजस्व से अधिक के कारण, शहर को अप्रत्याशित बजट अधिशेष का अनुभव होता है!",
+        "ta": "திறமையான செலவு மற்றும் திட்டமிடப்பட்டதை விட அதிக வருவாய் காரணமாக, நகரத்திற்கு எதிர்பாராத பட்ஜெட் உபரி ஏற்படுகிறது!"
+      },
+      "resourceChanges": [
+        {
+          "name": "city funds",
+          "value": 300
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "A successful local arts and culture festival celebrates Chennai's vibrant traditions, drawing crowds and boosting community spirit.",
+        "es": "Un exitoso festival local de arte y cultura celebra las vibrantes tradiciones de Chennai, atrayendo multitudes y fomentando el espíritu comunitario.",
+        "hi": "चेन्नई की जीवंत परंपराओं का जश्न मनाने वाला एक सफल स्थानीय कला और संस्कृति उत्सव, भीड़ खींचता है और सामुदायिक भावना को बढ़ावा देता है।",
+        "ta": "சென்னையின் துடிப்பான மரபுகளைக் கொண்டாடும் ஒரு வெற்றிகரமான உள்ளூர் கலை மற்றும் கலாச்சார விழா, கூட்டத்தை ஈர்த்து சமூக உணர்வை மேம்படுத்துகிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "public trust",
+          "value": 15
+        },
+        {
+          "name": "city funds",
+          "value": -50
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Your administration receives national recognition for transparent governance and citizen-centric policies.",
+        "es": "Su administración recibe reconocimiento nacional por su gobernanza transparente y políticas centradas en el ciudadano.",
+        "hi": "आपके प्रशासन को पारदर्शी शासन और नागरिक-केंद्रित नीतियों के लिए राष्ट्रीय मान्यता मिलती है।",
+        "ta": "உங்கள் நிர்வாகம் வெளிப்படையான நிர்வாகம் மற்றும் குடிமக்களை மையப்படுத்திய கொள்கைகளுக்காக தேசிய அங்கீகாரத்தைப் பெறுகிறது."
+      },
+      "resourceChanges": [
+        {
+          "name": "public trust",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Urgent road repairs completed ahead of schedule, significantly improving traffic flow, safety, and public satisfaction.",
+        "es": "Reparaciones urgentes de carreteras completadas antes de lo previsto, mejorando significativamente el flujo de tráfico, la seguridad y la satisfacción pública.",
+        "hi": "समय से पहले पूरी हुई सड़क की तत्काल मरम्मत, यातायात प्रवाह, सुरक्षा और सार्वजनिक संतुष्टि में महत्वपूर्ण सुधार।",
+        "ta": "அவசர சாலை பழுதுபார்ப்புகள் திட்டமிட்டதற்கு முன்னதாகவே முடிக்கப்பட்டன, போக்குவரத்து நெரிசல், பாதுகாப்பு மற்றும் பொது திருப்தி ஆகியவற்றில் குறிப்பிடத்தக்க முன்னேற்றம் ஏற்பட்டது."
+      },
+      "resourceChanges": [
+        {
+          "name": "urban resilience",
+          "value": 10
+        },
+        {
+          "name": "city funds",
+          "value": -200
+        }
+      ]
+    },
+    {
+      "description": {
+        "en": "Transformed a neglected urban space into a beautiful and functional public park, enhancing livability and community well-being.",
+        "es": "Transformaste un espacio urbano descuidado en un hermoso y funcional parque público, mejorando la habitabilidad y el bienestar de la comunidad.",
+        "hi": "एक उपेक्षित शहरी स्थान को एक सुंदर और कार्यात्मक सार्वजनिक पार्क में बदल दिया गया, जिससे रहने की क्षमता और सामुदायिक कल्याण में वृद्धि हुई।",
+        "ta": "புறக்கணிக்கப்பட்ட நகர்ப்புற இடத்தை ஒரு அழகான மற்றும் செயல்படும் பொது பூங்காவாக மாற்றியது, வாழும் திறனையும் சமூக நல்வாழ்வையும் மேம்படுத்தியது."
+      },
+      "resourceChanges": [
+        {
+          "name": "public trust",
+          "value": 20
+        },
+        {
+          "name": "city funds",
+          "value": -100
+        }
+      ]
+    }
+  ],
+  "groundingInReality": true,
+  "positivity": 0.5,
+  "pregeneratedScenarios": {
+    "Mylapore Heritage Zone": [
+      {
+        "title": {
+          "en": "The Fading Echoes of Agraharams",
+          "es": "Los Ecos Desvanecidos de los Agraharams",
+          "hi": "अग्रहारम की फीकी पड़ती गूँज",
+          "ta": "அக்ரஹாரங்களின் மங்கிவரும் எதிரொலிகள்"
+        },
+        "description": {
+          "en": "You stand before a cluster of aging Agraharam houses in Mylapore, properties owned by the venerable Kapaleeshwarar Temple Trust. These traditional homes, with their unique architectural style, are showing significant signs of wear and tear. A proposal has been put forth: demolish these structures and build modern, multi-storey apartments that could house more families and generate substantial revenue for city development. However, heritage conservationists and many long-time residents are passionately advocating for their preservation, fearing the irreversible loss of Mylapore's cultural soul. [14, 18, 19]",
+          "es": "Te encuentras ante un conjunto de antiguas casas Agraharam en Mylapore, propiedades de la venerable Fideicomiso del Templo Kapaleeshwarar. Estas casas tradicionales, con su estilo arquitectónico único, muestran importantes signos de deterioro. Se ha presentado una propuesta: demoler estas estructuras y construir apartamentos modernos de varios pisos que podrían albergar a más familias y generar ingresos sustanciales para el desarrollo de la ciudad. Sin embargo, los conservacionistas del patrimonio y muchos residentes de toda la vida abogan apasionadamente por su preservación, temiendo la pérdida irreversible del alma cultural de Mylapore.",
+          "hi": "आप मायलापुर में अग्रहारम के पुराने घरों के एक समूह के सामने खड़े हैं, जो पूजनीय कपालेश्वर मंदिर ट्रस्ट की संपत्ति हैं। ये पारंपरिक घर, अपनी अनूठी स्थापत्य शैली के साथ, जीर्ण-शीर्णता के महत्वपूर्ण संकेत दिखा रहे हैं। एक प्रस्ताव रखा गया है: इन संरचनाओं को ध्वस्त कर आधुनिक, बहुमंजिला अपार्टमेंट बनाना जो अधिक परिवारों को समायोजित कर सकें और शहर के विकास के लिए पर्याप्त राजस्व उत्पन्न कर सकें। हालांकि, विरासत संरक्षणवादी और कई लंबे समय से रहने वाले निवासी उनके संरक्षण के लिए passionately वकालत कर रहे हैं, मायलापुर की सांस्कृतिक आत्मा के अपरिवर्तनीय नुकसान के डर से।",
+          "ta": "நீங்கள் மயிலாப்பூரில் உள்ள பழைமையான அக்ரஹார வீடுகளின் தொகுப்பிற்கு முன் நிற்கிறீர்கள், இவை புகழ்பெற்ற கபாலீஸ்வரர் கோவில் அறக்கட்டளைக்கு சொந்தமானவை. தனித்துவமான கட்டிடக்கலை பாணியுடன் கூடிய இந்த பாரம்பரிய வீடுகள், கணிசமான சிதைவு அறிகுறிகளைக் காட்டுகின்றன. இந்த கட்டமைப்புகளை இடித்துவிட்டு, அதிகமான குடும்பங்களுக்கு இடமளித்து, நகர வளர்ச்சிக்கு கணிசமான வருவாயை ஈட்டக்கூடிய நவீன, பல மாடி குடியிருப்புகளை கட்ட ஒரு முன்மொழிவு வைக்கப்பட்டுள்ளது. இருப்பினும், பாரம்பரிய ஆர்வலர்களும் பல நீண்டகால குடியிருப்பாளர்களும் மயிலாப்பூரின் கலாச்சார அடையாளத்தை ஈடுசெய்ய முடியாத இழப்பிற்கு அஞ்சி, அவற்றைப் பாதுகாக்க passionately வாதிடுகின்றனர்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Champion Modern Redevelopment.",
+              "es": "Apoyar la Reurbanización Moderna.",
+              "hi": "आधुनिक पुनर्विकास का समर्थन करें।",
+              "ta": "நவீன மறுவடிவமைப்பை ஆதரிக்கவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The old structures are replaced with new, efficient buildings, addressing housing needs and bringing in more funds. However, a significant part of Mylapore's unique architectural heritage is lost, and some residents feel disconnected from their past.",
+                "es": "Las estructuras antiguas son reemplazadas por edificios nuevos y eficientes, abordando las necesidades de vivienda y generando más fondos. Sin embargo, una parte significativa del patrimonio arquitectónico único de Mylapore se pierde, y algunos residentes se sienten desconectados de su pasado.",
+                "hi": "पुरानी संरचनाओं को नए, कुशल भवनों से बदल दिया जाता है, जिससे आवास आवश्यकताओं को पूरा किया जाता है और अधिक धन आता है। हालांकि, मायलापुर की अनूठी स्थापत्य विरासत का एक महत्वपूर्ण हिस्सा खो जाता है, और कुछ निवासी अपने अतीत से कटा हुआ महसूस करते हैं।",
+                "ta": "பழைய கட்டமைப்புகள் புதிய, திறமையான கட்டிடங்களால் மாற்றப்பட்டு, வீட்டுத் தேவைகளைப் பூர்த்தி செய்து அதிக நிதியைக் கொண்டு வருகின்றன. இருப்பினும், மயிலாப்பூரின் தனித்துவமான கட்டிடக்கலை பாரம்பரியத்தின் கணிசமான பகுதி இழக்கப்படுகிறது, மேலும் சில குடியிருப்பாளர்கள் தங்கள் கடந்த காலத்திலிருந்து துண்டிக்கப்பட்டதாக உணர்கிறார்கள்."
+              },
+              "resourceChanges": [
+                {
+                  "name": "city funds",
+                  "value": 30
+                },
+                {
+                  "name": "public trust",
+                  "value": -20
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 10
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Invest in Heritage Restoration.",
+              "es": "Invertir en Restauración del Patrimonio.",
+              "hi": "विरासत बहाली में निवेश करें।",
+              "ta": "பாரம்பரிய மறுசீரமைப்பில் முதலீடு செய்யவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The historic Agraharam houses are beautifully restored, preserving Mylapore's unique charm and cultural identity. While this requires a significant investment and may not maximize housing capacity, it strengthens community bonds and attracts heritage tourism.",
+                "es": "Las históricas casas Agraharam son bellamente restauradas, preservando el encanto único y la identidad cultural de Mylapore. Aunque esto requiere una inversión significativa y puede que no maximice la capacidad de vivienda, fortalece los lazos comunitarios y atrae el turismo cultural.",
+                "hi": "ऐतिहासिक अग्रहारम घरों को खूबसूरती से बहाल किया जाता है, जिससे मायलापुर का अनूठा आकर्षण और सांस्कृतिक पहचान बनी रहती है। हालांकि इसमें एक महत्वपूर्ण निवेश की आवश्यकता होती है और यह आवास क्षमता को अधिकतम नहीं कर सकता है, यह सामुदायिक संबंधों को मजबूत करता है और विरासत पर्यटन को आकर्षित करता है।",
+                "ta": "வரலாற்று சிறப்புமிக்க அக்ரஹார வீடுகள் அழகாக மீட்டெடுக்கப்பட்டு, மயிலாப்பூரின் தனித்துவமான வசீகரத்தையும் கலாச்சார அடையாளத்தையும் பாதுகாக்கின்றன. இதற்கு கணிசமான முதலீடு தேவைப்படலாம் மற்றும் வீட்டு வசதி திறனை அதிகரிக்காமல் போகலாம் என்றாலும், இது சமூக பிணைப்புகளை வலுப்படுத்துகிறது மற்றும் பாரம்பரிய சுற்றுலாவை ஈர்க்கிறது."
+              },
+              "resourceChanges": [
+                {
+                  "name": "city funds",
+                  "value": -25
+                },
+                {
+                  "name": "public trust",
+                  "value": 30
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 5
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.mylaporetimes.com/2021/09/mylapore-end-of-a-heritage-precinct/",
+        "sourceTitle": {
+          "en": "Mylapore -End of a heritage precinct?, The gems Mylapore has, but rarely notices, Social sustainability in a culturally sound but disrupted urban fabric: The case of Mylapore",
+          "es": "Mylapore - Fin de un recinto patrimonial?, Las gemas que Mylapore tiene, pero rara vez nota, Sostenibilidad social en un tejido urbano culturalmente sólido pero alterado: el caso de Mylapore",
+          "hi": "मायलापुर - एक विरासत क्षेत्र का अंत?, मायलापुर में मौजूद रत्न, लेकिन जिन पर शायद ही कभी ध्यान दिया जाता है, सांस्कृतिक रूप से सुदृढ़ लेकिन बाधित शहरी ताने-बाने में सामाजिक स्थिरता: मायलापुर का एक केस स्टडी",
+          "ta": "மயிலாப்பூர் - ஒரு பாரம்பரியப் பகுதியின் முடிவு?, மயிலாப்பூரில் உள்ள ரத்தினங்கள், ஆனால் அரிதாகவே கவனிக்கப்படுபவை, கலாச்சார ரீதியாக ஒலிக்கும் ஆனால் சீர்குலைந்த நகர்ப்புற அமைப்பில் சமூக நிலைத்தன்மை: மயிலாப்பூர் ஒரு வழக்கு ஆய்வு"
+        },
+        "id": "mylapore-heritage-zone-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "T. Nagar Commercial Hub": [
+      {
+        "title": {
+          "en": "Tackling T. Nagar's Traffic Tango",
+          "es": "Lidiando con el Tango del Tráfico de T. Nagar",
+          "hi": "टी. नगर के ट्रैफिक टैंगो से निपटना",
+          "ta": "தி. நகரின் போக்குவரத்து நெரிசலை சமாளித்தல்"
+        },
+        "description": {
+          "en": "Despite the inauguration of the multi-crore Pondy Bazaar Pedestrian Plaza and a new multi-level parking facility, T. Nagar's commercial hub still grapples with chaotic traffic and parking. Many shoppers continue to park haphazardly on streets, and the new parking facility remains underutilized, leading to bottlenecks and frustrated citizens, especially during peak hours. As Mayor, you must find a way to encourage proper parking habits and ensure the pedestrian plaza thrives. [3, 4, 5, 9, 12, 13]",
+          "es": "A pesar de la inauguración de la plaza peatonal Pondy Bazaar, que costó varios millones, y de una nueva instalación de estacionamiento de varios niveles, el centro comercial de T. Nagar todavía lucha contra el tráfico caótico y el estacionamiento. Muchos compradores continúan estacionando al azar en las calles, y la nueva instalación de estacionamiento sigue siendo subutilizada, lo que provoca cuellos de botella y ciudadanos frustrados, especialmente durante las horas pico. Como Alcalde, debe encontrar una manera de fomentar hábitos de estacionamiento adecuados y asegurar que la plaza peatonal prospere. [3, 4, 5, 9, 12, 13]",
+          "hi": "करोड़ों की लागत से बने पॉन्डी बाज़ार पैदल यात्री प्लाज़ा और एक नई मल्टी-लेवल पार्किंग सुविधा के उद्घाटन के बावजूद, टी. नगर का वाणिज्यिक केंद्र अभी भी chaotic ट्रैफिक और पार्किंग से जूझ रहा है। कई खरीदार सड़कों पर बेतरतीब ढंग से पार्किंग करते रहते हैं, और नई पार्किंग सुविधा का उपयोग कम होता है, जिससे विशेष रूप से पीक आवर्स के दौरान भीड़ और परेशान नागरिक होते हैं। मेयर के रूप में, आपको उचित पार्किंग आदतों को बढ़ावा देने और पैदल यात्री प्लाज़ा को सफल बनाने का एक तरीका खोजना होगा। [3, 4, 5, 9, 12, 13]",
+          "ta": "பல கோடி செலவில் கட்டப்பட்ட பாண்டி பஜார் பாதசாரி பிளாசா மற்றும் புதிய பல அடுக்கு வாகன நிறுத்தும் வசதி திறக்கப்பட்ட போதிலும், தி. நகரின் வணிகப் பகுதி இன்றும் போக்குவரத்து நெரிசல் மற்றும் வாகன நிறுத்துமிடப் பிரச்சனைகளுடன் போராடி வருகிறது. பல கடைக்காரர்கள் இன்றும் தாறுமாறாக சாலைகளில் வாகனங்களை நிறுத்துகின்றனர், மேலும் புதிய வாகன நிறுத்தும் வசதி சரியாகப் பயன்படுத்தப்படுவதில்லை, இது குறிப்பாக உச்ச நேரங்களில் போக்குவரத்துத் தடங்கல்களையும், விரக்தியடைந்த குடிமக்களையும் ஏற்படுத்துகிறது. மேயராக, சரியான வாகன நிறுத்தும் பழக்கங்களை ஊக்குவிப்பதற்கும், பாதசாரி பிளாசா செழித்து வளர்வதற்கும் நீங்கள் ஒரு வழியைக் கண்டுபிடிக்க வேண்டும். [3, 4, 5, 9, 12, 13]"
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Implement Stricter Enforcement & Awareness Campaign",
+              "es": "Implementar Cumplimiento Estricto y Campaña de Concientización",
+              "hi": "कठोर प्रवर्तन और जागरूकता अभियान लागू करें",
+              "ta": "கடுமையான அமலாக்கம் மற்றும் விழிப்புணர்வு பிரச்சாரத்தை செயல்படுத்துதல்"
+            },
+            "outcome": {
+              "explanation": {
+                "en": "This approach aims to directly address the parking issue and educate the public. While initial public reaction might be mixed due to inconvenience, consistent enforcement and clear communication could gradually shift behavior, improving traffic flow and pedestrian safety. Public trust might dip initially but could recover with visible improvements. City funds will be significantly utilized for enforcement and campaigns.",
+                "es": "Este enfoque busca abordar directamente el problema del estacionamiento y educar al público. Aunque la reacción inicial del público podría ser mixta debido a las molestias, la aplicación constante y la comunicación clara podrían cambiar gradualmente el comportamiento, mejorando el flujo de tráfico y la seguridad de los peatones. La confianza pública podría disminuir inicialmente, pero podría recuperarse con mejoras visibles. Los fondos de la ciudad se utilizarán significativamente para la aplicación y las campañas.",
+                "hi": "इस दृष्टिकोण का उद्देश्य पार्किंग की समस्या का सीधे समाधान करना और जनता को शिक्षित करना है। असुविधा के कारण शुरुआती सार्वजनिक प्रतिक्रिया मिली-जुली हो सकती है, लेकिन लगातार प्रवर्तन और स्पष्ट संचार धीरे-धीरे व्यवहार को बदल सकता है, जिससे यातायात प्रवाह और पैदल यात्री सुरक्षा में सुधार होगा। सार्वजनिक विश्वास शुरू में गिर सकता है लेकिन दृश्यमान सुधारों के साथ ठीक हो सकता है। शहर के फंड का प्रवर्तन और अभियानों के लिए महत्वपूर्ण रूप से उपयोग किया जाएगा।",
+                "ta": "இந்த அணுகுமுறை வாகன நிறுத்துமிடப் பிரச்சனைக்கு நேரடியாகத் தீர்வு காண்பதையும், பொதுமக்களுக்குக் கற்பிப்பதையும் நோக்கமாகக் கொண்டுள்ளது. ஆரம்பத்தில் பொதுமக்களின் எதிர்வினை அசௌகரியம் காரணமாக கலவையாக இருக்கலாம், ஆனால் சீரான அமலாக்கம் மற்றும் தெளிவான தகவல்தொடர்பு படிப்படியாக நடத்தையை மாற்றி, போக்குவரத்து ஓட்டம் மற்றும் பாதசாரிகளின் பாதுகாப்பை மேம்படுத்தும். ஆரம்பத்தில் பொது நம்பிக்கை குறையக்கூடும், ஆனால் தெரியும் மேம்பாடுகளுடன் மீண்டு வரலாம். அமலாக்கம் மற்றும் பிரச்சாரங்களுக்கு நகர நிதிகள் கணிசமாகப் பயன்படுத்தப்படும்."
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": -1
+                },
+                {
+                  "name": "city funds",
+                  "value": -2
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 2
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Incentivize & Enhance Multi-Level Parking",
+              "es": "Incentivar y Mejorar el Estacionamiento de Varios Niveles",
+              "hi": "मल्टी-लेवल पार्किंग को प्रोत्साहित और बेहतर बनाएं",
+              "ta": "பல அடுக்கு வாகன நிறுத்தத்தை ஊக்குவித்து மேம்படுத்துதல்"
+            },
+            "outcome": {
+              "explanation": {
+                "en": "This softer approach focuses on attracting people to the existing infrastructure through incentives and enhanced experiences. It avoids immediate confrontation but requires creative marketing and potential revenue sharing or subsidies. While it might take longer to see significant traffic reduction, it could build public trust more organically by offering value. City funds would be used for incentives and event management.",
+                "es": "Este enfoque más suave se centra en atraer a la gente a la infraestructura existente a través de incentivos y experiencias mejoradas. Evita la confrontación inmediata, pero requiere marketing creativo y posibles participaciones en los ingresos o subsidios. Aunque podría tomar más tiempo ver una reducción significativa del tráfico, podría generar confianza pública de manera más orgánica al ofrecer valor. Los fondos de la ciudad se utilizarían para incentivos y gestión de eventos.",
+                "hi": "यह नरम दृष्टिकोण प्रोत्साहन और बेहतर अनुभवों के माध्यम से लोगों को मौजूदा बुनियादी ढांचे की ओर आकर्षित करने पर केंद्रित है। यह तत्काल टकराव से बचाता है लेकिन रचनात्मक विपणन और संभावित राजस्व-साझाकरण या सब्सिडी की आवश्यकता होती है। जबकि महत्वपूर्ण यातायात में कमी देखने में अधिक समय लग सकता है, यह मूल्य प्रदान करके सार्वजनिक विश्वास को अधिक स्वाभाविक रूप से बना सकता है। शहर के फंड का उपयोग प्रोत्साहन और कार्यक्रम प्रबंधन के लिए किया जाएगा।",
+                "ta": "இந்த மென்மையான அணுகுமுறை, சலுகைகள் மற்றும் மேம்படுத்தப்பட்ட அனுபவங்கள் மூலம் மக்களை தற்போதுள்ள உள்கட்டமைப்பிற்கு ஈர்ப்பதில் கவனம் செலுத்துகிறது. இது உடனடி மோதலைத் தவிர்க்கிறது, ஆனால் ஆக்கபூர்வமான சந்தைப்படுத்தல் மற்றும் சாத்தியமான வருவாய் பகிர்வு அல்லது மானியங்கள் தேவைப்படும். குறிப்பிடத்தக்க போக்குவரத்து குறைப்பை காண அதிக நேரம் ஆகலாம் என்றாலும், இது மதிப்பு வழங்குவதன் மூலம் பொது நம்பிக்கையை மேலும் இயற்கையாக வளர்க்கும். நகர நிதிகள் சலுகைகள் மற்றும் நிகழ்வு நிர்வாகத்திற்காகப் பயன்படுத்தப்படும்."
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 2
+                },
+                {
+                  "name": "city funds",
+                  "value": -1
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://timesofindia.indiatimes.com/city/chennai/parking-turned-chaotic-now-gridlock-in-chennai-due-to-unregulated-parking-is-a-huge-concern-now/articleshow/112379515.cms",
+        "sourceTitle": {
+          "en": "Parking turned chaotic now- Gridlock in Chennai due to unregulated parking is a huge concern now!!",
+          "es": "El estacionamiento se volvió caótico ahora- ¡El embotellamiento en Chennai debido al estacionamiento no regulado es una gran preocupación ahora!",
+          "hi": "पार्किंग अब अराजक हो गई है- चेन्नई में अनियंत्रित पार्किंग के कारण ग्रिडलॉक अब एक बड़ी चिंता है !!",
+          "ta": "வாகன நிறுத்தம் இப்போது குழப்பமாகிவிட்டது - கட்டுப்படுத்தப்படாத வாகன நிறுத்தத்தால் சென்னையில் போக்குவரத்து நெரிசல் இப்போது ஒரு பெரிய கவலை!!"
+        },
+        "id": "t.-nagar-commercial-hub-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Besant Nagar Beachfront": [
+      {
+        "title": {
+          "en": "The Littered Shoreline",
+          "es": "La costa llena de basura",
+          "hi": "कूड़ा-करकट से पटा किनारा",
+          "ta": "குப்பைகளால் நிறைந்த கடற்கரை"
+        },
+        "description": {
+          "en": "Besant Nagar Beach, a cherished public space, is unfortunately covered in litter after a bustling weekend. Citizens are expressing concern, and the city's image is at stake. As Mayor, you must act swiftly to restore its beauty and uphold public sentiment.",
+          "es": "La playa de Besant Nagar, un espacio público muy querido, está desafortunadamente cubierta de basura después de un ajetreado fin de semana. Los ciudadanos están expresando preocupación y la imagen de la ciudad está en juego. Como alcalde, debe actuar rápidamente para restaurar su belleza y mantener el sentimiento público.",
+          "hi": "बेसेंट नगर बीच, एक प्रिय सार्वजनिक स्थान, व्यस्त सप्ताहांत के बाद दुर्भाग्य से कूड़े से ढका हुआ है। नागरिक चिंता व्यक्त कर रहे हैं, और शहर की छवि दांव पर है। मेयर के रूप में, आपको इसकी सुंदरता को बहाल करने और जनभावना को बनाए रखने के लिए तुरंत कार्य करना चाहिए।",
+          "ta": "பேசாண்ட் நகர் கடற்கரை, ஒரு அன்பான பொது இடம், பரபரப்பான வார இறுதிக்குப் பிறகு குப்பைகளால் நிரம்பியுள்ளது. குடிமக்கள் கவலை தெரிவிக்கின்றனர், மேலும் நகரத்தின் நற்பெயர் ஆபத்தில் உள்ளது. மேயராக, அதன் அழகை மீட்டெடுக்கவும், பொதுமக்களின் உணர்வுகளை நிலைநிறுத்தவும் நீங்கள் உடனடியாக செயல்பட வேண்டும்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Launch a city-wide volunteer cleanup drive, mobilizing citizens and local NGOs.",
+              "es": "Lanzar una campaña de limpieza voluntaria en toda la ciudad, movilizando a ciudadanos y ONG locales.",
+              "hi": "नागरिकों और स्थानीय गैर-सरकारी संगठनों को संगठित करके शहरव्यापी स्वयंसेवी सफाई अभियान शुरू करें।",
+              "ta": "நகர அளவிலான தன்னார்வ தூய்மை இயக்கத்தைத் தொடங்கி, குடிமக்களையும் உள்ளூர் தொண்டு நிறுவனங்களையும் திரட்டுங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The volunteer cleanup drive sees a massive turnout, with families and community groups enthusiastically participating. The beach is quickly restored to its pristine condition, fostering a strong sense of community ownership and pride. This approach, while requiring some logistical support, significantly boosts public trust and reinforces urban resilience through community engagement. [2]",
+                "es": "La campaña de limpieza voluntaria tiene una gran participación, con familias y grupos comunitarios participando con entusiasmo. La playa se restaura rápidamente a su estado original, fomentando un fuerte sentido de propiedad y orgullo comunitario. Este enfoque, aunque requiere cierto apoyo logístico, aumenta significativamente la confianza pública y refuerza la resiliencia urbana a través de la participación comunitaria. [2]",
+                "hi": "स्वयंसेवी सफाई अभियान में भारी संख्या में लोग शामिल होते हैं, जिसमें परिवार और सामुदायिक समूह उत्साहपूर्वक भाग लेते हैं। समुद्र तट को तुरंत उसकी प्राचीन स्थिति में बहाल कर दिया जाता है, जिससे सामुदायिक स्वामित्व और गौरव की एक मजबूत भावना पैदा होती है। यह दृष्टिकोण, कुछ रसद सहायता की आवश्यकता के बावजूद, सार्वजनिक विश्वास को महत्वपूर्ण रूप से बढ़ाता है और सामुदायिक जुड़ाव के माध्यम से शहरी लचीलेपन को मजबूत करता है। [2]",
+                "ta": "தன்னார்வ தூய்மை இயக்கத்திற்கு பெரும் வரவேற்பு கிடைக்கிறது, குடும்பங்கள் மற்றும் சமூகக் குழுக்கள் ஆர்வத்துடன் பங்கேற்கின்றன. கடற்கரை விரைவில் அதன் பழைய நிலைக்கு மீட்டெடுக்கப்படுகிறது, இது சமூகத்தின் மீதான உரிமையுணர்வையும் பெருமையையும் அதிகரிக்கிறது. இந்த அணுகுமுறை, சில தளவாட ஆதரவு தேவைப்பட்டாலும், பொது நம்பிக்கையை கணிசமாக அதிகரிக்கிறது மற்றும் சமூக ஈடுபாடு மூலம் நகர்ப்புற மீள்தன்மையை பலப்படுத்துகிறது. [2]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 30
+                },
+                {
+                  "name": "city funds",
+                  "value": -5
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 20
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Allocate emergency city funds to hire a specialized private cleaning crew for immediate action.",
+              "es": "Asignar fondos de emergencia de la ciudad para contratar un equipo de limpieza privado especializado para una acción inmediata.",
+              "hi": "तत्काल कार्रवाई के लिए एक विशेष निजी सफाई दल को किराए पर लेने के लिए आपातकालीन शहर के धन आवंटित करें।",
+              "ta": "உடனடி நடவடிக்கைக்காக ஒரு சிறப்பு தனியார் துப்புரவுப் பணியாளர்கள் குழுவை நியமிக்க அவசர நகர நிதியை ஒதுக்குங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The private cleaning crew efficiently clears the beach, addressing the immediate problem. While effective, the lack of public participation means a missed opportunity to engage citizens directly in city upkeep and build shared responsibility. It effectively uses city funds but doesn't foster as much long-term public engagement as a volunteer effort. [2]",
+                "es": "El equipo de limpieza privado limpia eficientemente la playa, abordando el problema inmediato. Aunque es efectivo, la falta de participación pública significa una oportunidad perdida para involucrar a los ciudadanos directamente en el mantenimiento de la ciudad y construir una responsabilidad compartida. Utiliza eficazmente los fondos de la ciudad, pero no fomenta tanto el compromiso público a largo plazo como un esfuerzo voluntario. [2]",
+                "hi": "निजी सफाई दल कुशलता से समुद्र तट को साफ करता है, तत्काल समस्या का समाधान करता है। हालांकि यह प्रभावी है, सार्वजनिक भागीदारी की कमी का मतलब है कि शहर के रखरखाव में नागरिकों को सीधे शामिल करने और साझा जिम्मेदारी बनाने का एक अवसर चूक गया। यह शहर के धन का प्रभावी ढंग से उपयोग करता है लेकिन स्वयंसेवी प्रयास जितना दीर्घकालिक सार्वजनिक जुड़ाव नहीं बढ़ाता है। [2]",
+                "ta": "தனியார் துப்புரவுப் பணியாளர்கள் குழு கடற்கரையை திறம்பட சுத்தம் செய்து, உடனடி சிக்கலைத் தீர்க்கிறது. இது பயனுள்ளதாக இருந்தாலும், பொதுமக்களின் பங்கேற்பு இல்லாததால், நகரின் பராமரிப்பில் குடிமக்களை நேரடியாக ஈடுபடுத்தவும், பகிரப்பட்ட பொறுப்பை உருவாக்கவும் ஒரு வாய்ப்பு இழக்கப்படுகிறது. இது நகர நிதியை திறம்பட பயன்படுத்துகிறது, ஆனால் ஒரு தன்னார்வ முயற்சி போல நீண்டகால பொது ஈடுபாட்டை வளர்ப்பதில்லை. [2]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 15
+                },
+                {
+                  "name": "city funds",
+                  "value": -20
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 10
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgxwvzwRc5Bg3yowE1ag8EMmmb9Yiy93g_F1kq5rZciY5BegtzhnFpDUcs7u2sf0keKU5ZeVRwYkTnzoIRm3JKG65nEV7FbNnGUkon5z0oIRVa3In43qECaXNL4vsXiPNOgtzu4iCza76E_9hqacqBeIJ7VrzxVp2U3TlTW8Cz",
+        "sourceTitle": {
+          "en": "NGO for Beach Cleaning in Chennai: Saving Shores, Restoring Beauty, and Protecting Marine - Grow Billion Trees",
+          "es": "ONG para la limpieza de playas en Chennai: Salvando costas, restaurando la belleza y protegiendo la vida marina - Grow Billion Trees",
+          "hi": "चेन्नई में समुद्र तट की सफाई के लिए एनजीओ: तटों को बचाना, सुंदरता बहाल करना और समुद्री जीवन की रक्षा करना - ग्रो बिलियन ट्रीज़",
+          "ta": "சென்னையில் கடற்கரை தூய்மைப்படுத்துதலுக்கான தன்னார்வ தொண்டு நிறுவனம்: கடற்கரைகளை காப்பாற்றுதல், அழகை மீட்டெடுத்தல் மற்றும் கடல்வாழ் உயிரினங்களைப் பாதுகாத்தல் - க்ரோ பில்லியன் ட்ரீஸ்"
+        },
+        "id": "besant-nagar-beachfront-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Koyambedu Wholesale Market": [
+      {
+        "title": {
+          "en": "The Market's Lingering Challenge",
+          "es": "El Desafío Persistente del Mercado",
+          "hi": "बाज़ार की लगातार चुनौती",
+          "ta": "சந்தையின் நீடித்த சவால்"
+        },
+        "description": {
+          "en": "The Koyambedu Wholesale Market, a vital hub for Chennai's fresh produce, is struggling with vast amounts of organic waste. Pathways are often strewn with discarded vegetables and fruits, creating unpleasant odors and unhygienic conditions. The existing waste processing facilities are either insufficient or defunct, impacting the market's cleanliness and the health of visitors and traders alike. As Mayor, you must act to restore the market's hygiene and efficiency.",
+          "es": "El Mercado Mayorista de Koyambedu, un centro vital para los productos frescos de Chennai, está lidiando con grandes cantidades de residuos orgánicos. Los pasillos suelen estar llenos de verduras y frutas desechadas, creando olores desagradables y condiciones antihigiénicas. Las instalaciones de procesamiento de residuos existentes son insuficientes o están fuera de servicio, lo que afecta la limpieza del mercado y la salud de visitantes y comerciantes por igual. Como Alcalde, debe actuar para restaurar la higiene y eficiencia del mercado.",
+          "hi": "चेन्नई के ताजे उत्पादों के लिए एक महत्वपूर्ण केंद्र, कोयम्बेडु थोक बाजार, बड़ी मात्रा में जैविक कचरे से जूझ रहा है। रास्ते अक्सर फेंकी गई सब्जियों और फलों से अटे पड़े होते हैं, जिससे अप्रिय गंध और अस्वच्छ स्थितियाँ पैदा होती हैं। मौजूदा अपशिष्ट प्रसंस्करण सुविधाएँ या तो अपर्याप्त हैं या निष्क्रिय हैं, जिससे बाजार की स्वच्छता और आगंतुकों व व्यापारियों के स्वास्थ्य पर असर पड़ रहा है। महापौर के रूप में, आपको बाजार की स्वच्छता और दक्षता बहाल करने के लिए कार्य करना चाहिए।",
+          "ta": "சென்னைக்கான புதிய விளைபொருட்களின் முக்கிய மையமான கோயம்பேடு மொத்த விற்பனை சந்தை, பெரும் அளவிலான கரிமக் கழிவுகளால் போராடி வருகிறது. நடைபாதைகள் பெரும்பாலும் வீணான காய்கறிகள் மற்றும் பழங்களால் நிரம்பியுள்ளன, இது விரும்பத்தகாத நாற்றங்களையும் சுகாதாரமற்ற சூழ்நிலைகளையும் உருவாக்குகிறது. தற்போதுள்ள கழிவு பதப்படுத்தும் வசதிகள் போதுமானதாக இல்லை அல்லது செயலிழந்துள்ளன, இது சந்தையின் தூய்மையையும் பார்வையாளர்கள் மற்றும் வணிகர்களின் ஆரோக்கியத்தையும் பாதிக்கிறது. மேயராக, சந்தையின் சுகாதாரம் மற்றும் திறனை மீட்டெடுக்க நீங்கள் நடவடிக்கை எடுக்க வேண்டும்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Allocate emergency city funds to immediately repair the defunct bio-CNG plant and deploy a large team for intensive, daily waste collection and disposal. This will clear the existing piles quickly.",
+              "es": "Asignar fondos municipales de emergencia para reparar inmediatamente la planta de biogás-GNV averiada y desplegar un gran equipo para la recolección y eliminación intensiva y diaria de residuos. Esto eliminará las pilas existentes rápidamente.",
+              "hi": "तत्काल निष्क्रिय बायो-सीएनजी संयंत्र की मरम्मत के लिए आपातकालीन शहर निधि आवंटित करें और गहन, दैनिक कचरा संग्रह और निपटान के लिए एक बड़ी टीम तैनात करें। यह मौजूदा ढेर को तेजी से साफ करेगा।",
+              "ta": "செயலற்ற உயிர்-சிஎன்ஜி ஆலையை உடனடியாக சரிசெய்ய அவசரகால நகர நிதியை ஒதுக்குங்கள் மற்றும் தினசரி கழிவு சேகரிப்பு மற்றும் அகற்றுதலுக்காக ஒரு பெரிய குழுவை நியமிக்கவும். இது தற்போதுள்ள குப்பைகளை விரைவாக அகற்றும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The swift action significantly reduces the visible waste, improving immediate hygiene and public perception. However, without addressing the root causes of waste generation and segregation, this approach proves costly and requires continuous effort. The repaired plant helps, but the overall system remains vulnerable.",
+                "es": "La acción rápida reduce significativamente los residuos visibles, mejorando la higiene inmediata y la percepción pública. Sin embargo, sin abordar las causas fundamentales de la generación y segregación de residuos, este enfoque resulta costoso y requiere un esfuerzo continuo. La planta reparada ayuda, pero el sistema general sigue siendo vulnerable.",
+                "hi": "त्वरित कार्रवाई से दृश्यमान कचरा काफी कम हो जाता है, जिससे तत्काल स्वच्छता और सार्वजनिक धारणा में सुधार होता है। हालांकि, कचरा उत्पादन और अलगाव के मूल कारणों को संबोधित किए बिना, यह दृष्टिकोण महंगा साबित होता है और इसे निरंतर प्रयास की आवश्यकता होती है। मरम्मत किया गया संयंत्र मदद करता है, लेकिन समग्र प्रणाली कमजोर बनी हुई है।",
+                "ta": "விரைவான நடவடிக்கை, உடனடியாக குப்பைகளைக் குறைத்து, சுகாதாரம் மற்றும் பொதுமக்களின் கருத்தை மேம்படுத்துகிறது. இருப்பினும், கழிவு உருவாக்கம் மற்றும் பிரித்தெடுப்பதற்கான மூல காரணங்களை நிவர்த்தி செய்யாமல், இந்த அணுகுமுறை செலவு மிகுந்ததாக நிரூபிக்கப்பட்டுள்ளது மற்றும் தொடர்ச்சியான முயற்சி தேவைப்படுகிறது. சரிசெய்யப்பட்ட ஆலை உதவுகிறது, ஆனால் ஒட்டுமொத்த அமைப்பு பாதிக்கப்படக்கூடியதாகவே உள்ளது."
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 15
+                },
+                {
+                  "name": "city funds",
+                  "value": -20
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 5
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Invest in a comprehensive, long-term waste management strategy. This includes establishing new waste segregation points, introducing modern composting units, educating traders on waste reduction, and exploring new waste-to-energy partnerships for sustainable solutions.",
+              "es": "Invertir en una estrategia integral y a largo plazo de gestión de residuos. Esto incluye establecer nuevos puntos de separación de residuos, introducir unidades de compostaje modernas, educar a los comerciantes sobre la reducción de residuos y explorar nuevas asociaciones de conversión de residuos en energía para soluciones sostenibles.",
+              "hi": "एक व्यापक, दीर्घकालिक अपशिष्ट प्रबंधन रणनीति में निवेश करें। इसमें नए कचरा पृथक्करण बिंदु स्थापित करना, आधुनिक खाद इकाइयों को पेश करना, व्यापारियों को कचरा कम करने के बारे में शिक्षित करना और स्थायी समाधानों के लिए नई अपशिष्ट-से-ऊर्जा भागीदारी की खोज करना शामिल है।",
+              "ta": "ஒரு விரிவான, நீண்ட கால கழிவு மேலாண்மை மூலோபாயத்தில் முதலீடு செய்யுங்கள். இதில் புதிய கழிவு பிரிப்பு மையங்களை நிறுவுதல், நவீன உரம் தயாரிக்கும் அலகுகளை அறிமுகப்படுத்துதல், கழிவுகளை குறைப்பது பற்றி வணிகர்களுக்கு கல்வி அளித்தல் மற்றும் நிலையான தீர்வுகளுக்காக புதிய கழிவு-சக்தி கூட்டாண்மைகளை ஆராய்தல் ஆகியவை அடங்கும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "While the initial cleanup is slower, your investment in a holistic waste management system begins to transform the market. Traders and visitors slowly adopt better practices, leading to a significant reduction in waste. The new composting and energy solutions enhance urban resilience and create long-term environmental benefits, boosting public trust in sustainable governance.",
+                "es": "Aunque la limpieza inicial es más lenta, su inversión en un sistema integral de gestión de residuos comienza a transformar el mercado. Comerciantes y visitantes adoptan lentamente mejores prácticas, lo que lleva a una reducción significativa de residuos. Las nuevas soluciones de compostaje y energía mejoran la resiliencia urbana y crean beneficios ambientales a largo plazo, aumentando la confianza pública en una gobernanza sostenible.",
+                "hi": "हालांकि प्रारंभिक सफाई धीमी है, लेकिन एक समग्र अपशिष्ट प्रबंधन प्रणाली में आपका निवेश बाजार को बदलना शुरू कर देता है। व्यापारी और आगंतुक धीरे-धीरे बेहतर प्रथाओं को अपनाते हैं, जिससे कचरे में उल्लेखनीय कमी आती है। नए खाद और ऊर्जा समाधान शहरी लचीलेपन को बढ़ाते हैं और दीर्घकालिक पर्यावरणीय लाभ पैदा करते हैं, जिससे स्थायी शासन में सार्वजनिक विश्वास बढ़ता है।",
+                "ta": "ஆரம்ப கட்ட துப்புரவு மெதுவாக இருந்தாலும், ஒரு முழுமையான கழிவு மேலாண்மை அமைப்பில் உங்கள் முதலீடு சந்தையை மாற்றத் தொடங்குகிறது. வணிகர்கள் மற்றும் பார்வையாளர்கள் மெதுவாக சிறந்த நடைமுறைகளை ஏற்றுக்கொள்கிறார்கள், இது கழிவுகளில் குறிப்பிடத்தக்க குறைப்புக்கு வழிவகுக்கிறது. புதிய உரம் தயாரிக்கும் மற்றும் ஆற்றல் தீர்வுகள் நகர்ப்புற நெகிழ்ச்சியை மேம்படுத்துகின்றன மற்றும் நீண்ட கால சுற்றுச்சூழல் நன்மைகளை உருவாக்குகின்றன, நிலையான நிர்வாகத்தில் பொது நம்பிக்கையை அதிகரிக்கின்றன."
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 20
+                },
+                {
+                  "name": "city funds",
+                  "value": -25
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 15
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://citizenmatters.in/what-makes-it-hard-to-manage-waste-in-the-koyambedu-market-27471",
+        "sourceTitle": {
+          "en": "What makes it hard to manage waste in the Koyambedu market?",
+          "es": "¿Qué dificulta la gestión de residuos en el mercado de Koyambedu?",
+          "hi": "कोयम्बेडु बाजार में कचरा प्रबंधन क्यों मुश्किल है?",
+          "ta": "கோயம்பேடு சந்தையில் கழிவுகளை நிர்வகிப்பது ஏன் கடினம்?"
+        },
+        "id": "koyambedu-wholesale-market-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Perungudi Waste Management Site": [
+      {
+        "title": {
+          "en": "Reclaiming Our Future: Perungudi Land Use",
+          "es": "Recuperando Nuestro Futuro: Uso del Suelo de Perungudi",
+          "hi": "हमारे भविष्य को पुनः प्राप्त करना: पेरुंगुडी भूमि उपयोग",
+          "ta": "நமது எதிர்காலத்தை மீட்டெடுத்தல்: பெருங்குடி நிலப் பயன்பாடு"
+        },
+        "description": {
+          "en": "The groundbreaking biomining project at the Perungudi Waste Management Site has successfully cleared a significant portion of legacy waste, transforming it into valuable reclaimed land. Now, as Mayor, you face a crucial decision: how best to utilize this newly available space to benefit Chennai's citizens and environment. There are two main paths forward, each with its own advantages for the city's progress and livability.",
+          "es": "El innovador proyecto de biominería en el Sitio de Gestión de Residuos de Perungudi ha logrado eliminar una porción significativa de residuos antiguos, transformándola en valiosa tierra recuperada. Ahora, como Alcalde, se enfrenta a una decisión crucial: cómo utilizar mejor este espacio recién disponible para beneficiar a los ciudadanos y al medio ambiente de Chennai. Hay dos caminos principales a seguir, cada uno con sus propias ventajas para el progreso y la habitabilidad de la ciudad.",
+          "hi": "पेरुंगुडी अपशिष्ट प्रबंधन स्थल पर चल रहे बायोमाइनिंग प्रोजेक्ट ने पुराने कचरे के एक बड़े हिस्से को सफलतापूर्वक साफ कर दिया है, जिससे यह मूल्यवान पुनः प्राप्त भूमि में बदल गया है। अब, महापौर के रूप में, आपको एक महत्वपूर्ण निर्णय लेना है: चेन्नई के नागरिकों और पर्यावरण को लाभ पहुँचाने के लिए इस नई उपलब्ध जगह का सर्वोत्तम उपयोग कैसे करें। आगे बढ़ने के दो मुख्य रास्ते हैं, प्रत्येक के अपने फायदे हैं जो शहर की प्रगति और रहने की क्षमता के लिए महत्वपूर्ण हैं।",
+          "ta": "பெருங்குடி கழிவு மேலாண்மை தளத்தில் மேற்கொள்ளப்பட்ட முன்னோடி பயோமைனிங் திட்டம், நீண்டகாலமாக குவிந்திருந்த கழிவுகளின் குறிப்பிடத்தக்க பகுதியை வெற்றிகரமாக அகற்றி, அதை மதிப்புமிக்க மீட்டெடுக்கப்பட்ட நிலமாக மாற்றியுள்ளது. இப்போது, மேயராக, இந்த புதிய இடத்தை சென்னையின் குடிமக்கள் மற்றும் சுற்றுச்சூழலுக்கு எவ்வாறு சிறப்பாகப் பயன்படுத்துவது என்பது குறித்து நீங்கள் ஒரு முக்கியமான முடிவை எடுக்க வேண்டும். நகரின் முன்னேற்றம் மற்றும் வாழ்வாதாரத்திற்கு அதன் தனித்துவமான நன்மைகளுடன் இரண்டு முக்கிய வழிகள் உள்ளன."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Develop advanced waste processing facilities, including Bio-CNG plants and material recovery units, to modernize our waste management system.",
+              "es": "Desarrollar instalaciones avanzadas de procesamiento de residuos, incluyendo plantas de biogás y unidades de recuperación de materiales, para modernizar nuestro sistema de gestión de residuos.",
+              "hi": "हमारे अपशिष्ट प्रबंधन प्रणाली को आधुनिक बनाने के लिए बायो-सीएनजी संयंत्रों और सामग्री पुनर्प्राप्ति इकाइयों सहित उन्नत अपशिष्ट प्रसंस्करण सुविधाओं का विकास करें।",
+              "ta": "எங்கள் கழிவு மேலாண்மை அமைப்பை நவீனமயமாக்க பயோ-சிஎன்ஜி ஆலைகள் மற்றும் பொருள் மீட்பு அலகுகள் உள்ளிட்ட மேம்பட்ட கழிவு செயலாக்க வசதிகளை உருவாக்குங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "Establishing modern waste processing facilities significantly boosts Chennai's capacity to handle waste efficiently, reducing landfill reliance and generating clean energy. This enhances urban health and resource recovery, demonstrating a commitment to a circular economy.",
+                "es": "Establecer modernas instalaciones de procesamiento de residuos aumenta significativamente la capacidad de Chennai para manejar los residuos de manera eficiente, reduciendo la dependencia de los vertederos y generando energía limpia. Esto mejora la salud urbana y la recuperación de recursos, demostrando un compromiso con una economía circular.",
+                "hi": "आधुनिक अपशिष्ट प्रसंस्करण सुविधाओं की स्थापना से चेन्नई की अपशिष्ट को कुशलता से संभालने की क्षमता में उल्लेखनीय वृद्धि होती है, जिससे लैंडफिल पर निर्भरता कम होती है और स्वच्छ ऊर्जा उत्पन्न होती है। यह शहरी स्वास्थ्य और संसाधन पुनर्प्राप्ति को बढ़ाता है, जो एक चक्रीय अर्थव्यवस्था के प्रति प्रतिबद्धता को दर्शाता है।",
+                "ta": "நவீன கழிவு செயலாக்க வசதிகளை நிறுவுவது சென்னையின் கழிவுகளை திறம்பட கையாளும் திறனை கணிசமாக அதிகரிக்கிறது, நிலப்பரப்பு சார்ந்த நம்பகத்தன்மையைக் குறைக்கிறது மற்றும் சுத்தமான ஆற்றலை உருவாக்குகிறது. இது நகர்ப்புற ஆரோக்கியத்தையும் வள மீட்பையும் மேம்படுத்துகிறது, சுழற்சிப் பொருளாதாரத்திற்கான உறுதிப்பாட்டை வெளிப்படுத்துகிறது."
+              },
+              "resourceChanges": [
+                {
+                  "name": "city funds",
+                  "value": -20
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 15
+                },
+                {
+                  "name": "public trust",
+                  "value": 10
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Restore the reclaimed land into a natural marshland, preserving the ecosystem and enhancing the city's green infrastructure.",
+              "es": "Restaurar la tierra recuperada para convertirla en un humedal natural, preservando el ecosistema y mejorando la infraestructura verde de la ciudad.",
+              "hi": "पुनः प्राप्त भूमि को एक प्राकृतिक दलदली भूमि में पुनर्स्थापित करें, पारिस्थितिकी तंत्र को संरक्षित करें और शहर के हरित बुनियादी ढांचे को बढ़ाएं।",
+              "ta": "மீட்டெடுக்கப்பட்ட நிலத்தை ஒரு இயற்கையான சதுப்பு நிலமாக மீட்டெடுக்கவும், சுற்றுச்சூழல் அமைப்பைப் பாதுகாக்கவும் மற்றும் நகரத்தின் பசுமை உள்கட்டமைப்பை மேம்படுத்தவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "Transforming the reclaimed land into a marshland aligns with environmental protection goals, significantly boosting Chennai's urban resilience by improving groundwater levels, mitigating floods, and fostering biodiversity. This choice demonstrates a strong commitment to ecological balance and public well-being.",
+                "es": "Transformar la tierra recuperada en un humedal se alinea con los objetivos de protección ambiental, impulsando significativamente la resiliencia urbana de Chennai al mejorar los niveles de agua subterránea, mitigar inundaciones y fomentar la biodiversidad. Esta elección demuestra un fuerte compromiso con el equilibrio ecológico y el bienestar público.",
+                "hi": "पुनः प्राप्त भूमि को दलदली भूमि में बदलना पर्यावरणीय संरक्षण लक्ष्यों के अनुरूप है, जिससे भूजल स्तर में सुधार, बाढ़ को कम करने और जैव विविधता को बढ़ावा देने से चेन्नई की शहरी लचीलापन में काफी वृद्धि होती है। यह विकल्प पारिस्थितिक संतुलन और सार्वजनिक कल्याण के प्रति एक मजबूत प्रतिबद्धता को दर्शाता है।",
+                "ta": "மீட்டெடுக்கப்பட்ட நிலத்தை சதுப்பு நிலமாக மாற்றுவது சுற்றுச்சூழல் பாதுகாப்பு இலக்குகளுடன் இணைகிறது, நிலத்தடி நீர் மட்டத்தை மேம்படுத்துதல், வெள்ளத்தைத் தணித்தல் மற்றும் பல்லுயிர்ப் பெருக்கத்தை வளர்ப்பதன் மூலம் சென்னையின் நகர்ப்புற நெகிழ்ச்சித்தன்மையை கணிசமாக அதிகரிக்கிறது. இந்தத் தேர்வு சுற்றுச்சூழல் சமநிலை மற்றும் பொது நலனுக்கு ஒரு வலுவான உறுதிப்பாட்டைக் காட்டுகிறது."
+              },
+              "resourceChanges": [
+                {
+                  "name": "city funds",
+                  "value": -5
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 20
+                },
+                {
+                  "name": "public trust",
+                  "value": 15
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.newindianexpress.com/cities/chennai/2024/Dec/09/tn-government-may-hand-over-96-acres-of-reclaimed-perungudi-dump-site-to-forest-department",
+        "sourceTitle": {
+          "en": "TN government may hand over 96 acres of reclaimed Perungudi dump site to forest department - The New Indian Express",
+          "es": "El gobierno de TN podría entregar 96 acres de terreno recuperado de Perungudi al departamento forestal - The New Indian Express",
+          "hi": "तमिलनाडु सरकार पेरुंगुडी डंप साइट की 96 एकड़ पुनः प्राप्त भूमि वन विभाग को सौंप सकती है - द न्यू इंडियन एक्सप्रेस",
+          "ta": "தமிழ்நாடு அரசு பெருங்குடி குப்பைக் கிடங்கின் 96 ஏக்கர் நிலத்தை வனத்துறைக்கு ஒப்படைக்கலாம் - தி நியூ இந்தியன் எக்ஸ்பிரஸ்"
+        },
+        "id": "perungudi-waste-management-site-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Water Desalination Plant": [
+      {
+        "title": {
+          "en": "Boosting Chennai's Water Future: The Perur Desalination Project",
+          "es": "Impulsando el Futuro del Agua en Chennai: El Proyecto de Desalinización de Perur",
+          "hi": "चेन्नई के जल भविष्य को बढ़ावा देना: पेरूर विलवणीकरण परियोजना",
+          "ta": "சென்னையின் நீர் எதிர்காலத்தை மேம்படுத்துதல்: பெருர் கடல்நீர் சுத்திகரிப்பு திட்டம்"
+        },
+        "description": {
+          "en": "The construction of the monumental 400 MLD Perur Desalination Plant, vital for Chennai's long-term water security, is progressing. This facility is set to serve over 22 lakh residents and significantly enhance urban resilience. Your engineers have presented two paths: accelerate construction for an earlier launch to meet rising demands, or take a slightly longer path to integrate advanced, energy-efficient technologies for even greater future resilience and lower operational costs. [7, 9, 10]",
+          "es": "La construcción de la monumental Planta Desalinizadora de Perur de 400 MLD, vital para la seguridad hídrica a largo plazo de Chennai, está progresando. Esta instalación servirá a más de 22 lakh de residentes y mejorará significativamente la resiliencia urbana. Sus ingenieros han presentado dos caminos: acelerar la construcción para una puesta en marcha más temprana para satisfacer las crecientes demandas, o tomar un camino ligeramente más largo para integrar tecnologías avanzadas y energéticamente eficientes para una resiliencia futura aún mayor y menores costos operativos.",
+          "hi": "चेन्नई की दीर्घकालिक जल सुरक्षा के लिए महत्वपूर्ण, 400 एमएलडी पेरूर विलवणीकरण संयंत्र का निर्माण प्रगति पर है। यह सुविधा 22 लाख से अधिक निवासियों को सेवा प्रदान करने और शहरी लचीलेपन को उल्लेखनीय रूप से बढ़ाने के लिए तैयार है। आपके इंजीनियरों ने दो रास्ते प्रस्तुत किए हैं: बढ़ती मांगों को पूरा करने के लिए जल्द लॉन्च के लिए निर्माण में तेजी लाना, या भविष्य में और भी अधिक लचीलापन और कम परिचालन लागत के लिए उन्नत, ऊर्जा-कुशल प्रौद्योगिकियों को एकीकृत करने के लिए थोड़ा लंबा रास्ता अपनाना।",
+          "ta": "சென்னையின் நீண்டகால நீர் பாதுகாப்பிற்கு மிகவும் அவசியமான, 400 MLD கொள்ளளவு கொண்ட பெருர் கடல்நீர் சுத்திகரிப்பு ஆலையின் கட்டுமானம் முன்னேறி வருகிறது. இந்த வசதி 22 லட்சத்திற்கும் அதிகமான குடியிருப்பாளர்களுக்கு சேவை செய்யும் மற்றும் நகர்ப்புற பின்னடைவை கணிசமாக மேம்படுத்தும். உங்கள் பொறியாளர்கள் இரண்டு வழிகளை முன்வைத்துள்ளனர்: அதிகரித்து வரும் தேவைகளை பூர்த்தி செய்ய விரைவாக ஆலையைத் தொடங்க கட்டுமானத்தை துரிதப்படுத்துவது, அல்லது எதிர்காலத்தில் இன்னும் அதிக பின்னடைவு மற்றும் குறைந்த இயக்க செலவுகளுக்காக மேம்பட்ட, ஆற்றல்-திறன் கொண்ட தொழில்நுட்பங்களை ஒருங்கிணைக்க சற்று நீண்ட பாதையை பின்பற்றுவது."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Prioritize rapid completion to bring the plant online sooner, addressing immediate water needs.",
+              "es": "Priorizar la finalización rápida para poner la planta en funcionamiento antes, abordando las necesidades inmediatas de agua.",
+              "hi": "तत्काल पानी की जरूरतों को पूरा करने के लिए संयंत्र को जल्दी ऑनलाइन लाने के लिए तेजी से पूरा करने को प्राथमिकता दें।",
+              "ta": "ஆலையை விரைவாக ஆன்லைனில் கொண்டு வந்து, உடனடி நீர் தேவைகளை பூர்த்தி செய்ய, விரைவான நிறைவுக்கு முன்னுரிமை அளிக்கவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The plant begins operations ahead of schedule, providing quicker relief to water-stressed areas and boosting public confidence. However, some advanced features for long-term efficiency are scaled back, potentially leading to higher ongoing operational costs.",
+                "es": "La planta comienza a operar antes de lo previsto, brindando un alivio más rápido a las áreas con escasez de agua y aumentando la confianza pública. Sin embargo, algunas características avanzadas para la eficiencia a largo plazo se reducen, lo que podría generar mayores costos operativos continuos.",
+                "hi": "संयंत्र निर्धारित समय से पहले काम करना शुरू कर देता है, जिससे पानी की कमी वाले क्षेत्रों को तेजी से राहत मिलती है और सार्वजनिक विश्वास बढ़ता है। हालांकि, दीर्घकालिक दक्षता के लिए कुछ उन्नत सुविधाओं को कम कर दिया जाता है, जिससे संभावित रूप से उच्च निरंतर परिचालन लागत हो सकती है।",
+                "ta": "ஆலை திட்டமிடப்பட்டதை விட முன்னதாக செயல்படத் தொடங்குகிறது, இது நீர் பற்றாக்குறை உள்ள பகுதிகளுக்கு விரைவான நிவாரணத்தை அளித்து, மக்களின் நம்பிக்கையை அதிகரிக்கிறது. இருப்பினும், நீண்டகால செயல்திறனுக்கான சில மேம்பட்ட அம்சங்கள் குறைக்கப்படுகின்றன, இது அதிக இயக்க செலவுகளுக்கு வழிவகுக்கும்."
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 20
+                },
+                {
+                  "name": "city funds",
+                  "value": -10
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 15
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Invest additional time and a small amount of funds to incorporate cutting-edge, energy-efficient technologies for maximum long-term benefit.",
+              "es": "Invertir tiempo adicional y una pequeña cantidad de fondos para incorporar tecnologías de vanguardia y energéticamente eficientes para un beneficio máximo a largo plazo.",
+              "hi": "अधिकतम दीर्घकालिक लाभ के लिए अत्याधुनिक, ऊर्जा-कुशल प्रौद्योगिकियों को शामिल करने के लिए अतिरिक्त समय और थोड़ी राशि का निवेश करें।",
+              "ta": "நீண்டகால அதிகபட்ச நன்மைக்காக அதிநவீன, ஆற்றல்-திறன் கொண்ட தொழில்நுட்பங்களை இணைக்க கூடுதல் நேரத்தையும் சிறிய நிதியையும் முதலீடு செய்யவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The plant's completion is slightly delayed, but it becomes a state-of-the-art facility with significantly lower energy consumption and operational costs in the long run, setting a new standard for urban resilience. Initial public patience is required.",
+                "es": "La finalización de la planta se retrasa ligeramente, pero se convierte en una instalación de última generación con un consumo de energía y costos operativos significativamente más bajos a largo plazo, estableciendo un nuevo estándar para la resiliencia urbana. Se requiere paciencia inicial del público.",
+                "hi": "संयंत्र का पूरा होना थोड़ा विलंबित होता है, लेकिन यह लंबी अवधि में काफी कम ऊर्जा खपत और परिचालन लागत के साथ एक अत्याधुनिक सुविधा बन जाता है, जिससे शहरी लचीलेपन के लिए एक नया मानक स्थापित होता है। प्रारंभिक सार्वजनिक धैर्य की आवश्यकता है।",
+                "ta": "ஆலையின் நிறைவு சற்று தாமதமாகிறது, ஆனால் இது நீண்ட காலத்திற்கு கணிசமாக குறைந்த ஆற்றல் நுகர்வு மற்றும் இயக்க செலவுகளுடன் ஒரு அதிநவீன வசதியாக மாறுகிறது, இது நகர்ப்புற பின்னடைவுக்கு ஒரு புதிய தரநிலையை அமைக்கிறது. ஆரம்பத்தில் பொது மக்களின் பொறுமை தேவை."
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 10
+                },
+                {
+                  "name": "city funds",
+                  "value": -20
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 25
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.thehindu.com/news/cities/chennai/construction-of-desalination-plant-at-perur-20-complete-minister-reviews-work/article68498457.ece",
+        "sourceTitle": {
+          "en": "Construction of Perur Desalination Plant 20% complete; Minister reviews work - The Hindu",
+          "es": "Construcción de la Planta Desalinizadora de Perur al 20% de avance; Ministro revisa el trabajo - The Hindu",
+          "hi": "पेरूर विलवणीकरण संयंत्र का निर्माण 20% पूरा; मंत्री ने काम की समीक्षा की - द हिंदू",
+          "ta": "பெருர் கடல்நீர் சுத்திகரிப்பு ஆலையின் கட்டுமானம் 20% நிறைவு; அமைச்சர் பணிகளை ஆய்வு செய்தார் - தி இந்து"
+        },
+        "id": "water-desalination-plant-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "MTC Bus Depot": [
+      {
+        "title": {
+          "en": "Launching Chennai's Green Fleet",
+          "es": "Lanzamiento de la Flota Verde de Chennai",
+          "hi": "चेन्नई के हरित बेड़े का शुभारंभ",
+          "ta": "சென்னையின் பசுமைப் படைப்பிரிவைத் தொடங்குதல்"
+        },
+        "description": {
+          "en": "You are at an MTC bus depot, ready to inaugurate a new fleet of state-of-the-art electric buses. These buses promise reduced emissions and a smoother ride, marking a significant step towards a greener public transport system. However, integrating them effectively into the existing network presents a choice: do you prioritize immediate widespread deployment across all major routes, or do you focus on specific high-traffic corridors and establish dedicated charging infrastructure first?",
+          "es": "Usted se encuentra en un depósito de autobuses MTC, listo para inaugurar una nueva flota de autobuses eléctricos de última generación. Estos autobuses prometen reducir las emisiones y ofrecer un viaje más suave, lo que representa un paso significativo hacia un sistema de transporte público más ecológico. Sin embargo, integrarlos eficazmente en la red existente presenta una elección: ¿prioriza el despliegue inmediato y generalizado en todas las rutas principales, o se enfoca primero en corredores específicos de alto tráfico y establece una infraestructura de carga dedicada?",
+          "hi": "आप एक एमटीसी बस डिपो में हैं, जो अत्याधुनिक इलेक्ट्रिक बसों के एक नए बेड़े का उद्घाटन करने के लिए तैयार हैं। ये बसें कम उत्सर्जन और सुगम यात्रा का वादा करती हैं, जो एक हरित सार्वजनिक परिवहन प्रणाली की दिशा में एक महत्वपूर्ण कदम है। हालांकि, उन्हें मौजूदा नेटवर्क में प्रभावी ढंग से एकीकृत करने के लिए एक विकल्प प्रस्तुत करता है: क्या आप सभी प्रमुख मार्गों पर तत्काल व्यापक तैनाती को प्राथमिकता देते हैं, या आप पहले विशिष्ट उच्च-यातायात गलियारों पर ध्यान केंद्रित करते हैं और समर्पित चार्जिंग इन्फ्रास्ट्रक्चर स्थापित करते हैं?",
+          "ta": "நீங்கள் ஒரு MTC பேருந்து பணிமனையில் இருக்கிறீர்கள், புதிய, அதிநவீன மின்சார பேருந்துகள் சேவையைத் தொடங்குவதற்குத் தயாராக உள்ளீர்கள். இந்தப் பேருந்துகள் குறைக்கப்பட்ட உமிழ்வுகளையும், மென்மையான பயணத்தையும் உறுதியளிக்கின்றன, இது ஒரு பசுமையான பொதுப் போக்குவரத்து அமைப்பை நோக்கி ஒரு குறிப்பிடத்தக்க படியாகும். இருப்பினும், அவற்றை தற்போதுள்ள நெட்வொர்க்கில் திறம்பட ஒருங்கிணைப்பது ஒரு தேர்வை அளிக்கிறது: நீங்கள் உடனடியாக அனைத்து முக்கிய வழித்தடங்களிலும் பரவலான வரிசைப்படுத்தலுக்கு முன்னுரிமை அளிக்கிறீர்களா, அல்லது நீங்கள் முதலில் குறிப்பிட்ட அதிக போக்குவரத்து உள்ள வழித்தடங்களில் கவனம் செலுத்தி, பிரத்தியேக சார்ஜிங் உள்கட்டமைப்பை நிறுவுகிறீர்களா?"
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Deploy new electric buses across various existing routes immediately.",
+              "es": "Desplegar los nuevos autobuses eléctricos en varias rutas existentes de inmediato.",
+              "hi": "नए इलेक्ट्रिक बसों को विभिन्न मौजूदा मार्गों पर तुरंत तैनात करें।",
+              "ta": "புதிய மின்சார பேருந்துகளை பல்வேறு தற்போதுள்ள வழித்தடங்களில் உடனடியாகப் பயன்படுத்தவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "This approach quickly increases the availability of modern buses for more citizens, boosting public trust in green initiatives. However, it strains existing, potentially inadequate, charging infrastructure and might lead to initial operational challenges, slightly impacting urban resilience in the short term. The MTC has been actively expanding its electric bus fleet, with hundreds of new e-buses being rolled out across Chennai's depots. [2, 4, 6, 8, 10, 18]",
+                "es": "Este enfoque aumenta rápidamente la disponibilidad de autobuses modernos para más ciudadanos, impulsando la confianza pública en las iniciativas ecológicas. Sin embargo, ejerce presión sobre la infraestructura de carga existente, que podría ser inadecuada, y podría generar desafíos operativos iniciales, lo que afectaría ligeramente la resiliencia urbana a corto plazo. La MTC ha estado expandiendo activamente su flota de autobuses eléctricos, con cientos de nuevos autobuses eléctricos siendo desplegados en los depósitos de Chennai. [2, 4, 6, 8, 10, 18]",
+                "hi": "यह दृष्टिकोण अधिक नागरिकों के लिए आधुनिक बसों की उपलब्धता को तेजी से बढ़ाता है, जिससे हरित पहलों में सार्वजनिक विश्वास बढ़ता है। हालांकि, यह मौजूदा, संभावित रूप से अपर्याप्त, चार्जिंग इन्फ्रास्ट्रक्चर पर दबाव डालता है और प्रारंभिक परिचालन चुनौतियों को जन्म दे सकता है, जिससे अल्पावधि में शहरी लचीलेपन पर थोड़ा प्रभाव पड़ता है। एमटीसी चेन्नई के डिपो में सैकड़ों नए ई-बसों को तैनात करके अपने इलेक्ट्रिक बस बेड़े का सक्रिय रूप से विस्तार कर रहा है। [2, 4, 6, 8, 10, 18]",
+                "ta": "இந்த அணுகுமுறை அதிக குடிமக்களுக்கு நவீன பேருந்துகளின் கிடைப்பதை விரைவாக அதிகரிக்கிறது, பசுமை முயற்சிகளில் பொது நம்பிக்கையை அதிகரிக்கிறது. இருப்பினும், இது தற்போதுள்ள, போதிய வசதியற்ற, சார்ஜிங் உள்கட்டமைப்பில் அழுத்தத்தை ஏற்படுத்துகிறது மற்றும் ஆரம்பகால இயக்கச் சவால்களுக்கு வழிவகுக்கும், குறுகிய காலத்தில் நகர்ப்புற பின்னடைவை சற்று பாதிக்கிறது. MTC தனது மின்சார பேருந்து கடற்படையை தீவிரமாக விரிவுபடுத்தி வருகிறது, சென்னையின் பணிமனைகளில் நூற்றுக்கணக்கான புதிய மின்சார பேருந்துகள் அறிமுகப்படுத்தப்படுகின்றன. [2, 4, 6, 8, 10, 18]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 20
+                },
+                {
+                  "name": "city funds",
+                  "value": -10
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 5
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Focus new electric buses on key high-traffic corridors and establish robust charging infrastructure first.",
+              "es": "Centrar los nuevos autobuses eléctricos en corredores clave de alto tráfico y establecer una infraestructura de carga robusta primero.",
+              "hi": "नए इलेक्ट्रिक बसों को पहले प्रमुख उच्च-यातायात गलियारों पर केंद्रित करें और मजबूत चार्जिंग इन्फ्रास्ट्रक्चर स्थापित करें।",
+              "ta": "புதிய மின்சார பேருந்துகளை முக்கிய அதிக போக்குவரத்து உள்ள வழித்தடங்களில் முதலில் கவனம் செலுத்தி, வலுவான சார்ஜிங் உள்கட்டமைப்பை நிறுவவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "This ensures a highly efficient and reliable service on selected routes, improving air quality and setting a strong foundation for future expansion. While initial public access is more limited, it builds long-term urban resilience and financial sustainability. Several MTC depots are undergoing modernization to support new electric bus fleets and charging needs. [2, 4, 5, 6, 9, 11, 12, 13, 18]",
+                "es": "Esto garantiza un servicio altamente eficiente y confiable en rutas seleccionadas, mejorando la calidad del aire y sentando una base sólida para futuras expansiones. Aunque el acceso público inicial es más limitado, construye una resiliencia urbana y una sostenibilidad financiera a largo plazo. Varios depósitos de MTC están siendo modernizados para apoyar las nuevas flotas de autobuses eléctricos y las necesidades de carga. [2, 4, 5, 6, 9, 11, 12, 13, 18]",
+                "hi": "यह चयनित मार्गों पर अत्यधिक कुशल और विश्वसनीय सेवा सुनिश्चित करता है, जिससे वायु गुणवत्ता में सुधार होता है और भविष्य के विस्तार के लिए एक मजबूत आधार तैयार होता है। जबकि प्रारंभिक सार्वजनिक पहुंच अधिक सीमित है, यह दीर्घकालिक शहरी लचीलापन और वित्तीय स्थिरता का निर्माण करता है। कई एमटीसी डिपो को नई इलेक्ट्रिक बस बेड़े और चार्जिंग जरूरतों का समर्थन करने के लिए आधुनिकीकरण किया जा रहा है। [2, 4, 5, 6, 9, 11, 12, 13, 18]",
+                "ta": "இது தேர்ந்தெடுக்கப்பட்ட வழித்தடங்களில் மிகவும் திறமையான மற்றும் நம்பகமான சேவையை உறுதி செய்கிறது, காற்றின் தரத்தை மேம்படுத்துகிறது மற்றும் எதிர்கால விரிவாக்கத்திற்கு ஒரு வலுவான அடித்தளத்தை அமைக்கிறது. ஆரம்பகால பொது அணுகல் மிகவும் குறைவாக இருந்தாலும், இது நீண்டகால நகர்ப்புற பின்னடைவு மற்றும் நிதி நிலைத்தன்மையை உருவாக்குகிறது. புதிய மின்சார பேருந்து கடற்படைகள் மற்றும் சார்ஜிங் தேவைகளை ஆதரிப்பதற்காக பல MTC பணிமனைகள் நவீனமயமாக்கப்பட்டு வருகின்றன. [2, 4, 5, 6, 9, 11, 12, 13, 18]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 10
+                },
+                {
+                  "name": "city funds",
+                  "value": -20
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 15
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://dtnext.in/News/City/2025/08/06121226/1932338/Chennai-MTC-to-introduce-135-more-electric-buses.amp",
+        "sourceTitle": {
+          "en": "Chennai: MTC to introduce 135 more electric buses on Aug 11 - dtnext",
+          "es": "Chennai: MTC introducirá 135 autobuses eléctricos más el 11 de agosto - dtnext",
+          "hi": "चेन्नई: एमटीसी 11 अगस्त को 135 और इलेक्ट्रिक बसें पेश करेगा - dtnext",
+          "ta": "சென்னை: ஆகஸ்ட் 11 அன்று மேலும் 135 மின்சார பேருந்துகளை MTC அறிமுகப்படுத்தவுள்ளது - dtnext"
+        },
+        "id": "mtc-bus-depot-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Chennai Metro Rail Expansion": [
+      {
+        "title": {
+          "en": "The Metro Marathon: Speed vs. Serenity",
+          "es": "El Maratón del Metro: Velocidad vs. Serenidad",
+          "hi": "मेट्रो मैराथन: गति बनाम शांति",
+          "ta": "மெட்ரோ மாரத்தான்: வேகம் vs அமைதி"
+        },
+        "description": {
+          "en": "As Mayor, you face a critical decision regarding the ongoing Chennai Metro Rail Phase 2 expansion. Construction along the busy Arcot Road corridor is causing significant daily inconvenience—dust, noise, and traffic detours—affecting residents and businesses. The construction company proposes a 'Fast-Track Initiative' to complete this crucial section six months ahead of schedule, reducing the overall period of disruption. This would involve intensified night work and a 10% budget increase for specialized equipment and overtime. [9, 15]",
+          "es": "Como alcalde, se enfrenta a una decisión crítica con respecto a la expansión en curso de la Fase 2 del Metro de Chennai. La construcción a lo largo del concurrido corredor de Arcot Road está causando importantes inconvenientes diarios (polvo, ruido y desvíos de tráfico) que afectan a residentes y empresas. La empresa constructora propone una 'Iniciativa de Vía Rápida' para completar esta sección crucial seis meses antes de lo previsto, reduciendo el período general de interrupción. Esto implicaría un trabajo nocturno intensificado y un aumento del 10% en el presupuesto para equipos especializados y horas extras. [9, 15]",
+          "hi": "महापौर के रूप में, आपको चेन्नई मेट्रो रेल चरण 2 के चल रहे विस्तार के संबंध में एक महत्वपूर्ण निर्णय का सामना करना पड़ता है। व्यस्त आर्कॉट रोड गलियारे के साथ निर्माण से दैनिक रूप से काफी असुविधा हो रही है - धूल, शोर और यातायात में बदलाव - जिससे निवासियों और व्यवसायों पर असर पड़ रहा है। निर्माण कंपनी ने एक 'फास्ट-ट्रैक पहल' का प्रस्ताव किया है ताकि इस महत्वपूर्ण खंड को छह महीने पहले पूरा किया जा सके, जिससे कुल व्यवधान की अवधि कम हो जाएगी। इसमें रात के काम को तेज करना और विशेष उपकरण और ओवरटाइम के लिए बजट में 10% की वृद्धि शामिल होगी। [9, 15]",
+          "ta": "மேயராக, சென்னை மெட்ரோ ரயில் இரண்டாம் கட்ட விரிவாக்கம் தொடர்பாக ஒரு முக்கியமான முடிவை நீங்கள் எடுக்க வேண்டும். பரபரப்பான ஆற்காடு சாலைப் பகுதியில் நடந்து வரும் கட்டுமானப் பணிகள் தினசரி பெரும் சிரமங்களை (தூசி, சத்தம், போக்குவரத்து திசைதிருப்பல்) ஏற்படுத்தி, குடியிருப்பாளர்களையும் வணிகங்களையும் பாதித்து வருகின்றன. கட்டுமான நிறுவனம் ஒரு 'விரைவுப் பாதை முயற்சியை' முன்வைத்துள்ளது, இது இந்த முக்கியப் பிரிவை ஆறு மாதங்களுக்கு முன்பே முடித்து, ஒட்டுமொத்த இடையூறு காலத்தைக் குறைக்கும். இதற்கு இரவு நேர வேலைகள் தீவிரமடைதல் மற்றும் சிறப்பு உபகரணங்கள் மற்றும் கூடுதல் நேரத்திற்கான பட்ஜெட்டில் 10% அதிகரிப்பு தேவைப்படும். [9, 15]"
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Approve the Fast-Track Initiative: Push for accelerated construction, completing the section six months early.",
+              "es": "Aprobar la Iniciativa de Vía Rápida: Impulsar la construcción acelerada, completando la sección seis meses antes.",
+              "hi": "फास्ट-ट्रैक पहल को मंजूरी दें: त्वरित निर्माण के लिए जोर दें, जिससे खंड छह महीने पहले पूरा हो जाए।",
+              "ta": "விரைவுப் பாதை முயற்சியை அங்கீகரிக்கவும்: விரைவுபடுத்தப்பட்ட கட்டுமானத்தை மேற்கொள்ளவும், ஆறு மாதங்களுக்கு முன்பே பகுதியை முடிக்கவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "By fast-tracking, you bring the metro's long-term benefits closer, such as reduced traffic and pollution. While immediate disruptions are intensified, the shorter overall construction period is appreciated by many, showing decisive leadership. However, the budget increase strains city funds. [2, 3, 9, 13]",
+                "es": "Al acelerar, acerca los beneficios a largo plazo del metro, como la reducción del tráfico y la contaminación. Si bien las interrupciones inmediatas se intensifican, el período de construcción general más corto es apreciado por muchos, lo que demuestra un liderazgo decisivo. Sin embargo, el aumento del presupuesto ejerce presión sobre los fondos de la ciudad. [2, 3, 9, 13]",
+                "hi": "तेजी से काम करके, आप मेट्रो के दीर्घकालिक लाभों को करीब लाते हैं, जैसे कि कम यातायात और प्रदूषण। हालांकि तत्काल व्यवधान तेज होते हैं, कुल मिलाकर कम निर्माण अवधि कई लोगों द्वारा सराही जाती है, जो निर्णायक नेतृत्व को दर्शाता है। हालांकि, बजट में वृद्धि से शहर के धन पर दबाव पड़ता है। [2, 3, 9, 13]",
+                "ta": "வேகமாகச் செயல்படுவதன் மூலம், போக்குவரத்து நெரிசல் குறைப்பு மற்றும் மாசுபாடு போன்ற மெட்ரோவின் நீண்ட கால நன்மைகளை நீங்கள் விரைவாகப் பெறுகிறீர்கள். உடனடி இடையூறுகள் தீவிரப்படுத்தப்பட்டாலும், ஒட்டுமொத்த கட்டுமானக் காலம் குறைவாக இருப்பதால் பலர் அதைப் பாராட்டுகிறார்கள், இது தீர்க்கமான தலைமைத்துவத்தைக் காட்டுகிறது. இருப்பினும், பட்ஜெட் அதிகரிப்பு நகர நிதிகளுக்கு அழுத்தத்தை ஏற்படுத்துகிறது. [2, 3, 9, 13]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 10
+                },
+                {
+                  "name": "city funds",
+                  "value": -20
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 25
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Maintain Current Pace with Enhanced Mitigation: Continue at the planned speed, but invest in more rigorous dust control, noise barriers, and better traffic management to ease daily life.",
+              "es": "Mantener el Ritmo Actual con Mitigación Mejorada: Continuar al ritmo planificado, pero invertir en un control de polvo más riguroso, barreras de ruido y una mejor gestión del tráfico para facilitar la vida diaria.",
+              "hi": "उन्नत शमन के साथ वर्तमान गति बनाए रखें: नियोजित गति पर जारी रखें, लेकिन दैनिक जीवन को आसान बनाने के लिए अधिक कठोर धूल नियंत्रण, ध्वनि अवरोधक और बेहतर यातायात प्रबंधन में निवेश करें।",
+              "ta": "மேம்படுத்தப்பட்ட தணிப்புடன் தற்போதைய வேகத்தைத் தொடரவும்: திட்டமிடப்பட்ட வேகத்தில் தொடரவும், ஆனால் தினசரி வாழ்க்கையை எளிதாக்க அதிக கடுமையான தூசி கட்டுப்பாடு, ஒலித் தடைகள் மற்றும் சிறந்த போக்குவரத்து நிர்வாகத்தில் முதலீடு செய்யவும்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "Prioritizing resident comfort builds strong goodwill and reduces short-term hardship. The city's daily life remains more manageable during construction. However, the metro's full benefits are delayed, and some citizens grow impatient for completion, potentially impacting future projects. [15]",
+                "es": "Priorizar la comodidad de los residentes genera una fuerte buena voluntad y reduce las dificultades a corto plazo. La vida diaria de la ciudad sigue siendo más manejable durante la construcción. Sin embargo, los beneficios completos del metro se retrasan, y algunos ciudadanos se impacientan por la finalización, lo que podría afectar proyectos futuros. [15]",
+                "hi": "निवासियों के आराम को प्राथमिकता देने से मजबूत सद्भावना बनती है और अल्पकालिक कठिनाई कम होती है। निर्माण के दौरान शहर का दैनिक जीवन अधिक प्रबंधनीय रहता है। हालांकि, मेट्रो के पूरे लाभों में देरी होती है, और कुछ नागरिक पूर्ण होने का इंतजार करते हुए अधीर हो जाते हैं, जिससे भविष्य की परियोजनाओं पर संभावित रूप से असर पड़ सकता है। [15]",
+                "ta": "குடியிருப்பாளர்களின் வசதிக்கு முன்னுரிமை அளிப்பது வலுவான நல்லெண்ணத்தை உருவாக்குகிறது மற்றும் குறுகிய கால சிரமத்தைக் குறைக்கிறது. கட்டுமானத்தின் போது நகரத்தின் தினசரி வாழ்க்கை மிகவும் நிர்வகிக்கக்கூடியதாக இருக்கும். இருப்பினும், மெட்ரோவின் முழுப் பலன்கள் தாமதமாகின்றன, மேலும் சில குடிமக்கள் நிறைவடைவதற்காக பொறுமையிழக்கிறார்கள், இது எதிர்கால திட்டங்களைப் பாதிக்கலாம். [15]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 15
+                },
+                {
+                  "name": "city funds",
+                  "value": -10
+                },
+                {
+                  "name": "urban resilience",
+                  "value": -15
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://www.timesproperty.com/news/chennai/chennai-metro-phase-ii-expansion-routes-timelines-and-key-updates-49035",
+        "sourceTitle": {
+          "en": "Chennai Metro Rail Phase 2 Updates and Challenges",
+          "es": "Actualizaciones y desafíos de la Fase 2 del Metro de Chennai",
+          "hi": "चेन्नई मेट्रो रेल चरण 2 अपडेट और चुनौतियां",
+          "ta": "சென்னை மெட்ரோ ரயில் இரண்டாம் கட்ட மேம்பாடுகள் மற்றும் சவால்கள்"
+        },
+        "id": "chennai-metro-rail-expansion-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "TIDEL Park IT Corridor": [
+      {
+        "title": {
+          "en": "The Green IT Corridor Initiative",
+          "es": "La Iniciativa del Corredor Verde de TI",
+          "hi": "ग्रीन आईटी कॉरिडोर पहल",
+          "ta": "பசுமை ஐடி காரிடர் முயற்சி"
+        },
+        "description": {
+          "en": "The TIDEL Park IT Corridor, a symbol of Chennai's economic growth, is experiencing increasing strain from rapid urbanization. Traffic congestion, limited pedestrian access, and a lack of green spaces are impacting the daily lives of thousands of tech professionals and local residents. As Mayor, you must decide how to enhance the livability and sustainability of this vital area.",
+          "es": "El Corredor de TI de TIDEL Park, un símbolo del crecimiento económico de Chennai, está experimentando una creciente tensión debido a la rápida urbanización. La congestión del tráfico, el acceso limitado para peatones y la falta de espacios verdes están afectando la vida diaria de miles de profesionales de la tecnología y residentes locales. Como alcalde, debe decidir cómo mejorar la habitabilidad y la sostenibilidad de esta área vital.",
+          "hi": "चेन्नई के आर्थिक विकास का प्रतीक टिडेल पार्क आईटी कॉरिडोर, तेजी से शहरीकरण के कारण बढ़ते दबाव का सामना कर रहा है। यातायात जाम, पैदल यात्रियों के लिए सीमित पहुँच और हरे-भरे स्थानों की कमी हजारों तकनीकी पेशेवरों और स्थानीय निवासियों के दैनिक जीवन को प्रभावित कर रही है। महापौर के रूप में, आपको इस महत्वपूर्ण क्षेत्र की जीवन-क्षमता और स्थिरता को बढ़ाने का तरीका तय करना होगा।",
+          "ta": "சென்னையின் பொருளாதார வளர்ச்சிக்கு ஒரு அடையாளமாகத் திகழும் டைடல் பார்க் IT காரிடர், அதிவேக நகரமயமாக்கலால் அதிகரித்து வரும் அழுத்தத்தைச் சந்தித்து வருகிறது. போக்குவரத்து நெரிசல், குறைந்த பாதசாரி அணுகல் மற்றும் பசுமை இடங்களின் பற்றாக்குறை ஆகியவை ஆயிரக்கணக்கான தொழில்நுட்ப வல்லுநர்கள் மற்றும் உள்ளூர் குடியிருப்பாளர்களின் தினசரி வாழ்க்கையைப் பாதிக்கின்றன. மேயராக, இந்த முக்கியப் பகுதியின் வாழும் திறன் மற்றும் நிலைத்தன்மையை எவ்வாறு மேம்படுத்துவது என்பதை நீங்கள் தீர்மானிக்க வேண்டும்."
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Invest in 'Green Walkways' and Urban Plazas: Prioritize funds to develop wide, tree-lined pedestrian walkways and small public plazas around TIDEL Park, creating immediate pleasant and safe zones for walking and relaxation.",
+              "es": "Invertir en 'Senderos Verdes' y Plazas Urbanas: Priorizar fondos para desarrollar amplios senderos peatonales arbolados y pequeñas plazas públicas alrededor del Parque TIDEL, creando zonas agradables y seguras para caminar y relajarse.",
+              "hi": " 'ग्रीन वॉकवे' और शहरी प्लाजा में निवेश करें: टिडेल पार्क के आसपास चौड़े, पेड़-कतार वाले पैदल चलने के रास्ते और छोटे सार्वजनिक प्लाजा विकसित करने के लिए धन को प्राथमिकता दें, जिससे चलने और आराम करने के लिए तत्काल सुखद और सुरक्षित क्षेत्र बनें।",
+              "ta": "'பசுமை நடைபாதைகள்' மற்றும் நகர சதுக்கங்களில் முதலீடு செய்யுங்கள்: டைடல் பூங்காவைச் சுற்றி அகலமான, மரங்கள் நிறைந்த நடைபாதைகள் மற்றும் சிறிய பொது சதுக்கங்களை உருவாக்க நிதிகளுக்கு முன்னுரிமை அளியுங்கள், நடந்து செல்லவும் ஓய்வெடுக்கவும் உடனடி இனிமையான மற்றும் பாதுகாப்பான பகுதிகளை உருவாக்குங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The new green walkways and plazas have transformed the immediate vicinity of TIDEL Park, making it a much more enjoyable and accessible area for everyone. The visible improvements have significantly boosted public morale and enhanced the city's livability. [20]",
+                "es": "Los nuevos senderos verdes y plazas han transformado la proximidad de TIDEL Park, convirtiéndola en un área mucho más agradable y accesible para todos. Las mejoras visibles han impulsado significativamente la moral pública y mejorado la habitabilidad de la ciudad. [20]",
+                "hi": "नए हरे-भरे पैदल मार्ग और प्लाजा ने टिडेल पार्क के तत्काल आसपास के क्षेत्र को बदल दिया है, जिससे यह सभी के लिए कहीं अधिक सुखद और सुलभ क्षेत्र बन गया है। दिखाई पड़ने वाले सुधारों ने सार्वजनिक मनोबल को काफी बढ़ाया है और शहर की जीवन-क्षमता को बढ़ाया है। [20]",
+                "ta": "புதிய பசுமை நடைபாதைகள் மற்றும் சதுக்கங்கள் டைடல் பூங்காவின் உடனடிப் பகுதிகளை மாற்றி, அனைவருக்கும் மிகவும் ரசிக்கும்படியான மற்றும் அணுகக்கூடிய பகுதியாக மாற்றியுள்ளன. கண்கூடான மேம்பாடுகள் பொது மக்களின் மன உறுதியை கணிசமாக உயர்த்தி, நகரின் வாழும் திறனை மேம்படுத்தியுள்ளன. [20]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 20
+                },
+                {
+                  "name": "city funds",
+                  "value": -15
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 15
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Accelerate Metro Feeder Service: Allocate substantial funds to launch a high-frequency electric shuttle service directly connecting TIDEL Park to the nearest Metro station, reducing traffic congestion at a larger scale.",
+              "es": "Acelerar el Servicio de Alimentación del Metro: Asignar fondos sustanciales para lanzar un servicio de transporte eléctrico de alta frecuencia que conecte directamente el Parque TIDEL con la estación de Metro más cercana, reduciendo la congestión del tráfico a mayor escala.",
+              "hi": "मेट्रो फीडर सेवा में तेजी लाएं: टिडेल पार्क को निकटतम मेट्रो स्टेशन से सीधे जोड़ने वाली उच्च-आवृत्ति वाली इलेक्ट्रिक शटल सेवा शुरू करने के लिए पर्याप्त धन आवंटित करें, जिससे बड़े पैमाने पर यातायात की भीड़ कम हो सके।",
+              "ta": "மெட்ரோ இணைப்புச் சேவையை விரைவுபடுத்துங்கள்: டைடல் பூங்காவை அருகில் உள்ள மெட்ரோ நிலையத்துடன் நேரடியாக இணைக்கும் உயர்-அதிர்வெண் கொண்ட மின்சார ஷட்டில் சேவையைத் தொடங்க கணிசமான நிதியை ஒதுக்குங்கள், இதன் மூலம் பெரிய அளவில் போக்குவரத்து நெரிசலைக் குறைக்கலாம்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "The dedicated shuttle service has significantly improved connectivity to the Metro network, easing congestion on the main roads and providing a fast, reliable commute option for many. While a substantial investment, it lays the groundwork for long-term transport efficiency and reduced environmental impact. [2, 13]",
+                "es": "El servicio de transporte dedicado ha mejorado significativamente la conectividad con la red de Metro, aliviando la congestión en las carreteras principales y proporcionando una opción de viaje rápida y confiable para muchos. Aunque es una inversión sustancial, sienta las bases para una eficiencia de transporte a largo plazo y un menor impacto ambiental. [2, 13]",
+                "hi": "समर्पित शटल सेवा ने मेट्रो नेटवर्क से कनेक्टिविटी में काफी सुधार किया है, जिससे मुख्य सड़कों पर भीड़ कम हो गई है और कई लोगों के लिए एक तेज, विश्वसनीय आवागमन विकल्प प्रदान किया गया है। जबकि यह एक बड़ा निवेश है, यह दीर्घकालिक परिवहन दक्षता और कम पर्यावरणीय प्रभाव के लिए आधार तैयार करता है। [2, 13]",
+                "ta": "பிரத்யேக ஷட்டில் சேவை மெட்ரோ நெட்வொர்க்குக்கான இணைப்பை கணிசமாக மேம்படுத்தியுள்ளது, இது முக்கிய சாலைகளில் நெரிசலைக் குறைத்து, பலருக்கு விரைவான, நம்பகமான பயண விருப்பத்தை வழங்குகிறது. இது ஒரு பெரிய முதலீடாக இருந்தாலும், இது நீண்டகால போக்குவரத்து திறன் மற்றும் குறைந்த சுற்றுச்சூழல் தாக்கத்திற்கான அடித்தளத்தை அமைக்கிறது. [2, 13]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "public trust",
+                  "value": 10
+                },
+                {
+                  "name": "city funds",
+                  "value": -20
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 20
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://economictimes.indiatimes.com/industry/transportation/railways/tamil-nadu-plans-to-revamp-chennais-public-spaces-with-new-footpaths-beautification-projects/articleshow/111246714.cms",
+        "sourceTitle": {
+          "en": "Tamil Nadu plans to revamp Chennai's public spaces with new footpaths, beautification projects",
+          "es": "Tamil Nadu planea renovar los espacios públicos de Chennai con nuevas aceras y proyectos de embellecimiento",
+          "hi": "तमिलनाडु ने नए फुटपाथों, सौंदर्यीकरण परियोजनाओं के साथ चेन्नई के सार्वजनिक स्थानों को नया रूप देने की योजना बनाई है",
+          "ta": "புதிய நடைபாதைகள், அழகுபடுத்தும் திட்டங்களுடன் சென்னையின் பொது இடங்களை புதுப்பிக்க தமிழகம் திட்டமிட்டுள்ளது"
+        },
+        "id": "tidel-park-it-corridor-0",
+        "custom": false,
+        "enabled": true
+      }
+    ],
+    "Chennai Corporation Building": [
+      {
+        "title": {
+          "en": "Greening Chennai: A Lakh Saplings Initiative",
+          "es": "Enverdecimiento de Chennai: Iniciativa de Un Lakh de Plántulas",
+          "hi": "चेन्नई को हरा-भरा बनाना: एक लाख पौधे लगाने की पहल",
+          "ta": "சென்னையை பசுமையாக்குதல்: ஒரு லட்சம் மரக்கன்றுகள் திட்டம்"
+        },
+        "description": {
+          "en": "Chennai aims to drastically increase its green cover, currently at a low 5.28% against a target of 33.3%. The Chennai Corporation has pledged to plant 1 lakh saplings. You, as the Mayor, must decide the most effective way to implement this ambitious greening project, balancing immediate impact with long-term sustainability and community involvement. [7, 12]",
+          "es": "Chennai tiene como objetivo aumentar drásticamente su cubierta verde, que actualmente es baja (5.28%) frente a un objetivo del 33.3%. La Corporación de Chennai se ha comprometido a plantar 1 lakh de plántulas. Como alcalde, debe decidir la forma más efectiva de implementar este ambicioso proyecto de ecologización, equilibrando el impacto inmediato con la sostenibilidad a largo plazo y la participación de la comunidad. [7, 12]",
+          "hi": "चेन्नई का लक्ष्य अपनी हरी-भरी भूमि को नाटकीय रूप से बढ़ाना है, जो वर्तमान में 33.3% के लक्ष्य के मुकाबले 5.28% पर कम है। चेन्नई निगम ने 1 लाख पौधे लगाने का संकल्प लिया है। मेयर के रूप में, आपको इस महत्वाकांक्षी हरियाली परियोजना को लागू करने का सबसे प्रभावी तरीका तय करना होगा, जिसमें तत्काल प्रभाव के साथ दीर्घकालिक स्थिरता और सामुदायिक भागीदारी को संतुलित करना होगा। [7, 12]",
+          "ta": "சென்னை தனது பசுமைப் பரப்பை வியத்தகு அளவில் அதிகரிக்க இலக்கு வைத்துள்ளது, தற்போது 33.3% இலக்குக்கு எதிராக 5.28% குறைவாக உள்ளது. சென்னை மாநகராட்சி 1 லட்சம் மரக்கன்றுகளை நடவு செய்ய உறுதியளித்துள்ளது. மேயராகிய நீங்கள், இந்த லட்சிய பசுமையாக்கும் திட்டத்தை செயல்படுத்த மிகவும் பயனுள்ள வழியை தீர்மானிக்க வேண்டும், உடனடி தாக்கம் மற்றும் நீண்ட கால நிலைத்தன்மை மற்றும் சமூக ஈடுபாட்டை சமநிலைப்படுத்துங்கள். [7, 12]"
+        },
+        "choices": [
+          {
+            "text": {
+              "en": "Allocate significant city funds to establish high-density Miyawaki forests on available corporation lands, prioritizing rapid ecological impact and biodiversity.",
+              "es": "Asignar fondos municipales significativos para establecer bosques Miyawaki de alta densidad en terrenos corporativos disponibles, priorizando el rápido impacto ecológico y la biodiversidad.",
+              "hi": "उपलब्ध निगम भूमि पर उच्च-घनत्व वाले मियावाकी वन स्थापित करने के लिए महत्वपूर्ण शहर के धन का आवंटन करें, तेजी से पारिस्थितिक प्रभाव और जैव विविधता को प्राथमिकता दें।",
+              "ta": "கிடைக்கக்கூடிய மாநகராட்சி நிலங்களில் அதிக அடர்த்தி கொண்ட மியாவாக்கி காடுகளை உருவாக்க கணிசமான நகர நிதியை ஒதுக்குங்கள், விரைவான சுற்றுச்சூழல் தாக்கம் மற்றும் பல்லுயிர்ப் பெருக்கத்திற்கு முன்னுரிமை அளியுங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "You invest heavily in creating compact, fast-growing forests. While expensive, these mini-forests quickly improve air quality and urban resilience, boosting public perception of environmental action, though some may prefer more distributed greening. [2, 5]",
+                "es": "Usted invierte mucho en la creación de bosques compactos y de rápido crecimiento. Aunque son caros, estos mini-bosques mejoran rápidamente la calidad del aire y la resiliencia urbana, impulsando la percepción pública de la acción ambiental, aunque algunos prefieran una ecologización más distribuida. [2, 5]",
+                "hi": "आप सघन, तेजी से बढ़ने वाले वन बनाने में भारी निवेश करते हैं। हालांकि महंगे, ये मिनी-वन तेजी से वायु गुणवत्ता और शहरी लचीलेपन में सुधार करते हैं, जिससे पर्यावरणीय कार्रवाई की सार्वजनिक धारणा बढ़ती है, हालांकि कुछ लोग अधिक वितरित हरियाली पसंद कर सकते हैं। [2, 5]",
+                "ta": "நீங்கள் கச்சிதமான, வேகமாக வளரும் காடுகளை உருவாக்குவதில் அதிக முதலீடு செய்கிறீர்கள். இவை விலை உயர்ந்ததாக இருந்தாலும், இந்த மினி-காடுகள் விரைவாக காற்றின் தரத்தையும் நகரத்தின் நெகிழ்வுத்தன்மையையும் மேம்படுத்துகின்றன, சுற்றுச்சூழல் நடவடிக்கை குறித்த பொதுமக்களின் கருத்தை அதிகரிக்கின்றன, இருப்பினும் சிலர் அதிக பரவலான பசுமையாக்கலை விரும்பலாம். [2, 5]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "city funds",
+                  "value": -20
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 25
+                },
+                {
+                  "name": "public trust",
+                  "value": 15
+                }
+              ]
+            }
+          },
+          {
+            "text": {
+              "en": "Launch a massive public-private partnership, engaging Resident Welfare Associations and NGOs to plant native saplings across neighborhoods, parks, and roadside areas with community participation.",
+              "es": "Lanzar una asociación público-privada masiva, involucrando a Asociaciones de Bienestar de Residentes y ONG para plantar plántulas nativas en vecindarios, parques y áreas al borde de la carretera con participación comunitaria.",
+              "hi": "निवासियों के कल्याण संघों और गैर-सरकारी संगठनों को शामिल करते हुए, सामुदायिक भागीदारी के साथ पड़ोस, पार्कों और सड़कों के किनारे देशी पौधे लगाने के लिए एक विशाल सार्वजनिक-निजी भागीदारी शुरू करें।",
+              "ta": "குடியிருப்பு நல சங்கங்கள் மற்றும் தன்னார்வ தொண்டு நிறுவனங்களை ஈடுபடுத்தி, சமூக பங்கேற்புடன் சுற்றுப்புறங்கள், பூங்காக்கள் மற்றும் சாலை ஓரங்களில் உள்ள பகுதிகளில் நாட்டு மரக்கன்றுகளை நடவு செய்ய ஒரு பெரிய பொது-தனியார் கூட்டாண்மையை தொடங்குங்கள்."
+            },
+            "outcome": {
+              "explanation": {
+                "en": "You foster strong community involvement, leading to widespread greening efforts at a lower direct cost to the city. This builds immense public trust and encourages local stewardship, but the overall greening might be slower to establish uniform impact. [4, 6, 8]",
+                "es": "Usted fomenta una fuerte participación de la comunidad, lo que lleva a esfuerzos de ecologización generalizados a un costo directo más bajo para la ciudad. Esto genera una inmensa confianza pública y fomenta la administración local, pero la ecologización general podría tardar más en establecer un impacto uniforme. [4, 6, 8]",
+                "hi": "आप मजबूत सामुदायिक भागीदारी को बढ़ावा देते हैं, जिससे शहर के लिए कम प्रत्यक्ष लागत पर व्यापक हरियाली के प्रयास होते हैं। यह भारी सार्वजनिक विश्वास बनाता है और स्थानीय प्रबंधन को प्रोत्साहित करता है, लेकिन समग्र हरियाली को एक समान प्रभाव स्थापित करने में अधिक समय लग सकता है। [4, 6, 8]",
+                "ta": "நீங்கள் வலுவான சமூக ஈடுபாட்டை வளர்க்கிறீர்கள், இது நகரத்திற்கு குறைந்த நேரடி செலவில் பரவலான பசுமையாக்கும் முயற்சிகளுக்கு வழிவகுக்கிறது. இது மகத்தான பொது நம்பிக்கையை உருவாக்குகிறது மற்றும் உள்ளூர் நிர்வாகத்தை ஊக்குவிக்கிறது, ஆனால் ஒட்டுமொத்த பசுமையாக்குதல் சீரான தாக்கத்தை ஏற்படுத்த மெதுவாக இருக்கலாம். [4, 6, 8]"
+              },
+              "resourceChanges": [
+                {
+                  "name": "city funds",
+                  "value": -10
+                },
+                {
+                  "name": "urban resilience",
+                  "value": 15
+                },
+                {
+                  "name": "public trust",
+                  "value": 25
+                }
+              ]
+            }
+          }
+        ],
+        "sourceUrl": "https://urbanacres.in/chennai-to-boost-green-cover-with-1-lakh-saplings/",
+        "sourceTitle": {
+          "en": "Chennai to Boost Green Cover with 1 Lakh Saplings",
+          "es": "Chennai para Impulsar la Cubierta Verde con 1 Lakh de Plántulas",
+          "hi": "चेन्नई में 1 लाख पौधों के साथ हरी-भरी भूमि को बढ़ावा मिलेगा",
+          "ta": "1 லட்சம் மரக்கன்றுகளுடன் சென்னை பசுமைப் பரப்பை அதிகரிக்கும்"
+        },
+        "id": "chennai-corporation-building-0",
+        "custom": false,
+        "enabled": true
+      }
+    ]
+  }
+}
