@@ -1,5 +1,6 @@
+
 import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react';
-import type { QuestConfig, ResourceDefinition, BoardLocation, ScenariosByLocation, ChanceCard, ResourceChange, LanguageCode } from '../types';
+import type { QuestConfig, ResourceDefinition, BoardLocation, ScenariosByLocation, ChanceCard, ResourceChange, LanguageCode, ManagedScenario } from '../types';
 import { enhanceQuestIdea, generateQuestOutline, generatePregeneratedScenarios } from '../services/aiService';
 import { settingsService } from '../services/settingsService';
 import { BoardLocationType } from '../types';
@@ -14,7 +15,7 @@ interface QuestMakerPageProps {
     draftQuest: QuestConfig | null;
 }
 
-type WizardStep = 'CONFIG' | 'REFINE' | 'GENERATING' | 'FINISH';
+type WizardStep = 'CONFIG' | 'REFINE' | 'GENERATING' | 'PREVIEW' | 'FINISH';
 type RefineStep = 'DETAILS' | 'RESOURCES' | 'BOARD' | 'CARDS';
 
 const LANGUAGES: { code: LanguageCode, name: string }[] = [
@@ -194,7 +195,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
         }
         
         setIsLoading(false);
-        setStep('FINISH');
+        setStep('PREVIEW');
     };
     
     const handleDownloadJson = () => {
@@ -220,19 +221,19 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
     };
 
     const handleStepNavigation = (targetStep: WizardStep) => {
-        const wizardSteps: WizardStep[] = ['CONFIG', 'REFINE', 'FINISH'];
+        const wizardSteps: WizardStep[] = ['CONFIG', 'REFINE', 'PREVIEW', 'FINISH'];
         const currentStepIndex = wizardSteps.indexOf(step === 'GENERATING' ? 'REFINE' : step);
         const targetStepIndex = wizardSteps.indexOf(targetStep);
-
+    
         if (targetStepIndex >= currentStepIndex) return;
-
+    
         if (step === 'REFINE' && targetStep === 'CONFIG') {
             if (draftQuest && window.confirm(t('confirmDiscardOutline'))) {
                 onDraftUpdate(null);
                 setJsonText('');
                 setStep('CONFIG');
             }
-        } else if (step === 'FINISH' && targetStep === 'REFINE') {
+        } else if ((step === 'FINISH' || step === 'PREVIEW') && targetStep === 'REFINE') {
             if (draftQuest && window.confirm(t('confirmDiscardScenarios'))) {
                 const newDraft = { ...draftQuest, pregeneratedScenarios: {} };
                 onDraftUpdate(newDraft);
@@ -244,6 +245,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
             }
         }
     };
+    
 
     const handleStartOver = () => {
         if (!draftQuest || window.confirm(t('confirmStartOver'))) {
@@ -256,8 +258,10 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
     const wizardSteps: { name: WizardStep; label: string }[] = [
         { name: 'CONFIG', label: t('stepperConfigure') },
         { name: 'REFINE', label: t('stepperRefine') },
+        { name: 'PREVIEW', label: t('stepperPreview') },
         { name: 'FINISH', label: t('stepperFinish') },
     ];
+    
     const visibleStep = step === 'GENERATING' ? 'REFINE' : step;
 
     const renderConfigStep = () => (
@@ -356,6 +360,85 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
         </div>
     );
 
+    const renderPreviewStep = () => {
+        const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+    
+        const handleScenarioUpdate = (locationName: string, scenarioIndex: number, path: (string | number)[], value: any, isLocalized: boolean) => {
+            if (!draftQuest) return;
+        
+            const newDraft = JSON.parse(JSON.stringify(draftQuest));
+            let target = newDraft.pregeneratedScenarios[locationName][scenarioIndex];
+        
+            for (let i = 0; i < path.length; i++) {
+                if (i === path.length - 1) {
+                    if (isLocalized) {
+                        target[path[i]] = { ...target[path[i]], [language]: value };
+                    } else {
+                        target[path[i]] = value;
+                    }
+                } else {
+                    target = target[path[i]];
+                }
+            }
+            onDraftUpdate(newDraft);
+        };
+    
+        const scenarioLocations = draftQuest?.pregeneratedScenarios ? Object.keys(draftQuest.pregeneratedScenarios) : [];
+    
+        return (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                    <h2 className="text-2xl font-bold text-orange-400">{t('step3PreviewTitle')}</h2>
+                    <p className="text-gray-400">{t('step3DescPreview')}</p>
+                    <div className="space-y-2 max-h-[60vh] overflow-y-auto pr-2">
+                        {scenarioLocations.map(locationName => (
+                            <div key={locationName} className="bg-gray-700 rounded-lg">
+                                <button onClick={() => setActiveAccordion(activeAccordion === locationName ? null : locationName)} className="w-full text-left p-3 font-semibold flex justify-between items-center hover:bg-gray-600">
+                                    <span>{locationName}</span>
+                                    <svg className={`w-5 h-5 transition-transform ${activeAccordion === locationName ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                                </button>
+                                {activeAccordion === locationName && (
+                                    <div className="p-4 border-t border-gray-600 space-y-4">
+                                        {draftQuest.pregeneratedScenarios[locationName].map((scenario, index) => (
+                                            <div key={scenario.id} className="bg-gray-800 p-3 rounded-md space-y-3 text-sm">
+                                                <h4 className="font-bold text-base">Scenario {index + 1}</h4>
+                                                <div><label className="block text-xs font-medium text-gray-400">{t('scenarioTitle')}</label><input value={getLocalizedString(scenario.title, language)} onChange={e => handleScenarioUpdate(locationName, index, ['title'], e.target.value, true)} className="mt-1 w-full bg-gray-900 rounded-md p-1" /></div>
+                                                <div><label className="block text-xs font-medium text-gray-400">{t('scenarioDescription')}</label><textarea value={getLocalizedString(scenario.description, language)} onChange={e => handleScenarioUpdate(locationName, index, ['description'], e.target.value, true)} className="mt-1 w-full bg-gray-900 rounded-md p-1 h-20" /></div>
+                                                <div><label className="block text-xs font-medium text-gray-400">{t('sourceURL')}</label><input value={scenario.sourceUrl || ''} onChange={e => handleScenarioUpdate(locationName, index, ['sourceUrl'], e.target.value, false)} className="mt-1 w-full bg-gray-900 rounded-md p-1" /></div>
+                                                <div><label className="block text-xs font-medium text-gray-400">{t('sourceTitle')}</label><input value={getLocalizedString(scenario.sourceTitle, language)} onChange={e => handleScenarioUpdate(locationName, index, ['sourceTitle'], e.target.value, true)} className="mt-1 w-full bg-gray-900 rounded-md p-1" /></div>
+                                                <div className="border-t border-gray-700 pt-2 space-y-2">
+                                                    <h5 className="font-semibold text-gray-300">{t('choices')}</h5>
+                                                    {[0, 1].map(choiceIndex => (
+                                                        <div key={choiceIndex} className="bg-gray-900/50 p-2 rounded-md space-y-2">
+                                                            <p className="font-medium">Choice {choiceIndex + 1}</p>
+                                                            <div><label className="block text-xs font-medium text-gray-400">{t('choiceText')}</label><input value={getLocalizedString(scenario.choices[choiceIndex].text, language)} onChange={e => handleScenarioUpdate(locationName, index, ['choices', choiceIndex, 'text'], e.target.value, true)} className="mt-1 w-full bg-gray-900 rounded-md p-1" /></div>
+                                                            <div><label className="block text-xs font-medium text-gray-400">{t('outcomeExplanation')}</label><textarea value={getLocalizedString(scenario.choices[choiceIndex].outcome.explanation, language)} onChange={e => handleScenarioUpdate(locationName, index, ['choices', choiceIndex, 'outcome', 'explanation'], e.target.value, true)} className="mt-1 w-full bg-gray-900 rounded-md p-1 h-16" /></div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className="space-y-4">
+                    <h3 className="text-lg font-medium">{t('questOutput')}</h3>
+                    <textarea value={jsonText} onChange={handleJsonTextChange} className="w-full h-[60vh] p-3 bg-gray-900 border border-gray-600 rounded-lg font-mono text-sm" />
+                    {jsonError && <p className="text-red-400 text-sm">{jsonError}</p>}
+                    {draftQuest && (
+                        <div className="flex gap-4">
+                            <button onClick={() => handleStepNavigation('REFINE')} className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-4 rounded-lg">{t('backToRefine')}</button>
+                            <button onClick={() => setStep('FINISH')} className="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg">{t('nextFinish')}</button>
+                        </div>
+                    )}
+                </div>
+            </div>
+        );
+    };
+
     const renderFinishStep = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6 text-center md:text-left">
@@ -367,7 +450,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                 </div>
                 <button onClick={() => draftQuest && onLoadQuest(draftQuest)} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-4 rounded-lg text-lg">{t('loadAndPlay')}</button>
                  <div className="flex gap-4">
-                    <button onClick={() => handleStepNavigation('REFINE')} className="text-gray-400 hover:text-white mt-4">{t('backToRefine')}</button>
+                    <button onClick={() => handleStepNavigation('PREVIEW')} className="text-gray-400 hover:text-white mt-4">{t('back')}</button>
                     <button onClick={handleStartOver} className="text-gray-400 hover:text-white mt-4">{t('startOver')}</button>
                 </div>
             </div>
@@ -383,6 +466,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
             case 'CONFIG': return renderConfigStep();
             case 'REFINE': return renderRefineStep();
             case 'GENERATING': return renderGeneratingStep();
+            case 'PREVIEW': return renderPreviewStep();
             case 'FINISH': return renderFinishStep();
             default: return null;
         }

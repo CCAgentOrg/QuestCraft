@@ -60,7 +60,7 @@
   "nextEditBoard": "Next: Edit Board",
   "step3Title": "3. Edit Board Locations",
   "locationName": "Location Name",
-  "nextGenerateScenarios": "Generate Scenarios & Finish",
+  "nextGenerateScenarios": "Generate Scenarios",
   "writingStories": "AI is writing your stories...",
   "writingStoriesDescription": "Generating {numScenarios} scenario(s) for each Property and Utility space. This may take a moment.",
   "percentComplete": "% complete",
@@ -180,6 +180,7 @@
   "startOver": "Start Over",
   "stepperConfigure": "Configure",
   "stepperRefine": "Refine",
+  "stepperPreview": "Preview",
   "stepperFinish": "Finish",
   "supportedLanguages": "Supported Languages",
   "apiKeyEnterManuallyTitle": "Enter API Key for this Session",
@@ -195,5 +196,15 @@
   "apiKeyEnterDescription": "No API key was found in the environment. Enter a key below to enable AI features for this session.",
   "sharedTokenUsage": "Shared Token Usage",
   "tokenLimitExceededWarning": "You have reached the limit for the shared API key. To continue, please provide your own key below.",
-  "changeModelTooltip": "Click to change AI provider or model"
+  "changeModelTooltip": "Click to change AI provider or model",
+  "step3PreviewTitle": "3. Preview & Edit Scenarios",
+  "step3DescPreview": "The AI has generated stories for your quest. Review them, edit any text, and fix any broken links before finishing.",
+  "scenarioTitle": "Title",
+  "scenarioDescription": "Description",
+  "sourceURL": "Source URL",
+  "sourceTitle": "Source Title",
+  "choices": "Choices",
+  "choiceText": "Choice Text",
+  "outcomeExplanation": "Outcome Explanation",
+  "nextFinish": "Finish & Save"
 }

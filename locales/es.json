@@ -60,7 +60,7 @@
   "nextEditBoard": "Siguiente: Editar Tablero",
   "step3Title": "3. Editar Ubicaciones del Tablero",
   "locationName": "Nombre de la Ubicación",
-  "nextGenerateScenarios": "Generar Escenarios y Finalizar",
+  "nextGenerateScenarios": "Generar Escenarios",
   "writingStories": "La IA está escribiendo tus historias...",
   "writingStoriesDescription": "Generando {numScenarios} escenario(s) para cada espacio de Propiedad y Utilidad. Esto puede tomar un momento.",
   "percentComplete": "% completado",
@@ -180,6 +180,7 @@
   "startOver": "Empezar de Nuevo",
   "stepperConfigure": "Configurar",
   "stepperRefine": "Refinar",
+  "stepperPreview": "Previsualizar",
   "stepperFinish": "Finalizar",
   "supportedLanguages": "Idiomas Soportados",
   "apiKeyEnterManuallyTitle": "Introducir Clave de API para esta Sesión",
@@ -195,5 +196,15 @@
   "apiKeyEnterDescription": "No se encontró ninguna clave de API en el entorno. Introduzca una clave a continuación para habilitar las funciones de IA para esta sesión.",
   "sharedTokenUsage": "Uso de Tokens Compartidos",
   "tokenLimitExceededWarning": "Ha alcanzado el límite de la clave de API compartida. Para continuar, proporcione su propia clave a continuación.",
-  "changeModelTooltip": "Haz clic para cambiar el proveedor o modelo de IA"
+  "changeModelTooltip": "Haz clic para cambiar el proveedor o modelo de IA",
+  "step3PreviewTitle": "3. Previsualizar y Editar Escenarios",
+  "step3DescPreview": "La IA ha generado historias para tu misión. Revísalas, edita cualquier texto y corrige cualquier enlace roto antes de finalizar.",
+  "scenarioTitle": "Título",
+  "scenarioDescription": "Descripción",
+  "sourceURL": "URL de la Fuente",
+  "sourceTitle": "Título de la Fuente",
+  "choices": "Opciones",
+  "choiceText": "Texto de la Opción",
+  "outcomeExplanation": "Explicación del Resultado",
+  "nextFinish": "Finalizar y Guardar"
 }

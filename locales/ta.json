@@ -60,7 +60,7 @@
   "nextEditBoard": "அடுத்து: பலகையைத் திருத்து",
   "step3Title": "3. பலகை இடங்களைத் திருத்து",
   "locationName": "இடத்தின் பெயர்",
-  "nextGenerateScenarios": "காட்சிகளை உருவாக்கி முடிக்கவும்",
+  "nextGenerateScenarios": "காட்சிகளை உருவாக்கு",
   "writingStories": "AI உங்கள் கதைகளை எழுதுகிறது...",
   "writingStoriesDescription": "ஒவ்வொரு சொத்து மற்றும் பயன்பாட்டு இடத்திற்கும் {numScenarios} காட்சி(கள்) உருவாக்கப்படுகிறது. இதற்கு சிறிது நேரம் ஆகலாம்.",
   "percentComplete": "% முடிந்தது",
@@ -180,6 +180,7 @@
   "startOver": "மீண்டும் தொடங்கு",
   "stepperConfigure": "உள்ளமை",
   "stepperRefine": "செம்மைப்படுத்து",
+  "stepperPreview": "முன்னோட்டம்",
   "stepperFinish": "முடி",
   "supportedLanguages": "ஆதரிக்கப்படும் மொழிகள்",
   "apiKeyEnterManuallyTitle": "இந்த அமர்வுக்கான API விசையை உள்ளிடவும்",
@@ -195,5 +196,15 @@
   "apiKeyEnterDescription": "சூழலில் API விசை எதுவும் கிடைக்கவில்லை. இந்த அமர்வுக்கான AI அம்சங்களை இயக்க கீழே ஒரு விசையை உள்ளிடவும்.",
   "sharedTokenUsage": "பகிரப்பட்ட டோக்கன் பயன்பாடு",
   "tokenLimitExceededWarning": "நீங்கள் பகிரப்பட்ட API விசையின் வரம்பை அடைந்துவிட்டீர்கள். தொடர, கீழே உங்கள் சொந்த விசையை வழங்கவும்.",
-  "changeModelTooltip": "AI வழங்குநர் அல்லது மாடலை மாற்ற கிளிக் செய்யவும்"
+  "changeModelTooltip": "AI வழங்குநர் அல்லது மாடலை மாற்ற கிளிக் செய்யவும்",
+  "step3PreviewTitle": "3. காட்சிகளை முன்னோட்டமிட்டுத் திருத்தவும்",
+  "step3DescPreview": "AI உங்கள் தேடலுக்கான கதைகளை உருவாக்கியுள்ளது. அவற்றை மதிப்பாய்வு செய்து, எந்த உரையையும் திருத்தி, முடிப்பதற்கு முன் உடைந்த இணைப்புகளை சரிசெய்யவும்.",
+  "scenarioTitle": "தலைப்பு",
+  "scenarioDescription": "விளக்கம்",
+  "sourceURL": "மூல URL",
+  "sourceTitle": "மூலத் தலைப்பு",
+  "choices": "தேர்வுகள்",
+  "choiceText": "தேர்வு உரை",
+  "outcomeExplanation": "விளைவு விளக்கம்",
+  "nextFinish": "முடி & சேமி"
 }
