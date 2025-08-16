@@ -4,7 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import type { QuestConfig, AppStats, Page, LoadedQuest, AiProviderSettings } from './types';
 import { statsService, STATS_UPDATED_EVENT } from './services/statsService';
 import { aiConnectivityService, CONNECTIVITY_UPDATED_EVENT } from './services/aiConnectivityService';
-import { settingsService, SETTINGS_UPDATED_EVENT } from './services/settingsService';
+import { settingsService, SETTINGS_UPDATED_EVENT, PROVIDER_CONFIGS } from './services/settingsService';
 import { testConnection } from './services/aiService';
 import { gameStateService } from './services/gameStateService';
 import { DEFAULT_QUEST_PATHS } from './constants';
@@ -114,7 +114,7 @@ const App: React.FC = () => {
         } else if (savedPage) {
             setPage(savedPage);
         } else {
-            setPage('home'); // Default to the new homepage
+            setPage('home'); // Default to the home page
         }
 
         // Add event listeners
@@ -274,6 +274,10 @@ const App: React.FC = () => {
                  return <HomePage onNavigate={handleNavigate} isMakerModeEnabled={isMakerModeEnabled} />;
         }
     };
+    
+    const modelDisplayName = aiSettings.providerId === 'community' 
+        ? PROVIDER_CONFIGS.community.name 
+        : aiSettings.model;
 
     return (
         <div className="flex h-screen bg-gray-900 text-gray-100 font-sans antialiased">
@@ -297,7 +301,7 @@ const App: React.FC = () => {
                 </main>
                 <StatusBar 
                     stats={appStats}
-                    modelName={aiSettings.model}
+                    modelName={modelDisplayName}
                     isAiConnected={isAiConnected}
                     onNavigateToSettings={() => handleNavigate('settings')}
                     onOpenAuditLog={() => setShowAuditLog(true)}

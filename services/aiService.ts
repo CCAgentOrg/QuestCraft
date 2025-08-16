@@ -1,5 +1,3 @@
-
-
 import { GoogleGenAI, Chat } from "@google/genai";
 import type { QuestConfig, Player, BoardLocation, ManagedScenario, AiProviderSettings, LanguageCode, AiProviderId } from '../types';
 import { auditLogService } from './auditLogService';
@@ -58,6 +56,30 @@ const preflightCheck = () => {
         }
     }
 };
+
+/**
+ * Helper function to process streaming text responses from the Community Gateway.
+ * @param response The fetch Response object.
+ * @returns A promise that resolves to the full text content of the stream.
+ */
+async function processCommunityGatewayStream(response: Response): Promise<string> {
+    if (!response.ok) {
+        throw new Error(`Community Gateway Error: ${await response.text()}`);
+    }
+    if (!response.body) {
+        throw new Error('Community Gateway stream response has no body.');
+    }
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let fullResponseText = '';
+
+    while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        fullResponseText += decoder.decode(value, { stream: true });
+    }
+    return fullResponseText;
+}
 
 
 // --- Helper to mask API keys for logging ---
@@ -241,14 +263,11 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'enhanceQuestIdea', payload: { idea } })
                 });
-                if (!response.ok) {
-                    throw new Error(`Community Gateway Error: ${await response.text()}`);
-                }
-                const data = await response.json();
-                statsService.updateTokens(data.usage); // The backend returns token usage
-                logDetails.inputTokens = data.usage?.inputTokens;
-                logDetails.outputTokens = data.usage?.outputTokens;
-                return data.result;
+                const text = await processCommunityGatewayStream(response);
+                // Token usage from community tier is not available due to streaming
+                logDetails.inputTokens = undefined;
+                logDetails.outputTokens = undefined;
+                return text;
             } else if (!isGemini) {
                 logger.info(`[AI] Calling OpenAI-compatible model for enhance idea: ${settings.model}`);
                 const jsonResponse = await fetchOpenAICompatible(settings, {
@@ -341,14 +360,10 @@ export const generateQuestOutline = async (
                         payload: { idea, numLocations, positivity, groundingInReality, supportedLanguages, languageCode } 
                     })
                 });
-                if (!response.ok) {
-                    throw new Error(`Community Gateway Error: ${await response.text()}`);
-                }
-                const data = await response.json();
-                statsService.updateTokens(data.usage);
-                logDetails.inputTokens = data.usage?.inputTokens;
-                logDetails.outputTokens = data.usage?.outputTokens;
-                return JSON.stringify(data.result);
+                const jsonText = await processCommunityGatewayStream(response);
+                logDetails.inputTokens = undefined;
+                logDetails.outputTokens = undefined;
+                return jsonText;
             } else if (!isGemini) {
                 const schemaString = JSON.stringify(questConfigSchema, null, 2).replace(/"/g, '\"');
                 const systemInstruction = await loadPrompt('prompts/quest-outline-system-openai.txt', { ...promptReplacements, schema: schemaString });
@@ -461,14 +476,10 @@ export const generatePregeneratedScenarios = async (
                         payload: { questConfig, location, numScenarios, languageCode } 
                     })
                 });
-                if (!response.ok) {
-                    throw new Error(`Community Gateway Error: ${await response.text()}`);
-                }
-                const data = await response.json();
-                statsService.updateTokens(data.usage);
-                logDetails.inputTokens = data.usage?.inputTokens;
-                logDetails.outputTokens = data.usage?.outputTokens;
-                return JSON.stringify(data.result);
+                const jsonText = await processCommunityGatewayStream(response);
+                logDetails.inputTokens = undefined;
+                logDetails.outputTokens = undefined;
+                return jsonText;
             }
             
             // This part remains unchanged as it handles non-community providers
@@ -615,14 +626,10 @@ export const generateDynamicScenario = async (questConfig: QuestConfig, player: 
                         payload: { questConfig, player, location, languageCode } 
                     })
                 });
-                if (!response.ok) {
-                    throw new Error(`Community Gateway Error: ${await response.text()}`);
-                }
-                const data = await response.json();
-                statsService.updateTokens(data.usage);
-                logDetails.inputTokens = data.usage?.inputTokens;
-                logDetails.outputTokens = data.usage?.outputTokens;
-                return JSON.stringify(data.result);
+                const jsonText = await processCommunityGatewayStream(response);
+                logDetails.inputTokens = undefined;
+                logDetails.outputTokens = undefined;
+                return jsonText;
             }
             
             // This part remains unchanged for non-community providers

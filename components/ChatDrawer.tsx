@@ -34,7 +34,8 @@ const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfi
     const [welcomeMessage, setWelcomeMessage] = useState('');
     const [appliedUpdates, setAppliedUpdates] = useState<Set<string>>(new Set());
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    const isGemini = settingsService.getAiSettings().providerId === 'gemini';
+    const settings = settingsService.getAiSettings();
+    const isChatEnabled = settings.providerId === 'gemini' || settings.providerId === 'community';
 
     // Effect to determine the chat's context and system prompt
     useEffect(() => {
@@ -178,7 +179,7 @@ const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfi
 
     return (
         <Drawer title={t('chatTitle')} show={show} onClose={onClose}>
-            {!isGemini && (
+            {!isChatEnabled && (
                 <div className="bg-yellow-900/50 border border-yellow-700 text-yellow-300 p-3 rounded-md mb-4 text-sm">{t('chatUnavailable')}</div>
             )}
             <div className="flex flex-col h-full">
@@ -225,9 +226,9 @@ const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfi
                             onChange={(e) => setInput(e.target.value)}
                             placeholder={t('chatPlaceholder')}
                             className="flex-grow p-2 bg-gray-900 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500"
-                            disabled={isLoading || !isGemini}
+                            disabled={isLoading || !isChatEnabled}
                         />
-                        <button type="submit" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold p-2 rounded-lg disabled:bg-gray-600" disabled={isLoading || !input.trim() || !isGemini}>
+                        <button type="submit" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold p-2 rounded-lg disabled:bg-gray-600" disabled={isLoading || !input.trim() || !isChatEnabled}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
                             </svg>

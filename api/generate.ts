@@ -177,17 +177,14 @@ export default async function handler(req: Request) {
         const response = await openai.chat.completions.create({
           model: COMMUNITY_MODEL,
           messages: [{ role: 'user', content: prompt }],
+          stream: true,
         });
-        const result = response.choices[0].message.content;
-        const usage = { inputTokens: response.usage?.prompt_tokens, outputTokens: response.usage?.completion_tokens };
-        return new Response(JSON.stringify({ result, usage }), {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-        });
+        const stream = OpenAIStream(response);
+        return new StreamingTextResponse(stream);
       }
 
       case 'generateQuestOutline': {
-        const { idea, numLocations, positivity, groundingInReality, supportedLanguages, languageCode } = payload;
+        const { idea, numLocations, positivity, supportedLanguages, languageCode } = payload;
         const languageName = LANGUAGE_MAP[languageCode] || 'English';
         const languageList = (supportedLanguages.length > 0 ? supportedLanguages : ['en'])
           .map((code: string) => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
@@ -195,8 +192,7 @@ export default async function handler(req: Request) {
         const prompt = `Generate a quest based on this idea: "${idea}"`;
         const systemPrompt = loadPrompt('quest-outline-system-openai.txt', {
              numLocations, positivity, 
-             // "Ground in Reality" is disabled for community tier
-             groundingInReality: false, 
+             groundingInReality: false, // "Ground in Reality" is disabled for community tier
              languageCode, languageName, languageList, schema: "{}"
         });
 
@@ -204,14 +200,10 @@ export default async function handler(req: Request) {
           model: COMMUNITY_MODEL,
           messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: prompt }],
           response_format: { type: 'json_object' },
+          stream: true,
         });
-
-        const result = JSON.parse(response.choices[0].message.content || '{}');
-        const usage = { inputTokens: response.usage?.prompt_tokens, outputTokens: response.usage?.completion_tokens };
-        return new Response(JSON.stringify({ result, usage }), {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-        });
+        const stream = OpenAIStream(response);
+        return new StreamingTextResponse(stream);
       }
 
       case 'generatePregeneratedScenarios':
@@ -219,10 +211,6 @@ export default async function handler(req: Request) {
         const { questConfig, location, numScenarios, languageCode } = payload;
         const isDynamic = action === 'generateDynamicScenario';
         
-        // IMPORTANT: "Ground in Reality" feature is disabled for the free community tier.
-        // We force the generation to be fictional.
-        const isGrounded = false; 
-
         const languageName = LANGUAGE_MAP[languageCode] || 'English';
         const resourceNames = questConfig.resources.map((r: any) => r.name.en.toLowerCase()).join(', ');
         const languageList = (questConfig.supportedLanguages || ['en'])
@@ -236,27 +224,20 @@ export default async function handler(req: Request) {
             numScenarios: isDynamic ? 1 : numScenarios,
             languageCode, languageName, languageList, schema: "{}"
         };
-
-        const promptFile = 'pregenerated-scenarios-fictional-openai.txt';
         
+        // "Ground in Reality" feature is disabled for the free community tier.
+        const promptFile = 'pregenerated-scenarios-fictional-openai.txt';
         const systemPrompt = loadPrompt(promptFile, replacements);
 
         const response = await openai.chat.completions.create({
           model: COMMUNITY_MODEL,
           messages: [{ role: 'system', content: systemPrompt }],
           response_format: { type: 'json_object' },
+          stream: true,
         });
 
-        let result = JSON.parse(response.choices[0].message.content || '{}');
-        if (isDynamic) {
-            result = result.scenarios ? result.scenarios[0] : {};
-        }
-        
-        const usage = { inputTokens: response.usage?.prompt_tokens, outputTokens: response.usage?.completion_tokens };
-        return new Response(JSON.stringify({ result, usage }), {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-        });
+        const stream = OpenAIStream(response);
+        return new StreamingTextResponse(stream);
       }
       
       case 'chat': {

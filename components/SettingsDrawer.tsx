@@ -175,9 +175,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
         });
     };
 
-    const isBaseUrlEditable = aiSettings.providerId !== 'gemini' && aiSettings.providerId !== 'openai' && aiSettings.providerId !== 'community';
-    const isModelEditable = aiSettings.providerId !== 'community';
-
+    const isBaseUrlEditable = aiSettings.providerId !== 'gemini' && aiSettings.providerId !== 'openai';
+    
     return (
         <div className="p-4 md:p-8 space-y-4">
             <div>
@@ -209,52 +208,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                     <SectionHeader title={t('aiConfig')} sectionId="ai" isOpen={openSection === 'ai'} onClick={handleToggleSection} />
                      {openSection === 'ai' && (
                         <div className="space-y-4 bg-gray-800 p-4 rounded-lg">
-                             <div className="space-y-2 bg-gray-900/50 p-3 rounded-lg">
-                                <div className="flex justify-between items-baseline text-sm">
-                                    <span className="font-medium text-gray-300">{t('sharedTokenUsage')}</span>
-                                    <span className="font-mono text-gray-400">{tokenUsage.used.toLocaleString()} / {tokenUsage.limit.toLocaleString()}</span>
-                                </div>
-                                <div className="w-full bg-gray-600 rounded-full h-2.5">
-                                    <div className={`${tokenBarColor} h-2.5 rounded-full transition-all duration-500 ease-out`} style={{ width: `${Math.min(100, tokenUsagePercentage)}%` }}></div>
-                                </div>
-                                {tokenUsagePercentage >= 100 && (
-                                    <p className="text-xs text-yellow-300 mt-1">{t('tokenLimitExceededWarning')}</p>
-                                )}
-                            </div>
-                            <div className="space-y-3 p-3 border border-yellow-700/50 bg-yellow-900/20 rounded-lg">
-                                <h4 className="font-semibold text-yellow-300">{isEnvVarSet ? t('apiKeyOverrideTitle') : t('apiKeyEnterManuallyTitle')}</h4>
-                                 <p className="text-sm text-gray-400">{isEnvVarSet ? t('apiKeyOverrideDescription') : t('apiKeyEnterDescription')}</p>
-                                <div>
-                                    <label htmlFor="api-key-input" className="block text-sm font-medium text-gray-300">{t('apiKey')}</label>
-                                    <input
-                                        type="password"
-                                        id="api-key-input"
-                                        value={sessionApiKeyInput}
-                                        onChange={(e) => setSessionApiKeyInput(e.target.value)}
-                                        className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2"
-                                        placeholder={t('apiKeyInputPlaceholder')}
-                                    />
-                                </div>
-                                <div className="text-xs text-yellow-400/80 space-y-2">
-                                    <p><strong>{t('securityWarningTitle')}</strong> {t('securityWarningBody')}</p>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="flex items-center h-5">
-                                        <input id="risk-ack" type="checkbox" checked={riskAcknowledged} onChange={(e) => setRiskAcknowledged(e.target.checked)} className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-500 rounded bg-gray-900" />
-                                    </div>
-                                    <div className="ml-3 text-sm">
-                                        <label htmlFor="risk-ack" className="font-medium text-gray-300">{t('apiKeyAck')}</label>
-                                    </div>
-                                </div>
-                                <button 
-                                    onClick={handleSaveSessionApiKey}
-                                    disabled={!riskAcknowledged || !sessionApiKeyInput.trim()}
-                                    className="w-full bg-yellow-600 hover:bg-yellow-700 disabled:bg-gray-500 disabled:cursor-not-allowed text-white font-bold py-2 px-4 rounded-lg transition"
-                                >
-                                    {t('apiKeySaveButton')}
-                                </button>
-                            </div>
-
                             <div>
                                 <label htmlFor="ai-provider" className="block text-sm font-medium text-gray-300">{t('provider')}</label>
                                 <select
@@ -268,9 +221,70 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                                     ))}
                                 </select>
                             </div>
-                            
-                            {isModelEditable ? (
+
+                            {aiSettings.providerId === 'community' ? (
                                 <>
+                                    <div className="text-sm text-gray-400 bg-gray-900/50 p-3 rounded-lg">
+                                        {t('communityProviderDescription')}
+                                    </div>
+                                    <div className="mt-4 space-y-2">
+                                        <button 
+                                            onClick={handleTestConnection} 
+                                            disabled={testStatus === 'testing'}
+                                            className="w-full bg-gray-600 hover:bg-gray-700 disabled:bg-gray-500 disabled:cursor-wait text-white font-bold py-2 px-4 rounded-lg transition"
+                                        >
+                                            {testStatus === 'testing' ? t('testing') : t('testConnectivity')}
+                                        </button>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="space-y-2 bg-gray-900/50 p-3 rounded-lg">
+                                        <div className="flex justify-between items-baseline text-sm">
+                                            <span className="font-medium text-gray-300">{t('sharedTokenUsage')}</span>
+                                            <span className="font-mono text-gray-400">{tokenUsage.used.toLocaleString()} / {tokenUsage.limit.toLocaleString()}</span>
+                                        </div>
+                                        <div className="w-full bg-gray-600 rounded-full h-2.5">
+                                            <div className={`${tokenBarColor} h-2.5 rounded-full transition-all duration-500 ease-out`} style={{ width: `${Math.min(100, tokenUsagePercentage)}%` }}></div>
+                                        </div>
+                                        {tokenUsagePercentage >= 100 && (
+                                            <p className="text-xs text-yellow-300 mt-1">{t('tokenLimitExceededWarning')}</p>
+                                        )}
+                                    </div>
+                                    <div className="space-y-3 p-3 border border-yellow-700/50 bg-yellow-900/20 rounded-lg">
+                                        <h4 className="font-semibold text-yellow-300">{isEnvVarSet ? t('apiKeyOverrideTitle') : t('apiKeyEnterManuallyTitle')}</h4>
+                                        <p className="text-sm text-gray-400">{isEnvVarSet ? t('apiKeyOverrideDescription') : t('apiKeyEnterDescription')}</p>
+                                        <div>
+                                            <label htmlFor="api-key-input" className="block text-sm font-medium text-gray-300">{t('apiKey')}</label>
+                                            <input
+                                                type="password"
+                                                id="api-key-input"
+                                                value={sessionApiKeyInput}
+                                                onChange={(e) => setSessionApiKeyInput(e.target.value)}
+                                                className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2"
+                                                placeholder={t('apiKeyInputPlaceholder')}
+                                            />
+                                        </div>
+                                        <div className="text-xs text-yellow-400/80 space-y-2">
+                                            <p><strong>{t('securityWarningTitle')}</strong> {t('securityWarningBody')}</p>
+                                        </div>
+                                        <div className="flex items-start">
+                                            <div className="flex items-center h-5">
+                                                <input id="risk-ack" type="checkbox" checked={riskAcknowledged} onChange={(e) => setRiskAcknowledged(e.target.checked)} className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-500 rounded bg-gray-900" />
+                                            </div>
+                                            <div className="ml-3 text-sm">
+                                                <label htmlFor="risk-ack" className="font-medium text-gray-300">{t('apiKeyAck')}</label>
+                                            </div>
+                                        </div>
+                                        <button 
+                                            onClick={handleSaveSessionApiKey}
+                                            disabled={!riskAcknowledged || !sessionApiKeyInput.trim()}
+                                            className="w-full bg-yellow-600 hover:bg-yellow-700 disabled:bg-gray-500 disabled:cursor-not-allowed text-white font-bold py-2 px-4 rounded-lg transition"
+                                        >
+                                            {t('apiKeySaveButton')}
+                                        </button>
+                                    </div>
+
                                     {aiSettings.providerId === 'openrouter' ? (
                                         <div>
                                             <label htmlFor="model-name" className="block text-sm font-medium text-gray-300">{t('modelName')}</label>
@@ -317,55 +331,50 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                                             readOnly={!isBaseUrlEditable}
                                         />
                                     </div>
+
+                                    <div>
+                                        <label htmlFor="ai-request-delay" className="block text-sm font-medium text-gray-300">{t('aiRequestDelay')}</label>
+                                        <input
+                                            type="number"
+                                            id="ai-request-delay"
+                                            value={aiSettings.aiRequestDelayMs || ''}
+                                            onChange={(e) => handleSettingsFieldChange('aiRequestDelayMs', parseInt(e.target.value, 10) || 0)}
+                                            className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2"
+                                            placeholder="e.g., 1100"
+                                        />
+                                        <p className="text-xs text-gray-500 mt-1">{t('aiRequestDelayHint')}</p>
+                                    </div>
+                                    <div className="mt-4 space-y-2">
+                                        <div className="flex flex-col sm:flex-row gap-2">
+                                            <button 
+                                                onClick={handleTestConnection} 
+                                                disabled={testStatus === 'testing'}
+                                                className="w-full sm:w-auto flex-grow bg-gray-600 hover:bg-gray-700 disabled:bg-gray-500 disabled:cursor-wait text-white font-bold py-2 px-4 rounded-lg transition"
+                                            >
+                                                {testStatus === 'testing' ? t('testing') : t('testConnectivity')}
+                                            </button>
+                                            <button 
+                                                onClick={handleSaveAiSettings} 
+                                                className="w-full sm:w-auto flex-grow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg"
+                                            >
+                                                {t('saveAiSettings')}
+                                            </button>
+                                        </div>
+                                    </div>
                                 </>
-                            ) : (
-                                <div className="text-sm text-gray-400 bg-gray-900/50 p-3 rounded-lg">
-                                    {t('communityProviderDescription')}
+                            )}
+                            
+                            {testMessage && (
+                                <div 
+                                    className={`text-sm text-center p-2 rounded-md ${
+                                        testStatus === 'success' ? 'bg-green-900/50 text-green-300' : ''
+                                    } ${
+                                        testStatus === 'error' ? 'bg-red-900/50 text-red-300' : ''
+                                    }`}
+                                >
+                                    {testMessage}
                                 </div>
                             )}
-
-
-                            <div>
-                                <label htmlFor="ai-request-delay" className="block text-sm font-medium text-gray-300">{t('aiRequestDelay')}</label>
-                                <input
-                                    type="number"
-                                    id="ai-request-delay"
-                                    value={aiSettings.aiRequestDelayMs || ''}
-                                    onChange={(e) => handleSettingsFieldChange('aiRequestDelayMs', parseInt(e.target.value, 10) || 0)}
-                                    className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2"
-                                    placeholder="e.g., 1100"
-                                />
-                                <p className="text-xs text-gray-500 mt-1">{t('aiRequestDelayHint')}</p>
-                            </div>
-
-                            <div className="mt-4 space-y-2">
-                                <div className="flex flex-col sm:flex-row gap-2">
-                                    <button 
-                                        onClick={handleTestConnection} 
-                                        disabled={testStatus === 'testing'}
-                                        className="w-full sm:w-auto flex-grow bg-gray-600 hover:bg-gray-700 disabled:bg-gray-500 disabled:cursor-wait text-white font-bold py-2 px-4 rounded-lg transition"
-                                    >
-                                        {testStatus === 'testing' ? t('testing') : t('testConnectivity')}
-                                    </button>
-                                    <button 
-                                        onClick={handleSaveAiSettings} 
-                                        className="w-full sm:w-auto flex-grow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg"
-                                    >
-                                        {t('saveAiSettings')}
-                                    </button>
-                                </div>
-                                {testMessage && (
-                                    <div 
-                                        className={`text-sm text-center p-2 rounded-md ${
-                                            testStatus === 'success' ? 'bg-green-900/50 text-green-300' : ''
-                                        } ${
-                                            testStatus === 'error' ? 'bg-red-900/50 text-red-300' : ''
-                                        }`}
-                                    >
-                                        {testMessage}
-                                    </div>
-                                )}
-                            </div>
                         </div>
                      )}
                 </section>

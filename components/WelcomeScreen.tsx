@@ -78,7 +78,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
 
     return (
         <div className="min-h-full flex flex-col justify-center bg-gray-900 p-4">
-            <div className="w-full bg-gray-800 rounded-2xl shadow-2xl p-6 md:p-8 relative">
+            <div className="w-full max-w-7xl mx-auto bg-gray-800 rounded-2xl shadow-2xl p-6 md:p-8 relative">
                 {isLoading && <div className="absolute inset-0 bg-gray-800/80 flex items-center justify-center rounded-2xl z-10"><p className="text-white text-lg animate-pulse">{t('loadingQuest')}</p></div>}
                 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">

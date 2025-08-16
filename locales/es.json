@@ -153,7 +153,7 @@
   "aiIsThinking": "La IA está pensando...",
   "chatTitle": "Chat con IA",
   "chatPlaceholder": "Haz una pregunta...",
-  "chatUnavailable": "El chat solo está disponible con el proveedor Google Gemini. Por favor, cámbialo en Configuración.",
+  "chatUnavailable": "El chat está disponible con los proveedores Google Gemini y Community Gateway. Por favor, seleccione uno en Configuración para habilitar el chat.",
   "chatClear": "Limpiar Chat",
   "chatClearConfirm": "¿Estás seguro de que quieres borrar el historial del chat? La memoria de la IA también se reiniciará.",
   "chatWelcomeMaker": "Soy tu asistente de diseño de juegos. ¡Pídeme que refine tu misión, sugiera ideas o explique los campos del esquema!",
@@ -207,5 +207,7 @@
   "choiceText": "Texto de la Opción",
   "outcomeExplanation": "Explicación del Resultado",
   "nextFinish": "Finalizar y Guardar",
-  "communityProviderDescription": "Utiliza un backend compartido y gratuito impulsado por modelos de código abierto. Con límite de uso y adecuado para fines de prueba. No se necesita clave de API."
+  "communityProviderDescription": "Utiliza un backend compartido y gratuito impulsado por modelos de código abierto. Con límite de uso y adecuado para fines de prueba. No se necesita clave de API.",
+  "welcomeScreenLead": "Bienvenido a QuestCraft, un motor de juegos de mesa impulsado por IA. Juega una misión pre-hecha, carga la tuya propia o usa el asistente de IA para crear una nueva a partir de una idea.",
+  "welcomeScreenLeadLink": "Aprende más sobre cómo funciona."
 }

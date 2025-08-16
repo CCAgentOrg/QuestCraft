@@ -25,9 +25,16 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, isMakerModeEnabled }) =
     const { t } = useTranslation();
     return (
         <div className="flex flex-col items-center justify-center h-full p-4 md:p-8 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-orange-400 font-mono mb-2">{t('questCraftTitle')}</h1>
-            <p className="text-lg text-gray-400 mb-12">{t('homeTitle')}</p>
-            <div className={`grid grid-cols-1 ${isMakerModeEnabled ? 'md:grid-cols-2' : 'md:grid-cols-1'} gap-8 w-full`}>
+            <h1 className="text-5xl md:text-6xl font-bold text-orange-400 font-mono mb-4">{t('questCraftTitle')}</h1>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
+                {t('welcomeScreenLead')}
+                {' '}
+                <button onClick={() => onNavigate('docs')} className="text-indigo-400 hover:underline">
+                    {t('welcomeScreenLeadLink')}
+                </button>
+            </p>
+            <h2 className="text-2xl font-bold text-white mb-8">{t('homeTitle')}</h2>
+            <div className={`grid grid-cols-1 ${isMakerModeEnabled ? 'md:grid-cols-2' : ''} gap-8 w-full max-w-4xl`}>
                 <ModeCard
                     onClick={() => onNavigate('welcome')}
                     title={t('playerMode')}
