@@ -1,7 +1,7 @@
-
 import type { AiProviderSettings, AiProviderId, AppSettings, LanguageCode } from '../types';
 
 export const APP_SETTINGS_STORAGE_KEY = 'questcraft-app-settings';
+export const SESSION_API_KEY_STORAGE_KEY = 'questcraft-session-api-key';
 
 export interface AiProviderConfig {
     id: AiProviderId;
@@ -62,11 +62,30 @@ export const PROVIDER_CONFIGS: Record<AiProviderId, AiProviderConfig> = {
     }
 };
 
+const ENV_API_KEYS: Partial<Record<AiProviderId, string | undefined>> = {
+    gemini: process.env.GEMINI_API_KEY,
+    openai: process.env.OPENAI_API_KEY,
+    openrouter: process.env.OPENROUTER_API_KEY,
+    groq: process.env.GROQ_API_KEY,
+    together: process.env.TOGETHER_API_KEY,
+};
+
+export const getProviderApiKeyFromEnv = (providerId: AiProviderId): string | undefined => {
+    // Check for provider-specific key first
+    const specificKey = ENV_API_KEYS[providerId];
+    if (specificKey) {
+        return specificKey;
+    }
+    // Fallback to generic API_KEY for backward compatibility
+    return process.env.API_KEY;
+};
+
 export const defaultSettings: AppSettings = {
     ai: {
         providerId: 'gemini',
         model: PROVIDER_CONFIGS.gemini.defaultModel,
         baseUrl: PROVIDER_CONFIGS.gemini.baseUrl,
+        aiRequestDelayMs: 1100,
     },
     language: 'en',
 };
@@ -124,5 +143,28 @@ export const settingsService = {
     saveLanguage: (language: LanguageCode): void => {
         const currentSettings = settingsService.getSettings();
         settingsService.saveSettings({ ...currentSettings, language });
+    },
+
+    getSessionApiKey: (): string | null => {
+        try {
+            return sessionStorage.getItem(SESSION_API_KEY_STORAGE_KEY);
+        } catch (e) {
+            console.error("Failed to get session API key from sessionStorage", e);
+            return null;
+        }
+    },
+    saveSessionApiKey: (apiKey: string): void => {
+        try {
+            sessionStorage.setItem(SESSION_API_KEY_STORAGE_KEY, apiKey);
+        } catch (e) {
+            console.error("Failed to save session API key to sessionStorage", e);
+        }
+    },
+    clearSessionApiKey: (): void => {
+        try {
+            sessionStorage.removeItem(SESSION_API_KEY_STORAGE_KEY);
+        } catch (e) {
+            console.error("Failed to clear session API key from sessionStorage", e);
+        }
     }
 };

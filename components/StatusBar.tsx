@@ -1,8 +1,9 @@
-
 import React from 'react';
 import type { AppStats } from '../types';
 import { TokenIcon, MoneyIcon, TimeIcon, AuditLogIcon, ChatIcon } from '../constants';
 import { useTranslation } from '../services/i18n';
+import { statsService } from '../services/statsService';
+import { settingsService } from '../services/settingsService';
 
 interface StatusBarProps {
     stats: AppStats | null;
@@ -21,12 +22,12 @@ const formatTime = (totalSeconds: number): string => {
     return `${hours}:${minutes}:${seconds}`;
 };
 
-const StatItem: React.FC<{ icon: React.ReactNode; label: string; value: string | number; tooltip: string; }> = ({ icon, label, value, tooltip }) => (
+const StatItem: React.FC<{ icon: React.ReactNode; label: string; value: string | number; tooltip: string; valueClass?: string; }> = ({ icon, label, value, tooltip, valueClass = 'text-orange-300' }) => (
     <div className="flex items-center gap-2" title={tooltip}>
         <div className="text-gray-400">{icon}</div>
         <div className="flex items-baseline gap-1.5">
             <span className="hidden sm:inline text-sm font-medium text-gray-200">{label}:</span>
-            <span className="text-sm font-semibold font-mono text-orange-300">{value}</span>
+            <span className={`text-sm font-semibold font-mono ${valueClass}`}>{value}</span>
         </div>
     </div>
 );
@@ -35,7 +36,22 @@ const StatusBar: React.FC<StatusBarProps> = ({ stats, isAiConnected, isTestingAi
     const { t } = useTranslation();
     if (!stats) return null;
 
-    const totalTokens = (stats.totalInputTokens || 0) + (stats.totalOutputTokens || 0);
+    const isUsingOverrideKey = !!settingsService.getSessionApiKey();
+    const tokenUsage = statsService.getTokenUsage();
+    const totalTokens = tokenUsage.used;
+    const usagePercentage = isUsingOverrideKey ? 0 : (tokenUsage.used / tokenUsage.limit) * 100;
+
+    let tokenColorClass = 'text-orange-300';
+    if (usagePercentage > 90) {
+        tokenColorClass = 'text-red-400';
+    } else if (usagePercentage > 75) {
+        tokenColorClass = 'text-yellow-400';
+    }
+
+    const tokenTooltip = isUsingOverrideKey 
+        ? `Using personal API key. Usage not tracked against shared limit.`
+        : `Shared Limit: ${tokenUsage.used.toLocaleString()} / ${tokenUsage.limit.toLocaleString()} tokens used.`;
+
 
     const connectivityTitle = isTestingAi ? t('testing') : (isAiConnected ? t('aiConnected') : t('aiDisconnected'));
     const connectivityText = isTestingAi ? t('testing') : (isAiConnected ? t('aiConnected') : t('aiDisconnected'));
@@ -71,7 +87,8 @@ const StatusBar: React.FC<StatusBarProps> = ({ stats, isAiConnected, isTestingAi
                         icon={<TokenIcon className="w-4 h-4" />}
                         label={t('tokens')}
                         value={totalTokens.toLocaleString()}
-                        tooltip={`Input: ${stats.totalInputTokens.toLocaleString()} | Output: ${stats.totalOutputTokens.toLocaleString()}`}
+                        tooltip={tokenTooltip}
+                        valueClass={tokenColorClass}
                     />
                     <StatItem
                         icon={<MoneyIcon className="w-4 h-4" />}

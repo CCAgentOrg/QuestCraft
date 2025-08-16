@@ -1,5 +1,3 @@
-
-
 import React, { useState, useCallback, useEffect } from 'react';
 import type { QuestConfig, Player, GamePhase, ManagedScenario, Choice, ChanceCard, BoardLocation, ResourceChange, GameState } from '../types';
 import { BoardLocationType } from '../types';
@@ -221,18 +219,22 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
         try {
             const dynamicScenario = await generateDynamicScenario(questConfig, players[currentPlayerIndex], location);
             updateGameState({ activeScenario: dynamicScenario, gamePhase: 'SCENARIO_CHOICE' });
-        } catch (error) {
+        } catch (error: any) {
             console.error("Failed to generate dynamic scenario:", error);
-            
             const locationNameEn = getLocalizedString(location.name, 'en');
             const pregenScenarios = questConfig.pregeneratedScenarios?.[locationNameEn];
 
+            let errorMessage = `Failed to generate a dynamic event: ${error instanceof Error ? error.message : String(error)}.`;
+            if (error.name === 'TokenLimitExceededError') {
+                errorMessage = error.message;
+            }
+
             if (pregenScenarios && pregenScenarios.length > 0) {
-                alert(`Failed to generate a dynamic event: ${error instanceof Error ? error.message : String(error)}. Falling back to a pre-written story scenario.`);
+                alert(`${errorMessage} Falling back to a pre-written story scenario.`);
                 const scenario = pregenScenarios[Math.floor(Math.random() * pregenScenarios.length)];
                 updateGameState({ activeScenario: scenario, gamePhase: 'SCENARIO_CHOICE' });
             } else {
-                alert(`Failed to generate dynamic scenario: ${error instanceof Error ? error.message : String(error)}. No pre-written scenarios available for this location. Skipping turn.`);
+                alert(`${errorMessage} No pre-written scenarios available for this location. Skipping turn.`);
                 nextTurn();
             }
         }
@@ -323,8 +325,11 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
             setTimeout(() => {
                 handleScenarioChoice(chosenChoice);
             }, 1500); // Simulate thinking
-        } catch (e) {
+        } catch (e: any) {
             console.error("AI choice failed, picking randomly.", e);
+            if (e.name === 'TokenLimitExceededError') {
+                alert(e.message);
+            }
             const randomChoice = scenario.choices[Math.floor(Math.random() * 2)];
              setTimeout(() => {
                 handleScenarioChoice(randomChoice);

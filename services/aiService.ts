@@ -1,9 +1,9 @@
 
 import { GoogleGenAI, Chat } from "@google/genai";
-import type { QuestConfig, Player, BoardLocation, ManagedScenario, AiProviderSettings } from '../types';
+import type { QuestConfig, Player, BoardLocation, ManagedScenario, AiProviderSettings, LanguageCode, AiProviderId } from '../types';
 import { auditLogService } from './auditLogService';
 import { statsService } from './statsService';
-import { settingsService } from './settingsService';
+import { settingsService, getProviderApiKeyFromEnv, PROVIDER_CONFIGS } from './settingsService';
 import { 
     questConfigSchema, 
     dynamicScenarioSchema, 
@@ -12,14 +12,50 @@ import {
 } from './schemas';
 import { getLocalizedString } from "../utils/localization";
 
-const LANGUAGE_MAP = {
+export class TokenLimitExceededError extends Error {
+    constructor(message: string) {
+        super(message);
+        this.name = 'TokenLimitExceededError';
+    }
+}
+
+const LANGUAGE_MAP: Record<LanguageCode, string> = {
     en: "English",
     es: "Spanish",
     hi: "Hindi",
     ta: "Tamil"
 };
 
-const API_KEY_ERROR = "API key is not configured. As per project guidelines, this app requires the 'API_KEY' to be set as an environment variable.";
+const getApiKey = (providerId: AiProviderId): string => {
+    // 1. User-provided session key takes highest priority
+    const sessionApiKey = settingsService.getSessionApiKey();
+    if (sessionApiKey) {
+        return sessionApiKey;
+    }
+
+    // 2. Provider-specific environment key from settingsService
+    const envApiKey = getProviderApiKeyFromEnv(providerId);
+    if (envApiKey) {
+        return envApiKey;
+    }
+    
+    // 3. No key found
+    const providerName = PROVIDER_CONFIGS[providerId]?.name || providerId;
+    const keyName = `${providerId.toUpperCase()}_API_KEY`;
+    throw new Error(`${providerName} API key is not configured. Please set the ${keyName} environment variable or enter one in the Settings menu.`);
+};
+
+const preflightCheck = () => {
+    // Only check the limit if the user is NOT using their own override key
+    const isUsingOverrideKey = !!settingsService.getSessionApiKey();
+    if (!isUsingOverrideKey) {
+        if (statsService.isTokenLimitExceeded()) {
+            const { limit } = statsService.getTokenUsage();
+            throw new TokenLimitExceededError(`You have used the shared API key's quota of ${limit.toLocaleString()} tokens. To continue, please go to Settings and provide your own personal API key.`);
+        }
+    }
+};
+
 
 // --- Helper to mask API keys for logging ---
 const maskApiKey = (key: string): string => {
@@ -57,6 +93,9 @@ const withRetry = async <T>(apiCall: () => Promise<T>, maxRetries = 3, initialDe
         try {
             return await apiCall();
         } catch (e: any) {
+             if (e instanceof TokenLimitExceededError) {
+                throw e; // Do not retry on token limit errors
+            }
             const status = e?.response?.status || e?.status;
             const isRateLimitError = status === 429;
             const isServerError = status >= 500 && status <= 599;
@@ -78,10 +117,7 @@ const withRetry = async <T>(apiCall: () => Promise<T>, maxRetries = 3, initialDe
 // --- Service Functions ---
 
 export const testConnection = async (settings: AiProviderSettings): Promise<void> => {
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) {
-        throw new Error(API_KEY_ERROR);
-    }
+    const apiKey = getApiKey(settings.providerId);
     const isGemini = settings.providerId === 'gemini';
     const apiCall = async () => {
         if (isGemini) {
@@ -128,10 +164,10 @@ export const testConnection = async (settings: AiProviderSettings): Promise<void
 
 
 export const enhanceQuestIdea = async (idea: string): Promise<string> => {
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) throw new Error(API_KEY_ERROR);
-    
     const settings = settingsService.getAiSettings();
+    preflightCheck();
+    const apiKey = getApiKey(settings.providerId);
+    
     const maskedSettings = { ...settings, apiKey: maskApiKey(apiKey) };
     const isGemini = settings.providerId === 'gemini';
 
@@ -141,6 +177,9 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
         mode: 'Enhance Idea' as const,
         prompt: prompt,
         requestDetails: { action: 'enhance_idea', idea: idea, settings: maskedSettings },
+        model: settings.model,
+        inputTokens: undefined as number | undefined,
+        outputTokens: undefined as number | undefined,
     };
 
     try {
@@ -161,6 +200,11 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
                     throw error;
                 }
                 const jsonResponse = await response.json();
+                if (jsonResponse.usage) {
+                    logDetails.inputTokens = jsonResponse.usage.prompt_tokens || 0;
+                    logDetails.outputTokens = jsonResponse.usage.completion_tokens || 0;
+                    statsService.updateTokens({ inputTokens: logDetails.inputTokens, outputTokens: logDetails.outputTokens });
+                }
                 return jsonResponse.choices[0].message.content;
             } else {
                 const ai = new GoogleGenAI({ apiKey });
@@ -168,7 +212,14 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
                     model: settings.model,
                     contents: prompt,
                 });
-                statsService.updateTokens(response.usageMetadata);
+                if (response.usageMetadata) {
+                    const inputTokens = response.usageMetadata.promptTokenCount || 0;
+                    const totalTokens = response.usageMetadata.totalTokenCount || 0;
+                    const outputTokens = Math.max(0, totalTokens - inputTokens);
+                    logDetails.inputTokens = inputTokens;
+                    logDetails.outputTokens = outputTokens;
+                    statsService.updateTokens({ inputTokens, outputTokens });
+                }
                 return response.text;
             }
         };
@@ -189,25 +240,32 @@ export const generateQuestOutline = async (
     idea: string,
     numLocations: number,
     positivity: number,
-    groundingInReality: boolean
+    groundingInReality: boolean,
+    supportedLanguages: LanguageCode[]
 ): Promise<QuestConfig> => {
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) throw new Error(API_KEY_ERROR);
-
     const settings = settingsService.getAiSettings();
+    preflightCheck();
+    const apiKey = getApiKey(settings.providerId);
+
     const languageCode = settingsService.getLanguage();
     const languageName = LANGUAGE_MAP[languageCode];
     const maskedSettings = { ...settings, apiKey: maskApiKey(apiKey) };
     const isGemini = settings.providerId === 'gemini';
     
-    const promptReplacements = { numLocations, positivity, groundingInReality: String(groundingInReality), languageCode, languageName };
+    const languageList = (supportedLanguages.length > 0 ? supportedLanguages : ['en'])
+        .map(code => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
+
+    const promptReplacements = { numLocations, positivity, groundingInReality: String(groundingInReality), languageCode, languageName, languageList };
     const userPrompt = `Generate a quest based on this idea: "${idea}"`;
 
     const logDetails = {
         mode: 'Quest Maker' as const,
         prompt: userPrompt,
         systemInstruction: '',
-        requestDetails: { action: 'generate_outline', idea, numLocations, positivity, groundingInReality, language: languageCode, settings: maskedSettings },
+        requestDetails: { action: 'generate_outline', idea, numLocations, positivity, groundingInReality, supportedLanguages, settings: maskedSettings },
+        model: settings.model,
+        inputTokens: undefined as number | undefined,
+        outputTokens: undefined as number | undefined,
     };
 
     try {
@@ -233,6 +291,11 @@ export const generateQuestOutline = async (
                     throw error;
                 }
                 const jsonResponse = await response.json();
+                if (jsonResponse.usage) {
+                    logDetails.inputTokens = jsonResponse.usage.prompt_tokens || 0;
+                    logDetails.outputTokens = jsonResponse.usage.completion_tokens || 0;
+                    statsService.updateTokens({ inputTokens: logDetails.inputTokens, outputTokens: logDetails.outputTokens });
+                }
                 return jsonResponse.choices[0].message.content;
 
             } else {
@@ -249,7 +312,14 @@ export const generateQuestOutline = async (
                         responseSchema: questConfigSchema,
                     }
                 });
-                statsService.updateTokens(response.usageMetadata);
+                if (response.usageMetadata) {
+                    const inputTokens = response.usageMetadata.promptTokenCount || 0;
+                    const totalTokens = response.usageMetadata.totalTokenCount || 0;
+                    const outputTokens = Math.max(0, totalTokens - inputTokens);
+                    logDetails.inputTokens = inputTokens;
+                    logDetails.outputTokens = outputTokens;
+                    statsService.updateTokens({ inputTokens, outputTokens });
+                }
                 return response.text;
             }
         };
@@ -264,6 +334,7 @@ export const generateQuestOutline = async (
 
         json.positivity = positivity;
         json.groundingInReality = groundingInReality;
+        json.supportedLanguages = supportedLanguages;
         if (json.board && Array.isArray(json.board.locations)) {
             const jailIndex = json.board.locations.findIndex((loc: any) => loc.type === 'JAIL');
             json.board.jailPosition = jailIndex !== -1 ? jailIndex : Math.floor(json.board.locations.length / 2);
@@ -283,16 +354,19 @@ export const generatePregeneratedScenarios = async (
 ): Promise<ManagedScenario[]> => {
     if (numScenarios <= 0) return [];
     
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) throw new Error(API_KEY_ERROR);
-
     const settings = settingsService.getAiSettings();
+    preflightCheck();
+    const apiKey = getApiKey(settings.providerId);
+
     const languageCode = settingsService.getLanguage();
     const languageName = LANGUAGE_MAP[languageCode];
     const maskedSettings = { ...settings, apiKey: maskApiKey(apiKey) };
     const isGemini = settings.providerId === 'gemini';
     const isGrounded = !!questConfig.groundingInReality;
     const resourceNames = questConfig.resources.map(r => getLocalizedString(r.name, 'en').toLowerCase()).join(', ');
+    
+    const supportedLanguages = questConfig.supportedLanguages || ['en', 'es', 'hi', 'ta'];
+    const languageList = supportedLanguages.map(code => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
     
     const promptReplacements = {
         questDescription: getLocalizedString(questConfig.description, 'en'),
@@ -301,12 +375,17 @@ export const generatePregeneratedScenarios = async (
         resourceNames,
         numScenarios,
         languageCode,
-        languageName
+        languageName,
+        languageList,
     };
     
     const logDetails = {
-        mode: 'Pregenerated Scenarios' as const, prompt: '',
+        mode: 'Pregenerated Scenarios' as const, 
+        prompt: '',
         requestDetails: { questName: getLocalizedString(questConfig.name, 'en'), location: getLocalizedString(location.name, 'en'), numScenarios, grounded: isGrounded, language: languageCode, settings: maskedSettings },
+        model: settings.model,
+        inputTokens: undefined as number | undefined,
+        outputTokens: undefined as number | undefined,
     };
 
     try {
@@ -317,7 +396,14 @@ export const generatePregeneratedScenarios = async (
                     const prompt = await loadPrompt('prompts/pregenerated-scenarios-grounded.txt', promptReplacements);
                     logDetails.prompt = prompt;
                     const response = await ai.models.generateContent({ model: settings.model, contents: prompt, config: { tools: [{ googleSearch: {} }] } });
-                    statsService.updateTokens(response.usageMetadata);
+                    if (response.usageMetadata) {
+                        const inputTokens = response.usageMetadata.promptTokenCount || 0;
+                        const totalTokens = response.usageMetadata.totalTokenCount || 0;
+                        const outputTokens = Math.max(0, totalTokens - inputTokens);
+                        logDetails.inputTokens = inputTokens;
+                        logDetails.outputTokens = outputTokens;
+                        statsService.updateTokens({ inputTokens, outputTokens });
+                    }
                     return response.text;
                  } else {
                     const schemaString = JSON.stringify(scenarioArraySchema, null, 2).replace(/"/g, '\"');
@@ -339,6 +425,11 @@ export const generatePregeneratedScenarios = async (
                         throw error;
                     }
                     const jsonResponse = await response.json();
+                     if (jsonResponse.usage) {
+                        logDetails.inputTokens = jsonResponse.usage.prompt_tokens || 0;
+                        logDetails.outputTokens = jsonResponse.usage.completion_tokens || 0;
+                        statsService.updateTokens({ inputTokens: logDetails.inputTokens, outputTokens: logDetails.outputTokens });
+                    }
                     return jsonResponse.choices[0].message.content;
                 }
 
@@ -363,6 +454,11 @@ export const generatePregeneratedScenarios = async (
                         throw error;
                     }
                     const jsonResponse = await response.json();
+                     if (jsonResponse.usage) {
+                        logDetails.inputTokens = jsonResponse.usage.prompt_tokens || 0;
+                        logDetails.outputTokens = jsonResponse.usage.completion_tokens || 0;
+                        statsService.updateTokens({ inputTokens: logDetails.inputTokens, outputTokens: logDetails.outputTokens });
+                    }
                     return jsonResponse.choices[0].message.content;
                 } else {
                     const prompt = await loadPrompt('prompts/pregenerated-scenarios-fictional.txt', promptReplacements);
@@ -372,7 +468,14 @@ export const generatePregeneratedScenarios = async (
                         model: settings.model, contents: prompt,
                         config: { responseMimeType: "application/json", responseSchema: scenarioArraySchema }
                     });
-                    statsService.updateTokens(response.usageMetadata);
+                    if (response.usageMetadata) {
+                        const inputTokens = response.usageMetadata.promptTokenCount || 0;
+                        const totalTokens = response.usageMetadata.totalTokenCount || 0;
+                        const outputTokens = Math.max(0, totalTokens - inputTokens);
+                        logDetails.inputTokens = inputTokens;
+                        logDetails.outputTokens = outputTokens;
+                        statsService.updateTokens({ inputTokens, outputTokens });
+                    }
                     return response.text;
                 }
             }
@@ -398,10 +501,10 @@ export const generatePregeneratedScenarios = async (
 };
 
 export const generateDynamicScenario = async (questConfig: QuestConfig, player: Player, location: BoardLocation): Promise<ManagedScenario> => {
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) throw new Error(API_KEY_ERROR);
-
     const settings = settingsService.getAiSettings();
+    preflightCheck();
+    const apiKey = getApiKey(settings.providerId);
+
     const languageCode = settingsService.getLanguage();
     const languageName = LANGUAGE_MAP[languageCode];
     const maskedSettings = { ...settings, apiKey: maskApiKey(apiKey) };
@@ -409,19 +512,26 @@ export const generateDynamicScenario = async (questConfig: QuestConfig, player: 
     const isGrounded = !!questConfig.groundingInReality;
     
     const resourceNames = questConfig.resources.map(r => getLocalizedString(r.name, 'en').toLowerCase()).join(', ');
+    const supportedLanguages = questConfig.supportedLanguages || ['en', 'es', 'hi', 'ta'];
+    const languageList = supportedLanguages.map(code => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
+
     const promptReplacements = {
         questDescription: getLocalizedString(questConfig.description, 'en'),
         locationName: getLocalizedString(location.name, 'en'),
         locationDescription: getLocalizedString(location.description, 'en'),
         resourceNames,
         languageCode,
-        languageName
+        languageName,
+        languageList,
     };
 
     const logDetails = {
         mode: (isGrounded ? 'Dynamic Scenario (Grounded)' : 'Dynamic Scenario (Fictional)') as any,
         prompt: '',
         requestDetails: { questName: getLocalizedString(questConfig.name, 'en'), location: getLocalizedString(location.name, 'en'), grounded: isGrounded, language: languageCode, settings: maskedSettings },
+        model: settings.model,
+        inputTokens: undefined as number | undefined,
+        outputTokens: undefined as number | undefined,
     };
 
     try {
@@ -435,7 +545,14 @@ export const generateDynamicScenario = async (questConfig: QuestConfig, player: 
                     const prompt = await loadPrompt('prompts/dynamic-scenario-grounded.txt', promptReplacements);
                     logDetails.prompt = prompt;
                     const response = await ai.models.generateContent({ model: settings.model, contents: prompt, config: { tools: [{ googleSearch: {} }] } });
-                    statsService.updateTokens(response.usageMetadata);
+                     if (response.usageMetadata) {
+                        const inputTokens = response.usageMetadata.promptTokenCount || 0;
+                        const totalTokens = response.usageMetadata.totalTokenCount || 0;
+                        const outputTokens = Math.max(0, totalTokens - inputTokens);
+                        logDetails.inputTokens = inputTokens;
+                        logDetails.outputTokens = outputTokens;
+                        statsService.updateTokens({ inputTokens, outputTokens });
+                    }
                     source = response.candidates?.[0]?.groundingMetadata?.groundingChunks?.[0]?.web;
                     return response.text;
                 } else { // Grounded, OpenAI-compatible
@@ -454,6 +571,11 @@ export const generateDynamicScenario = async (questConfig: QuestConfig, player: 
                         throw error;
                     }
                     const jsonResponse = await response.json();
+                     if (jsonResponse.usage) {
+                        logDetails.inputTokens = jsonResponse.usage.prompt_tokens || 0;
+                        logDetails.outputTokens = jsonResponse.usage.completion_tokens || 0;
+                        statsService.updateTokens({ inputTokens: logDetails.inputTokens, outputTokens: logDetails.outputTokens });
+                    }
                     return jsonResponse.choices[0].message.content;
                 }
             } else { // Fictional flow
@@ -473,6 +595,11 @@ export const generateDynamicScenario = async (questConfig: QuestConfig, player: 
                         throw error;
                     }
                     const jsonResponse = await response.json();
+                     if (jsonResponse.usage) {
+                        logDetails.inputTokens = jsonResponse.usage.prompt_tokens || 0;
+                        logDetails.outputTokens = jsonResponse.usage.completion_tokens || 0;
+                        statsService.updateTokens({ inputTokens: logDetails.inputTokens, outputTokens: logDetails.outputTokens });
+                    }
                     return jsonResponse.choices[0].message.content;
                 } else {
                     const prompt = await loadPrompt('prompts/dynamic-scenario-fictional.txt', promptReplacements);
@@ -482,7 +609,14 @@ export const generateDynamicScenario = async (questConfig: QuestConfig, player: 
                         model: settings.model, contents: prompt,
                         config: { responseMimeType: "application/json", responseSchema: dynamicScenarioSchema }
                     });
-                    statsService.updateTokens(response.usageMetadata);
+                    if (response.usageMetadata) {
+                        const inputTokens = response.usageMetadata.promptTokenCount || 0;
+                        const totalTokens = response.usageMetadata.totalTokenCount || 0;
+                        const outputTokens = Math.max(0, totalTokens - inputTokens);
+                        logDetails.inputTokens = inputTokens;
+                        logDetails.outputTokens = outputTokens;
+                        statsService.updateTokens({ inputTokens, outputTokens });
+                    }
                     return response.text;
                 }
             }
@@ -512,10 +646,10 @@ export const generateDynamicScenario = async (questConfig: QuestConfig, player: 
 };
 
 export const getAIChoice = async (questConfig: QuestConfig, scenario: ManagedScenario, aiPlayer: Player): Promise<number> => {
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) throw new Error(API_KEY_ERROR);
-
     const settings = settingsService.getAiSettings();
+    preflightCheck();
+    const apiKey = getApiKey(settings.providerId);
+    
     if (settings.providerId !== 'gemini') {
         // Fallback for non-gemini providers to keep it simple
         console.warn("AI Player choice is only supported for Gemini provider. Falling back to random choice.");
@@ -548,6 +682,9 @@ export const getAIChoice = async (questConfig: QuestConfig, scenario: ManagedSce
             aiPlayer: {id: aiPlayer.id, name: aiPlayer.name, resources: aiPlayer.resources},
             settings: maskedSettings 
         },
+        model: settings.model,
+        inputTokens: undefined as number | undefined,
+        outputTokens: undefined as number | undefined,
     };
 
     try {
@@ -561,7 +698,14 @@ export const getAIChoice = async (questConfig: QuestConfig, scenario: ManagedSce
                     responseSchema: aiChoiceSchema,
                 }
             });
-            statsService.updateTokens(response.usageMetadata);
+            if (response.usageMetadata) {
+                const inputTokens = response.usageMetadata.promptTokenCount || 0;
+                const totalTokens = response.usageMetadata.totalTokenCount || 0;
+                const outputTokens = Math.max(0, totalTokens - inputTokens);
+                logDetails.inputTokens = inputTokens;
+                logDetails.outputTokens = outputTokens;
+                statsService.updateTokens({ inputTokens, outputTokens });
+            }
             return response.text;
         };
 
@@ -605,8 +749,7 @@ export const chatManager = {
         }
 
         try {
-            const apiKey = process.env.API_KEY;
-            if (!apiKey) throw new Error("API key not configured.");
+            const apiKey = getApiKey(settings.providerId);
             
             const ai = new GoogleGenAI({ apiKey });
             chatInstance = ai.chats.create({
@@ -626,14 +769,17 @@ export const chatManager = {
             return;
         }
         
+        const settings = settingsService.getAiSettings();
         const logDetails = {
             mode: 'Chat' as const,
             prompt: message,
             systemInstruction: currentSystemInstruction,
             requestDetails: { action: 'chat_message' },
+            model: settings.model,
         };
         
         try {
+            preflightCheck();
             const responseStream = await chatInstance.sendMessageStream({ message });
             let fullResponse = "";
             for await (const chunk of responseStream) {
@@ -641,11 +787,15 @@ export const chatManager = {
                 fullResponse += chunkText;
                 yield chunkText;
             }
-            statsService.updateTokens(undefined); // Chat streaming doesn't provide token usage yet
+            // Chat streaming doesn't provide token usage yet
             auditLogService.addLog({ ...logDetails, response: fullResponse, error: null });
         } catch (e: any) {
             auditLogService.addLog({ ...logDetails, response: '', error: e.message });
-            yield `An error occurred: ${e.message}`;
+            if (e instanceof TokenLimitExceededError) {
+                yield e.message;
+            } else {
+                yield `An error occurred: ${e.message}`;
+            }
         }
     },
 };

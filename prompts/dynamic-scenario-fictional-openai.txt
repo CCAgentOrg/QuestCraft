@@ -11,7 +11,7 @@ Your task is to generate ONE fictional scenario for this location.
 Focus on creating engaging, educational, and family-friendly content. Avoid sensitive, controversial, or political topics.
 
 # LANGUAGE INSTRUCTIONS:
-- All user-facing text in the scenario (`title`, `description`, `choices.text`, `outcome.explanation`) MUST be a JSON object with translations for English (`en`), Spanish (`es`), Hindi (`hi`), and Tamil (`ta`).
+- All user-facing text in the scenario (`title`, `description`, `choices.text`, `outcome.explanation`) MUST be a JSON object with translations for the following languages: {languageList}.
 - The primary language for the response should be {languageName} ({languageCode}).
 - Your entire response MUST be a single JSON object that adheres to the schema provided below. Do not include any text outside of the JSON.
 

@@ -77,6 +77,7 @@ export interface QuestConfig {
     description: LocalizedString;
     positivity?: number;
     groundingInReality?: boolean;
+    supportedLanguages?: LanguageCode[];
     resources: ResourceDefinition[];
     playerColors: string[];
     board: Board;
@@ -124,6 +125,9 @@ export interface AIAuditLog {
     response: string;
     error?: string | null;
     requestDetails?: Record<string, any>;
+    model?: string;
+    inputTokens?: number;
+    outputTokens?: number;
 }
 
 export interface AppStats {
@@ -139,6 +143,7 @@ export interface AiProviderSettings {
     providerId: AiProviderId;
     model: string;
     baseUrl?: string;
+    aiRequestDelayMs?: number;
 }
 
 export type LanguageCode = 'en' | 'es' | 'hi' | 'ta';

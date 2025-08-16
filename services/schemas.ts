@@ -10,7 +10,8 @@ const localizedStringSchema = {
         hi: { type: Type.STRING, description: "The text in Hindi." },
         ta: { type: Type.STRING, description: "The text in Tamil." },
     },
-    required: ['en', 'es', 'hi', 'ta']
+    // No longer required, as the user can select which ones to generate.
+    // The prompt will enforce which ones are needed for a given request.
 };
 
 export const resourceChangeSchema = {
@@ -75,6 +76,11 @@ export const questConfigSchema = {
         description: { ...localizedStringSchema, description: "A short, one-sentence tagline describing the quest's theme." },
         positivity: { type: Type.NUMBER, description: "A value from 0.0 (very challenging/dystopian) to 1.0 (very optimistic/hopeful). Defaults to 0.5." },
         groundingInReality: { type: Type.BOOLEAN, description: "Set to true if the quest is based on real-world events. This will influence scenario generation." },
+        supportedLanguages: {
+            type: Type.ARRAY,
+            description: "An array of language codes (e.g., 'en', 'es') that this quest supports.",
+            items: { type: Type.STRING }
+        },
         resources: {
             type: Type.ARRAY,
             description: "An array of 2-4 core resources players manage.",

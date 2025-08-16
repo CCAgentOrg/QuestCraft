@@ -1,5 +1,5 @@
+
 import type { AppStats } from '../types';
-import type { UsageMetadata } from '@google/genai';
 
 const STATS_STORAGE_KEY = 'questcraft-usage-stats';
 export const STATS_UPDATED_EVENT = 'statsupdated';
@@ -12,6 +12,15 @@ const defaultStats: AppStats = {
     totalOutputTokens: 0,
     totalCost: 0,
     timePlayedInSeconds: 0,
+};
+
+const getTokenLimit = (): number => {
+    const limitStr = process.env.TOKEN_LIMIT;
+    if (limitStr) {
+        const limit = parseInt(limitStr, 10);
+        return isNaN(limit) || limit <= 0 ? 1_000_000 : limit;
+    }
+    return 1_000_000;
 };
 
 const dispatchUpdateEvent = () => {
@@ -28,20 +37,13 @@ export const statsService = {
             return { ...defaultStats };
         }
     },
-    updateTokens: (usageMetadata?: UsageMetadata) => {
-        if (!usageMetadata) return;
+    updateTokens: (usage?: { inputTokens: number; outputTokens: number }) => {
+        if (!usage || (usage.inputTokens === 0 && usage.outputTokens === 0)) return;
 
         const stats = statsService.getStats();
-        const inputTokens = usageMetadata.promptTokenCount || 0;
-        const totalTokens = usageMetadata.totalTokenCount || 0;
-
-        // Defensively calculate output tokens. In some SDK versions or responses,
-        // candidatesTokenCount might be missing. Deriving it from total and prompt
-        // counts is more robust.
-        const outputTokens = Math.max(0, totalTokens - inputTokens);
-
-        stats.totalInputTokens += inputTokens;
-        stats.totalOutputTokens += outputTokens;
+        
+        stats.totalInputTokens += usage.inputTokens || 0;
+        stats.totalOutputTokens += usage.outputTokens || 0;
 
         const inputCost = (stats.totalInputTokens / 1_000_000) * GEMINI_FLASH_INPUT_COST_PER_MILLION;
         const outputCost = (stats.totalOutputTokens / 1_000_000) * GEMINI_FLASH_OUTPUT_COST_PER_MILLION;
@@ -63,6 +65,19 @@ export const statsService = {
         } catch (e) {
             console.error("Failed to save usage stats to localStorage", e);
         }
+    },
+    isTokenLimitExceeded: (): boolean => {
+        const stats = statsService.getStats();
+        const totalTokens = (stats.totalInputTokens || 0) + (stats.totalOutputTokens || 0);
+        const limit = getTokenLimit();
+        return totalTokens >= limit;
+    },
+
+    getTokenUsage: (): { used: number; limit: number } => {
+        const stats = statsService.getStats();
+        const used = (stats.totalInputTokens || 0) + (stats.totalOutputTokens || 0);
+        const limit = getTokenLimit();
+        return { used, limit };
     },
     resetStats: () => {
         try {

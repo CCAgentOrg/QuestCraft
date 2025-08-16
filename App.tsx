@@ -150,7 +150,7 @@ const App: React.FC = () => {
         setPage('home');
     }, []);
 
-    const handleNavigate = (targetPage: Page) => {
+    const handleNavigate = useCallback((targetPage: Page) => {
         if (targetPage === 'maker' && !isMakerModeEnabled) return;
 
         if (page === 'game' && (targetPage === 'home' || targetPage === 'welcome')) {
@@ -158,11 +158,16 @@ const App: React.FC = () => {
             return;
         }
         if (page === 'maker' && targetPage !== 'maker') {
+            const confirmed = !draftQuestForChat || window.confirm("You have an unsaved quest draft. Are you sure you want to leave the Quest Maker? Your draft will be lost.");
+            if (!confirmed) {
+                setIsMenuOpen(false);
+                return;
+            }
             setDraftQuestForChat(null); // Clear draft context when leaving maker
         }
         setPage(targetPage);
         setIsMenuOpen(false);
-    };
+    }, [page, draftQuestForChat, handleExitGameWithConfirm]);
 
     const handleLoadQuest = useCallback((config: QuestConfig, fromUserAction: boolean = false) => {
         if (fromUserAction && isMakerModeEnabled) {
@@ -177,11 +182,12 @@ const App: React.FC = () => {
             saveCustomQuestsToStorage(newQuests);
             setCustomQuests(newQuests);
         }
+        setDraftQuestForChat(null); // Clear draft when loading a quest
         setQuestConfig(config);
         localStorage.setItem(ACTIVE_QUEST_CONFIG_KEY, JSON.stringify(config));
         gameStateService.clear(); // Clear any previous game's state
         handleNavigate('game');
-    }, [isMakerModeEnabled]);
+    }, [isMakerModeEnabled, handleNavigate]);
 
     const handleDeleteQuest = (questName: string) => {
         if (isMakerModeEnabled && window.confirm(`Are you sure you want to delete the quest "${questName}"? This cannot be undone.`)) {
@@ -200,11 +206,11 @@ const App: React.FC = () => {
         } catch (error) {
             console.error("AI connection test failed:", error);
             aiConnectivityService.setConnected(false);
-            alert(`AI connection test failed: ${error instanceof Error ? error.message : String(error)}`);
+            handleNavigate('settings');
         } finally {
             setIsTestingAi(false);
         }
-    }, []);
+    }, [handleNavigate]);
 
     const handleResetStats = useCallback(() => {
         if (window.confirm(t('resetStatsConfirmation'))) {
@@ -235,6 +241,7 @@ const App: React.FC = () => {
                     return <HomePage onNavigate={handleNavigate} isMakerModeEnabled={isMakerModeEnabled} />;
                 }
                 return <QuestMakerPage
+                            draftQuest={draftQuestForChat}
                             onLoadQuest={(config) => handleLoadQuest(config, true)}
                             onDraftUpdate={setDraftQuestForChat}
                         />;

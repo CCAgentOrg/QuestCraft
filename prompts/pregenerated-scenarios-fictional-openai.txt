@@ -11,7 +11,7 @@ Your task is to generate {numScenarios} unique, fictional scenarios for this loc
 Focus on creating engaging, educational, and family-friendly content. Avoid sensitive, controversial, or political topics.
 
 # LANGUAGE INSTRUCTIONS:
-- All user-facing text in the scenarios (`title`, `description`, `choices.text`, `outcome.explanation`) MUST be a JSON object with translations for English (`en`), Spanish (`es`), Hindi (`hi`), and Tamil (`ta`).
+- All user-facing text in the scenarios (`title`, `description`, `choices.text`, `outcome.explanation`) MUST be a JSON object with translations for the following languages: {languageList}.
 - The primary language for the response should be {languageName} ({languageCode}).
 - Your entire response MUST be a single JSON object with a single root key "scenarios" containing an array of the {numScenarios} generated scenario objects. The response must adhere to the schema provided below. Do not include any text outside of the JSON.
 
