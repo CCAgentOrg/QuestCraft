@@ -137,7 +137,7 @@ export interface AppStats {
     timePlayedInSeconds: number;
 }
 
-export type AiProviderId = 'gemini' | 'openai' | 'openrouter' | 'groq' | 'together' | 'custom';
+export type AiProviderId = 'gemini' | 'openai' | 'openrouter' | 'groq' | 'together' | 'custom' | 'community';
 
 export interface AiProviderSettings {
     providerId: AiProviderId;

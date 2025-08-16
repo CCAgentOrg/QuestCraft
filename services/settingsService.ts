@@ -1,4 +1,5 @@
 
+
 import type { AiProviderSettings, AiProviderId, AppSettings, LanguageCode } from '../types';
 import { logger } from './logger';
 
@@ -20,6 +21,13 @@ export interface AiProviderConfig {
 }
 
 export const PROVIDER_CONFIGS: Record<AiProviderId, AiProviderConfig> = {
+    community: {
+        id: 'community',
+        name: 'Community Gateway (Free Tier)',
+        defaultModel: 'openai/gpt-oss-20b:free', // Display only
+        isCustom: false,
+        isGemini: false,
+    },
     gemini: {
         id: 'gemini',
         name: 'Google Gemini',
@@ -89,9 +97,9 @@ export const getProviderApiKeyFromEnv = (providerId: AiProviderId): string | und
 
 export const defaultSettings: AppSettings = {
     ai: {
-        providerId: 'gemini',
-        model: PROVIDER_CONFIGS.gemini.defaultModel,
-        baseUrl: PROVIDER_CONFIGS.gemini.baseUrl,
+        providerId: 'community',
+        model: PROVIDER_CONFIGS.community.defaultModel,
+        baseUrl: PROVIDER_CONFIGS.community.baseUrl,
         aiRequestDelayMs: 1100,
     },
     language: 'en',
@@ -113,7 +121,7 @@ export const settingsService = {
             };
             
             if (!PROVIDER_CONFIGS[merged.ai.providerId]) {
-                merged.ai.providerId = 'gemini';
+                merged.ai.providerId = 'community';
             }
             return merged;
         } catch (e) {

@@ -4,17 +4,26 @@ At QuestCraft, we are deeply committed to your privacy and the security of your 
 
 ## Client-Side Architecture
 
-The most important thing to understand about QuestCraft is that it is a **100% client-side application**. This means:
+The most important thing to understand about QuestCraft is that it is primarily a **client-side application**. This means:
 
--   **No Servers:** We do not operate any backend servers to run the game or store your data. The entire application runs directly in your web browser.
+-   **No Servers for Core Gameplay:** We do not operate any backend servers to run the game or store your data when you use your own API key. The application runs directly in your web browser.
 -   **No Data Collection:** We do not collect, track, or store any of your personal information or gameplay data on our servers. What happens in your browser stays in your browser.
+
+## QuestCraft Community Gateway
+
+To provide a zero-setup experience, QuestCraft offers a "Community Gateway" AI provider. This is the only time the application communicates with a backend service operated by us.
+
+-   **What it is:** The Community Gateway is a backend service that acts as a **stateless proxy**. Its only job is to receive your AI request, securely add a shared API key, and forward it to our third-party AI provider, [OpenRouter](https://openrouter.ai).
+-   **Data Handling:** When you use the Community Tier, your prompts (e.g., game ideas, chat messages, scenario generation requests) are sent to our backend.
+-   **Our Privacy Promise:** Our backend is **stateless**. We **do not log, store, or monitor** any of the content from your prompts or the AI's responses. The data passes through our service and is not retained in any way. For details on how OpenRouter handles the data it receives, please refer to their privacy policy.
+-   **For Maximum Privacy:** If you prefer that your data is never sent through our backend, you can switch to any other provider in the **Settings** menu and provide your own personal API key. When you use your own key, all AI requests are sent **directly from your browser to the AI provider** (e.g., Google, OpenAI), completely bypassing our Community Gateway.
 
 ## Data Stored in Your Browser (`localStorage`)
 
 To provide a seamless experience, QuestCraft uses your browser's `localStorage`. This is a standard web feature that allows websites to store data on your own computer. Here is a complete list of what we store:
 
 1.  **Application Settings (`questcraft-app-settings`):**
-    *   **What it is:** Your selected AI provider (e.g., Google Gemini), model name, and preferred language. Your API key is **not** stored here; it is read from environment variables.
+    *   **What it is:** Your selected AI provider (e.g., Google Gemini), model name, and preferred language. Your API key is **not** stored here.
     *   **How it's used:** This configures the AI service and sets the display language for the application.
 
 2.  **Game State (`questcraft-game-state`):**
@@ -37,10 +46,6 @@ To provide a seamless experience, QuestCraft uses your browser's `localStorage`.
     *   **What it is:** An aggregated count of token usage, estimated cost, and time played.
     *   **How it's used:** This helps you keep track of your API usage.
 
-7.  **Other Session Data:** Small keys like `questcraft-current-page` and `questcraft-ai-connectivity-status` are used to remember your last visited page and the AI connection status for a smoother experience.
-
-A key point on security: Your API key is read from an environment variable and is sent **directly from your browser to the AI provider's API endpoint**. It is never transmitted to or through any server owned by us.
-
 ## How to Control Your Data
 
 You have complete control over the data stored in your browser.
@@ -49,4 +54,4 @@ You have complete control over the data stored in your browser.
 -   **Deleting Custom Quests:** You can manage and delete your saved custom quests from the **Settings** menu.
 -   **Complete Reset:** The **"Reset Application & Clear All Data"** button in the **Settings** menu will completely wipe all of the above data from your browser's `localStorage`, returning the app to its default state.
 
-Your privacy is paramount. By running entirely on the client side, we aim to give you both a powerful tool and complete control over your information.
+Your privacy is paramount. By offering both a convenient Community Gateway and a direct-to-provider API key option, we aim to give you both a powerful tool and complete control over your information.

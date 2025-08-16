@@ -48,9 +48,10 @@ const getApiKey = (providerId: AiProviderId): string => {
 };
 
 const preflightCheck = () => {
-    // Only check the limit if the user is NOT using their own override key
+    // Only check the limit if the user is NOT using their own override key or the community gateway
+    const providerId = settingsService.getAiSettings().providerId;
     const isUsingOverrideKey = !!settingsService.getSessionApiKey();
-    if (!isUsingOverrideKey) {
+    if (!isUsingOverrideKey && providerId !== 'community') {
         if (statsService.isTokenLimitExceeded()) {
             const { limit } = statsService.getTokenUsage();
             throw new TokenLimitExceededError(`You have used the shared API key's quota of ${limit.toLocaleString()} tokens. To continue, please go to Settings and provide your own personal API key.`);
@@ -170,6 +171,20 @@ const fetchOpenAICompatible = async (settings: AiProviderSettings, body: object)
 
 export const testConnection = async (settings: AiProviderSettings): Promise<void> => {
     logger.info(`[AI] Testing connection for provider: ${settings.providerId}`);
+    
+    if (settings.providerId === 'community') {
+        const response = await fetch('/api/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'testConnection' })
+        });
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Community Gateway connection failed: ${errorText}`);
+        }
+        return;
+    }
+
     const apiKey = getApiKey(settings.providerId);
     const isGemini = settings.providerId === 'gemini';
     const apiCall = async () => {
@@ -199,9 +214,10 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
     logger.info('[AI] Starting enhanceQuestIdea call...');
     const settings = settingsService.getAiSettings();
     preflightCheck();
-    const apiKey = getApiKey(settings.providerId);
     
-    const maskedSettings = { ...settings, apiKey: maskApiKey(apiKey) };
+    const isCommunity = settings.providerId === 'community';
+    const apiKey = isCommunity ? 'N/A' : getApiKey(settings.providerId);
+    const maskedSettings = { ...settings, apiKey: isCommunity ? 'N/A' : maskApiKey(apiKey) };
     const isGemini = settings.providerId === 'gemini';
 
     const prompt = await loadPrompt('prompts/enhance-idea.txt', { idea });
@@ -218,7 +234,22 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
 
     try {
         const apiCall = async (): Promise<string> => {
-            if (!isGemini) {
+            if (isCommunity) {
+                logger.info('[AI] Calling Community Gateway for enhance idea...');
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'enhanceQuestIdea', payload: { idea } })
+                });
+                if (!response.ok) {
+                    throw new Error(`Community Gateway Error: ${await response.text()}`);
+                }
+                const data = await response.json();
+                statsService.updateTokens(data.usage); // The backend returns token usage
+                logDetails.inputTokens = data.usage?.inputTokens;
+                logDetails.outputTokens = data.usage?.outputTokens;
+                return data.result;
+            } else if (!isGemini) {
                 logger.info(`[AI] Calling OpenAI-compatible model for enhance idea: ${settings.model}`);
                 const jsonResponse = await fetchOpenAICompatible(settings, {
                     model: settings.model,
@@ -274,13 +305,14 @@ export const generateQuestOutline = async (
     logger.info('[AI] Starting generateQuestOutline call...');
     const settings = settingsService.getAiSettings();
     preflightCheck();
-    const apiKey = getApiKey(settings.providerId);
+
+    const isCommunity = settings.providerId === 'community';
+    const apiKey = isCommunity ? 'N/A' : getApiKey(settings.providerId);
+    const maskedSettings = { ...settings, apiKey: isCommunity ? 'N/A' : maskApiKey(apiKey) };
+    const isGemini = settings.providerId === 'gemini';
 
     const languageCode = settingsService.getLanguage();
     const languageName = LANGUAGE_MAP[languageCode];
-    const maskedSettings = { ...settings, apiKey: maskApiKey(apiKey) };
-    const isGemini = settings.providerId === 'gemini';
-    
     const languageList = (supportedLanguages.length > 0 ? supportedLanguages : ['en'])
         .map(code => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
 
@@ -299,7 +331,25 @@ export const generateQuestOutline = async (
 
     try {
         const apiCall = async (): Promise<string> => {
-            if (!isGemini) {
+            if (isCommunity) {
+                logger.info('[AI] Calling Community Gateway for quest outline...');
+                 const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        action: 'generateQuestOutline', 
+                        payload: { idea, numLocations, positivity, groundingInReality, supportedLanguages, languageCode } 
+                    })
+                });
+                if (!response.ok) {
+                    throw new Error(`Community Gateway Error: ${await response.text()}`);
+                }
+                const data = await response.json();
+                statsService.updateTokens(data.usage);
+                logDetails.inputTokens = data.usage?.inputTokens;
+                logDetails.outputTokens = data.usage?.outputTokens;
+                return JSON.stringify(data.result);
+            } else if (!isGemini) {
                 const schemaString = JSON.stringify(questConfigSchema, null, 2).replace(/"/g, '\"');
                 const systemInstruction = await loadPrompt('prompts/quest-outline-system-openai.txt', { ...promptReplacements, schema: schemaString });
                 logDetails.systemInstruction = systemInstruction;
@@ -379,28 +429,16 @@ export const generatePregeneratedScenarios = async (
     logger.info(`[AI] Starting generatePregeneratedScenarios for location "${getLocalizedString(location.name, 'en')}"...`);
     const settings = settingsService.getAiSettings();
     preflightCheck();
-    const apiKey = getApiKey(settings.providerId);
+
+    const isCommunity = settings.providerId === 'community';
+    const apiKey = isCommunity ? 'N/A' : getApiKey(settings.providerId);
+    const maskedSettings = { ...settings, apiKey: isCommunity ? 'N/A' : maskApiKey(apiKey) };
+    const isGemini = settings.providerId === 'gemini';
 
     const languageCode = settingsService.getLanguage();
-    const languageName = LANGUAGE_MAP[languageCode];
-    const maskedSettings = { ...settings, apiKey: maskApiKey(apiKey) };
-    const isGemini = settings.providerId === 'gemini';
     const isGrounded = !!questConfig.groundingInReality;
     const resourceNames = questConfig.resources.map(r => getLocalizedString(r.name, 'en').toLowerCase()).join(', ');
-    
     const supportedLanguages = questConfig.supportedLanguages || ['en', 'es', 'hi', 'ta'];
-    const languageList = supportedLanguages.map(code => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
-    
-    const promptReplacements = {
-        questDescription: getLocalizedString(questConfig.description, 'en'),
-        locationName: getLocalizedString(location.name, 'en'),
-        locationDescription: getLocalizedString(location.description, 'en'),
-        resourceNames,
-        numScenarios,
-        languageCode,
-        languageName,
-        languageList,
-    };
     
     const logDetails = {
         mode: 'Pregenerated Scenarios' as const, 
@@ -413,6 +451,40 @@ export const generatePregeneratedScenarios = async (
 
     try {
         const apiCall = async (): Promise<string> => {
+            if (isCommunity) {
+                 logger.info('[AI] Calling Community Gateway for pre-gen scenarios...');
+                 const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        action: 'generatePregeneratedScenarios', 
+                        payload: { questConfig, location, numScenarios, languageCode } 
+                    })
+                });
+                if (!response.ok) {
+                    throw new Error(`Community Gateway Error: ${await response.text()}`);
+                }
+                const data = await response.json();
+                statsService.updateTokens(data.usage);
+                logDetails.inputTokens = data.usage?.inputTokens;
+                logDetails.outputTokens = data.usage?.outputTokens;
+                return JSON.stringify(data.result);
+            }
+            
+            // This part remains unchanged as it handles non-community providers
+            const languageName = LANGUAGE_MAP[languageCode];
+            const languageList = supportedLanguages.map(code => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
+            const promptReplacements = {
+                questDescription: getLocalizedString(questConfig.description, 'en'),
+                locationName: getLocalizedString(location.name, 'en'),
+                locationDescription: getLocalizedString(location.description, 'en'),
+                resourceNames,
+                numScenarios,
+                languageCode,
+                languageName,
+                languageList,
+            };
+
             if (isGrounded) {
                  if (isGemini) {
                     const ai = new GoogleGenAI({ apiKey });
@@ -511,28 +583,14 @@ export const generateDynamicScenario = async (questConfig: QuestConfig, player: 
     logger.info(`[AI] Starting generateDynamicScenario for location "${getLocalizedString(location.name, 'en')}"...`);
     const settings = settingsService.getAiSettings();
     preflightCheck();
-    const apiKey = getApiKey(settings.providerId);
-
-    const languageCode = settingsService.getLanguage();
-    const languageName = LANGUAGE_MAP[languageCode];
-    const maskedSettings = { ...settings, apiKey: maskApiKey(apiKey) };
+    
+    const isCommunity = settings.providerId === 'community';
+    const apiKey = isCommunity ? 'N/A' : getApiKey(settings.providerId);
+    const maskedSettings = { ...settings, apiKey: isCommunity ? 'N/A' : maskApiKey(apiKey) };
     const isGemini = settings.providerId === 'gemini';
     const isGrounded = !!questConfig.groundingInReality;
+    const languageCode = settingsService.getLanguage();
     
-    const resourceNames = questConfig.resources.map(r => getLocalizedString(r.name, 'en').toLowerCase()).join(', ');
-    const supportedLanguages = questConfig.supportedLanguages || ['en', 'es', 'hi', 'ta'];
-    const languageList = supportedLanguages.map(code => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
-
-    const promptReplacements = {
-        questDescription: getLocalizedString(questConfig.description, 'en'),
-        locationName: getLocalizedString(location.name, 'en'),
-        locationDescription: getLocalizedString(location.description, 'en'),
-        resourceNames,
-        languageCode,
-        languageName,
-        languageList,
-    };
-
     const logDetails = {
         mode: (isGrounded ? 'Dynamic Scenario (Grounded)' : 'Dynamic Scenario (Fictional)') as any,
         prompt: '',
@@ -547,6 +605,41 @@ export const generateDynamicScenario = async (questConfig: QuestConfig, player: 
         let source: any = null;
 
         const apiCall = async (): Promise<string> => {
+             if (isCommunity) {
+                logger.info('[AI] Calling Community Gateway for dynamic scenario...');
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        action: 'generateDynamicScenario', 
+                        payload: { questConfig, player, location, languageCode } 
+                    })
+                });
+                if (!response.ok) {
+                    throw new Error(`Community Gateway Error: ${await response.text()}`);
+                }
+                const data = await response.json();
+                statsService.updateTokens(data.usage);
+                logDetails.inputTokens = data.usage?.inputTokens;
+                logDetails.outputTokens = data.usage?.outputTokens;
+                return JSON.stringify(data.result);
+            }
+            
+            // This part remains unchanged for non-community providers
+            const languageName = LANGUAGE_MAP[languageCode];
+            const resourceNames = questConfig.resources.map(r => getLocalizedString(r.name, 'en').toLowerCase()).join(', ');
+            const supportedLanguages = questConfig.supportedLanguages || ['en', 'es', 'hi', 'ta'];
+            const languageList = supportedLanguages.map(code => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
+            const promptReplacements = {
+                questDescription: getLocalizedString(questConfig.description, 'en'),
+                locationName: getLocalizedString(location.name, 'en'),
+                locationDescription: getLocalizedString(location.description, 'en'),
+                resourceNames,
+                languageCode,
+                languageName,
+                languageList,
+            };
+
             if (isGrounded) {
                 if (isGemini) {
                     const ai = new GoogleGenAI({ apiKey });
@@ -735,6 +828,12 @@ let currentSystemInstruction: string | undefined = undefined;
 export const chatManager = {
     initialize: (systemInstruction: string) => {
         const settings = settingsService.getAiSettings();
+        if (settings.providerId === 'community') {
+            // Community provider uses stateless API endpoint, no instance to initialize
+            chatInstance = null;
+            currentSystemInstruction = systemInstruction;
+            return;
+        }
         if (settings.providerId !== 'gemini') {
             logger.warn('[AI Chat] Chat is only supported for Gemini provider.');
             chatInstance = null;
@@ -763,14 +862,14 @@ export const chatManager = {
         }
     },
 
-    sendMessageStream: async function* (message: string): AsyncGenerator<string, void, unknown> {
-        if (!chatInstance) {
-            yield "Chat is only available with the Google Gemini provider. Please change your provider in the Settings menu.";
+    sendMessageStream: async function* (message: string, history: {role: 'user' | 'model', content: string}[]): AsyncGenerator<string, void, unknown> {
+        const settings = settingsService.getAiSettings();
+        if (settings.providerId !== 'gemini' && settings.providerId !== 'community') {
+            yield "Chat is only available with the Google Gemini or Community Gateway provider. Please change your provider in the Settings menu.";
             return;
         }
         
         logger.info('[AI Chat] Sending chat message.');
-        const settings = settingsService.getAiSettings();
         const logDetails = {
             mode: 'Chat' as const,
             prompt: message,
@@ -778,19 +877,44 @@ export const chatManager = {
             requestDetails: { action: 'chat_message' },
             model: settings.model,
         };
-        
+
         try {
             preflightCheck();
-            const responseStream = await chatInstance.sendMessageStream({ message });
+            let responseStream;
+            if (settings.providerId === 'community') {
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'chat',
+                        payload: { message, history, systemInstruction: currentSystemInstruction }
+                    })
+                });
+                if (!response.ok || !response.body) {
+                    throw new Error(`Community Gateway Error: ${await response.text()}`);
+                }
+                responseStream = response.body;
+            } else {
+                 if (!chatInstance) throw new Error("Chat not initialized.");
+                 const result = await chatInstance.sendMessageStream({ message });
+                 responseStream = result;
+            }
+            
             let fullResponse = "";
-            for await (const chunk of responseStream) {
-                const chunkText = chunk.text;
+            const reader = responseStream.getReader();
+            const decoder = new TextDecoder();
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                
+                const chunkText = typeof value === 'string' ? value : decoder.decode(value, { stream: true });
                 fullResponse += chunkText;
                 yield chunkText;
             }
+
             logger.info('[AI Chat] Stream finished.');
             logger.finest('[AI Chat] Full response:', fullResponse);
-            // Chat streaming doesn't provide token usage yet
             auditLogService.addLog({ ...logDetails, response: fullResponse, error: null });
         } catch (e: any) {
             logger.error('[AI Chat] Error during sendMessageStream', e);

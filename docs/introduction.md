@@ -15,6 +15,7 @@ QuestCraft tackles these challenges by providing a zero-setup, highly engaging p
 
 ## Key Features
 
+-   **Zero-Friction Start:** Jump right in with the **QuestCraft Community Tier**. It's a free, built-in AI provider that works out of the box with no API key required, powered by leading open-source models.
 -   **Create with AI:** Use the Quest Maker wizard to generate entire, playable board games from a simple text description of your idea.
 -   **Generate Dynamic Scenarios:** Use Google Search grounding (with Gemini) or search-enabled models (via OpenRouter) to create challenges based on real-world, up-to-the-minute events.
 -   **Play and Customize:** Load pre-made quests, play your AI-generated creations, or load any custom `quest.json` file from a URL or by pasting its content.
@@ -24,18 +25,18 @@ QuestCraft tackles these challenges by providing a zero-setup, highly engaging p
 
 ## Getting Started & Configuration
 
-QuestCraft is designed for ease of use. To run it and use its AI features, you need to configure your environment variables.
+QuestCraft is designed for ease of use. By default, it uses the **QuestCraft Community Tier**, which requires no setup. For advanced users who wish to use their own AI models and API keys, configuration is managed through environment variables.
 
 ### Environment Variables
 
-All application configuration is managed through a `.env` file in the project's root directory.
+For advanced users, all application configuration is managed through a `.env` file in the project's root directory.
 
 1.  **Create a `.env` file:** In the root of the project, find the `.env.sample` file. Make a copy of this file and rename it to `.env`.
 2.  **Configure your variables:** Open the new `.env` file and set the values as needed. All available options are documented with comments in the `.env.sample` file.
 
-#### Essential Configuration: API Keys
+#### Essential Configuration (Advanced): API Keys
 
-The most important variable to set is your AI provider's API key. The application is built to read this key directly from the environment; it will **never** ask you to enter it in the UI.
+By default, you do not need an API key. If you want to use your own private models, you need an API key. This key **must** be provided through an environment variable; the application will **never** ask you to enter it in the UI for security reasons.
 
 You can provide a generic key:
 ```
@@ -66,4 +67,4 @@ The `.env.sample` file documents other useful variables for controlling applicat
 
 ### AI Provider Setup
 
-Once your `API_KEY` is set in the `.env` file, you can select which AI service you want to use from the **Settings** menu within the application. For detailed instructions, please see the [Quest Maker Guide](./maker-guide).
+By default, the app uses the **QuestCraft Community Tier**. If you have set up your own API key in the `.env` file, you can select a different AI service from the **Settings** menu. For detailed instructions, please see the [Quest Maker Guide](./maker-guide).

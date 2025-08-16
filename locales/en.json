@@ -206,5 +206,6 @@
   "choices": "Choices",
   "choiceText": "Choice Text",
   "outcomeExplanation": "Outcome Explanation",
-  "nextFinish": "Finish & Save"
+  "nextFinish": "Finish & Save",
+  "communityProviderDescription": "Uses a free, shared backend powered by open-source models. Rate-limited and suitable for trial purposes. No API key needed."
 }

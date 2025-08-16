@@ -175,7 +175,8 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
         });
     };
 
-    const isBaseUrlEditable = aiSettings.providerId !== 'gemini' && aiSettings.providerId !== 'openai';
+    const isBaseUrlEditable = aiSettings.providerId !== 'gemini' && aiSettings.providerId !== 'openai' && aiSettings.providerId !== 'community';
+    const isModelEditable = aiSettings.providerId !== 'community';
 
     return (
         <div className="p-4 md:p-8 space-y-4">
@@ -267,53 +268,62 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
                                     ))}
                                 </select>
                             </div>
+                            
+                            {isModelEditable ? (
+                                <>
+                                    {aiSettings.providerId === 'openrouter' ? (
+                                        <div>
+                                            <label htmlFor="model-name" className="block text-sm font-medium text-gray-300">{t('modelName')}</label>
+                                            <select
+                                                id="model-name"
+                                                value={aiSettings.model}
+                                                onChange={(e) => handleSettingsFieldChange('model', e.target.value)}
+                                                className="mt-1 block w-full bg-gray-700 border-gray-600 text-white rounded-md p-2"
+                                                disabled={isLoadingModels}
+                                            >
+                                                {isLoadingModels ? (
+                                                    <option>Loading models...</option>
+                                                ) : (
+                                                    openRouterModels.map(model => (
+                                                        <option key={model.id} value={model.id}>{model.name}</option>
+                                                    ))
+                                                )}
+                                            </select>
+                                            <p className="text-xs text-gray-500 mt-1">{t('groundInRealityModelHint')}</p>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <label htmlFor="model-name" className="block text-sm font-medium text-gray-300">{t('modelName')}</label>
+                                            <input
+                                                type="text"
+                                                id="model-name"
+                                                value={aiSettings.model}
+                                                onChange={(e) => handleSettingsFieldChange('model', e.target.value)}
+                                                className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2"
+                                                placeholder="e.g., gemini-2.5-flash or gpt-4o"
+                                            />
+                                        </div>
+                                    )}
 
-                            {aiSettings.providerId === 'openrouter' ? (
-                                <div>
-                                    <label htmlFor="model-name" className="block text-sm font-medium text-gray-300">{t('modelName')}</label>
-                                    <select
-                                        id="model-name"
-                                        value={aiSettings.model}
-                                        onChange={(e) => handleSettingsFieldChange('model', e.target.value)}
-                                        className="mt-1 block w-full bg-gray-700 border-gray-600 text-white rounded-md p-2"
-                                        disabled={isLoadingModels}
-                                    >
-                                        {isLoadingModels ? (
-                                            <option>Loading models...</option>
-                                        ) : (
-                                            openRouterModels.map(model => (
-                                                <option key={model.id} value={model.id}>{model.name}</option>
-                                            ))
-                                        )}
-                                    </select>
-                                    <p className="text-xs text-gray-500 mt-1">{t('groundInRealityModelHint')}</p>
-                                </div>
+                                    <div>
+                                        <label htmlFor="base-url" className="block text-sm font-medium text-gray-300">{t('baseUrl')}</label>
+                                        <input
+                                            type="text"
+                                            id="base-url"
+                                            value={aiSettings.baseUrl || ''}
+                                            onChange={(e) => handleSettingsFieldChange('baseUrl', e.target.value)}
+                                            className={`mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2 ${!isBaseUrlEditable ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                            placeholder="e.g., https://api.groq.com/openai/v1"
+                                            readOnly={!isBaseUrlEditable}
+                                        />
+                                    </div>
+                                </>
                             ) : (
-                                <div>
-                                    <label htmlFor="model-name" className="block text-sm font-medium text-gray-300">{t('modelName')}</label>
-                                    <input
-                                        type="text"
-                                        id="model-name"
-                                        value={aiSettings.model}
-                                        onChange={(e) => handleSettingsFieldChange('model', e.target.value)}
-                                        className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2"
-                                        placeholder="e.g., gemini-2.5-flash or gpt-4o"
-                                    />
+                                <div className="text-sm text-gray-400 bg-gray-900/50 p-3 rounded-lg">
+                                    {t('communityProviderDescription')}
                                 </div>
                             )}
 
-                            <div>
-                                <label htmlFor="base-url" className="block text-sm font-medium text-gray-300">{t('baseUrl')}</label>
-                                <input
-                                    type="text"
-                                    id="base-url"
-                                    value={aiSettings.baseUrl || ''}
-                                    onChange={(e) => handleSettingsFieldChange('baseUrl', e.target.value)}
-                                    className={`mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2 ${!isBaseUrlEditable ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                    placeholder="e.g., https://api.groq.com/openai/v1"
-                                    readOnly={!isBaseUrlEditable}
-                                />
-                            </div>
 
                             <div>
                                 <label htmlFor="ai-request-delay" className="block text-sm font-medium text-gray-300">{t('aiRequestDelay')}</label>

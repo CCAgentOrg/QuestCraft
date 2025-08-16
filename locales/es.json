@@ -206,5 +206,6 @@
   "choices": "Opciones",
   "choiceText": "Texto de la Opción",
   "outcomeExplanation": "Explicación del Resultado",
-  "nextFinish": "Finalizar y Guardar"
+  "nextFinish": "Finalizar y Guardar",
+  "communityProviderDescription": "Utiliza un backend compartido y gratuito impulsado por modelos de código abierto. Con límite de uso y adecuado para fines de prueba. No se necesita clave de API."
 }

@@ -94,6 +94,10 @@ const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfi
         e.preventDefault();
         if (!input.trim() || isLoading) return;
 
+        const chatHistory: {role: 'user' | 'model', content: string}[] = messages
+            .filter(m => m.role === 'user' || m.role === 'model')
+            .map(m => ({ role: m.role as 'user' | 'model', content: m.content }));
+
         const userInput: ChatMessage = { id: `user-${Date.now()}`, role: 'user', content: input };
         setMessages(prev => [...prev, userInput]);
         setInput('');
@@ -103,7 +107,7 @@ const ChatDrawer: React.FC<ChatDrawerProps> = ({ show, onClose, page, questConfi
         setMessages(prev => [...prev, { id: modelResponseId, role: 'model', content: '' }]);
 
         try {
-            const stream = chatManager.sendMessageStream(input);
+            const stream = chatManager.sendMessageStream(input, chatHistory);
             let fullResponseText = "";
             for await (const chunk of stream) {
                 fullResponseText += chunk;
