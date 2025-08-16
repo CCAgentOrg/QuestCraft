@@ -144,9 +144,16 @@ const SettingsPage: React.FC<SettingsPageProps> = ({
 
     const handleResetApp = () => {
         if (window.confirm(t('resetAppConfirmation'))) {
-            localStorage.clear();
-            sessionStorage.clear();
-            window.location.reload();
+            const keysToClear = Object.keys(localStorage).filter(key => key.startsWith('questcraft-'));
+            keysToClear.forEach(key => localStorage.removeItem(key));
+            
+            const sessionKeysToClear = Object.keys(sessionStorage).filter(key => key.startsWith('questcraft-'));
+            sessionKeysToClear.forEach(key => sessionStorage.removeItem(key));
+
+            // Use a small timeout to ensure storage operations complete before reload
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
         }
     };
 

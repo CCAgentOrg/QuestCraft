@@ -1,3 +1,4 @@
+
 {
   "questCraftTitle": "QuestCraft",
   "questCraftDescription": "An AI-powered engine for creating educational board games. Play a quest, or create your own!",
@@ -40,7 +41,7 @@
   "optimistic": "Optimistic",
   "groundInReality": "Ground in Reality",
   "groundInRealityHint": "If checked, AI will use web search to generate scenarios from real-world events.",
-  "groundInRealityModelHint": "For best results, select a model with web search in Settings (e.g., Google Gemini, or search-enabled models from OpenRouter).",
+  "groundInRealityModelHint": "For best results, select a model with web search in Settings (e.g., Google's 'gemini-2.5-flash' or OpenRouter's 'perplexity/llama-3-sonar-large-32k-online').",
   "generating": "Generating...",
   "generateOutline": "1. Generate Outline",
   "step2Title": "2. Review & Refine",
@@ -76,8 +77,8 @@
   "provider": "Provider",
   "apiKey": "API Key",
   "modelName": "Model Name",
+  "model": "Model",
   "baseUrl": "Base URL (for OpenAI-compatible)",
-  "testing": "Testing...",
   "testConnectivity": "Test Connectivity",
   "saveAiSettings": "Save AI Settings",
   "settingsSaved": "AI settings saved!",
@@ -111,9 +112,7 @@
   "response": "Response",
   "emptyResponse": "Empty response",
   "docs": "Docs",
-  "aiStatus": "AI Status",
-  "aiConnected": "AI Connected",
-  "aiDisconnected": "AI Connection Failed or Not Tested",
+  "aiStatusTitle": "✨ AI Status & Tools",
   "tokens": "Tokens",
   "estCost": "Est. Cost",
   "playTime": "Play Time",
@@ -195,5 +194,6 @@
   "apiKeyOverrideDescription": "An API key is provided via a secure environment variable. You can enter a key here to temporarily override it for this session.",
   "apiKeyEnterDescription": "No API key was found in the environment. Enter a key below to enable AI features for this session.",
   "sharedTokenUsage": "Shared Token Usage",
-  "tokenLimitExceededWarning": "You have reached the limit for the shared API key. To continue, please provide your own key below."
+  "tokenLimitExceededWarning": "You have reached the limit for the shared API key. To continue, please provide your own key below.",
+  "changeModelTooltip": "Click to change AI provider or model"
 }

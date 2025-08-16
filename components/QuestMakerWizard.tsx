@@ -6,6 +6,7 @@ import { BoardLocationType } from '../types';
 import { useTranslation } from '../services/i18n';
 import { getLocalizedString } from '../utils/localization';
 import { IconMap } from '../constants';
+import { logger } from '../services/logger';
 
 interface QuestMakerPageProps {
     onLoadQuest: (questConfig: QuestConfig) => void;
@@ -112,6 +113,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
     
     const handleEnhanceIdea = async () => {
         if (!idea.trim()) return;
+        logger.info('[QuestMaker] User clicked Enhance Idea.');
         setIsLoading(true);
         setLoadingMessage('Enhancing idea...');
         try {
@@ -130,6 +132,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
 
     const handleGenerateOutline = async () => {
         if (!idea.trim()) { alert("Please enter an idea for your quest."); return; }
+        logger.info('[QuestMaker] User clicked Generate Outline.');
         setIsLoading(true);
         setLoadingMessage('Generating quest outline...');
         onDraftUpdate(null);
@@ -153,6 +156,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
 
     const handleGenerateScenarios = async () => {
         if (!draftQuest) return;
+        logger.info('[QuestMaker] User clicked Generate Scenarios.');
         setIsLoading(true);
         setStep('GENERATING');
         setGenerationProgress(0);

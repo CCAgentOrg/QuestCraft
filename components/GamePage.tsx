@@ -9,6 +9,7 @@ import { useTranslation } from '../services/i18n';
 import { getLocalizedString } from '../utils/localization';
 import { gameStateService } from '../services/gameStateService';
 import { BoardIcon, PlayerIcon, UtilityIcon } from '../constants';
+import { logger } from '../services/logger';
 
 interface GamePageProps {
     questConfig: QuestConfig;
@@ -98,7 +99,13 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
     }, [gamePhase]);
 
     const updateGameState = (newState: Partial<Omit<GameState, 'players'>>) => {
-        setGameState(prev => ({ ...prev, ...newState }));
+        setGameState(prev => {
+            const nextState = { ...prev, ...newState };
+            if (prev.gamePhase !== nextState.gamePhase) {
+                logger.info(`[Game] Game phase changed from ${prev.gamePhase} to ${nextState.gamePhase}`);
+            }
+            return nextState;
+        });
     };
 
     const initializePlayers = useCallback((count: number, names: string[], mode: GameMode) => {
@@ -122,6 +129,7 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
     const handleStartGame = () => {
         const playerCount = gameMode === 'single' ? 2 : numPlayers;
         const names = gameMode === 'single' ? [playerNames[0], t('aiOpponent')] : playerNames;
+        logger.info(`[Game] Starting new game with ${playerCount} players in ${gameMode} mode.`);
         initializePlayers(playerCount, names, gameMode);
         updateGameState({ gamePhase: 'TURN_START' });
     };
@@ -174,7 +182,7 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
         }
         
         updateGameState({ currentPlayerIndex: nextIndex, gamePhase: 'TURN_START' });
-    }, [currentPlayerIndex, players]);
+    }, [currentPlayerIndex, players, updateGameState]);
 
     const applyResourceChanges = useCallback((changes: ResourceChange[]) => {
         setPlayers(prevPlayers => {

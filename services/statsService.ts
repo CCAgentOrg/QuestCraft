@@ -1,4 +1,3 @@
-
 import type { AppStats } from '../types';
 
 const STATS_STORAGE_KEY = 'questcraft-usage-stats';
@@ -6,13 +5,6 @@ export const STATS_UPDATED_EVENT = 'statsupdated';
 
 const GEMINI_FLASH_INPUT_COST_PER_MILLION = 0.35;
 const GEMINI_FLASH_OUTPUT_COST_PER_MILLION = 0.70;
-
-const defaultStats: AppStats = {
-    totalInputTokens: 0,
-    totalOutputTokens: 0,
-    totalCost: 0,
-    timePlayedInSeconds: 0,
-};
 
 const getTokenLimit = (): number => {
     const limitStr = process.env.TOKEN_LIMIT;
@@ -29,6 +21,12 @@ const dispatchUpdateEvent = () => {
 
 export const statsService = {
     getStats: (): AppStats => {
+        const defaultStats: AppStats = {
+            totalInputTokens: 0,
+            totalOutputTokens: 0,
+            totalCost: 0,
+            timePlayedInSeconds: 0,
+        };
         try {
             const statsJson = localStorage.getItem(STATS_STORAGE_KEY);
             return statsJson ? JSON.parse(statsJson) : { ...defaultStats };
@@ -81,6 +79,12 @@ export const statsService = {
     },
     resetStats: () => {
         try {
+            const defaultStats: AppStats = {
+                totalInputTokens: 0,
+                totalOutputTokens: 0,
+                totalCost: 0,
+                timePlayedInSeconds: 0,
+            };
             localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(defaultStats));
             dispatchUpdateEvent();
         } catch (e) {

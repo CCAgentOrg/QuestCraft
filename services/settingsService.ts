@@ -1,7 +1,14 @@
+
 import type { AiProviderSettings, AiProviderId, AppSettings, LanguageCode } from '../types';
+import { logger } from './logger';
 
 export const APP_SETTINGS_STORAGE_KEY = 'questcraft-app-settings';
 export const SESSION_API_KEY_STORAGE_KEY = 'questcraft-session-api-key';
+export const SETTINGS_UPDATED_EVENT = 'settingsupdated';
+
+const dispatchUpdateEvent = () => {
+    window.dispatchEvent(new Event(SETTINGS_UPDATED_EVENT));
+};
 
 export interface AiProviderConfig {
     id: AiProviderId;
@@ -31,7 +38,7 @@ export const PROVIDER_CONFIGS: Record<AiProviderId, AiProviderConfig> = {
     openrouter: {
         id: 'openrouter',
         name: 'OpenRouter',
-        defaultModel: 'google/gemini-flash-1.5',
+        defaultModel: 'perplexity/llama-3-sonar-large-32k-online',
         baseUrl: 'https://openrouter.ai/api/v1',
         isCustom: false,
         isGemini: false,
@@ -39,7 +46,7 @@ export const PROVIDER_CONFIGS: Record<AiProviderId, AiProviderConfig> = {
     groq: {
         id: 'groq',
         name: 'Groq',
-        defaultModel: 'llama3-8b-8192',
+        defaultModel: 'llama3-70b-8192',
         baseUrl: 'https://api.groq.com/openai/v1',
         isCustom: false,
         isGemini: false,
@@ -47,7 +54,7 @@ export const PROVIDER_CONFIGS: Record<AiProviderId, AiProviderConfig> = {
     together: {
         id: 'together',
         name: 'Together AI',
-        defaultModel: 'meta-llama/Llama-3-8b-chat-hf',
+        defaultModel: 'meta-llama/Llama-3-70b-chat-hf',
         baseUrl: 'https://api.together.ai/v1',
         isCustom: false,
         isGemini: false,
@@ -120,7 +127,9 @@ export const settingsService = {
             if (settingsToSave.ai) {
                 delete settingsToSave.ai.apiKey;
             }
+            logger.info('[Settings] Saving app settings to localStorage.', settingsToSave);
             localStorage.setItem(APP_SETTINGS_STORAGE_KEY, JSON.stringify(settingsToSave));
+            dispatchUpdateEvent();
         } catch (e) {
             console.error("Failed to save app settings to localStorage", e);
         }
@@ -155,14 +164,18 @@ export const settingsService = {
     },
     saveSessionApiKey: (apiKey: string): void => {
         try {
+            logger.info('[Settings] Saving session API key to sessionStorage.');
             sessionStorage.setItem(SESSION_API_KEY_STORAGE_KEY, apiKey);
+            dispatchUpdateEvent();
         } catch (e) {
             console.error("Failed to save session API key to sessionStorage", e);
         }
     },
     clearSessionApiKey: (): void => {
         try {
+            logger.info('[Settings] Clearing session API key from sessionStorage.');
             sessionStorage.removeItem(SESSION_API_KEY_STORAGE_KEY);
+            dispatchUpdateEvent();
         } catch (e) {
             console.error("Failed to clear session API key from sessionStorage", e);
         }

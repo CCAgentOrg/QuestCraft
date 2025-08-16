@@ -1,9 +1,10 @@
 
+
 import React, { useState, useCallback, useEffect } from 'react';
-import type { QuestConfig, AppStats, Page, LoadedQuest } from './types';
+import type { QuestConfig, AppStats, Page, LoadedQuest, AiProviderSettings } from './types';
 import { statsService, STATS_UPDATED_EVENT } from './services/statsService';
 import { aiConnectivityService, CONNECTIVITY_UPDATED_EVENT } from './services/aiConnectivityService';
-import { settingsService } from './services/settingsService';
+import { settingsService, SETTINGS_UPDATED_EVENT } from './services/settingsService';
 import { testConnection } from './services/aiService';
 import { gameStateService } from './services/gameStateService';
 import { DEFAULT_QUEST_PATHS } from './constants';
@@ -21,6 +22,7 @@ import ChatDrawer from './components/ChatDrawer';
 import HomePage from './components/HomePage';
 import { getLocalizedString } from './utils/localization';
 import { useTranslation } from './services/i18n';
+import { logger } from './services/logger';
 
 const CUSTOM_QUESTS_STORAGE_KEY = 'questcraft-custom-quests';
 const ACTIVE_QUEST_CONFIG_KEY = 'questcraft-active-quest';
@@ -57,8 +59,8 @@ const App: React.FC = () => {
     const [customQuests, setCustomQuests] = useState<QuestConfig[]>([]);
     const [defaultQuests, setDefaultQuests] = useState<LoadedQuest[]>([]);
     const [appStats, setAppStats] = useState<AppStats>(statsService.getStats());
+    const [aiSettings, setAiSettings] = useState<AiProviderSettings>(settingsService.getAiSettings());
     const [isAiConnected, setIsAiConnected] = useState(aiConnectivityService.isConnected());
-    const [isTestingAi, setIsTestingAi] = useState(false);
     const [showAuditLog, setShowAuditLog] = useState(false);
     const [showChat, setShowChat] = useState(false);
 
@@ -91,6 +93,20 @@ const App: React.FC = () => {
         
         loadDefaultQuests();
 
+        // Test connection on mount to set initial status
+        const testInitialConnection = async () => {
+            try {
+                const currentSettings = settingsService.getAiSettings();
+                await testConnection(currentSettings);
+                aiConnectivityService.setConnected(true);
+            } catch (error) {
+                console.warn("Initial AI connection test failed:", error);
+                aiConnectivityService.setConnected(false);
+            }
+        };
+        testInitialConnection();
+
+
         if (savedQuestConfig) {
             setQuestConfig(savedQuestConfig);
             // If a game is active, always go to the game page
@@ -104,12 +120,15 @@ const App: React.FC = () => {
         // Add event listeners
         const handleStatsUpdate = () => setAppStats(statsService.getStats());
         const handleConnectivityUpdate = () => setIsAiConnected(aiConnectivityService.isConnected());
+        const handleSettingsUpdate = () => setAiSettings(settingsService.getAiSettings());
 
         window.addEventListener(STATS_UPDATED_EVENT, handleStatsUpdate);
         window.addEventListener(CONNECTIVITY_UPDATED_EVENT, handleConnectivityUpdate);
+        window.addEventListener(SETTINGS_UPDATED_EVENT, handleSettingsUpdate);
         return () => {
             window.removeEventListener(STATS_UPDATED_EVENT, handleStatsUpdate);
             window.removeEventListener(CONNECTIVITY_UPDATED_EVENT, handleConnectivityUpdate);
+            window.removeEventListener(SETTINGS_UPDATED_EVENT, handleSettingsUpdate);
         };
     }, []);
     
@@ -165,11 +184,13 @@ const App: React.FC = () => {
             }
             setDraftQuestForChat(null); // Clear draft context when leaving maker
         }
+        logger.info(`[App] Navigating from page "${page}" to "${targetPage}"`);
         setPage(targetPage);
         setIsMenuOpen(false);
     }, [page, draftQuestForChat, handleExitGameWithConfirm]);
 
     const handleLoadQuest = useCallback((config: QuestConfig, fromUserAction: boolean = false) => {
+        logger.info(`[App] Loading quest: "${getLocalizedString(config.name, 'en')}"`);
         if (fromUserAction && isMakerModeEnabled) {
             const newQuests = getCustomQuestsFromStorage();
             const questName = getLocalizedString(config.name, 'en');
@@ -196,21 +217,6 @@ const App: React.FC = () => {
             setCustomQuests(newQuests);
         }
     };
-    
-    const handleTestAiConnection = useCallback(async () => {
-        setIsTestingAi(true);
-        try {
-            const settings = settingsService.getAiSettings();
-            await testConnection(settings);
-            aiConnectivityService.setConnected(true);
-        } catch (error) {
-            console.error("AI connection test failed:", error);
-            aiConnectivityService.setConnected(false);
-            handleNavigate('settings');
-        } finally {
-            setIsTestingAi(false);
-        }
-    }, [handleNavigate]);
 
     const handleResetStats = useCallback(() => {
         if (window.confirm(t('resetStatsConfirmation'))) {
@@ -290,10 +296,10 @@ const App: React.FC = () => {
                     {renderPage()}
                 </main>
                 <StatusBar 
-                    stats={appStats} 
+                    stats={appStats}
+                    modelName={aiSettings.model}
                     isAiConnected={isAiConnected}
-                    isTestingAi={isTestingAi}
-                    onTestAiConnection={handleTestAiConnection}
+                    onNavigateToSettings={() => handleNavigate('settings')}
                     onOpenAuditLog={() => setShowAuditLog(true)}
                     onOpenChat={() => setShowChat(true)}
                 />

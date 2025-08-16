@@ -1,4 +1,3 @@
-
 import type { AIAuditLog } from '../types';
 
 const AUDIT_LOG_STORAGE_KEY = 'questcraft-ai-audit-log';
@@ -38,7 +37,7 @@ export const auditLogService = {
     },
     clearLogs: (): void => {
         try {
-            localStorage.removeItem(AUDIT_LOG_STORAGE_KEY);
+            localStorage.setItem(AUDIT_LOG_STORAGE_KEY, '[]');
             dispatchUpdateEvent();
         } catch (e) {
             console.error("Failed to clear AI audit logs from localStorage", e);

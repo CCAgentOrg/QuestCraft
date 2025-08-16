@@ -78,3 +78,37 @@ The application uses a mix of local component state (via `React.useState`) and `
     -   **Game State:** The `gameStateService` saves the entire state of an active game (players, positions, resources, current phase) to `localStorage`. This allows for game resumption.
     -   **Quest & App State:** The `App.tsx` component saves the configuration of the currently loaded quest, as well as the user's last visited page, so the app can be restored to a familiar state on reload.
     -   **Settings & Logs:** Services like `settingsService` and `auditLogService` use `localStorage` to persist user settings and AI interaction logs across sessions.
+
+## 5. Debugging & Logging
+
+QuestCraft includes a built-in debugging and logging system controlled by environment variables. This is particularly useful for developers who want to trace the application's flow, inspect AI API calls, or diagnose issues.
+
+### Enabling Developer Mode
+
+To activate the logging system, you must set the `DEV_MODE` environment variable to `true` in your `.env` file.
+
+```
+# .env file
+DEV_MODE="true"
+```
+
+When `DEV_MODE` is disabled or not set, the application will only log critical warnings and errors to the console to maintain a clean experience for regular users.
+
+### Setting the Log Level
+
+When `DEV_MODE` is enabled, you can control the verbosity of the logs using the `DEBUG_LEVEL` environment variable.
+
+```
+# .env file
+DEV_MODE="true"
+DEBUG_LEVEL="FINEST"
+```
+
+The available log levels are, in order of increasing verbosity:
+
+-   **`ERROR`**: Logs only critical errors that have been caught.
+-   **`WARN`**: Logs warnings for non-critical issues or potential problems. (Default level in non-DEV_MODE).
+-   **`INFO`**: (Default level in `DEV_MODE`) Logs major application events, such as page navigation, game state changes, and the start of AI operations.
+-   **`DEBUG`**: Logs more detailed information useful for debugging, such as the data being saved to `localStorage` or the specific parameters for an AI call.
+-   **`FINEST`**: Logs highly detailed, verbose information, including the full request and response bodies for all AI API calls. This is extremely useful for prompt engineering and debugging complex AI interactions.
+-   **`OFF`**: Disables all logging.

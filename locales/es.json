@@ -1,3 +1,4 @@
+
 {
   "questCraftTitle": "QuestCraft",
   "questCraftDescription": "Un motor de juegos de mesa educativos impulsado por IA. ¡Juega una misión o crea la tuya!",
@@ -40,7 +41,7 @@
   "optimistic": "Optimista",
   "groundInReality": "Basado en la Realidad",
   "groundInRealityHint": "Si se marca, la IA usará la búsqueda web para generar escenarios basados en eventos del mundo real.",
-  "groundInRealityModelHint": "Para mejores resultados, selecciona un modelo con búsqueda web en Configuración (ej. Google Gemini, o modelos con búsqueda de OpenRouter).",
+  "groundInRealityModelHint": "Para obtener los mejores resultados, seleccione un modelo con búsqueda web en la Configuración (por ejemplo, 'gemini-2.5-flash' de Google o 'perplexity/llama-3-sonar-large-32k-online' de OpenRouter).",
   "generating": "Generando...",
   "generateOutline": "1. Generar Esquema",
   "step2Title": "2. Revisa y Refina",
@@ -76,8 +77,8 @@
   "provider": "Proveedor",
   "apiKey": "Clave de API",
   "modelName": "Nombre del Modelo",
+  "model": "Modelo",
   "baseUrl": "URL Base (para compatible con OpenAI)",
-  "testing": "Probando...",
   "testConnectivity": "Probar Conectividad",
   "saveAiSettings": "Guardar Configuración de IA",
   "settingsSaved": "¡Configuración de IA guardada!",
@@ -111,9 +112,7 @@
   "response": "Respuesta",
   "emptyResponse": "Respuesta vacía",
   "docs": "Docs",
-  "aiStatus": "Estado de IA",
-  "aiConnected": "IA Conectada",
-  "aiDisconnected": "Conexión de IA fallida o no probada",
+  "aiStatusTitle": "✨ Estado y Herramientas de IA",
   "tokens": "Tokens",
   "estCost": "Costo Est.",
   "playTime": "Tiempo de Juego",
@@ -195,5 +194,6 @@
   "apiKeyOverrideDescription": "Se proporciona una clave de API a través de una variable de entorno segura. Puede introducir una clave aquí para anularla temporalmente para esta sesión.",
   "apiKeyEnterDescription": "No se encontró ninguna clave de API en el entorno. Introduzca una clave a continuación para habilitar las funciones de IA para esta sesión.",
   "sharedTokenUsage": "Uso de Tokens Compartidos",
-  "tokenLimitExceededWarning": "Ha alcanzado el límite de la clave de API compartida. Para continuar, proporcione su propia clave a continuación."
+  "tokenLimitExceededWarning": "Ha alcanzado el límite de la clave de API compartida. Para continuar, proporcione su propia clave a continuación.",
+  "changeModelTooltip": "Haz clic para cambiar el proveedor o modelo de IA"
 }

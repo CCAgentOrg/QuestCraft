@@ -63,6 +63,13 @@ export const PlayerIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
+export const ChipIcon = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 21v-1.5M15.75 3v1.5m0 16.5v-1.5m3.75-12H21m-18 0h1.5M12 4.5v1.5m0 13.5v-1.5m-8.25 5.25h1.5m13.5 0h1.5m-16.5-1.5H21m-1.5-16.5h-15c-1.12 0-2.036.914-2.036 2.036v15.928c0 1.12.916 2.036 2.036 2.036h15.928c1.12 0 2.036-.916 2.036-2.036V6.536C21.036 5.416 20.12 4.5 19 4.5z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5h-9v3h9v-3z" />
+    </svg>
+);
+
 export const JailIcon = ({ className }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ${className}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />

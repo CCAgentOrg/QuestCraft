@@ -24,26 +24,46 @@ QuestCraft tackles these challenges by providing a zero-setup, highly engaging p
 
 ## Getting Started & Configuration
 
-QuestCraft is designed for ease of use. To run it and use its AI features, you need to configure one essential environment variable.
+QuestCraft is designed for ease of use. To run it and use its AI features, you need to configure your environment variables.
 
 ### Environment Variables
 
-Before running the application, you must provide your AI provider's API key. QuestCraft is configured using a `.env` file in the project's root directory.
+All application configuration is managed through a `.env` file in the project's root directory.
 
-1.  **Create a `.env` file:** Copy the provided `.env.sample` file to a new file named `.env`.
-2.  **Set your API Key:** In the `.env` file, set the `API_KEY` variable.
+1.  **Create a `.env` file:** In the root of the project, find the `.env.sample` file. Make a copy of this file and rename it to `.env`.
+2.  **Configure your variables:** Open the new `.env` file and set the values as needed. All available options are documented with comments in the `.env.sample` file.
+
+#### Essential Configuration: API Keys
+
+The most important variable to set is your AI provider's API key. The application is built to read this key directly from the environment; it will **never** ask you to enter it in the UI.
+
+You can provide a generic key:
+```
+# .env
+# This key will be used for any AI provider selected in the settings.
+API_KEY="YOUR_GENERIC_AI_PROVIDER_API_KEY_HERE"
+```
+
+Or, you can provide provider-specific keys, which is recommended. A specific key will always be used over the generic `API_KEY` if it's available for the selected provider.
 
 ```
-# .env file
-API_KEY="YOUR_AI_PROVIDER_API_KEY_HERE"
+# .env
+# Example: Using different keys for different services
+GEMINI_API_KEY="your_google_gemini_api_key"
+OPENAI_API_KEY="your_openai_api_key"
+OPENROUTER_API_KEY="your_openrouter_api_key"
+GROQ_API_KEY="your_groq_api_key"
+TOGETHER_API_KEY="your_together_api_key"
 ```
 
-The application is built to read this key directly from the environment; it will **never** ask you to enter it in the UI.
+#### Other Configuration Options
 
-Additionally, you can configure the following optional variable:
+The `.env.sample` file documents other useful variables for controlling application behavior and debugging, including:
 
--   `MAKER_MODE_DISABLED`: Set this to `true` to hide the "Quest Maker" and related features. This is useful if you want to deploy a version of QuestCraft for players only, without the game creation tools. By default, this is `false`.
+-   `MAKER_MODE_DISABLED`: To deploy a "player-only" version of the app.
+-   `TOKEN_LIMIT`: To set a usage limit for a shared API key in a public demo.
+-   `DEV_MODE` & `DEBUG_LEVEL`: To enable detailed console logging for development and troubleshooting.
 
 ### AI Provider Setup
 
-Once your `API_KEY` is set, you can select which AI service you want to use from the **Settings** menu within the application. For detailed instructions, please see the [Quest Maker Guide](./maker-guide).
+Once your `API_KEY` is set in the `.env` file, you can select which AI service you want to use from the **Settings** menu within the application. For detailed instructions, please see the [Quest Maker Guide](./maker-guide).
