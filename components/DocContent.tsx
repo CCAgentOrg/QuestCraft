@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import showdown from 'showdown';
 
@@ -7,11 +8,18 @@ const converter = new showdown.Converter({
     tables: true,
 });
 
-interface DocContentProps {
-    docId: string;
+export interface Heading {
+    id: string;
+    level: number;
+    text: string;
 }
 
-const DocContent: React.FC<DocContentProps> = ({ docId }) => {
+interface DocContentProps {
+    docId: string;
+    onHeadingsExtracted: (headings: Heading[]) => void;
+}
+
+const DocContent: React.FC<DocContentProps> = ({ docId, onHeadingsExtracted }) => {
     const [content, setContent] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -27,7 +35,18 @@ const DocContent: React.FC<DocContentProps> = ({ docId }) => {
                 return res.text();
             })
             .then(text => {
-                setContent(converter.makeHtml(text));
+                const html = converter.makeHtml(text);
+                
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+                const headings: Heading[] = Array.from(tempDiv.querySelectorAll('h1, h2, h3')).map(h => ({
+                    id: h.id,
+                    level: parseInt(h.tagName.substring(1), 10),
+                    text: h.textContent || '',
+                }));
+                onHeadingsExtracted(headings);
+
+                setContent(html);
             })
             .catch(err => {
                 console.error(err);
@@ -36,7 +55,7 @@ const DocContent: React.FC<DocContentProps> = ({ docId }) => {
             .finally(() => {
                 setIsLoading(false);
             });
-    }, [docId]);
+    }, [docId, onHeadingsExtracted]);
 
     if (isLoading) {
         return <p className="text-lg text-gray-400 animate-pulse">Loading documentation...</p>;
