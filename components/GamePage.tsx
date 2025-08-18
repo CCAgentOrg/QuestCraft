@@ -62,6 +62,7 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
     const [players, setPlayers] = useState<Player[]>([]);
     const [gameState, setGameState] = useState<Omit<GameState, 'players'>>(defaultGameState);
     const { currentPlayerIndex, gamePhase, diceResult, activeScenario, activeChoiceOutcome, activeCard, activeLocation } = gameState;
+    const [gameError, setGameError] = useState<string | null>(null);
     
     // Mobile-specific state
     const [activeTab, setActiveTab] = useState<MobileTab>('board');
@@ -84,6 +85,10 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
 
     // Auto-switch tab based on game phase for mobile
     useEffect(() => {
+        if (gameError) {
+            setActiveTab('scenario');
+            return;
+        }
         if (gamePhase === 'PLAYER_MOVE') {
             setActiveTab('board');
         } else if (
@@ -96,7 +101,7 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
         ) {
             setActiveTab('scenario');
         }
-    }, [gamePhase]);
+    }, [gamePhase, gameError]);
 
     const updateGameState = (newState: Partial<Omit<GameState, 'players'>>) => {
         setGameState(prev => {
@@ -163,6 +168,7 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
     };
 
     const nextTurn = useCallback(() => {
+        if (gameError) setGameError(null);
         updateGameState({
             activeScenario: null,
             activeChoiceOutcome: null,
@@ -182,7 +188,7 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
         }
         
         updateGameState({ currentPlayerIndex: nextIndex, gamePhase: 'TURN_START' });
-    }, [currentPlayerIndex, players, updateGameState]);
+    }, [currentPlayerIndex, players, updateGameState, gameError]);
 
     const applyResourceChanges = useCallback((changes: ResourceChange[]) => {
         setPlayers(prevPlayers => {
@@ -228,22 +234,21 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
             const dynamicScenario = await generateDynamicScenario(questConfig, players[currentPlayerIndex], location);
             updateGameState({ activeScenario: dynamicScenario, gamePhase: 'SCENARIO_CHOICE' });
         } catch (error: any) {
-            console.error("Failed to generate dynamic scenario:", error);
+            logger.warn("Failed to generate dynamic scenario, checking for fallback.", error);
             const locationNameEn = getLocalizedString(location.name, 'en');
             const pregenScenarios = questConfig.pregeneratedScenarios?.[locationNameEn];
 
-            let errorMessage = `Failed to generate a dynamic event: ${error instanceof Error ? error.message : String(error)}.`;
-            if (error.name === 'TokenLimitExceededError') {
-                errorMessage = error.message;
-            }
-
             if (pregenScenarios && pregenScenarios.length > 0) {
-                alert(`${errorMessage} Falling back to a pre-written story scenario.`);
+                logger.info("Fallback to pre-generated scenario is available.");
                 const scenario = pregenScenarios[Math.floor(Math.random() * pregenScenarios.length)];
                 updateGameState({ activeScenario: scenario, gamePhase: 'SCENARIO_CHOICE' });
             } else {
-                alert(`${errorMessage} No pre-written scenarios available for this location. Skipping turn.`);
-                nextTurn();
+                logger.error("No fallback scenario available.");
+                let errorMessage = `Failed to generate a dynamic event: ${error instanceof Error ? error.message : String(error)}.`;
+                 if (error.name === 'TokenLimitExceededError') {
+                    errorMessage = error.message;
+                }
+                setGameError(errorMessage);
             }
         }
     }, [questConfig, players, currentPlayerIndex, nextTurn, updateGameState]);
@@ -336,7 +341,8 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
         } catch (e: any) {
             console.error("AI choice failed, picking randomly.", e);
             if (e.name === 'TokenLimitExceededError') {
-                alert(e.message);
+                setGameError(e.message);
+                return;
             }
             const randomChoice = scenario.choices[Math.floor(Math.random() * 2)];
              setTimeout(() => {
@@ -478,6 +484,7 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
                         activeScenario={activeScenario}
                         activeChoiceOutcome={activeChoiceOutcome}
                         activeCard={activeCard}
+                        gameError={gameError}
                         onRollDice={handleRollDice}
                         onScenarioChoice={handleScenarioChoice}
                         onNextTurn={nextTurn}
@@ -507,6 +514,7 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
                             activeScenario={activeScenario}
                             activeChoiceOutcome={activeChoiceOutcome}
                             activeCard={activeCard}
+                            gameError={gameError}
                             onRollDice={handleRollDice}
                             onScenarioChoice={handleScenarioChoice}
                             onNextTurn={nextTurn}

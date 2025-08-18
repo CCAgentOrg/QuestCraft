@@ -117,7 +117,20 @@ Focus on creating engaging, educational, and family-friendly content. Avoid sens
 - Your entire response MUST be a single JSON object with a single root key "scenarios" containing an array of the {numScenarios} generated scenario objects. The response must adhere to the schema provided below. Do not include any text outside of the JSON.
 
 # JSON Schema
-{schema}`
+{schema}`,
+'random-idea.txt': `You are an expert creative game designer specializing in educational and thematic board games.
+
+Your task is to generate a single, unique, and imaginative idea for a board game.
+
+**Instructions:**
+1.  The output MUST be a single, concise paragraph.
+2.  The idea must be suitable for a Monopoly-style board game.
+3.  The paragraph must clearly describe:
+    - An engaging and specific theme (e.g., managing a city's public transit system, navigating the challenges of scientific research, building a sustainable coral reef).
+    - Three thematic resources that players would manage. Explicitly name them in the format: **Resource 1**, **Resource 2**, and **Resource 3**.
+
+**Example Output:**
+"A game about restoring a polluted river ecosystem. Players must balance three key resources: **Funding** for cleanup projects, **Biodiversity** to bring back native species, and **Public Awareness** to gain community support. The board could feature locations like 'Industrial Waste Outlet', 'Community Volunteer Day', and 'Protected Wetland Reserve'. The goal is to be the first to achieve a fully restored and thriving river."`,
 };
 
 function loadPrompt(fileName: keyof typeof promptTemplates, replacements: Record<string, any> = {}): string {
@@ -154,6 +167,114 @@ const LANGUAGE_MAP: Record<string, string> = {
     ta: "Tamil"
 };
 
+// --- Action Handlers ---
+
+async function handleTestConnection(openai: OpenAI) {
+    await openai.chat.completions.create({
+        model: COMMUNITY_MODEL,
+        messages: [{ role: 'user', content: 'test' }],
+        max_tokens: 1,
+    });
+    return new Response('Connection successful', { status: 200 });
+}
+
+async function handleEnhanceQuestIdea(openai: OpenAI, payload: any) {
+    const prompt = loadPrompt('enhance-idea.txt', { idea: payload.idea });
+    const response = await openai.chat.completions.create({
+        model: COMMUNITY_MODEL,
+        messages: [{ role: 'user', content: prompt }],
+        stream: true,
+    });
+    const stream = OpenAIStream(response);
+    return new StreamingTextResponse(stream);
+}
+
+async function handleGenerateRandomQuestIdea(openai: OpenAI) {
+    const prompt = loadPrompt('random-idea.txt');
+    const response = await openai.chat.completions.create({
+        model: COMMUNITY_MODEL,
+        messages: [{ role: 'user', content: prompt }],
+        stream: true,
+    });
+    const stream = OpenAIStream(response);
+    return new StreamingTextResponse(stream);
+}
+
+async function handleGenerateQuestOutline(openai: OpenAI, payload: any) {
+    const { idea, numLocations, positivity, supportedLanguages, languageCode } = payload;
+    const languageName = LANGUAGE_MAP[languageCode] || 'English';
+    const languageList = (supportedLanguages.length > 0 ? supportedLanguages : ['en'])
+      .map((code: string) => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
+
+    const prompt = `Generate a quest based on this idea: "${idea}"`;
+    const systemPrompt = loadPrompt('quest-outline-system-openai.txt', {
+         numLocations, positivity, 
+         groundingInReality: false, // "Ground in Reality" is disabled for community tier
+         languageCode, languageName, languageList, schema: "{}"
+    });
+
+    const response = await openai.chat.completions.create({
+      model: COMMUNITY_MODEL,
+      messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: prompt }],
+      response_format: { type: 'json_object' },
+      stream: true,
+    });
+    const stream = OpenAIStream(response);
+    return new StreamingTextResponse(stream);
+}
+
+async function handleGenerateScenarios(openai: OpenAI, payload: any, action: string) {
+    const { questConfig, location, numScenarios, languageCode } = payload;
+    const isDynamic = action === 'generateDynamicScenario';
+    
+    const languageName = LANGUAGE_MAP[languageCode] || 'English';
+    const resourceNames = questConfig.resources.map((r: any) => r.name.en.toLowerCase()).join(', ');
+    const languageList = (questConfig.supportedLanguages || ['en'])
+        .map((code: string) => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
+
+    const replacements = {
+        questDescription: questConfig.description.en,
+        locationName: location.name.en,
+        locationDescription: location.description.en,
+        resourceNames,
+        numScenarios: isDynamic ? 1 : numScenarios,
+        languageCode, languageName, languageList, schema: "{}"
+    };
+    
+    const promptFile = 'pregenerated-scenarios-fictional-openai.txt';
+    const systemPrompt = loadPrompt(promptFile, replacements);
+
+    const response = await openai.chat.completions.create({
+      model: COMMUNITY_MODEL,
+      messages: [{ role: 'system', content: systemPrompt }],
+      response_format: { type: 'json_object' },
+      stream: true,
+    });
+
+    const stream = OpenAIStream(response);
+    return new StreamingTextResponse(stream);
+}
+
+async function handleChat(openai: OpenAI, payload: any) {
+    const { message, history, systemInstruction } = payload;
+    const messages = [
+        { role: 'system', content: systemInstruction },
+        ...history.filter((m: any) => m.role === 'user' || m.role === 'model'),
+        { role: 'user', content: message }
+    ];
+    
+    const response = await openai.chat.completions.create({
+        model: COMMUNITY_MODEL,
+        stream: true,
+        messages: messages as any,
+    });
+
+    const stream = OpenAIStream(response);
+    return new StreamingTextResponse(stream);
+}
+
+// --- Main Handler ---
+
 export default async function handler(req: Request) {
   if (req.method !== 'POST') {
     return new Response('Method Not Allowed', { status: 405 });
@@ -165,104 +286,29 @@ export default async function handler(req: Request) {
 
     switch (action) {
       case 'testConnection':
-        await openai.chat.completions.create({
-          model: COMMUNITY_MODEL,
-          messages: [{ role: 'user', content: 'test' }],
-          max_tokens: 1,
-        });
-        return new Response('Connection successful', { status: 200 });
+        return handleTestConnection(openai);
 
-      case 'enhanceQuestIdea': {
-        const prompt = loadPrompt('enhance-idea.txt', { idea: payload.idea });
-        const response = await openai.chat.completions.create({
-          model: COMMUNITY_MODEL,
-          messages: [{ role: 'user', content: prompt }],
-          stream: true,
-        });
-        const stream = OpenAIStream(response);
-        return new StreamingTextResponse(stream);
-      }
+      case 'enhanceQuestIdea':
+        return handleEnhanceQuestIdea(openai, payload);
+      
+      case 'generateRandomQuestIdea':
+        return handleGenerateRandomQuestIdea(openai);
 
-      case 'generateQuestOutline': {
-        const { idea, numLocations, positivity, supportedLanguages, languageCode } = payload;
-        const languageName = LANGUAGE_MAP[languageCode] || 'English';
-        const languageList = (supportedLanguages.length > 0 ? supportedLanguages : ['en'])
-          .map((code: string) => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
-
-        const prompt = `Generate a quest based on this idea: "${idea}"`;
-        const systemPrompt = loadPrompt('quest-outline-system-openai.txt', {
-             numLocations, positivity, 
-             groundingInReality: false, // "Ground in Reality" is disabled for community tier
-             languageCode, languageName, languageList, schema: "{}"
-        });
-
-        const response = await openai.chat.completions.create({
-          model: COMMUNITY_MODEL,
-          messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: prompt }],
-          response_format: { type: 'json_object' },
-          stream: true,
-        });
-        const stream = OpenAIStream(response);
-        return new StreamingTextResponse(stream);
-      }
+      case 'generateQuestOutline':
+        return handleGenerateQuestOutline(openai, payload);
 
       case 'generatePregeneratedScenarios':
-      case 'generateDynamicScenario': {
-        const { questConfig, location, numScenarios, languageCode } = payload;
-        const isDynamic = action === 'generateDynamicScenario';
-        
-        const languageName = LANGUAGE_MAP[languageCode] || 'English';
-        const resourceNames = questConfig.resources.map((r: any) => r.name.en.toLowerCase()).join(', ');
-        const languageList = (questConfig.supportedLanguages || ['en'])
-            .map((code: string) => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
-
-        const replacements = {
-            questDescription: questConfig.description.en,
-            locationName: location.name.en,
-            locationDescription: location.description.en,
-            resourceNames,
-            numScenarios: isDynamic ? 1 : numScenarios,
-            languageCode, languageName, languageList, schema: "{}"
-        };
-        
-        // "Ground in Reality" feature is disabled for the free community tier.
-        const promptFile = 'pregenerated-scenarios-fictional-openai.txt';
-        const systemPrompt = loadPrompt(promptFile, replacements);
-
-        const response = await openai.chat.completions.create({
-          model: COMMUNITY_MODEL,
-          messages: [{ role: 'system', content: systemPrompt }],
-          response_format: { type: 'json_object' },
-          stream: true,
-        });
-
-        const stream = OpenAIStream(response);
-        return new StreamingTextResponse(stream);
-      }
+      case 'generateDynamicScenario':
+        return handleGenerateScenarios(openai, payload, action);
       
-      case 'chat': {
-          const { message, history, systemInstruction } = payload;
-          const messages = [
-              { role: 'system', content: systemInstruction },
-              ...history,
-              { role: 'user', content: message }
-          ];
-          
-          const response = await openai.chat.completions.create({
-              model: COMMUNITY_MODEL,
-              stream: true,
-              messages: messages as any,
-          });
-
-          const stream = OpenAIStream(response);
-          return new StreamingTextResponse(stream);
-      }
+      case 'chat':
+        return handleChat(openai, payload);
 
       default:
         return new Response(`Unknown action: ${action}`, { status: 400 });
     }
   } catch (error: any) {
-    console.error(error);
+    console.error(`Error in action handler for '${(await req.clone().json()).action}':`, error);
     return new Response(error.message || 'An unexpected error occurred.', {
       status: 500,
     });

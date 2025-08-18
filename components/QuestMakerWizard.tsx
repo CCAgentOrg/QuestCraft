@@ -1,7 +1,6 @@
-
 import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react';
 import type { QuestConfig, ResourceDefinition, BoardLocation, ScenariosByLocation, ChanceCard, ResourceChange, LanguageCode, ManagedScenario } from '../types';
-import { enhanceQuestIdea, generateQuestOutline, generatePregeneratedScenarios } from '../services/aiService';
+import { enhanceQuestIdea, generateQuestOutline, generatePregeneratedScenarios, generateRandomQuestIdea } from '../services/aiService';
 import { settingsService } from '../services/settingsService';
 import { BoardLocationType } from '../types';
 import { useTranslation } from '../services/i18n';
@@ -17,6 +16,14 @@ interface QuestMakerPageProps {
 
 type WizardStep = 'CONFIG' | 'REFINE' | 'GENERATING' | 'PREVIEW' | 'FINISH';
 type RefineStep = 'DETAILS' | 'RESOURCES' | 'BOARD' | 'CARDS';
+
+type GenerationStatus = 'pending' | 'generating' | 'done' | 'error';
+interface ScenarioGenerationProgress {
+    locationName: string;
+    location: BoardLocation;
+    status: GenerationStatus;
+    error?: string;
+}
 
 const LANGUAGES: { code: LanguageCode, name: string }[] = [
     { code: 'en', name: 'English' },
@@ -75,10 +82,11 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
     const [groundingInReality, setGroundingInReality] = useState(false);
     const [supportedLanguages, setSupportedLanguages] = useState<LanguageCode[]>(['en']);
 
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); // For outline generation (overlay)
+    const [isSubmittingIdea, setIsSubmittingIdea] = useState(false); // For surprise/enhance
     const [loadingMessage, setLoadingMessage] = useState('');
-    const [generationProgress, setGenerationProgress] = useState(0);
-    const [generatingLocationName, setGeneratingLocationName] = useState('');
+    const [scenarioProgress, setScenarioProgress] = useState<ScenarioGenerationProgress[]>([]);
+
     const [jsonText, setJsonText] = useState('');
     const [jsonError, setJsonError] = useState('');
 
@@ -115,8 +123,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
     const handleEnhanceIdea = async () => {
         if (!idea.trim()) return;
         logger.info('[QuestMaker] User clicked Enhance Idea.');
-        setIsLoading(true);
-        setLoadingMessage('Enhancing idea...');
+        setIsSubmittingIdea(true);
         try {
             const enhancedIdea = await enhanceQuestIdea(idea);
             setIdea(enhancedIdea);
@@ -127,7 +134,24 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                 alert(`Error enhancing idea: ${error instanceof Error ? error.message : String(error)}`);
             }
         } finally {
-            setIsLoading(false);
+            setIsSubmittingIdea(false);
+        }
+    };
+
+    const handleSurpriseMe = async () => {
+        logger.info('[QuestMaker] User clicked Surprise Me.');
+        setIsSubmittingIdea(true);
+        try {
+            const randomIdea = await generateRandomQuestIdea();
+            setIdea(randomIdea);
+        } catch (error: any) {
+             if (error.name === 'TokenLimitExceededError') {
+                alert(error.message);
+            } else {
+                alert(`Error generating idea: ${error instanceof Error ? error.message : String(error)}`);
+            }
+        } finally {
+            setIsSubmittingIdea(false);
         }
     };
 
@@ -155,47 +179,73 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
         }
     };
 
-    const handleGenerateScenarios = async () => {
+    const runScenarioGeneration = useCallback(async (locationsToGenerate: BoardLocation[]) => {
         if (!draftQuest) return;
-        logger.info('[QuestMaker] User clicked Generate Scenarios.');
-        setIsLoading(true);
-        setStep('GENERATING');
-        setGenerationProgress(0);
-        
-        const scenarioLocations = draftQuest.board.locations.filter(loc => (loc.type === BoardLocationType.PROPERTY || loc.type === BoardLocationType.UTILITY));
-        let scenariosGenerated = 0;
-        const totalScenarios = scenarioLocations.length;
-        let finalQuestConfig = { ...draftQuest, pregeneratedScenarios: draftQuest.pregeneratedScenarios || {} };
 
+        let finalQuestConfig = draftQuest;
         const { aiRequestDelayMs = 1100 } = settingsService.getAiSettings();
         const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
-        for (const location of scenarioLocations) {
+        for (const location of locationsToGenerate) {
             const locationName = getLocalizedString(location.name, 'en');
-            setGeneratingLocationName(locationName);
+
+            setScenarioProgress(prev => prev.map(p => p.locationName === locationName ? { ...p, status: 'generating', error: undefined } : p));
+
             try {
                 const scenarios = await generatePregeneratedScenarios(draftQuest, location, numScenarios);
                 if (scenarios.length > 0) {
-                     if (!finalQuestConfig.pregeneratedScenarios) finalQuestConfig.pregeneratedScenarios = {};
-                    finalQuestConfig.pregeneratedScenarios[locationName] = scenarios;
+                    finalQuestConfig = {
+                        ...finalQuestConfig,
+                        pregeneratedScenarios: {
+                            ...finalQuestConfig.pregeneratedScenarios,
+                            [locationName]: scenarios
+                        }
+                    };
+                    onDraftUpdate(finalQuestConfig);
                 }
+                setScenarioProgress(prev => prev.map(p => p.locationName === locationName ? { ...p, status: 'done' } : p));
+
             } catch (error: any) {
+                const errorMessage = error instanceof Error ? error.message : String(error);
                  if (error.name === 'TokenLimitExceededError') {
-                    alert(error.message);
-                    setStep('REFINE'); // Go back to refine step if limit is hit mid-generation
-                    setIsLoading(false);
+                    alert(errorMessage);
+                    setStep('REFINE');
                     return;
                 }
                 console.error(`Failed to generate scenarios for ${locationName}:`, error);
+                setScenarioProgress(prev => prev.map(p => p.locationName === locationName ? { ...p, status: 'error', error: errorMessage } : p));
             }
-            scenariosGenerated++;
-            setGenerationProgress((scenariosGenerated / totalScenarios) * 100);
-            onDraftUpdate(finalQuestConfig);
-            if (scenariosGenerated < totalScenarios) await delay(aiRequestDelayMs);
+
+            // Delay only if there are more locations to process
+            if (locationsToGenerate.indexOf(location) < locationsToGenerate.length - 1) {
+                await delay(aiRequestDelayMs);
+            }
         }
+    }, [draftQuest, numScenarios, onDraftUpdate]);
+
+    const handleGenerateScenarios = async () => {
+        if (!draftQuest || numScenarios === 0) {
+            setStep('PREVIEW');
+            return;
+        }
+        logger.info('[QuestMaker] User clicked Generate Scenarios.');
+        setStep('GENERATING');
         
-        setIsLoading(false);
-        setStep('PREVIEW');
+        const scenarioLocations = draftQuest.board.locations.filter(loc => (loc.type === BoardLocationType.PROPERTY || loc.type === BoardLocationType.UTILITY));
+        
+        const initialProgress = scenarioLocations.map(location => ({
+            locationName: getLocalizedString(location.name, 'en'),
+            location,
+            status: 'pending' as GenerationStatus
+        }));
+        setScenarioProgress(initialProgress);
+
+        // Defer actual generation to allow UI to update to 'GENERATING' step
+        setTimeout(() => runScenarioGeneration(scenarioLocations), 100);
+    };
+
+    const handleRetryScenario = (location: BoardLocation) => {
+        runScenarioGeneration([location]);
     };
     
     const handleDownloadJson = () => {
@@ -270,7 +320,15 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                 <h2 className="text-2xl font-bold text-orange-400">{t('step1Title')}</h2>
                 <p className="text-gray-400">{t('step1Description')}</p>
                 <textarea value={idea} onChange={(e) => setIdea(e.target.value)} className="w-full h-40 p-3 bg-gray-900 border border-gray-600 rounded-lg font-mono text-sm" placeholder={t('ideaPlaceholder')} />
-                <button onClick={handleEnhanceIdea} disabled={!idea.trim() || isLoading} className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">{t('enhance')}</button>
+                <div className="flex gap-4">
+                    <button onClick={handleSurpriseMe} disabled={isLoading || isSubmittingIdea} className="flex-1 bg-teal-600 hover:bg-teal-700 disabled:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                        {t('surpriseMe')}
+                    </button>
+                    <button onClick={handleEnhanceIdea} disabled={!idea.trim() || isLoading || isSubmittingIdea} className="flex-1 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">{t('enhance')}</button>
+                </div>
             </div>
             <div className="space-y-4 bg-gray-800 p-6 rounded-lg">
                 <div>
@@ -302,7 +360,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                     <div className="flex items-center h-5"><input id="grounding" type="checkbox" checked={groundingInReality} onChange={e => setGroundingInReality(e.target.checked)} className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-500 rounded bg-gray-900" /></div>
                     <div className="ml-3 text-sm"><label htmlFor="grounding" className="font-medium text-gray-300">{t('groundInReality')}</label><p className="text-xs text-gray-500">{t('groundInRealityHint')}</p></div>
                 </div>
-                <button onClick={handleGenerateOutline} disabled={isLoading} className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-500 text-white font-bold py-3 px-4 rounded-lg text-lg">{t('generateOutline')}</button>
+                <button onClick={handleGenerateOutline} disabled={isLoading || isSubmittingIdea} className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-500 text-white font-bold py-3 px-4 rounded-lg text-lg">{t('generateOutline')}</button>
             </div>
         </div>
     );
@@ -350,15 +408,47 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
         }
     }
 
-    const renderGeneratingStep = () => (
-        <div className="text-center">
-            <h2 className="text-2xl font-bold text-orange-400 mb-4">{t('writingStories')}</h2>
-            <p className="text-gray-400 mb-6">{t('writingStoriesDescription', { numScenarios: numScenarios })}</p>
-            <div className="w-full bg-gray-700 rounded-full h-4"><div className="bg-indigo-600 h-4 rounded-full" style={{ width: `${generationProgress}%` }}></div></div>
-            <p className="mt-2 font-mono text-sm">{generationProgress.toFixed(0)}{t('percentComplete')}</p>
-            <p className="mt-2 text-gray-300">{t('craftingStoriesFor', { locationName: generatingLocationName })}</p>
-        </div>
-    );
+    const renderGeneratingStep = () => {
+        const isComplete = scenarioProgress.every(p => p.status === 'done' || p.status === 'error');
+        const hasErrors = scenarioProgress.some(p => p.status === 'error');
+
+        return (
+            <div className="text-center">
+                <h2 className="text-2xl font-bold text-orange-400 mb-2">{t('writingStories')}</h2>
+                <p className="text-gray-400 mb-6">{t('writingStoriesDescription')}</p>
+                <div className="bg-gray-700 rounded-lg p-4 space-y-2 max-h-[50vh] overflow-y-auto">
+                    <div className="grid grid-cols-2 gap-4 text-left font-semibold border-b border-gray-600 pb-2 mb-2">
+                        <span>{t('location')}</span>
+                        <span>{t('status')}</span>
+                    </div>
+                    {scenarioProgress.map(progress => (
+                        <div key={progress.locationName} className="grid grid-cols-2 gap-4 items-center text-left text-sm py-1">
+                            <span className="truncate">{progress.locationName}</span>
+                            <div className="flex items-center gap-2">
+                                {progress.status === 'pending' && <span className="text-gray-400">{t('pending')}...</span>}
+                                {progress.status === 'generating' && <span className="text-blue-400 animate-pulse">{t('generating')}...</span>}
+                                {progress.status === 'done' && <span className="text-green-400 font-semibold">✅ {t('done')}</span>}
+                                {progress.status === 'error' && (
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-red-400 font-semibold" title={progress.error}>❌ {t('error')}</span>
+                                        <button onClick={() => handleRetryScenario(progress.location)} className="text-xs bg-gray-600 hover:bg-gray-500 px-2 py-1 rounded">{t('retry')}</button>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                {isComplete && (
+                    <div className="mt-6">
+                        <p className="text-gray-300 mb-4">{hasErrors ? t('someScenariosFailed') : t('allScenariosGenerated')}</p>
+                        <button onClick={() => setStep('PREVIEW')} className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
+                            {t('proceedToPreview')}
+                        </button>
+                    </div>
+                )}
+            </div>
+        );
+    };
 
     const renderPreviewStep = () => {
         const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
@@ -477,7 +567,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
             <h1 className="text-3xl font-bold font-mono text-center mb-2">{t('wizardTitle')}</h1>
              <div className="max-w-7xl mx-auto mt-6 bg-gray-800/50 p-6 md:p-8 rounded-2xl shadow-2xl relative">
                 <Stepper steps={wizardSteps} currentStepName={visibleStep} onStepClick={handleStepNavigation} disabled={isLoading || step === 'GENERATING'} />
-                {isLoading && step !== 'GENERATING' && (
+                {isLoading && (
                      <div className="absolute inset-0 bg-gray-800/80 flex items-center justify-center rounded-2xl z-10">
                         <p className="text-white text-lg animate-pulse">{loadingMessage || t('generating')}</p>
                     </div>

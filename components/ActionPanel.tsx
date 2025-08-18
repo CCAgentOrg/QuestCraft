@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import type { Player, GamePhase, ManagedScenario, Choice, ChanceCard, LanguageCode } from '../types';
 import { getLocalizedString } from '../utils/localization';
@@ -20,6 +18,7 @@ interface ActionPanelProps {
     activeScenario: ManagedScenario | null;
     activeChoiceOutcome: Choice['outcome'] | null;
     activeCard: ChanceCard | null;
+    gameError: string | null;
     onRollDice: () => void;
     onScenarioChoice: (choice: Choice) => void;
     onNextTurn: () => void;
@@ -35,6 +34,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({
     activeScenario,
     activeChoiceOutcome,
     activeCard,
+    gameError,
     onRollDice,
     onScenarioChoice,
     onNextTurn,
@@ -44,6 +44,20 @@ const ActionPanel: React.FC<ActionPanelProps> = ({
     const { t } = useTranslation();
     
     const renderContent = () => {
+        if (gameError) {
+            return (
+                <ActionCard title={t('error')}>
+                    <p className="text-red-300">{gameError}</p>
+                    <button
+                        onClick={onNextTurn}
+                        className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300"
+                    >
+                        {t('continue')}
+                    </button>
+                </ActionCard>
+            );
+        }
+
         if (gamePhase === 'GAME_OVER') {
             const winner = players.find(p => !p.isBankrupt);
             return (

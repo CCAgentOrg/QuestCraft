@@ -314,6 +314,85 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
     }
 };
 
+export const generateRandomQuestIdea = async (): Promise<string> => {
+    logger.info('[AI] Starting generateRandomQuestIdea call...');
+    const settings = settingsService.getAiSettings();
+    preflightCheck();
+    
+    const isCommunity = settings.providerId === 'community';
+    const apiKey = isCommunity ? 'N/A' : getApiKey(settings.providerId);
+    const maskedSettings = { ...settings, apiKey: isCommunity ? 'N/A' : maskApiKey(apiKey) };
+    const isGemini = settings.providerId === 'gemini';
+
+    const prompt = await loadPrompt('prompts/random-idea.txt');
+    logger.debug('[AI] Random idea prompt:', prompt);
+
+    const logDetails = {
+        mode: 'Enhance Idea' as const, // Re-using this mode is fine for logging
+        prompt: prompt,
+        requestDetails: { action: 'generate_random_idea', settings: maskedSettings },
+        model: settings.model,
+        inputTokens: undefined as number | undefined,
+        outputTokens: undefined as number | undefined,
+    };
+
+    try {
+        const apiCall = async (): Promise<string> => {
+            if (isCommunity) {
+                logger.info('[AI] Calling Community Gateway for random idea...');
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'generateRandomQuestIdea', payload: {} })
+                });
+                const text = await processCommunityGatewayStream(response);
+                return text;
+            } else if (!isGemini) {
+                logger.info(`[AI] Calling OpenAI-compatible model for random idea: ${settings.model}`);
+                const jsonResponse = await fetchOpenAICompatible(settings, {
+                    model: settings.model,
+                    messages: [{ role: 'user', content: prompt }],
+                });
+                
+                if (jsonResponse.usage) {
+                    logDetails.inputTokens = jsonResponse.usage.prompt_tokens || 0;
+                    logDetails.outputTokens = jsonResponse.usage.completion_tokens || 0;
+                    statsService.updateTokens({ inputTokens: logDetails.inputTokens, outputTokens: logDetails.outputTokens });
+                }
+                return jsonResponse.choices[0].message.content;
+            } else {
+                logger.info(`[AI] Calling Gemini model for random idea: ${settings.model}`);
+                const ai = new GoogleGenAI({ apiKey });
+                const response = await ai.models.generateContent({
+                    model: settings.model,
+                    contents: prompt,
+                });
+                if (response.usageMetadata) {
+                    const inputTokens = response.usageMetadata.promptTokenCount || 0;
+                    const totalTokens = response.usageMetadata.totalTokenCount || 0;
+                    const outputTokens = Math.max(0, totalTokens - inputTokens);
+                    logDetails.inputTokens = inputTokens;
+                    logDetails.outputTokens = outputTokens;
+                    statsService.updateTokens({ inputTokens, outputTokens });
+                }
+                return response.text;
+            }
+        };
+
+        const text = await withRetry(apiCall);
+        if (!text) throw new Error("The API returned an empty response.");
+        
+        logger.info('[AI] generateRandomQuestIdea call successful.');
+        logger.finest('[AI] Random idea response:', text);
+        auditLogService.addLog({ ...logDetails, response: text, error: null });
+        return text.trim();
+
+    } catch (e: any) {
+        auditLogService.addLog({ ...logDetails, response: '', error: e.message });
+        throw e;
+    }
+};
+
 export const generateQuestOutline = async (
     idea: string,
     numLocations: number,
