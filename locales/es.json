@@ -1,4 +1,3 @@
-
 {
   "questCraftTitle": "QuestCraft",
   "questCraftDescription": "Un motor de juegos de mesa educativos impulsado por IA. ¡Juega una misión o crea la tuya!",
@@ -221,5 +220,13 @@
   "retry": "Reintentar",
   "proceedToPreview": "Continuar a la Vista Previa",
   "allScenariosGenerated": "¡Todos los escenarios se generaron con éxito!",
-  "someScenariosFailed": "Algunos escenarios no se pudieron generar. Puedes reintentarlos o continuar sin ellos."
+  "someScenariosFailed": "Algunos escenarios no se pudieron generar. Puedes reintentarlos o continuar sin ellos.",
+  "targetAgeGroup": "Grupo de Edad Objetivo",
+  "ageAny": "Cualquier Edad",
+  "ageKids": "Niños (5-8)",
+  "agePreTeens": "Preadolescentes (9-12)",
+  "ageTeens": "Adolescentes (13-17)",
+  "ageYoungAdults": "Jóvenes Adultos (18-25)",
+  "ageAdults": "Adultos (26-64)",
+  "ageSeniors": "Mayores (65+)"
 }

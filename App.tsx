@@ -1,5 +1,7 @@
 
 
+
+
 import React, { useState, useCallback, useEffect } from 'react';
 import type { QuestConfig, AppStats, Page, LoadedQuest, AiProviderSettings } from './types';
 import { statsService, STATS_UPDATED_EVENT } from './services/statsService';
@@ -295,6 +297,7 @@ const App: React.FC = () => {
                     questConfig={questConfig}
                     onExitGame={handleExitGameWithConfirm}
                     onOpenFooterDrawer={setOpenDrawerContent}
+                    onNavigate={handleNavigate}
                 />
                 <main className="flex-1 overflow-y-auto">
                     {renderPage()}
@@ -313,7 +316,9 @@ const App: React.FC = () => {
                 title={openDrawerContent?.title || ''}
                 onClose={() => setOpenDrawerContent(null)}
             >
-                <div dangerouslySetInnerHTML={{ __html: openDrawerContent?.content || '' }} />
+                {() => (
+                    <div dangerouslySetInnerHTML={{ __html: openDrawerContent?.content || '' }} />
+                )}
             </Drawer>
             <AIAuditLogDrawer show={showAuditLog} onClose={() => setShowAuditLog(false)} />
             <ChatDrawer 

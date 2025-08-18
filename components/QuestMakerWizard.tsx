@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react';
 import type { QuestConfig, ResourceDefinition, BoardLocation, ScenariosByLocation, ChanceCard, ResourceChange, LanguageCode, ManagedScenario } from '../types';
 import { enhanceQuestIdea, generateQuestOutline, generatePregeneratedScenarios, generateRandomQuestIdea } from '../services/aiService';
@@ -77,6 +76,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
     const [step, setStep] = useState<WizardStep>('CONFIG');
     const [refineStep, setRefineStep] = useState<RefineStep>('DETAILS');
     const [idea, setIdea] = useState('');
+    const [ageGroup, setAgeGroup] = useState('any');
     const [numLocations, setNumLocations] = useState(20);
     const [numScenarios, setNumScenarios] = useState(1);
     const [positivity, setPositivity] = useState(0.5);
@@ -126,7 +126,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
         logger.info('[QuestMaker] User clicked Enhance Idea.');
         setIsSubmittingIdea(true);
         try {
-            const enhancedIdea = await enhanceQuestIdea(idea);
+            const enhancedIdea = await enhanceQuestIdea(idea, ageGroup);
             setIdea(enhancedIdea);
         } catch (error: any) {
              if (error.name === 'TokenLimitExceededError') {
@@ -143,7 +143,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
         logger.info('[QuestMaker] User clicked Surprise Me.');
         setIsSubmittingIdea(true);
         try {
-            const randomIdea = await generateRandomQuestIdea();
+            const randomIdea = await generateRandomQuestIdea(ageGroup);
             setIdea(randomIdea);
         } catch (error: any) {
              if (error.name === 'TokenLimitExceededError') {
@@ -336,6 +336,18 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                     <label htmlFor="num-locations" className="block text-sm font-medium text-gray-300">{t('boardLocations')}</label>
                     <input type="number" id="num-locations" value={numLocations} onChange={e => setNumLocations(parseInt(e.target.value))} step="4" min="12" max="40" className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2" />
                     <p className="text-xs text-gray-500 mt-1">{t('boardLocationsHint')}</p>
+                </div>
+                 <div>
+                    <label htmlFor="age-group" className="block text-sm font-medium text-gray-300">{t('targetAgeGroup')}</label>
+                    <select id="age-group" value={ageGroup} onChange={e => setAgeGroup(e.target.value)} className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2">
+                        <option value="any">{t('ageAny')}</option>
+                        <option value="kids">{t('ageKids')}</option>
+                        <option value="pre-teens">{t('agePreTeens')}</option>
+                        <option value="teens">{t('ageTeens')}</option>
+                        <option value="young-adults">{t('ageYoungAdults')}</option>
+                        <option value="adults">{t('ageAdults')}</option>
+                        <option value="seniors">{t('ageSeniors')}</option>
+                    </select>
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-300">{t('supportedLanguages')}</label>

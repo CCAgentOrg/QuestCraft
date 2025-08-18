@@ -4,7 +4,7 @@ import { useTranslation } from '../services/i18n';
 
 interface DrawerProps {
     title: string;
-    children: React.ReactNode;
+    children: (isMaximized: boolean) => React.ReactNode;
     onClose: () => void;
     show: boolean;
 }
@@ -85,7 +85,7 @@ const Drawer: React.FC<DrawerProps> = ({ title, children, onClose, show }) => {
                 </header>
                 <main className="p-4 md:p-6 flex-grow overflow-y-auto">
                     <div className="prose prose-invert prose-p:text-gray-300 prose-li:text-gray-300 prose-strong:text-white max-w-none">
-                      {children}
+                      {children(isMaximized)}
                     </div>
                 </main>
                  <footer className="flex items-center p-4 md:p-5 mt-auto border-t border-gray-700 flex-shrink-0">

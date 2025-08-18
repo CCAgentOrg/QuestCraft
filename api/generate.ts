@@ -61,9 +61,10 @@ Your task is to take the user's simple idea below and enhance it into a more det
 **Your Instructions:**
 1.  **Do not generate JSON.** Your output must be a single block of enhanced text.
 2.  **Retain the Core Concept:** Keep the user's original theme and subject matter at the heart of the new prompt.
-3.  **Suggest Core Resources:** Propose three thematic resources that players will manage. For example, for a freelance artist game, you might suggest "Money", "Creativity", and "Well-being".
-4.  **Add Thematic Details:** Flesh out the idea with specific concepts, potential challenges, and flavourful names for locations or cards.
-5.  **Write as a Prompt:** Frame your response as a direct, enhanced instruction for another AI. It should be creative, descriptive, and inspiring.
+3.  **Target Audience:** The enhanced prompt must be tailored for the following target age group: **{ageGroup}**. Ensure the complexity, tone, and subject matter are appropriate.
+4.  **Suggest Core Resources:** Propose three thematic resources that players will manage. For example, for a freelance artist game, you might suggest "Money", "Creativity", and "Well-being".
+5.  **Add Thematic Details:** Flesh out the idea with specific concepts, potential challenges, and flavourful names for locations or cards.
+6.  **Write as a Prompt:** Frame your response as a direct, enhanced instruction for another AI. It should be creative, descriptive, and inspiring.
 
 **For context, here is an example of a good enhancement:**
 If the original user idea was "A game about the challenges of being a freelance artist", your enhanced prompt might look like:
@@ -118,14 +119,15 @@ Focus on creating engaging, educational, and family-friendly content. Avoid sens
 
 # JSON Schema
 {schema}`,
-'random-idea.txt': `You are an expert creative game designer specializing in educational and thematic board games.
+'random-idea.txt': `You are an expert creative game designer specializing in educational and thematic board games related to real world.
 
-Your task is to generate a single, unique, and imaginative idea for a board game.
+Your task is to generate a single, unique and random idea for a board game based on current affairs  / personas / cities / states / countries / issues of global significance and relatability across age groups.
 
 **Instructions:**
 1.  The output MUST be a single, concise paragraph.
 2.  The idea must be suitable for a Monopoly-style board game.
-3.  The paragraph must clearly describe:
+3.  The idea must be appropriate for the following target age group: **{ageGroup}**.
+4.  The paragraph must clearly describe:
     - An engaging and specific theme (e.g., managing a city's public transit system, navigating the challenges of scientific research, building a sustainable coral reef).
     - Three thematic resources that players would manage. Explicitly name them in the format: **Resource 1**, **Resource 2**, and **Resource 3**.
 
@@ -167,6 +169,16 @@ const LANGUAGE_MAP: Record<string, string> = {
     ta: "Tamil"
 };
 
+const getAgeGroupText = (ageGroupKey: string): string => {
+    switch (ageGroupKey) {
+        case 'kids': return 'Kids (5-8)';
+        case 'pre-teens': return 'Pre-Teens (9-12)';
+        case 'teens': return 'Teens (13-17)';
+        case 'adults': return 'Adults (18+)';
+        default: return 'Any Age';
+    }
+};
+
 // --- Action Handlers ---
 
 async function handleTestConnection(openai: OpenAI) {
@@ -179,7 +191,8 @@ async function handleTestConnection(openai: OpenAI) {
 }
 
 async function handleEnhanceQuestIdea(openai: OpenAI, payload: any) {
-    const prompt = loadPrompt('enhance-idea.txt', { idea: payload.idea });
+    const { idea, ageGroup } = payload;
+    const prompt = loadPrompt('enhance-idea.txt', { idea, ageGroup: getAgeGroupText(ageGroup) });
     const response = await openai.chat.completions.create({
         model: COMMUNITY_MODEL,
         messages: [{ role: 'user', content: prompt }],
@@ -189,8 +202,9 @@ async function handleEnhanceQuestIdea(openai: OpenAI, payload: any) {
     return new StreamingTextResponse(stream);
 }
 
-async function handleGenerateRandomQuestIdea(openai: OpenAI) {
-    const prompt = loadPrompt('random-idea.txt');
+async function handleGenerateRandomQuestIdea(openai: OpenAI, payload: any) {
+    const { ageGroup } = payload;
+    const prompt = loadPrompt('random-idea.txt', { ageGroup: getAgeGroupText(ageGroup) });
     const response = await openai.chat.completions.create({
         model: COMMUNITY_MODEL,
         messages: [{ role: 'user', content: prompt }],
@@ -292,7 +306,7 @@ export default async function handler(req: Request) {
         return handleEnhanceQuestIdea(openai, payload);
       
       case 'generateRandomQuestIdea':
-        return handleGenerateRandomQuestIdea(openai);
+        return handleGenerateRandomQuestIdea(openai, payload);
 
       case 'generateQuestOutline':
         return handleGenerateQuestOutline(openai, payload);

@@ -1,4 +1,3 @@
-
 {
   "questCraftTitle": "QuestCraft",
   "questCraftDescription": "An AI-powered engine for creating educational board games. Play a quest, or create your own!",
@@ -221,5 +220,13 @@
   "retry": "Retry",
   "proceedToPreview": "Proceed to Preview",
   "allScenariosGenerated": "All scenarios generated successfully!",
-  "someScenariosFailed": "Some scenarios failed to generate. You can retry them or proceed without them."
+  "someScenariosFailed": "Some scenarios failed to generate. You can retry them or proceed without them.",
+  "targetAgeGroup": "Target Age Group",
+  "ageAny": "Any Age",
+  "ageKids": "Kids (5-8)",
+  "agePreTeens": "Pre-Teens (9-12)",
+  "ageTeens": "Teens (13-17)",
+  "ageYoungAdults": "Young Adults (18-25)",
+  "ageAdults": "Adults (26-64)",
+  "ageSeniors": "Seniors (65+)"
 }

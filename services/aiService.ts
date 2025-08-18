@@ -1,4 +1,4 @@
-import { GoogleGenAI, Chat } from "@google/genai";
+import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 import type { QuestConfig, Player, BoardLocation, ManagedScenario, AiProviderSettings, LanguageCode, AiProviderId } from '../types';
 import { auditLogService } from './auditLogService';
 import { statsService } from './statsService';
@@ -24,6 +24,18 @@ const LANGUAGE_MAP: Record<LanguageCode, string> = {
     es: "Spanish",
     hi: "Hindi",
     ta: "Tamil"
+};
+
+const getAgeGroupText = (ageGroupKey: string): string => {
+    switch (ageGroupKey) {
+        case 'kids': return 'Kids (5-8)';
+        case 'pre-teens': return 'Pre-Teens (9-12)';
+        case 'teens': return 'Teens (13-17)';
+        case 'young-adults': return 'Young Adults (18-25)';
+        case 'adults': return 'Adults (26-64)';
+        case 'seniors': return 'Seniors (65+)';
+        default: return 'Any Age';
+    }
 };
 
 const getApiKey = (providerId: AiProviderId): string => {
@@ -232,7 +244,7 @@ export const testConnection = async (settings: AiProviderSettings): Promise<void
 };
 
 
-export const enhanceQuestIdea = async (idea: string): Promise<string> => {
+export const enhanceQuestIdea = async (idea: string, ageGroup: string): Promise<string> => {
     logger.info('[AI] Starting enhanceQuestIdea call...');
     const settings = settingsService.getAiSettings();
     preflightCheck();
@@ -242,13 +254,13 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
     const maskedSettings = { ...settings, apiKey: isCommunity ? 'N/A' : maskApiKey(apiKey) };
     const isGemini = settings.providerId === 'gemini';
 
-    const prompt = await loadPrompt('prompts/enhance-idea.txt', { idea });
+    const prompt = await loadPrompt('prompts/enhance-idea.txt', { idea, ageGroup: getAgeGroupText(ageGroup) });
     logger.debug('[AI] Enhance idea prompt:', prompt);
 
     const logDetails = {
         mode: 'Enhance Idea' as const,
         prompt: prompt,
-        requestDetails: { action: 'enhance_idea', idea: idea, settings: maskedSettings },
+        requestDetails: { action: 'enhance_idea', idea: idea, ageGroup, settings: maskedSettings },
         model: settings.model,
         inputTokens: undefined as number | undefined,
         outputTokens: undefined as number | undefined,
@@ -261,7 +273,7 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
                 const response = await fetch('/api/generate', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'enhanceQuestIdea', payload: { idea } })
+                    body: JSON.stringify({ action: 'enhanceQuestIdea', payload: { idea, ageGroup } })
                 });
                 const text = await processCommunityGatewayStream(response);
                 // Token usage from community tier is not available due to streaming
@@ -314,7 +326,7 @@ export const enhanceQuestIdea = async (idea: string): Promise<string> => {
     }
 };
 
-export const generateRandomQuestIdea = async (): Promise<string> => {
+export const generateRandomQuestIdea = async (ageGroup: string): Promise<string> => {
     logger.info('[AI] Starting generateRandomQuestIdea call...');
     const settings = settingsService.getAiSettings();
     preflightCheck();
@@ -324,13 +336,13 @@ export const generateRandomQuestIdea = async (): Promise<string> => {
     const maskedSettings = { ...settings, apiKey: isCommunity ? 'N/A' : maskApiKey(apiKey) };
     const isGemini = settings.providerId === 'gemini';
 
-    const prompt = await loadPrompt('prompts/random-idea.txt');
+    const prompt = await loadPrompt('prompts/random-idea.txt', { ageGroup: getAgeGroupText(ageGroup) });
     logger.debug('[AI] Random idea prompt:', prompt);
 
     const logDetails = {
         mode: 'Enhance Idea' as const, // Re-using this mode is fine for logging
         prompt: prompt,
-        requestDetails: { action: 'generate_random_idea', settings: maskedSettings },
+        requestDetails: { action: 'generate_random_idea', ageGroup, settings: maskedSettings },
         model: settings.model,
         inputTokens: undefined as number | undefined,
         outputTokens: undefined as number | undefined,
@@ -343,7 +355,7 @@ export const generateRandomQuestIdea = async (): Promise<string> => {
                 const response = await fetch('/api/generate', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'generateRandomQuestIdea', payload: {} })
+                    body: JSON.stringify({ action: 'generateRandomQuestIdea', payload: { ageGroup } })
                 });
                 const text = await processCommunityGatewayStream(response);
                 return text;
@@ -966,7 +978,8 @@ export const chatManager = {
 
         try {
             preflightCheck();
-            let responseStream;
+            let fullResponse = "";
+
             if (settings.providerId === 'community') {
                 const response = await fetch('/api/generate', {
                     method: 'POST',
@@ -979,26 +992,29 @@ export const chatManager = {
                 if (!response.ok || !response.body) {
                     throw new Error(`Community Gateway Error: ${await response.text()}`);
                 }
-                responseStream = response.body;
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    const chunkText = decoder.decode(value, { stream: true });
+                    fullResponse += chunkText;
+                    yield chunkText;
+                }
             } else {
                  if (!chatInstance) throw new Error("Chat not initialized.");
-                 const result = await chatInstance.sendMessageStream({ message });
-                 responseStream = result;
+                 const streamResult = await chatInstance.sendMessageStream({ message });
+                 for await (const chunk of streamResult) {
+                     const chunkText = chunk.text;
+                     if (chunkText) {
+                         fullResponse += chunkText;
+                         yield chunkText;
+                     }
+                 }
             }
             
-            let fullResponse = "";
-            const reader = responseStream.getReader();
-            const decoder = new TextDecoder();
-
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-                
-                const chunkText = typeof value === 'string' ? value : decoder.decode(value, { stream: true });
-                fullResponse += chunkText;
-                yield chunkText;
-            }
-
             logger.info('[AI Chat] Stream finished.');
             logger.finest('[AI Chat] Full response:', fullResponse);
             auditLogService.addLog({ ...logDetails, response: fullResponse, error: null });
