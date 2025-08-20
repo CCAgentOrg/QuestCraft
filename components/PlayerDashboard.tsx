@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { Player, QuestConfig, LanguageCode } from '../types';
 import { IconMap } from '../constants';
@@ -44,7 +43,7 @@ interface PlayerDashboardProps {
 const PlayerDashboard: React.FC<PlayerDashboardProps> = ({ players, questConfig, currentPlayer, language }) => {
     const { t } = useTranslation();
     return (
-        <div className="w-full h-full bg-gray-800/50 backdrop-blur-md p-4 md:p-6 rounded-2xl shadow-2xl flex flex-col space-y-6">
+        <div className="w-full h-full bg-gray-800/50 backdrop-blur-md p-4 md:p-6 rounded-2xl shadow-2xl flex flex-col space-y-6 overflow-y-auto">
             {/* Players Header */}
             <div className="bg-gray-900/50 p-3 rounded-lg">
                 <h2 className="text-xs uppercase font-semibold text-gray-400 mb-2">{t('players')}</h2>

@@ -460,70 +460,73 @@ const GamePage: React.FC<GamePageProps> = ({ questConfig, onExit, onOpenFooterDr
 
     const currentPlayer = players[currentPlayerIndex];
 
+    const commonActionPanel = <ActionPanel
+        players={players}
+        currentPlayer={currentPlayer}
+        gamePhase={gamePhase}
+        diceResult={diceResult}
+        activeScenario={activeScenario}
+        activeChoiceOutcome={activeChoiceOutcome}
+        activeCard={activeCard}
+        gameError={gameError}
+        onRollDice={handleRollDice}
+        onScenarioChoice={handleScenarioChoice}
+        onNextTurn={nextTurn}
+        onSelectScenarioSource={handleSelectScenarioSource}
+        language={language}
+    />;
+
+    const commonPlayerDashboard = <PlayerDashboard
+        players={players}
+        questConfig={questConfig}
+        currentPlayer={currentPlayer}
+        language={language}
+    />;
+    
+    const commonGameBoard = <GameBoard board={questConfig.board} players={players} questName={getLocalizedString(questConfig.name, language)} language={language}/>;
+
     return (
         <div className="h-full">
-            {/* Desktop Layout: 3 columns */}
-            <div className="hidden lg:grid h-full grid-cols-1 lg:grid-cols-4 gap-4 p-2 md:p-4">
-                <div className="lg:col-span-1 lg:order-1">
-                    <PlayerDashboard
-                        players={players}
-                        questConfig={questConfig}
-                        currentPlayer={currentPlayer}
-                        language={language}
-                    />
+            {/* Desktop Layout (xl and up) */}
+            <div className="hidden xl:grid h-full grid-cols-1 xl:grid-cols-4 gap-4 p-4">
+                <div className="xl:col-span-1 xl:order-1">
+                    {commonPlayerDashboard}
                 </div>
-                <div className="lg:col-span-2 lg:order-2 flex items-center justify-center">
-                    <GameBoard board={questConfig.board} players={players} questName={getLocalizedString(questConfig.name, language)} language={language}/>
+                <div className="xl:col-span-2 xl:order-2 flex items-center justify-center">
+                    {commonGameBoard}
                 </div>
-                <div className="lg:col-span-1 lg:order-3">
-                     <ActionPanel
-                        players={players}
-                        currentPlayer={currentPlayer}
-                        gamePhase={gamePhase}
-                        diceResult={diceResult}
-                        activeScenario={activeScenario}
-                        activeChoiceOutcome={activeChoiceOutcome}
-                        activeCard={activeCard}
-                        gameError={gameError}
-                        onRollDice={handleRollDice}
-                        onScenarioChoice={handleScenarioChoice}
-                        onNextTurn={nextTurn}
-                        onSelectScenarioSource={handleSelectScenarioSource}
-                        language={language}
-                    />
+                <div className="xl:col-span-1 xl:order-3">
+                     {commonActionPanel}
                 </div>
             </div>
 
-            {/* Mobile Layout: Tabs */}
-            <div className="lg:hidden h-full flex flex-col">
-                <main className="flex-1 overflow-y-auto p-2">
+            {/* Tablet Layout (md to xl) */}
+            <div className="hidden md:grid xl:hidden h-full grid-cols-3 gap-4 p-4">
+                <div className="col-span-2 flex items-center justify-center">
+                    {commonGameBoard}
+                </div>
+                <div className="col-span-1 flex flex-col gap-4 overflow-hidden">
+                    <div className="flex-1 min-h-0">
+                       {commonPlayerDashboard}
+                    </div>
+                    <div className="flex-1 min-h-0">
+                       {commonActionPanel}
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile Layout (up to md) */}
+            <div className="md:hidden h-full flex flex-col">
+                <main className="flex-1 overflow-y-auto p-2 pb-20">
                     {activeTab === 'board' && (
                         <div className="flex items-center justify-center h-full">
-                            <GameBoard board={questConfig.board} players={players} questName={getLocalizedString(questConfig.name, language)} language={language}/>
+                           {commonGameBoard}
                         </div>
                     )}
-                    {activeTab === 'turn' && (
-                        <PlayerDashboard players={players} questConfig={questConfig} currentPlayer={currentPlayer} language={language}/>
-                    )}
-                    {activeTab === 'scenario' && (
-                        <ActionPanel
-                            players={players}
-                            currentPlayer={currentPlayer}
-                            gamePhase={gamePhase}
-                            diceResult={diceResult}
-                            activeScenario={activeScenario}
-                            activeChoiceOutcome={activeChoiceOutcome}
-                            activeCard={activeCard}
-                            gameError={gameError}
-                            onRollDice={handleRollDice}
-                            onScenarioChoice={handleScenarioChoice}
-                            onNextTurn={nextTurn}
-                            onSelectScenarioSource={handleSelectScenarioSource}
-                            language={language}
-                        />
-                    )}
+                    {activeTab === 'turn' && commonPlayerDashboard}
+                    {activeTab === 'scenario' && commonActionPanel}
                 </main>
-                <nav className="flex-shrink-0 bg-gray-900/80 backdrop-blur-md border-t border-gray-700 grid grid-cols-3 gap-2 p-2">
+                <nav className="fixed bottom-12 left-0 right-0 z-30 bg-gray-900/80 backdrop-blur-md border-t border-gray-700 grid grid-cols-3 gap-2 p-2">
                     <TabButton
                         label={t('tabBoard')}
                         icon={<BoardIcon className="w-6 h-6 mx-auto mb-1" />}

@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react';
 import type { QuestConfig, ResourceDefinition, BoardLocation, ScenariosByLocation, ChanceCard, ResourceChange, LanguageCode, ManagedScenario } from '../types';
 import { enhanceQuestIdea, generateQuestOutline, generatePregeneratedScenarios, generateRandomQuestIdea } from '../services/aiService';
@@ -73,7 +74,7 @@ const Stepper: React.FC<{
 
 const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpdate, draftQuest }) => {
     const { t, language } = useTranslation();
-    const [step, setStep] = useState<WizardStep>('CONFIG');
+    const [step, setStep] = useState<WizardStep>(draftQuest ? 'REFINE' : 'CONFIG');
     const [refineStep, setRefineStep] = useState<RefineStep>('DETAILS');
     const [idea, setIdea] = useState('');
     const [ageGroup, setAgeGroup] = useState('any');
@@ -87,6 +88,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
     const [isSubmittingIdea, setIsSubmittingIdea] = useState(false); // For surprise/enhance
     const [loadingMessage, setLoadingMessage] = useState('');
     const [scenarioProgress, setScenarioProgress] = useState<ScenarioGenerationProgress[]>([]);
+    const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
 
     const [jsonText, setJsonText] = useState('');
     const [jsonError, setJsonError] = useState('');
@@ -271,38 +273,59 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
         });
     };
 
-    const handleStepNavigation = (targetStep: WizardStep) => {
-        const wizardSteps: WizardStep[] = ['CONFIG', 'REFINE', 'PREVIEW', 'FINISH'];
-        const currentStepIndex = wizardSteps.indexOf(step === 'GENERATING' ? 'REFINE' : step);
-        const targetStepIndex = wizardSteps.indexOf(targetStep);
-    
-        if (targetStepIndex >= currentStepIndex) return;
-    
-        if (step === 'REFINE' && targetStep === 'CONFIG') {
-            if (draftQuest && window.confirm(t('confirmDiscardOutline'))) {
-                onDraftUpdate(null);
-                setJsonText('');
-                setStep('CONFIG');
-            }
-        } else if ((step === 'FINISH' || step === 'PREVIEW') && targetStep === 'REFINE') {
-            if (draftQuest && window.confirm(t('confirmDiscardScenarios'))) {
-                const newDraft = { ...draftQuest, pregeneratedScenarios: {} };
-                onDraftUpdate(newDraft);
-                setStep('REFINE');
-            }
-        } else if (step === 'FINISH' && targetStep === 'CONFIG') {
-            if (draftQuest && window.confirm(t('confirmStartOver'))) {
-                handleStartOver();
-            }
-        }
-    };
-    
-
     const handleStartOver = () => {
         if (!draftQuest || window.confirm(t('confirmStartOver'))) {
             onDraftUpdate(null);
             setIdea('');
             setStep('CONFIG');
+        }
+    };
+
+    const handleStepNavigation = (targetStep: WizardStep) => {
+        const wizardSteps: WizardStep[] = ['CONFIG', 'REFINE', 'PREVIEW', 'FINISH'];
+        const currentStepName = step === 'GENERATING' ? 'REFINE' : step;
+        const currentStepIndex = wizardSteps.indexOf(currentStepName);
+        const targetStepIndex = wizardSteps.indexOf(targetStep);
+    
+        if (targetStepIndex >= currentStepIndex) return;
+
+        // Navigation actions are based on the step we are *leaving*
+        switch (currentStepName) {
+            case 'FINISH':
+                if (targetStep === 'PREVIEW') {
+                    setStep('PREVIEW');
+                } else if (targetStep === 'REFINE') {
+                     if (draftQuest && window.confirm(t('confirmDiscardScenarios'))) {
+                        const newDraft = { ...draftQuest, pregeneratedScenarios: {} };
+                        onDraftUpdate(newDraft);
+                        setStep('REFINE');
+                    }
+                } else if (targetStep === 'CONFIG') {
+                    if (draftQuest && window.confirm(t('confirmStartOver'))) {
+                        handleStartOver();
+                    }
+                }
+                break;
+            
+            case 'PREVIEW':
+                 if (targetStep === 'REFINE') {
+                     if (draftQuest && window.confirm(t('confirmDiscardScenarios'))) {
+                        const newDraft = { ...draftQuest, pregeneratedScenarios: {} };
+                        onDraftUpdate(newDraft);
+                        setStep('REFINE');
+                    }
+                }
+                break;
+
+            case 'REFINE':
+                if (targetStep === 'CONFIG') {
+                     if (draftQuest && window.confirm(t('confirmDiscardOutline'))) {
+                        onDraftUpdate(null);
+                        setJsonText('');
+                        setStep('CONFIG');
+                    }
+                }
+                break;
         }
     };
 
@@ -485,8 +508,6 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
     };
 
     const renderPreviewStep = () => {
-        const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
-    
         const handleScenarioUpdate = (locationName: string, scenarioIndex: number, path: (string | number)[], value: any, isLocalized: boolean) => {
             if (!draftQuest) return;
         
@@ -523,7 +544,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                                 </button>
                                 {activeAccordion === locationName && (
                                     <div className="p-4 border-t border-gray-600 space-y-4">
-                                        {draftQuest.pregeneratedScenarios[locationName].map((scenario, index) => (
+                                        {draftQuest?.pregeneratedScenarios?.[locationName]?.map((scenario, index) => (
                                             <div key={scenario.id} className="bg-gray-800 p-3 rounded-md space-y-3 text-sm">
                                                 <h4 className="font-bold text-base">Scenario {index + 1}</h4>
                                                 <div><label className="block text-xs font-medium text-gray-400">{t('scenarioTitle')}</label><input value={getLocalizedString(scenario.title, language)} onChange={e => handleScenarioUpdate(locationName, index, ['title'], e.target.value, true)} className="mt-1 w-full bg-gray-900 rounded-md p-1" /></div>
@@ -573,7 +594,7 @@ const QuestMakerPage: React.FC<QuestMakerPageProps> = ({ onLoadQuest, onDraftUpd
                     <button onClick={handleCopyJson} className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-4 rounded-lg">{t('copyJson')}</button>
                 </div>
                 <button onClick={() => draftQuest && onLoadQuest(draftQuest)} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-4 rounded-lg text-lg">{t('loadAndPlay')}</button>
-                 <div className="flex gap-4">
+                 <div className="flex justify-center md:justify-start gap-4">
                     <button onClick={() => handleStepNavigation('PREVIEW')} className="text-gray-400 hover:text-white mt-4">{t('back')}</button>
                     <button onClick={handleStartOver} className="text-gray-400 hover:text-white mt-4">{t('startOver')}</button>
                 </div>

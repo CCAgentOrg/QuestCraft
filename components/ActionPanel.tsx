@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Player, GamePhase, ManagedScenario, Choice, ChanceCard, LanguageCode } from '../types';
 import { getLocalizedString } from '../utils/localization';
 import { useTranslation } from '../services/i18n';
@@ -6,7 +6,7 @@ import { useTranslation } from '../services/i18n';
 const ActionCard: React.FC<{ children: React.ReactNode, title: string }> = ({ children, title }) => (
     <div className="bg-gray-800/80 backdrop-blur-sm p-6 rounded-lg border border-gray-700 shadow-lg animate-fade-in flex flex-col h-full">
         <h3 className="text-xl font-bold text-orange-400 mb-4">{title}</h3>
-        <div className="text-gray-300 space-y-4 flex-grow flex flex-col justify-center">{children}</div>
+        <div className="text-gray-300 space-y-4 flex-grow overflow-y-auto">{children}</div>
     </div>
 );
 
@@ -42,6 +42,29 @@ const ActionPanel: React.FC<ActionPanelProps> = ({
     language
 }) => {
     const { t } = useTranslation();
+    const [loadingMessage, setLoadingMessage] = useState<string>('');
+
+    useEffect(() => {
+        if (gamePhase === 'GENERATING_SCENARIO') {
+            const loadingMessages = [
+                t('generatingScenario'),
+                t('aiConnecting'),
+                t('aiCrafting'),
+                t('aiInspiration'),
+                t('aiPatience'),
+            ];
+
+            let messageIndex = 0;
+            setLoadingMessage(loadingMessages[messageIndex]);
+
+            const interval = setInterval(() => {
+                messageIndex = (messageIndex + 1) % loadingMessages.length;
+                setLoadingMessage(loadingMessages[messageIndex]);
+            }, 3000); // Change message every 3 seconds
+
+            return () => clearInterval(interval);
+        }
+    }, [gamePhase, t]);
     
     const renderContent = () => {
         if (gameError) {
@@ -158,7 +181,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({
         if (gamePhase === 'GENERATING_SCENARIO') {
             return (
                  <div className="text-center space-y-4 flex flex-col justify-center items-center h-full">
-                    <p className="text-lg animate-pulse">{t('generatingScenario')}</p>
+                    <p className="text-lg animate-pulse">{loadingMessage}</p>
                  </div>
             )
         }

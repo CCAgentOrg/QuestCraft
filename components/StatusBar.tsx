@@ -90,11 +90,13 @@ const StatusBar: React.FC<StatusBarProps> = ({ stats, modelName, isAiConnected, 
                         tooltip={tokenTooltip}
                         valueClass={tokenColorClass}
                     />
-                    <StatItem
-                        icon={<MoneyIcon className="w-4 h-4" />}
-                        value={stats.totalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 4 })}
-                        tooltip="Estimated cost based on gemini-2.5-flash pricing. Other models may vary."
-                    />
+                    <div className="hidden sm:flex">
+                        <StatItem
+                            icon={<MoneyIcon className="w-4 h-4" />}
+                            value={stats.totalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 4 })}
+                            tooltip="Estimated cost based on gemini-2.5-flash pricing. Other models may vary."
+                        />
+                    </div>
                     <StatItem
                         icon={<TimeIcon className="w-4 h-4" />}
                         value={formatTime(stats.timePlayedInSeconds)}

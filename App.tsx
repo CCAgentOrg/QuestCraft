@@ -1,7 +1,4 @@
 
-
-
-
 import React, { useState, useCallback, useEffect } from 'react';
 import type { QuestConfig, AppStats, Page, LoadedQuest, AiProviderSettings } from './types';
 import { statsService, STATS_UPDATED_EVENT } from './services/statsService';
@@ -220,6 +217,12 @@ const App: React.FC = () => {
         }
     };
 
+    const handleEditQuest = useCallback((config: QuestConfig) => {
+        logger.info(`[App] Editing quest: "${getLocalizedString(config.name, 'en')}"`);
+        setDraftQuestForChat(config);
+        handleNavigate('maker');
+    }, [handleNavigate]);
+
     const handleResetStats = useCallback(() => {
         if (window.confirm(t('resetStatsConfirmation'))) {
             statsService.resetStats();
@@ -259,7 +262,8 @@ const App: React.FC = () => {
                 return <SettingsPage 
                             customQuests={customQuests}
                             defaultQuests={defaultQuests}
-                            onDeleteQuest={handleDeleteQuest} 
+                            onDeleteQuest={handleDeleteQuest}
+                            onEditQuest={handleEditQuest}
                             onOpenAuditLog={() => setShowAuditLog(true)}
                             onResetStats={handleResetStats}
                             isMakerModeEnabled={isMakerModeEnabled}

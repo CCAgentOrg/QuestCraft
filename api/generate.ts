@@ -49,6 +49,129 @@ class StreamingTextResponse extends Response {
 // --- Model Configuration ---
 const COMMUNITY_MODEL = 'openai/gpt-oss-20b:free';
 
+// --- Schemas for OpenAI-compatible models ---
+const localizedStringSchema = {
+    type: 'object',
+    properties: {
+        en: { type: 'string' },
+        es: { type: 'string' },
+        hi: { type: 'string' },
+        ta: { type: 'string' },
+    },
+};
+
+const resourceChangeSchema = {
+    type: 'object',
+    properties: {
+        name: { type: 'string', description: "The lowercase English name of the resource." },
+        value: { type: 'number' },
+    },
+    required: ['name', 'value'],
+};
+
+const choiceOutcomeSchema = {
+    type: 'object',
+    properties: {
+        explanation: localizedStringSchema,
+        resourceChanges: { type: 'array', items: resourceChangeSchema },
+    },
+    required: ['explanation', 'resourceChanges'],
+};
+
+const choiceSchema = {
+    type: 'object',
+    properties: {
+        text: localizedStringSchema,
+        outcome: choiceOutcomeSchema,
+    },
+    required: ['text', 'outcome'],
+};
+
+const scenarioSchema = {
+    type: 'object',
+    properties: {
+        title: localizedStringSchema,
+        description: localizedStringSchema,
+        choices: { type: 'array', items: choiceSchema, minItems: 2, maxItems: 2 },
+        sourceUrl: { type: 'string' },
+        sourceTitle: localizedStringSchema,
+    },
+    required: ['title', 'description', 'choices'],
+};
+
+const scenarioArraySchemaForOpenAI = {
+    type: 'object',
+    properties: {
+        scenarios: { type: 'array', items: scenarioSchema },
+    },
+    required: ['scenarios'],
+};
+
+const resourceDefinitionSchema = {
+    type: 'object',
+    properties: {
+        name: localizedStringSchema,
+        icon: { type: 'string', enum: ['MoneyIcon', 'TimeIcon', 'InfoIcon'] },
+        barColor: { type: 'string' },
+        initialValue: { type: 'number' },
+        minimumValue: { type: 'number' },
+        maximumValue: { type: 'number' },
+    },
+    required: ['name', 'icon', 'barColor', 'initialValue'],
+};
+
+const boardLocationSchema = {
+    type: 'object',
+    properties: {
+        name: localizedStringSchema,
+        description: localizedStringSchema,
+        type: { type: 'string', enum: ['START', 'PROPERTY', 'CHANCE', 'COMMUNITY_CHEST', 'UTILITY', 'TAX', 'JAIL', 'FREE_PARKING', 'GO_TO_JAIL'] },
+        color: { type: 'string' },
+    },
+    required: ['name', 'description', 'type'],
+};
+
+const chanceCardSchema = {
+    type: 'object',
+    properties: {
+        description: localizedStringSchema,
+        resourceChanges: { type: 'array', items: resourceChangeSchema },
+    },
+    required: ['description', 'resourceChanges'],
+};
+
+const footerSectionSchema = {
+    type: 'object',
+    properties: {
+        title: localizedStringSchema,
+        content: localizedStringSchema,
+    },
+    required: ['title', 'content'],
+};
+
+const questConfigSchemaForOpenAI = {
+    type: 'object',
+    properties: {
+        name: localizedStringSchema,
+        description: localizedStringSchema,
+        positivity: { type: 'number' },
+        resources: { type: 'array', items: resourceDefinitionSchema },
+        playerColors: { type: 'array', items: { type: 'string' } },
+        board: {
+            type: 'object',
+            properties: {
+                jailPosition: { type: 'number' },
+                locations: { type: 'array', items: boardLocationSchema },
+            },
+            required: ['jailPosition', 'locations'],
+        },
+        chanceCards: { type: 'array', items: chanceCardSchema },
+        communityChestCards: { type: 'array', items: chanceCardSchema },
+        footerSections: { type: 'array', items: footerSectionSchema },
+    },
+    required: ['name', 'description', 'resources', 'playerColors', 'board', 'chanceCards', 'footerSections'],
+};
+
 // --- Prompts are now embedded to support Vercel Edge runtime ---
 const promptTemplates = {
   'enhance-idea.txt': `You are an expert game designer and prompt engineer specializing in educational board games.
@@ -116,6 +239,25 @@ Focus on creating engaging, educational, and family-friendly content. Avoid sens
 - All user-facing text in the scenarios (\`title\`, \`description\`, \`choices.text\`, \`outcome.explanation\`) MUST be a JSON object with translations for the following languages: {languageList}.
 - The primary language for the response should be {languageName} ({languageCode}).
 - Your entire response MUST be a single JSON object with a single root key "scenarios" containing an array of the {numScenarios} generated scenario objects. The response must adhere to the schema provided below. Do not include any text outside of the JSON.
+
+# JSON Schema
+{schema}`,
+'dynamic-scenario-fictional-openai.txt': `You are a creative game master specializing in engaging, educational scenarios.
+
+# Game Context
+- **Quest Theme:** {questDescription}
+- **Location:** {locationName}
+- **Location Description:** {locationDescription}
+- **Player Resources:** {resourceNames}
+
+# Your Task
+Your task is to generate ONE fictional scenario for this location.
+Focus on creating engaging, educational, and family-friendly content. Avoid sensitive, controversial, or political topics.
+
+# LANGUAGE INSTRUCTIONS:
+- All user-facing text in the scenario (\`title\`, \`description\`, \`choices.text\`, \`outcome.explanation\`) MUST be a JSON object with translations for the following languages: {languageList}.
+- The primary language for the response should be {languageName} ({languageCode}).
+- Your entire response MUST be a single JSON object that adheres to the schema provided below. Do not include any text outside of the JSON.
 
 # JSON Schema
 {schema}`,
@@ -221,10 +363,11 @@ async function handleGenerateQuestOutline(openai: OpenAI, payload: any) {
       .map((code: string) => `${LANGUAGE_MAP[code]} ('${code}')`).join(', ');
 
     const prompt = `Generate a quest based on this idea: "${idea}"`;
+    const schemaString = JSON.stringify(questConfigSchemaForOpenAI, null, 2);
     const systemPrompt = loadPrompt('quest-outline-system-openai.txt', {
          numLocations, positivity, 
          groundingInReality: false, // "Ground in Reality" is disabled for community tier
-         languageCode, languageName, languageList, schema: "{}"
+         languageCode, languageName, languageList, schema: schemaString
     });
 
     const response = await openai.chat.completions.create({
@@ -252,11 +395,13 @@ async function handleGenerateScenarios(openai: OpenAI, payload: any, action: str
         locationDescription: location.description.en,
         resourceNames,
         numScenarios: isDynamic ? 1 : numScenarios,
-        languageCode, languageName, languageList, schema: "{}"
+        languageCode, languageName, languageList,
     };
     
-    const promptFile = 'pregenerated-scenarios-fictional-openai.txt';
-    const systemPrompt = loadPrompt(promptFile, replacements);
+    const promptFileKey = isDynamic ? 'dynamic-scenario-fictional-openai.txt' : 'pregenerated-scenarios-fictional-openai.txt';
+    const schema = isDynamic ? scenarioSchema : scenarioArraySchemaForOpenAI;
+    const schemaString = JSON.stringify(schema, null, 2);
+    const systemPrompt = loadPrompt(promptFileKey, { ...replacements, schema: schemaString });
 
     const response = await openai.chat.completions.create({
       model: COMMUNITY_MODEL,
