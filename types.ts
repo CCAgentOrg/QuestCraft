@@ -177,3 +177,24 @@ export interface ChatMessage {
     content: string;
     updatedQuestJson?: QuestConfig;
 }
+
+// Web search related types
+export enum SearchEngine {
+    EXA = 'exa',
+    BRAVE = 'brave',
+    DUCKDUCKGO = 'duckduckgo'
+}
+
+export interface SearchConfig {
+    engine: SearchEngine;
+    maxResults?: number;
+    freshness?: 'day' | 'week' | 'month' | 'any';
+}
+
+export interface SearchResult {
+    title: string;
+    url: string;
+    snippet: string;
+    publishedDate?: string;
+    source: string;
+}

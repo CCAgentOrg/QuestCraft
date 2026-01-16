@@ -26,6 +26,9 @@ export const statsService = {
             totalOutputTokens: 0,
             totalCost: 0,
             timePlayedInSeconds: 0,
+            webSearchRequests: 0,
+            webSearchResults: 0,
+            webSearchFailures: 0,
         };
         try {
             const statsJson = localStorage.getItem(STATS_STORAGE_KEY);
@@ -71,6 +74,32 @@ export const statsService = {
         return totalTokens >= limit;
     },
 
+    // Track web search usage
+    trackWebSearch: (resultsCount: number, failed: boolean): void => {
+        try {
+            const stats = statsService.getStats();
+            stats.webSearchRequests = (stats.webSearchRequests || 0) + 1;
+            if (failed) {
+                stats.webSearchFailures = (stats.webSearchFailures || 0) + 1;
+            } else {
+                stats.webSearchResults = (stats.webSearchResults || 0) + resultsCount;
+            }
+            
+            dispatchUpdateEvent();
+        } catch (e) {
+            console.error("Failed to update web search stats", e);
+        }
+    },
+
+    getWebSearchStats: (): { requests: number; results: number; failures: number } => {
+        const stats = statsService.getStats();
+        return {
+            requests: stats.webSearchRequests || 0,
+            results: stats.webSearchResults || 0,
+            failures: stats.webSearchFailures || 0
+        };
+    },
+
     getTokenUsage: (): { used: number; limit: number } => {
         const stats = statsService.getStats();
         const used = (stats.totalInputTokens || 0) + (stats.totalOutputTokens || 0);
@@ -84,6 +113,9 @@ export const statsService = {
                 totalOutputTokens: 0,
                 totalCost: 0,
                 timePlayedInSeconds: 0,
+                webSearchRequests: 0,
+                webSearchResults: 0,
+                webSearchFailures: 0,
             };
             localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(defaultStats));
             dispatchUpdateEvent();
