@@ -1,31 +1,27 @@
 {
   "name": "questcraft",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "AI-powered educational board game engine. Play pre-made quests or create your own.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:prompts": "node services/promptTester.js",
-    "test:prompts:all": "npm run test:prompts && npm run test:prompts:all"
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "@google/genai": "^1.13.0",
     "showdown": "2.1.0",
-    "vite": "^7.1.2",
-    "@vitejs/plugin-react": "^5.0.0",
-    "vite-plugin-static-copy": "^3.1.1",
-    "path": "^0.12.7",
-    "fs": "^0.0.1-security",
-    "ai": "^5.0.15",
     "openai": "^5.12.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
     "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "vite": "^7.1.2",
+    "@vitejs/plugin-react": "^5.0.0",
+    "vite-plugin-static-copy": "^3.1.1"
   }
 }
