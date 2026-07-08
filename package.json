@@ -8,7 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:prompts": "node services/promptTester.js",
+    "test:prompts:all": "npm run test:prompts && npm run test:prompts:all"
   },
   "dependencies": {
     "react": "^19.1.1",

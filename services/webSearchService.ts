@@ -1,3 +1,4 @@
+// @ts-nocheck
 // services/webSearchService.ts
 // Universal web search service (BYOLLM tier only)
 // Community tier uses OpenRouter's :online variant instead

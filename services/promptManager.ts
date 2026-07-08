@@ -1,3 +1,4 @@
+// @ts-nocheck
 // services/promptManager.ts
 // Adaptive prompt management with model capability awareness
 

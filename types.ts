@@ -1,4 +1,3 @@
-
 export enum BoardLocationType {
     START = "START",
     PROPERTY = "PROPERTY",
@@ -135,6 +134,9 @@ export interface AppStats {
     totalOutputTokens: number;
     totalCost: number;
     timePlayedInSeconds: number;
+    webSearchRequests?: number;
+    webSearchResults?: number;
+    webSearchFailures?: number;
 }
 
 export type AiProviderId = 'gemini' | 'openai' | 'openrouter' | 'groq' | 'together' | 'custom' | 'community';

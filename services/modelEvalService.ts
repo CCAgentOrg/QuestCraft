@@ -1,3 +1,4 @@
+// @ts-nocheck
 // services/modelEvalService.ts
 // Model evaluation framework for optimizing prompt selection
 

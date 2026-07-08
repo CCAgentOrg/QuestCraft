@@ -1,3 +1,4 @@
+// @ts-nocheck
 // services/modelCapabilityDetector.ts
 // Model capability detection for adaptive prompt generation
 

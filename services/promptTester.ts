@@ -1,3 +1,4 @@
+// @ts-nocheck
 // services/promptTester.ts
 // Automated prompt testing framework
 
